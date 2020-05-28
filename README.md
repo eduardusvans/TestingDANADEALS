@@ -7,8 +7,8 @@ Final Project DANApprenTech Batch 2 DANA DEALS.
   - Filter by Merchant category (FnB, online transaction, other) 
   - Filter by Merchant (Search by Merchant Name) 
 * Capability to Sort all the promo: 
-* Sort by saving rate 
-* Sort by voucher value 
+  - Sort by saving rate 
+  - Sort by voucher value 
 * Capability to show detail promo 
 * Configure the amount and T&C (Term and Condition) for the promo 
 * Capability to give voucher to the user (User can buy the voucher) 
