@@ -22,7 +22,6 @@ Final Project DANApprenTech Batch 2 DANA DEALS.
 ### Requirements
 * Intellij IDEA
 * Java
-Library for dependencies on build.gradle:
 * Selenium 3.141.59
 * Cucumber 5.6.0
 * JUnit 4.12
