@@ -177,5 +177,5 @@ Feature: Login
   Scenario: Login with old password
     Given User is on DANA Deals Login page
     When User input "83196747870" on phone number input field on login page
-    And User input "P@sswordku2" on password input field on login page
+    And User input "P@sswordku1" on password input field on login page
     Then User is on Home page
