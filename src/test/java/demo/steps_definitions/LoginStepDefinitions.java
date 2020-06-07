@@ -10,15 +10,15 @@ public class LoginStepDefinitions {
     public void userIsOnDANADealsLoginPage() {
     }
 
-    @When("User input {string} on email input field on login page")
-    public void userInputOnEmailInputFieldOnLoginPage(String arg0) {
+    @When("User input {string} on phone number input field on login page")
+    public void userInputOnPhoneNumberInputFieldOnLoginPage(String arg0) {
     }
 
     @And("User input {string} on password input field on login page")
     public void userInputOnPasswordInputFieldOnLoginPage(String arg0) {
     }
 
-    @Then("User is on main page")
-    public void userIsOnMainPage() {
+    @Then("User is on Home page")
+    public void userIsOnHomePage() {
     }
 }
