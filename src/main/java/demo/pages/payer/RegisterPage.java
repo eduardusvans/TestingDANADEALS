@@ -1,4 +1,4 @@
-package demo.pages;
+package demo.pages.payer;
 
 import demo.driver.AndroidDriverInstance;
 import io.appium.java_client.android.AndroidElement;
