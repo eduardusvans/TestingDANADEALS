@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
+import static demo.locators.LoginPageLocator.*;
 
 public class LoginPage {
     public boolean isOnPage() {

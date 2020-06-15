@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
+import static demo.locators.payer.RegisterPageLocator.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
