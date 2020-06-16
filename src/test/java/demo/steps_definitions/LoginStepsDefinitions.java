@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStepDefinitions {
+public class LoginStepsDefinitions {
     @Given("User is on DANA Deals Login page")
     public void userIsOnDANADealsLoginPage() {
     }
