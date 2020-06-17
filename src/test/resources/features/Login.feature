@@ -2,11 +2,21 @@
 Feature: Login
 
   @HappyFlow
+  @Payer
   Scenario: Login with registered account
     Given User is on DANA Deals Login page
     When User input "phoneNumber" on phone number input field on login page
     And User input "password" on password input field on login page
+    And User click Login button
     Then User is on Home page
+
+  @Admin
+  Scenario: Login with registered admin account
+    Given User is on DANA Deals Login page
+    When User input "phoneNumber" on phone number input field on login page
+    And User input "password" on password input field on login page
+    And User click Login button
+    Then User is on Home Admin page
 
   @BadFlow
   @1
@@ -14,6 +24,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber      | password   |
@@ -25,6 +36,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber      | password    |
@@ -37,6 +49,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber      | password    |
@@ -49,6 +62,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -61,6 +75,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -73,6 +88,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -86,6 +102,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -99,6 +116,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -111,6 +129,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -123,6 +142,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber | password    |
@@ -135,6 +155,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber     | password    |
@@ -147,6 +168,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber     | password    |
@@ -159,6 +181,7 @@ Feature: Login
     Given User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
       | phoneNumber          | password    |
@@ -167,15 +190,78 @@ Feature: Login
       | 896596651401         |             |
 
   @14
-  Scenario: Login with new password
+  Scenario Outline: Login with phone number start with 84
     Given User is on DANA Deals Login page
-    When User input "83196747870" on phone number input field on login page
-    And User input "P@sswordku2" on password input field on login page
+    When User input "<phoneNumber>" on phone number input field on login page
+    And User input "<password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
+    Examples:
+      | phoneNumber          | password    |
+      | 84196747871          | P@sswordku1 |
+      | 84196747871          | Passwordku1 |
+      | 84196747871          |             |
 
   @15
-  Scenario: Login with old password
+  Scenario: Check element of Login Page
     Given User is on DANA Deals Login page
-    When User input "83196747870" on phone number input field on login page
-    And User input "P@sswordku1" on password input field on login page
+    Then User see DANA DEALS textview
+    Then User see not register yet? textview
+    Then User see phone number input textfield
+    Then User see password input textfield
+    Then User see forgot password link
+    Then User see register here link
+    Then User see Login button
+
+  @16
+  Scenario: Check clickable link Forgot Password?
+    Given User is on DANA Deals Login page
+    When User click Forgot Password link
+    Then User is on Forgot Password Page
+
+  @17
+  Scenario: Check clickable link Register Here
+    Given User is on DANA Deals Login page
+    When User click Register Here link
+    Then User is on Register Page
+
+  @18
+  Scenario: Check warning text when user input invalid format phone number
+    Given User is on DANA Deals Login page
+    When User input "phonenumber" on phone number input field on login page
+    When User input "password" on password input field on login page
+    When User click Login button
+    Then User see warning text invalid format phone number
+
+  @19
+  Scenario: Check pop up notification when user succesfully logged in
+    Given User is on DANA Deals Login page
+    When User input "phoneNumber" on phone number input field on login page
+    And User input "password" on password input field on login page
+    And User click Login button
     Then User is on Home page
+    Then User see pop up notification user successfully logged in
+
+  @20
+  Scenario: Check pop up notification when user input invalid phone number
+    Given User is on DANA Deals Login page
+    When User input "phonenumber" on phone number input field on login page
+    When User input "password" on password input field on login page
+    When User click Login button
+    Then User see pop up notification invalid phone number
+
+  @21
+   Scenario: Check pop up notification when user input invalid password
+     Given User is on DANA Deals Login page
+     When User input "phonenumber" on phone number input field on login page
+     When User input "password" on password input field on login page
+     When User click Login button
+     Then User see pop up notification invalid password
+
+   @22
+   Scenario: Check pop up notification of connection problem
+     Given User is on DANA Deals Login page
+     When User input "phonenumber" on phone number input field on login page
+     When User input "password" on password input field on login page
+     When User click Login button
+     Then User see pop up of connection problem notification
