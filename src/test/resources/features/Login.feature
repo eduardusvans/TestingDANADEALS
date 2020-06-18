@@ -18,6 +18,7 @@ Feature: Login
     And User input "password" on password input field on login page
     And User click Login button
     Then User is on Home Admin page
+    Then User see pop up notification
 
   @BadFlow
   @1
