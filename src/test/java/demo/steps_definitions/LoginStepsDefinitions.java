@@ -71,20 +71,11 @@ public class LoginStepsDefinitions {
     @Then("User is on Register Page")
     public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
 
-    @Then("User see warning text invalid format phone number")
-    public  void userSeeWarningTextInvalidFormatPhoneNumber() { Assert.assertTrue(loginPage.seeWarningTextPhoneNumber()); }
 
-    @Then("User see pop up notification user successfully logged in")
-    public void userSeePopUpNotificationUserSuccessfullyLoggedIn() {  Assert.assertTrue( loginPage.seeSuccessPopUpNotif()); }
+    @Then("User see warning text")
+    public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }
 
-    @Then("User see pop up notification invalid phone number")
-    public  void userSeePopUpNotifInvalidPhoneNumber() { Assert.assertTrue(loginPage.seePopUpNotifInvalidPhoneNumber()); }
-
-    @Then("User see pop up notification invalid password")
-    public void userSeePopUpNotifInvalidPassword() { Assert.assertTrue( loginPage.seePopUpNotifInvalidPassword());}
-
-    @Then("User see pop up of connection problem notification")
-    public void userSeePopUpOfConnectionProblemNotification() { Assert.assertTrue( loginPage.seePopUpNotifConnectionProblem()); }
-
+    @Then("User see pop up notification")
+    public void userSeePopUpNotification() { Assert.assertTrue( loginPage.seePopUpNotification()); }
 
 }

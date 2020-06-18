@@ -9,6 +9,7 @@ Feature: Login
     And User input "password" on password input field on login page
     And User click Login button
     Then User is on Home page
+    Then User see pop up notification
 
   @Admin
   Scenario: Login with registered admin account
@@ -25,7 +26,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber      | password   |
       | 83196747870      | Passwordku1 |
@@ -37,7 +38,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber      | password    |
       |                  | P@sswordku1 |
@@ -50,7 +51,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see pop up notification
     Examples:
       | phoneNumber      | password    |
       | 83196747871      | P@sswordku1 |
@@ -63,7 +64,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | abcdef      | P@sswordku1 |
@@ -76,7 +77,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | @@          | P@sswordku1 |
@@ -89,7 +90,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | 😎          | P@sswordku1 |
@@ -103,7 +104,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | a@😎          | P@sswordku1 |
@@ -117,7 +118,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | a@          | P@sswordku1 |
@@ -130,7 +131,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | a😎          | P@sswordku1 |
@@ -143,7 +144,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber | password    |
       | @😎          | P@sswordku1 |
@@ -156,7 +157,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber     | password    |
       | 6283196747870   | P@sswordku1 |
@@ -169,7 +170,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber     | password    |
       | 8965966         | P@sswordku1 |
@@ -182,7 +183,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber          | password    |
       | 896596651401         | P@sswordku1 |
@@ -195,7 +196,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User is on Home page
+    Then User see warning text
     Examples:
       | phoneNumber          | password    |
       | 84196747871          | P@sswordku1 |
@@ -226,42 +227,9 @@ Feature: Login
     Then User is on Register Page
 
   @18
-  Scenario: Check warning text when user input invalid format phone number
+  Scenario: Check pop up notification of connection problem
     Given User is on DANA Deals Login page
     When User input "phonenumber" on phone number input field on login page
     When User input "password" on password input field on login page
     When User click Login button
-    Then User see warning text invalid format phone number
-
-  @19
-  Scenario: Check pop up notification when user succesfully logged in
-    Given User is on DANA Deals Login page
-    When User input "phoneNumber" on phone number input field on login page
-    And User input "password" on password input field on login page
-    And User click Login button
-    Then User is on Home page
-    Then User see pop up notification user successfully logged in
-
-  @20
-  Scenario: Check pop up notification when user input invalid phone number
-    Given User is on DANA Deals Login page
-    When User input "phonenumber" on phone number input field on login page
-    When User input "password" on password input field on login page
-    When User click Login button
-    Then User see pop up notification invalid phone number
-
-  @21
-   Scenario: Check pop up notification when user input invalid password
-     Given User is on DANA Deals Login page
-     When User input "phonenumber" on phone number input field on login page
-     When User input "password" on password input field on login page
-     When User click Login button
-     Then User see pop up notification invalid password
-
-   @22
-   Scenario: Check pop up notification of connection problem
-     Given User is on DANA Deals Login page
-     When User input "phonenumber" on phone number input field on login page
-     When User input "password" on password input field on login page
-     When User click Login button
-     Then User see pop up of connection problem notification
+    Then User see pop up notification
