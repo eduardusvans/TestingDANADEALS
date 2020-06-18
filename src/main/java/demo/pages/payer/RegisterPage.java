@@ -16,10 +16,11 @@ import static demo.locators.payer.RegisterPageLocator.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement phoneNumberInput = wait
-                .until(ExpectedConditions.presenceOfElementLocated(INPUT_PHONE_NUMBER));
-        return phoneNumberInput.isDisplayed();
+        try {
+            return waitElement(INPUT_PHONE_NUMBER).isDisplayed();
+        } catch (Exception e) {
+            return waitElement(INPUT_CONFIRM_PASSWORD).isDisplayed();
+        }
     }
 
     public void inputPhoneNumber(String phoneNumber) {
@@ -59,6 +60,20 @@ public class RegisterPage {
     public void tapCreateAccountButton() {
         // Tap element and scroll page
         tapAndScroll(BUTTON_CREATE_ACCOUNT);
+    }
+
+    public void waitABit(int millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static WebElement waitElement(By targetElement) {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(targetElement));
     }
 
     public static void scrollDown() {
