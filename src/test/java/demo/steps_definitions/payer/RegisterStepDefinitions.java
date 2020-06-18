@@ -57,10 +57,6 @@ public class RegisterStepDefinitions {
     public void userSeeTheSuccessMessageOnLoginPage() {
     }
 
-    @Then("User see the warning message on Login page")
-    public void userSeeTheWarningMessageOnLoginPage() {
-    }
-
     @Then("User is still on Register page")
     public void userIsStillOnRegisterPage() {
         registerPage.waitABit(3000);

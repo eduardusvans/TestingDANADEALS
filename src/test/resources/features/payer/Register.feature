@@ -49,7 +49,6 @@ Feature: Register
     When User input "<password>" on Password input text field on Register page
     When User input "<confirmPassword>" on Confirm Password input text field on Register page
     When User tap the Create Account button on Register page
-    Then User see the warning message on Login page
     Then User is still on Register page
     Examples:
       | phoneNumber | firstName   | lastName | email                        | password         | confirmPassword  |
