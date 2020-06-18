@@ -11,7 +11,7 @@ public interface VoucherDetailAdminPageLocator {
     By TXT_MAX_DISCOUNT     = By.id("tv_max_discount_admin");
     By TXT_VOUCHER_PRICE    = By.id("tv_voucher_price_admin");
     By TXT_EXPIRED          = By.id("tv_expired_admin");
-    By EDIT_TEXT_QUOTA      = By.id("quota_number");
+    By INPUT_QUOTA          = By.id("quota_number");
 
     By BUTTON_INCREASE = By.id("increase");
     By BUTTON_DECREASE = By.id("decrease");
