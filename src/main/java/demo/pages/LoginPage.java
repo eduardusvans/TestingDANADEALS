@@ -1,7 +1,5 @@
 package demo.pages;
 
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,14 +12,14 @@ public class LoginPage {
     public boolean isOnPage() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement AppNameLabel = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("")));
+                .until(ExpectedConditions.presenceOfElementLocated(BUTTON_LOGIN));
         return AppNameLabel.isDisplayed();
     }
 
-    public void inputPhoneNumber(String phoneNumber){ androidDriver.findElement(EDIT_TEXT_PHONE).sendKeys(phoneNumber); }
+    public void inputPhoneNumber(String phoneNumber){ androidDriver.findElement(INPUT_PHONE).sendKeys(phoneNumber); }
 
     public void inputPassword(String password){
-        androidDriver.findElement(EDIT_TEXT_PASSWORD).sendKeys(password);
+        androidDriver.findElement(INPUT_PASSWORD).sendKeys(password);
     }
 
     public void clickLogin(){ androidDriver.findElement(BUTTON_LOGIN).click(); }
@@ -30,77 +28,60 @@ public class LoginPage {
     public boolean seeNotRegister() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement notRegisterLabel = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("tv_not_yet_registered")));
+                .until(ExpectedConditions.presenceOfElementLocated(TXT_NOT_REGISTER));
         return notRegisterLabel.isDisplayed();
     }
 
     public boolean seePhoneNumberET() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement phoneET = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("et_phone")));
+                .until(ExpectedConditions.presenceOfElementLocated(INPUT_PHONE));
         return phoneET.isDisplayed();
     }
 
     public boolean seePasswordET() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement passET = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("et_password")));
+                .until(ExpectedConditions.presenceOfElementLocated(INPUT_PASSWORD));
         return passET.isDisplayed();
     }
 
     public boolean seeForgotLink() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement forgotLink = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("tv_forgot")));
+                .until(ExpectedConditions.presenceOfElementLocated(LINK_FORGOT));
         return forgotLink.isDisplayed();
     }
 
     public boolean seeRegisterLink() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement notRegisterLink = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("tv_register_here")));
+                .until(ExpectedConditions.presenceOfElementLocated(LINK_REGISTER_HERE));
         return notRegisterLink.isDisplayed();
     }
 
     public boolean seeLoginButton() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement logButton = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btn_login")));
+                .until(ExpectedConditions.presenceOfElementLocated(BUTTON_LOGIN));
         return logButton.isDisplayed();
     }
 
     public void clickForgot(){ androidDriver.findElement(LINK_FORGOT).click(); }
-    public void clickRegister(){ androidDriver.findElement(LINK_REGISTER).click(); }
+    public void clickRegister(){ androidDriver.findElement(LINK_REGISTER_HERE).click(); }
 
-    public boolean seeWarningTextPhoneNumber(){
+
+    public boolean seeWarningText(){
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement warningPhoneNumber = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("")));
-        return warningPhoneNumber.isDisplayed(); }
+        WebElement warningText = wait
+                .until(ExpectedConditions.presenceOfElementLocated(WARNING_TEXT));
+        return warningText.isDisplayed(); }
 
-    public boolean seeSuccessPopUpNotif(){
+    public boolean seePopUpNotification(){
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement successPopUp = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("")));
-        return successPopUp.isDisplayed(); }
+        WebElement popUp = wait
+                .until(ExpectedConditions.presenceOfElementLocated(POP_UP_NOTIFICATION));
+        return popUp.isDisplayed(); }
 
-
-    public boolean seePopUpNotifInvalidPhoneNumber(){
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement popUpInvalidPhoneNumber = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("")));
-        return popUpInvalidPhoneNumber.isDisplayed(); }
-
-    public boolean seePopUpNotifInvalidPassword(){
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement popUpInvalidPassword = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("")));
-        return popUpInvalidPassword.isDisplayed(); }
-
-    public boolean seePopUpNotifConnectionProblem(){
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement popUpConnectionProb = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("")));
-        return popUpConnectionProb.isDisplayed(); }
 
 }
