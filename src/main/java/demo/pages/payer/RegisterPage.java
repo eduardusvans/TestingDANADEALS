@@ -7,19 +7,17 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
+import static demo.utils.ActionUtils.waitElement;
 
 public class RegisterPage {
     public boolean isOnPage() {
         try {
-            return waitElement(INPUT_PHONE_NUMBER).isDisplayed();
+            return waitElement(INPUT_PHONE_NUMBER, 15).isDisplayed();
         } catch (Exception e) {
-            return waitElement(INPUT_CONFIRM_PASSWORD).isDisplayed();
+            return waitElement(INPUT_CONFIRM_PASSWORD, 15).isDisplayed();
         }
     }
 
@@ -60,20 +58,6 @@ public class RegisterPage {
     public void tapCreateAccountButton() {
         // Tap element and scroll page
         tapAndScroll(BUTTON_CREATE_ACCOUNT);
-    }
-
-    public void waitABit(int millis){
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public static WebElement waitElement(By targetElement) {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        return wait.until(ExpectedConditions.presenceOfElementLocated(targetElement));
     }
 
     public static void scrollDown() {

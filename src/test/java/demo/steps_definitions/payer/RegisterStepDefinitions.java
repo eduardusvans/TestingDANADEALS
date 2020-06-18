@@ -2,6 +2,7 @@ package demo.steps_definitions.payer;
 
 import demo.pages.LoginPage;
 import demo.pages.payer.RegisterPage;
+import demo.utils.ActionUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -59,7 +60,7 @@ public class RegisterStepDefinitions {
 
     @Then("User is still on Register page")
     public void userIsStillOnRegisterPage() {
-        registerPage.waitABit(3000);
+        ActionUtils.waitABit(3000);
         boolean status = registerPage.isOnPage();
         Assert.assertTrue(status);
     }
