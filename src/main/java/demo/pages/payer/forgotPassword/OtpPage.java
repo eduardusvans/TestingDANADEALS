@@ -1,7 +1,6 @@
 package demo.pages.payer.forgotPassword;
 import static demo.locators.payer.forgotPassword.OtpPageLocator.*;
-import static demo.utils.ActionUtils.inputElement;
-import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class OtpPage {
     public boolean isOnPage() {
@@ -9,6 +8,9 @@ public class OtpPage {
     }
 
     public void inputOtp(String otp) {
+        // Null changer
+        otp = nullChanger(otp);
+
         inputElement(INPUT_OTP, otp);
     }
 }

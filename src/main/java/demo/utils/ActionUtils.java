@@ -25,6 +25,14 @@ public class ActionUtils {
         element.sendKeys(input);
     }
 
+    public static String nullChanger(String input) {
+        if (input == null) {
+            return "";
+        } else {
+            return input;
+        }
+    }
+
     public static void waitABit(int millis){
         try {
             Thread.sleep(millis);

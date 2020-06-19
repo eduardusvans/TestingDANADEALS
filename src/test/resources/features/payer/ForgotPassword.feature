@@ -39,10 +39,12 @@ Feature: Forgot Password
     Examples:
       | phoneNumber |
       # FGP005
+      |             |
+      # FGP006
       | 87722074    |
-      # FGP007
-      | 89695966514 |
       # FGP008
+      | 89695966514 |
+      # FGP009
       | 6885559737  |
 
   @Negative @2
@@ -56,11 +58,15 @@ Feature: Forgot Password
     Then User is still on OTP page
     Examples:
       | phoneNumber | otp  |
+      # FGP012
+      | 87722074250 |      |
+      # FGP013
       | 87722074250 | 1111 |
+      # FGP014
       | 87722074250 | 000  |
 
   @Negative @3
-  Scenario Outline: Reset password with valid input
+  Scenario Outline: Reset password with invalid New Password or Confirm New Password input
     Given User is on Forgot Password page
     When User input "<phoneNumber>" on Phone Number input text field on Forgot Password page
     When User tap the Send OTP button on Forgot Password page
@@ -73,11 +79,23 @@ Feature: Forgot Password
     Then User is still on Reset Password page
     Examples:
       | phoneNumber | otp  | newPassword      | confirmNewPassword |
+      # FGP019
+      | 87722074250 | 0000 |                  | TestingFGP3!       |
+      # FGP020
       | 87722074250 | 0000 | Abcdef3!😎       | Abcdef3!😎         |
+      # FGP021
       | 87722074250 | 0000 | abcde3!          | abcde3!            |
+      # FGP023
       | 87722074250 | 0000 | abcdefghijklmn3! | abcdefghijklmn3!   |
+      # FGP024
       | 87722074250 | 0000 | ABCDEFGHIJKLMN3! | ABCDEFGHIJKLMN3!   |
+      # FGP025
       | 87722074250 | 0000 | 1234567!         | 1234567!           |
+      # FGP026
       | 87722074250 | 0000 | Abcdefghijklmn!  | Abcdefghijklmn!    |
+      # FGP027
       | 87722074250 | 0000 | Abcdefghijklmn3  | Abcdefghijklmn3    |
+      # FGP028
+      | 87722074250 | 0000 | Abcdef3!         |                    |
+      # FGP029
       | 87722074250 | 0000 | Abcdef3!         | Abcdefghijklmn3!   |

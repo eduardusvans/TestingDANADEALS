@@ -8,6 +8,9 @@ public class ForgotPasswordPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
+        // Null changer
+        phoneNumber = nullChanger(phoneNumber);
+
         inputElement(INPUT_PHONE_NUMBER, phoneNumber);
     }
 
