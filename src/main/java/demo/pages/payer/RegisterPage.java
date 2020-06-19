@@ -1,6 +1,5 @@
 package demo.pages.payer;
 
-import demo.driver.AndroidDriverInstance;
 import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
@@ -10,6 +9,7 @@ import org.openqa.selenium.Point;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
+import static demo.utils.ActionUtils.nullChanger;
 import static demo.utils.ActionUtils.waitElement;
 
 public class RegisterPage {
@@ -22,35 +22,51 @@ public class RegisterPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
-        // Optional random generator
-        phoneNumber = phoneNumberChecker(phoneNumber);
+        // Null changer
+        phoneNumber = nullChanger(phoneNumber);
+
+        // Optional random phone number
+        phoneNumber = phoneNumberSetter(phoneNumber);
 
         // Input text into element and scroll page
         inputAndScroll(INPUT_PHONE_NUMBER, phoneNumber);
     }
 
     public void inputFullName(String firstName, String lastName) {
-        // Full Name null checker
-        String fullName = fullNameNullChecker(firstName, lastName);
+        // Null changer
+        firstName = nullChanger(firstName);
+        lastName = nullChanger(lastName);
+
+        // Set the full name
+        String fullName = fullNameSetter(firstName, lastName);
 
         // Input text into element and scroll page
         inputAndScroll(INPUT_FULL_NAME, fullName);
     }
 
     public void inputEmail(String email) {
-        // Optional random generator
-        email = emailChecker(email);
+        // Null changer
+        email = nullChanger(email);
+
+        // Optional random email
+        email = emailSetter(email);
 
         // Input text into element and scroll page
         inputAndScroll(INPUT_EMAIL, email);
     }
 
     public void inputPassword(String password) {
+        // Null changer
+        password = nullChanger(password);
+
         // Input text into element and scroll page
         inputAndScroll(INPUT_PASSWORD, password);
     }
 
     public void inputConfirmPassword(String confirmPassword) {
+        // Null changer
+        confirmPassword = nullChanger(confirmPassword);
+
         // Input text into element and scroll page
         inputAndScroll(INPUT_CONFIRM_PASSWORD, confirmPassword);
     }
@@ -61,8 +77,7 @@ public class RegisterPage {
     }
 
     public static void scrollDown() {
-        AndroidElement screen = AndroidDriverInstance
-                .androidDriver
+        AndroidElement screen = androidDriver
                 .findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup"));
         Point center =  screen.getCenter();
         int startX = 20;
@@ -109,7 +124,7 @@ public class RegisterPage {
         } while (!isFound && counter < 5);
     }
 
-    public static String phoneNumberChecker(String phoneNumber) {
+    public static String phoneNumberSetter(String phoneNumber) {
         if (phoneNumber.toLowerCase().contains("random")) {
             if (phoneNumber.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomPhoneNumber(9);
@@ -123,7 +138,7 @@ public class RegisterPage {
         }
     }
 
-    public static String emailChecker(String email) {
+    public static String emailSetter(String email) {
         if (email.toLowerCase().contains("random")) {
             if (email.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomEmail(6);
@@ -137,9 +152,9 @@ public class RegisterPage {
         }
     }
 
-    public static String fullNameNullChecker(String firstName, String lastName) {
-        if (firstName == null) {
-            if (lastName == null) {
+    public static String fullNameSetter(String firstName, String lastName) {
+        if (firstName.equals("")) {
+            if (lastName.equals("")) {
                 return "";
             } else {
                 return lastName;

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.LoginPageLocator.*;
+import static demo.utils.ActionUtils.tapElement;
 
 public class LoginPage {
     public boolean isOnPage() {
@@ -19,8 +20,7 @@ public class LoginPage {
     }
 
     public void tapRegisterHereLink() {
-        AndroidElement link = androidDriver.findElement(LINK_REGISTER_HERE);
-        link.click();
+        tapElement(LINK_REGISTER_HERE);
     }
 
 }

@@ -53,41 +53,53 @@ Feature: Register
     Examples:
       | phoneNumber | firstName   | lastName | email                        | password         | confirmPassword  |
       # REG011
-      | Random      | ab          | c        | Random                       | TestingREG1!     | TestingREG1!     |
+      | Random      |             |          | Random                       | TestingREG1!     | TestingREG1!     |
       # REG012
-      | Random      | abcdefghijk |          | Random                       | TestingREG1!     | TestingREG1!     |
+      | Random      | ab          | c        | Random                       | TestingREG1!     | TestingREG1!     |
       # REG013
-      | Random      | ab@         |          | Random                       | TestingREG1!     | TestingREG1!     |
+      | Random      | abcdefghijk |          | Random                       | TestingREG1!     | TestingREG1!     |
       # REG014
+      | Random      | ab@         |          | Random                       | TestingREG1!     | TestingREG1!     |
+      # REG015
       | Random      | ab😎        |          | Random                       | TestingREG1!     | TestingREG1!     |
-      # REG016
-      | Random      | abc         |          | testinglogin3@gmail.com      | TestingREG1!     | TestingREG1!     |
       # REG017
-      | Random      | abc         |          | testingregister3             | TestingREG1!     | TestingREG1!     |
+      | Random      | abc         |          |                              | TestingREG1!     | TestingREG1!     |
       # REG018
-      | Random Min  | abc         |          | testingregister3!@gmail.com  | TestingREG1!     | TestingREG1!     |
+      | Random      | abc         |          | testinglogin3@gmail.com      | TestingREG1!     | TestingREG1!     |
       # REG019
-      | Random Max  | abc         |          | testingregister3😎@gmail.com | TestingREG1!     | TestingREG1!     |
+      | Random      | abc         |          | testingregister3             | TestingREG1!     | TestingREG1!     |
       # REG020
-      | Random      | abc         |          | a@g.c                        | TestingREG1!     | TestingREG1!     |
+      | Random Min  | abc         |          | testingregister3!@gmail.com  | TestingREG1!     | TestingREG1!     |
+      # REG021
+      | Random Max  | abc         |          | testingregister3😎@gmail.com | TestingREG1!     | TestingREG1!     |
       # REG022
-      | 87722074250 | abc         |          | Random                       | TestingREG1!     | TestingREG1!     |
-      # REG023
-      | 6885559737  | abc         |          | Random                       | TestingREG1!     | TestingREG1!     |
+      | Random      | abc         |          | a@g.c                        | TestingREG1!     | TestingREG1!     |
       # REG024
+      |             | abc         |          | Random                       | TestingREG1!     | TestingREG1!     |
+      # REG025
+      | 87722074250 | abc         |          | Random                       | TestingREG1!     | TestingREG1!     |
+      # REG026
+      | 6885559737  | abc         |          | Random                       | TestingREG1!     | TestingREG1!     |
+      # REG027
       | 89695966    | abc         |          | Random                       | TestingREG1!     | TestingREG1!     |
-      # REG029
-      | Random      | abc         |          | Random                       | Abcde1!          | Abcde1!          |
       # REG031
-      | Random      | abc         |          | Random                       | abcdefghijklmn1! | abcdefghijklmn1! |
+      | Random      | abc         |          | Random                       |                  | TestingREG1!     |
       # REG032
-      | Random      | abc         |          | Random                       | ABCDEFGHIJKLMN1! | ABCDEFGHIJKLMN1! |
+      | Random      | abc         |          | Random                       | Abcdef1!😎       | Abcdef1!😎       |
       # REG033
-      | Random      | abc         |          | Random                       | 1234567!         | 1234567!         |
-      # REG034
-      | Random      | abc         |          | Random                       | Abcdefghijklmn!  | Abcdefghijklmn!  |
+      | Random      | abc         |          | Random                       | Abcde1!          | Abcde1!          |
       # REG035
-      | Random      | abc         |          | Random                       | Abcdefghijklmn1  | Abcdefghijklmn1  |
+      | Random      | abc         |          | Random                       | abcdefghijklmn1! | abcdefghijklmn1! |
       # REG036
+      | Random      | abc         |          | Random                       | ABCDEFGHIJKLMN1! | ABCDEFGHIJKLMN1! |
+      # REG037
+      | Random      | abc         |          | Random                       | 1234567!         | 1234567!         |
+      # REG038
+      | Random      | abc         |          | Random                       | Abcdefghijklmn!  | Abcdefghijklmn!  |
+      # REG039
+      | Random      | abc         |          | Random                       | Abcdefghijklmn1  | Abcdefghijklmn1  |
+      # REG040
+      | Random      | abc         |          | Random                       | Abcdef1!         |                  |
+      # REG041
       | Random      | abc         |          | Random                       | Abcdef1!         | Abcdefghijklmn1! |
 
