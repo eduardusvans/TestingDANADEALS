@@ -51,6 +51,23 @@ public class VoucherDetailAdminPage {
         return wait.until(ExpectedConditions.presenceOfElementLocated(TXT_EXPIRED)).isDisplayed();
     }
 
+    public boolean seeQuota() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(INPUT_QUOTA)).isDisplayed();
+    }
+    public boolean seeIncrease() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(BUTTON_INCREASE)).isDisplayed();
+    }
+    public boolean seeDecrease() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(BUTTON_DECREASE)).isDisplayed();
+    }
+    public boolean seeSave() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(BUTTON_SAVE)).isDisplayed();
+    }
+
     public static void selectStatus(String statusName) {
         androidDriver.findElement(TXT_STATUS).click();
 

@@ -52,4 +52,17 @@ Feature: VoucherDetail
 
 
 
-
+  @6
+  Scenario: Check element of Voucher Detail Page
+    Given User click Voucher "Active"
+    Then User see status textview
+    Then User see voucher name textview
+    Then User see merchant id textview
+    Then User see discount textview
+    Then User see max discount textview
+    Then User see voucher price textview
+    Then User see expired textview
+    Then User see quota input textfield
+    Then User see increase button
+    Then User see decrease button
+    Then User see save button
