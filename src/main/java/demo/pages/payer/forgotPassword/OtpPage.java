@@ -8,9 +8,6 @@ public class OtpPage {
     }
 
     public void inputOtp(String otp) {
-        // Null changer
-        otp = nullChanger(otp);
-
         inputElement(INPUT_OTP, otp);
     }
 }

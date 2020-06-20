@@ -8,16 +8,10 @@ public class ResetPasswordPage {
     }
 
     public void inputNewPassword(String newPassword) {
-        // Null changer
-        newPassword = nullChanger(newPassword);
-
         inputElement(INPUT_NEW_PASSWORD, newPassword);
     }
 
     public void inputConfirmNewPassword(String confirmNewPassword) {
-        // Null changer
-        confirmNewPassword = nullChanger(confirmNewPassword);
-
         inputElement(INPUT_CONFIRM_NEW_PASSWORD, confirmNewPassword);
     }
 
