@@ -22,9 +22,6 @@ public class RegisterPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
-        // Null changer
-        phoneNumber = nullChanger(phoneNumber);
-
         // Optional random phone number
         phoneNumber = phoneNumberSetter(phoneNumber);
 
@@ -33,10 +30,6 @@ public class RegisterPage {
     }
 
     public void inputFullName(String firstName, String lastName) {
-        // Null changer
-        firstName = nullChanger(firstName);
-        lastName = nullChanger(lastName);
-
         // Set the full name
         String fullName = fullNameSetter(firstName, lastName);
 
@@ -45,9 +38,6 @@ public class RegisterPage {
     }
 
     public void inputEmail(String email) {
-        // Null changer
-        email = nullChanger(email);
-
         // Optional random email
         email = emailSetter(email);
 
@@ -56,17 +46,11 @@ public class RegisterPage {
     }
 
     public void inputPassword(String password) {
-        // Null changer
-        password = nullChanger(password);
-
         // Input text into element and scroll page
         inputAndScroll(INPUT_PASSWORD, password);
     }
 
     public void inputConfirmPassword(String confirmPassword) {
-        // Null changer
-        confirmPassword = nullChanger(confirmPassword);
-
         // Input text into element and scroll page
         inputAndScroll(INPUT_CONFIRM_PASSWORD, confirmPassword);
     }
@@ -125,6 +109,10 @@ public class RegisterPage {
     }
 
     public static String phoneNumberSetter(String phoneNumber) {
+        // Null changer
+        phoneNumber = nullChanger(phoneNumber);
+
+        // Generate random phone number if needed
         if (phoneNumber.toLowerCase().contains("random")) {
             if (phoneNumber.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomPhoneNumber(9);
@@ -139,6 +127,10 @@ public class RegisterPage {
     }
 
     public static String emailSetter(String email) {
+        // Null changer
+        email = nullChanger(email);
+
+        // Generate random email if needed
         if (email.toLowerCase().contains("random")) {
             if (email.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomEmail(6);
@@ -153,6 +145,11 @@ public class RegisterPage {
     }
 
     public static String fullNameSetter(String firstName, String lastName) {
+        // Null changer
+        firstName = nullChanger(firstName);
+        lastName = nullChanger(lastName);
+
+        // Set full name
         if (firstName.equals("")) {
             if (lastName.equals("")) {
                 return "";
