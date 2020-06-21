@@ -13,7 +13,5 @@ public class LandingPage {
         tapElement(BUTTON_CREATE_ACCOUNT);
     }
 
-    public void tapLoginToAccountButton() {
-        tapElement(BUTTON_LOGIN_TO_ACCOUNT);
-    }
+    public void tapLoginToAccountButton() { tapElement(BUTTON_LOGIN_TO_ACCOUNT); }
 }
