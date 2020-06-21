@@ -1,13 +1,14 @@
 @Android @Login
 Feature: Login
 
-  @Func
+  @Functional
   @Positive
   @Payer
-    # LOG001
-    # LOGN010
+  # LOG001  LOGN010
   Scenario: Login with registered account
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "phoneNumber" on phone number input field on login page
     And User input "password" on password input field on login page
     And User click Login button
@@ -15,14 +16,15 @@ Feature: Login
     Then User see pop up notification
 
   @Admin
-    # ALOG001
+  # ALOG001     ALOGN001
   Scenario: Login with registered admin account
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "phoneNumber" on phone number input field on login page
     And User input "password" on password input field on login page
     And User click Login button
     Then User is on Home Admin page
-    # ALOGN001
     Then User see pop up notification
 
 
@@ -31,23 +33,24 @@ Feature: Login
     #weird
     # ALOG002
   Scenario: Login with unregistered admin account
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "phoneNumber" on phone number input field on login page
     And User input "password" on password input field on login page
     And User click Login button
-    #
     Then User see pop up notification
 
 
   @Payer
-  @1
+  @1     # LOGN009 LOGN012
   Scenario Outline: Login with registered phone number and unregistered password
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    # LOGN009
-    # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber      | password   |
@@ -56,16 +59,14 @@ Feature: Login
       # LOG003
       | 83196747870      |             |
 
-  @2
+  @2     # LOG008 LOG009 LOGN011 LOGN012
   Scenario Outline: Login with empty phone number
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    # LOG008
-    # LOG009
-    # LOGN011
-    # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber      | password    |
@@ -76,16 +77,14 @@ Feature: Login
       # LOG006
       |                  |             |
 
-  @3
+  @3   # LOGN009 LOGN011 LOGN012
   Scenario Outline: Login with unregistered phone number
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see pop up notification
     Examples:
       | phoneNumber      | password    |
@@ -96,17 +95,14 @@ Feature: Login
       # LOG009
       | 83196747871      |             |
 
-  @4
-
+  @4   # LOGN008 LOGN009 LOGN011 LOGN012
   Scenario Outline: Login with alphabetic
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -117,16 +113,14 @@ Feature: Login
       # LOG012
       | abcdef      |             |
 
-  @5
+  @5   # LOGN008  LOGN009  LOGN011 LOGN012
   Scenario Outline: Login with symbol
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -137,16 +131,14 @@ Feature: Login
       # LOG015
       | @@          |             |
 
-  @6
+  @6   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with emoji
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -158,16 +150,14 @@ Feature: Login
       | 😎          |             |
 
 
-  @7
+  @7   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with combination of alphabet,symbol and emoji
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -179,16 +169,16 @@ Feature: Login
       | a@😎          |             |
 
 
-  @8
+  @8     # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with combination of alphabetic and symbol
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -199,16 +189,14 @@ Feature: Login
       # LOG024
       | a@          |             |
 
-  @9
+  @9   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with combination of alphabetic and emoji
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -219,16 +207,14 @@ Feature: Login
       # LOG027
       | a😎          |             |
 
-  @10
+  @10   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with combination of symbol and emoji
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber | password    |
@@ -239,16 +225,14 @@ Feature: Login
       # LOG030
       | @😎          |             |
 
-  @11
+  @11   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with phone number not start from 8
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber     | password    |
@@ -259,16 +243,14 @@ Feature: Login
       # LOG033
       | 6283196747870   |             |
 
-  @12
+  @12   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with phone number less than 8
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber     | password    |
@@ -279,16 +261,14 @@ Feature: Login
       # LOG036
       | 8965966         |             |
 
-  @13
+  @13   # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with phone number exceeds 12
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber          | password    |
@@ -299,16 +279,14 @@ Feature: Login
       # LOG039
       | 896596651401         |             |
 
-  @14
+  @14  # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with phone number start with 84
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-  # LOGN008
-  # LOGN009
-  # LOGN011
-  # LOGN012
     Then User see warning text
     Examples:
       | phoneNumber          | password    |
@@ -319,12 +297,14 @@ Feature: Login
       # LOG042
       | 84196747871          |             |
 
-  @NonFunc
+  @NonFunctional
   @Positive
   @1
   # LOGN001
   Scenario: Check element of Login Page
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     Then User see DANA DEALS textview
     Then User see not register yet? textview
     Then User see phone number input textfield
@@ -336,14 +316,18 @@ Feature: Login
   @2
   # LOGN002
   Scenario: Check clickable link Forgot Password?
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User click Forgot Password link
     Then User is on Forgot Password Page
 
   @3
   # LOGN003
   Scenario: Check clickable link Register Here
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User click Register Here link
     Then User is on Register Page
 
@@ -351,7 +335,9 @@ Feature: Login
   @1
   # LOGN013
   Scenario: Check pop up notification of connection problem
-    Given User is on DANA Deals Login page
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "phonenumber" on phone number input field on login page
     When User input "password" on password input field on login page
     When User click Login button
