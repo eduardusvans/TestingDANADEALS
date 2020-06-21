@@ -40,4 +40,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting
     compile group: 'net.masterthought', name: 'cucumber-reporting', version: '5.2.2'
+
+    //java faker for generate random data
+    implementation 'com.github.javafaker:javafaker:1.0.2'
 }
