@@ -51,18 +51,25 @@ public class VoucherDetailAdminPage {
         return wait.until(ExpectedConditions.presenceOfElementLocated(TXT_EXPIRED)).isDisplayed();
     }
 
-    public static void selectStatus(String statusName) {
+    public boolean seeQuota() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(INPUT_QUOTA)).isDisplayed();
+    }
+    public boolean seeIncrease() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(BUTTON_INCREASE)).isDisplayed();
+    }
+    public boolean seeDecrease() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(BUTTON_DECREASE)).isDisplayed();
+    }
+    public boolean seeSave() {
+        WebDriverWait wait = new WebDriverWait(androidDriver, 10);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(BUTTON_SAVE)).isDisplayed();
+    }
+
+    public void selectStatus() {
         androidDriver.findElement(TXT_STATUS).click();
-
-        String xpath = "";
-        List<AndroidElement> statuss = androidDriver.findElements(By.xpath(xpath));
-
-        for (AndroidElement status : statuss) {
-            if (status.getText().equalsIgnoreCase(statusName)) {
-                status.click();
-                break;
-            }
-        }
     }
 
     public void inputQuota(String quota){
@@ -73,5 +80,11 @@ public class VoucherDetailAdminPage {
     public void clickDecrease(){ androidDriver.findElement(BUTTON_DECREASE).click(); }
     public void clickSave(){ androidDriver.findElement(BUTTON_SAVE).click(); }
 
+
+    public String getQuota(){
+        AndroidElement labelquota = androidDriver.findElement(INPUT_QUOTA);
+        String quota = labelquota.getText();
+        return quota ;
+    }
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.admin.HomeAdminPageLocator.*;
+import static demo.locators.admin.VoucherDetailAdminPageLocator.INPUT_QUOTA;
 import static demo.locators.admin.VoucherDetailAdminPageLocator.TXT_STATUS;
 
 public class HomeAdminPage {
@@ -21,15 +22,16 @@ public class HomeAdminPage {
 
     public void clickVoucher(String statusVoucher) {
         androidDriver.findElement(VOUCHER).click();
-        String xpath = "";
-        List<AndroidElement> statuss = androidDriver.findElements(By.xpath(xpath));
-
-        for (AndroidElement status : statuss) {
-            if (status.getText().equalsIgnoreCase(statusVoucher)) {
-                status.click();
-                break;
-            }
-        }
-
     }
+
+    public void clickVoucher3Param(String name,String statusVoucher, String quota) {
+        androidDriver.findElement(VOUCHER).click();
+    }
+    public String getVoucherUpdate(){
+        AndroidElement labelquota = androidDriver.findElement(INPUT_QUOTA);
+        String quota = labelquota.getText();
+        return quota ;
+    }
+
+
 }
