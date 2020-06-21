@@ -1,6 +1,8 @@
 package demo.steps_definitions;
 
+import demo.pages.LoginPage;
 import demo.pages.admin.HomeAdminPage;
+import demo.pages.payer.RegisterPage;
 import demo.pages.payer.forgotPassword.ForgotPasswordPage;
 import demo.pages.payer.home.HomePayer;
 import io.cucumber.java.en.And;
