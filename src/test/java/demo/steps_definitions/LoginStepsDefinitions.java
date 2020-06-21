@@ -1,5 +1,6 @@
 package demo.steps_definitions;
 
+import demo.pages.LandingPage;
 import demo.pages.LoginPage;
 import demo.pages.admin.HomeAdminPage;
 import demo.pages.payer.RegisterPage;
@@ -13,13 +14,19 @@ import org.junit.Assert;
 
 public class LoginStepsDefinitions {
 
+    LandingPage landingPage = new LandingPage();
     LoginPage loginPage = new LoginPage();
     HomePayer homePayer = new HomePayer();
     HomeAdminPage homeAdminPage = new HomeAdminPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
+    @Given("User is on Landing page")
+    public void userIsOnLandingPage() { landingPage.isOnPage(); }
 
-    @Given("User is on DANA Deals Login page")
+    @When("User click Login to Account button")
+    public void userClickLoginToAccountButton() { landingPage.tapLoginToAccountButton(); }
+
+    @Then("User is on DANA Deals Login page")
     public void userIsOnDANADealsLoginPage() { loginPage.isOnPage(); }
 
     @When("User input {string} on phone number input field on login page")
@@ -77,5 +84,6 @@ public class LoginStepsDefinitions {
 
     @Then("User see pop up notification")
     public void userSeePopUpNotification() { Assert.assertTrue( loginPage.seePopUpNotification()); }
+
 
 }
