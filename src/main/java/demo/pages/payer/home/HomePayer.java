@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
 
 public class HomePayer {
-    public boolean isOnHomePayer() {
+    public boolean isOnPage() {
         WebDriverWait wait = new WebDriverWait(AndroidDriverInstance.androidDriver, 30);
         return wait.until(ExpectedConditions.presenceOfElementLocated(USER_NAME)).isDisplayed();
     }
@@ -30,4 +30,8 @@ public class HomePayer {
     public void clickVoucher(String Keyword){
         AndroidDriverInstance.androidDriver.findElement(VIEW_DETAILS_VOUCHER).click();
     }
+
+    /*public boolean checkVoucher(String Keyword){
+        return AndroidDriverInstance.androidDriver.findElement().getText();
+    }*/
 }
