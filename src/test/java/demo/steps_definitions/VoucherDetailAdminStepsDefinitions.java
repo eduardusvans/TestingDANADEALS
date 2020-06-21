@@ -18,7 +18,6 @@ public class VoucherDetailAdminStepsDefinitions {
     public void userClickVoucherStatus(String statusVoucher) { homeAdminPage.clickVoucher(statusVoucher); }
 
 
-
     @Given("User click Voucher {string} status {string} and quota {string}")
     public void userClickVoucherStatusAndQuota(String name,String statusVoucher, String quota) { homeAdminPage.clickVoucher3Param(name,statusVoucher,quota); }
 
@@ -85,8 +84,12 @@ public class VoucherDetailAdminStepsDefinitions {
     public void userSeeDecreaseButton() { Assert.assertTrue(voucherDetailAdminPage.seeDecrease());}
 
     @Then("User see save button")
-    public void userSeeSaveButton() { Assert.assertTrue(voucherDetailAdminPage.seeSave());
-    }
+    public void userSeeSaveButton() { Assert.assertTrue(voucherDetailAdminPage.seeSave()); }
 
+    @When("User click Increase button")
+    public void userClickIncreaseButton() { voucherDetailAdminPage.clickIncrease();}
+
+    @When("User click Decrease button")
+    public void userClickDecreaseButton() { voucherDetailAdminPage.clickDecrease();}
 
 }
