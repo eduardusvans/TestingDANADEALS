@@ -13,16 +13,9 @@ import static demo.locators.payer.RegisterPageLocator.*;
 public class RegisterPage {
     public boolean isOnPage() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement passwordInput = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("password_textbox")));
-        return passwordInput.isDisplayed();
+        WebElement btnRegister = wait
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("btn_register")));
+        return btnRegister.isDisplayed();
     }
 
-    public void inputPhoneNumber(String phoneNumberInput) {
-        AndroidElement input = AndroidDriverInstance
-                .androidDriver
-                .findElement(By.id("phonenumber_textbox"));
-
-        input.sendKeys(phoneNumberInput);
-    }
 }
