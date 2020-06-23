@@ -1,6 +1,5 @@
 package demo.pages.payer;
 
-import demo.driver.AndroidDriverInstance;
 import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
@@ -10,7 +9,7 @@ import org.openqa.selenium.Point;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
-import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
@@ -22,24 +21,23 @@ public class RegisterPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
-        // Optional random generator
-        phoneNumber = phoneNumberChecker(phoneNumber);
+        // Optional random phone number
+        phoneNumber = phoneNumberSetter(phoneNumber);
 
         // Input text into element and scroll page
         inputAndScroll(INPUT_PHONE_NUMBER, phoneNumber);
     }
 
     public void inputFullName(String firstName, String lastName) {
-        // Full Name null checker
-        String fullName = fullNameNullChecker(firstName, lastName);
-
+        // Set the full name
+        String fullName = fullNameSetter(firstName, lastName);
         // Input text into element and scroll page
         inputAndScroll(INPUT_FULL_NAME, fullName);
     }
 
     public void inputEmail(String email) {
-        // Optional random generator
-        email = emailChecker(email);
+        // Optional random email
+        email = emailSetter(email);
 
         // Input text into element and scroll page
         inputAndScroll(INPUT_EMAIL, email);
@@ -61,14 +59,13 @@ public class RegisterPage {
     }
 
     public static void scrollDown() {
-        AndroidElement screen = AndroidDriverInstance
-                .androidDriver
-                .findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup"));
+        AndroidElement screen = androidDriver
+                .findElement(By.id("action_bar_root"));
         Point center =  screen.getCenter();
         int startX = 20;
-        int startY = center.getY() + 400;
+        int startY = (int) (center.getY() * 1.5);
         int endX = 20;
-        int endY = center.getY() - 400;
+        int endY = (int) (center.getY() * 0.5);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
@@ -81,8 +78,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.sendKeys(input);
+                inputElement(targetElement, input);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -98,8 +94,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.click();
+                tapElement(targetElement);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -109,7 +104,11 @@ public class RegisterPage {
         } while (!isFound && counter < 5);
     }
 
-    public static String phoneNumberChecker(String phoneNumber) {
+    public static String phoneNumberSetter(String phoneNumber) {
+        // Null changer
+        phoneNumber = nullChanger(phoneNumber);
+
+        // Generate random phone number if needed
         if (phoneNumber.toLowerCase().contains("random")) {
             if (phoneNumber.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomPhoneNumber(9);
@@ -123,7 +122,11 @@ public class RegisterPage {
         }
     }
 
-    public static String emailChecker(String email) {
+    public static String emailSetter(String email) {
+        // Null changer
+        email = nullChanger(email);
+
+        // Generate random email if needed
         if (email.toLowerCase().contains("random")) {
             if (email.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomEmail(6);
@@ -137,13 +140,20 @@ public class RegisterPage {
         }
     }
 
-    public static String fullNameNullChecker(String firstName, String lastName) {
-        if (firstName == null) {
-            if (lastName == null) {
+    public static String fullNameSetter(String firstName, String lastName) {
+        // Null changer
+        firstName = nullChanger(firstName);
+        lastName = nullChanger(lastName);
+
+        // Set full name
+        if (firstName.equals("")) {
+            if (lastName.equals("")) {
                 return "";
             } else {
                 return lastName;
             }
+        } else if (lastName.equals("")) {
+            return firstName;
         } else {
             return firstName.concat(" " + lastName);
         }
