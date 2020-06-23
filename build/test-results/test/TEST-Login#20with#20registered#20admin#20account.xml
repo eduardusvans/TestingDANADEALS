@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login with registered admin account" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-06-23T02:40:59" hostname="DNID0651L01.local" time="11.517">
+  <properties/>
+  <testcase name="User is on Landing page" classname="Login with registered admin account" time="2.134"/>
+  <testcase name="User click Login to Account button" classname="Login with registered admin account" time="0.07"/>
+  <testcase name="User is on DANA Deals Login page" classname="Login with registered admin account" time="1.035"/>
+  <testcase name="User input &quot;87800000000&quot; on phone number input field on login page" classname="Login with registered admin account" time="0.859"/>
+  <testcase name="User input &quot;P@ssw0rd&quot; on password input field on login page" classname="Login with registered admin account" time="0.654"/>
+  <testcase name="User click Login button" classname="Login with registered admin account" time="0.55"/>
+  <testcase name="User is on Home Admin page" classname="Login with registered admin account" time="3.581"/>
+  <testcase name="classMethod" classname="Login with registered admin account" time="17.661"/>
+  <system-out><![CDATA[
+@Android @Login @Admin
+Scenario: Login with registered admin account                             ?[90m# src/test/resources/features/Login.feature:18?[0m
+]]></system-out>
+  <system-err><![CDATA[Jun 23, 2020 9:40:59 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
