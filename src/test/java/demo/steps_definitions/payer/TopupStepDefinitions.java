@@ -18,15 +18,25 @@ public class TopupStepDefinitions {
         homePayer.topupIcon();
     }
 
+    @And("User is on Top up Page")
+    public void userIsOnTopUpPage() {
+        topupPage.isOnTopupPage();
+    }
+
     @And("User choose {string} as top up nominal on Top up Page")
     public void userChooseAsTopUpNominalOnTopUpPage(String nominal) {
         topupPage.chooseTopupNominal(nominal);
 
     }
 
-    @And("User choose {string} as a payment method on Top up Page")
-    public void userChooseAsAPaymentMethodOnTopUpPage(String virtualAcc) {
-        topupPage.chooseVirtualAccount(virtualAcc);
+    @And("User choose Virtual account as a payment method on Top up Page")
+    public void userChooseVirtualAccountAsAPaymentMethodOnTopUpPage() {
+        topupPage.chooseVirtualAccount();
+    }
+
+    @And("User choose Merchant as a payment method on Top up Page")
+    public void userChooseMerchantAsAPaymentMethodOnTopUpPage() {
+        topupPage.chooseMerchant();
     }
 
     @And("User choose {string} to pay the top up on Top up Page")
@@ -56,6 +66,10 @@ public class TopupStepDefinitions {
     @And("User click Top up button on Top up cashier Page")
     public void userClickTopUpButtonOnTopUpCashierPage() {
         topUpCashierPage.clickTopupButton();
+    }
+
+    @Then("User will see total balance is increase in Home page")
+    public void userWillSeeTotalBalanceIsIncreaseInHomePage() {
     }
 
 }

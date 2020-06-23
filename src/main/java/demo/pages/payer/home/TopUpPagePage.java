@@ -1,6 +1,5 @@
 package demo.pages.payer.home;
 import demo.driver.AndroidDriverInstance;
-import demo.driver.WebDriverInstance;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,15 +28,15 @@ public class TopUpPagePage {
 
     }
 
-    public void chooseVirtualAccount(String virtualAccount){
-        List<AndroidElement> virtualAcc = AndroidDriverInstance.androidDriver.findElements(VIRTUAL_ACCOUNT_BUTTON);
-        for (int i=0; i<virtualAcc.size(); i++){
-            if (virtualAcc.get(i).getText().equalsIgnoreCase(virtualAccount)){
-                virtualAcc.get(i).click();
-                break;
-            }
-        }
+    public void chooseVirtualAccount() {
+        AndroidDriverInstance.androidDriver.findElement(VIRTUAL_ACCOUNT_BUTTON).click();
     }
+
+    public void chooseMerchant() {
+        AndroidDriverInstance.androidDriver.findElement(MERCHANT_BUTTON).click();
+    }
+
+
 
     public void chooseBankPayment(String bankPayment){
         switch (bankPayment.toLowerCase()) {
@@ -52,14 +51,6 @@ public class TopUpPagePage {
                 break;
 
         }
-
-        /*List<AndroidElement> bankPay = AndroidDriverInstance.androidDriver.findElements(BANK_BNI_BUTTON);
-        for (int i=0; i<bankPay.size(); i++){
-            if(bankPay.get(i).getText().equalsIgnoreCase(bankPayment)){
-                bankPay.get(i).click();
-                break;
-            }
-        }*/
     }
 
     public void clickNextButton(){
