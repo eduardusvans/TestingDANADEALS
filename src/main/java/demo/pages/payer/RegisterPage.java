@@ -31,7 +31,6 @@ public class RegisterPage {
     public void inputFullName(String firstName, String lastName) {
         // Set the full name
         String fullName = fullNameSetter(firstName, lastName);
-        System.out.println("Full Name = " + "'" + fullName + "'");
         // Input text into element and scroll page
         inputAndScroll(INPUT_FULL_NAME, fullName);
     }
@@ -67,8 +66,6 @@ public class RegisterPage {
         int startY = (int) (center.getY() * 1.5);
         int endX = 20;
         int endY = (int) (center.getY() * 0.5);
-        System.out.println("Center X = " + center.getX());
-        System.out.println("Center Y = " + center.getY());
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
@@ -145,8 +142,6 @@ public class RegisterPage {
 
     public static String fullNameSetter(String firstName, String lastName) {
         // Null changer
-        System.out.println("First Name = " + "'" + firstName + "'");
-        System.out.println("Last Name = " + "'" + lastName + "'");
         firstName = nullChanger(firstName);
         lastName = nullChanger(lastName);
 
