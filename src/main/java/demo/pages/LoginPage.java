@@ -22,7 +22,6 @@ public class LoginPage {
     public boolean seeForgotLink() { return waitElement(LINK_FORGOT, 15).isDisplayed(); }
     public boolean seeRegisterLink() { return waitElement(LINK_REGISTER_HERE, 15).isDisplayed(); }
     public boolean seeLoginButton() { return waitElement(BUTTON_LOGIN, 15).isDisplayed(); }
-
     public boolean seeWarningText(){ return waitElement(WARNING_TEXT, 15).isDisplayed(); }
     public boolean seePopUpNotification(){return waitElement(POP_UP_NOTIFICATION, 15).isDisplayed(); }
 
