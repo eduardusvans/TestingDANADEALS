@@ -1,5 +1,6 @@
 package demo.steps_definitions;
 
+import demo.pages.LandingPage;
 import demo.pages.LoginPage;
 import demo.pages.admin.HomeAdminPage;
 import demo.pages.payer.RegisterPage;
@@ -13,13 +14,26 @@ import org.junit.Assert;
 
 public class LoginStepsDefinitions {
 
+    LandingPage landingPage = new LandingPage();
     LoginPage loginPage = new LoginPage();
     HomePayer homePayer = new HomePayer();
     HomeAdminPage homeAdminPage = new HomeAdminPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
 
-    @Given("User is on DANA Deals Login page")
+    private static String id;
+    private static String token;
+    public static String getId() { return id; }
+    public static String getToken() { return token; }
+
+
+    @Given("User is on Landing page")
+    public void userIsOnLandingPage() { landingPage.isOnPage(); }
+
+    @When("User click Login to Account button")
+    public void userClickLoginToAccountButton() { landingPage.tapLoginToAccountButton(); }
+
+    @Then("User is on DANA Deals Login page")
     public void userIsOnDANADealsLoginPage() { loginPage.isOnPage(); }
 
     @When("User input {string} on phone number input field on login page")
@@ -36,7 +50,6 @@ public class LoginStepsDefinitions {
 
     @Then("User is on Home Admin page")
     public void userIsOnHomeAdminPage() { Assert.assertTrue(homeAdminPage.isOnPage()); }
-
 
     @Then("User see DANA DEALS textview")
     public void userSeeDANADEALSTextview() { Assert.assertTrue(loginPage.isOnPage()); }
@@ -70,7 +83,6 @@ public class LoginStepsDefinitions {
 
     @Then("User is on Register Page")
     public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
-
 
     @Then("User see warning text")
     public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }
