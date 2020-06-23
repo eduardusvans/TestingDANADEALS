@@ -20,6 +20,12 @@ public class ActionUtils {
         element.click();
     }
 
+    public static void getElement(By targetElement){
+        AndroidElement element = androidDriver.findElement(targetElement);
+        element.getText();
+    }
+
+
     public static void inputElement(By targetElement, String input) {
         // Null changer
         input = nullChanger(input);

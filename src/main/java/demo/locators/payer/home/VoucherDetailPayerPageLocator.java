@@ -5,9 +5,11 @@ import org.openqa.selenium.By;
 
 public interface VoucherDetailPayerPageLocator {
 
-    By VOUCHER_CUSTOM_VIEW = MobileBy.id("custom_voucher");
-    By BACK_BUTTON = MobileBy.id("");
-    By INSTRUCTION_TAB = MobileBy.id("");
-    By TNC_TAB = MobileBy.id("");
-    By BUY_BUTTON_VIEW_DETAILS = MobileBy.id("btn_buy");
+    By VOUCHER_NAME = MobileBy.id("tv_voucher_name");
+    By BACK_BUTTON = MobileBy.AccessibilityId("Navigate Up");
+    By INSTRUCTION_TAB = MobileBy.AccessibilityId("Instruction");
+    By TNC_TAB = MobileBy.AccessibilityId("T&c");
+    By BUY_BUTTON_VIEW_DETAILS = MobileBy.id("btn_place");
+
+    By DETAIL_CONTENT = MobileBy.xpath("textView2");
 }

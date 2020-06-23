@@ -9,13 +9,31 @@ public interface HomePayerPageLocator {
     By USER_NAME = MobileBy.id("tv_hello");
     By BALANCE_INFO = MobileBy.id("tv_wallet_balance");
     By SEARCH_VOUCHER = MobileBy.id("et_search");
-    By FILTER_BUTTON = MobileBy.id("filter");
-    By SORT_BUTTON = MobileBy.id("sort");
-    By DELETE_SEARCH = MobileBy.id("");
+    By FILTER_BUTTON = MobileBy.id("dropdown_filter");
+    By SORT_BUTTON = MobileBy.id("dropdown_sort");
+    By RESET_BUTTON = MobileBy.id("tv_reset");
 
-    //Voucher List
-    By VIEW_DETAILS_VOUCHER = MobileBy.id("");
-    By BUY_BUTTON_ON_VOUCHER = MobileBy.id("");
+    //voucher
+    By VOUCHER_PRICE_CHECK = MobileBy.xpath(
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+            "android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/" +
+            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
+            "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[6]");
 
+    By VOUCHER_DISCOUNT_CHECK = MobileBy.xpath(
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+                    "ndroid.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
+                    "android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/" +
+                    "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
+                    "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[5]");
+
+
+    By VOUCHER_NAME_CHECK = MobileBy.xpath(
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+                    "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
+                    "android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/" +
+                    "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
+                    "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[1]");
 }
 
