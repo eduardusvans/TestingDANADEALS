@@ -9,8 +9,7 @@ import org.openqa.selenium.Point;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
-import static demo.utils.ActionUtils.nullChanger;
-import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
@@ -32,7 +31,7 @@ public class RegisterPage {
     public void inputFullName(String firstName, String lastName) {
         // Set the full name
         String fullName = fullNameSetter(firstName, lastName);
-
+        System.out.println("Full Name = " + "'" + fullName + "'");
         // Input text into element and scroll page
         inputAndScroll(INPUT_FULL_NAME, fullName);
     }
@@ -62,12 +61,14 @@ public class RegisterPage {
 
     public static void scrollDown() {
         AndroidElement screen = androidDriver
-                .findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup"));
+                .findElement(By.id("action_bar_root"));
         Point center =  screen.getCenter();
         int startX = 20;
-        int startY = center.getY() + 400;
+        int startY = (int) (center.getY() * 1.5);
         int endX = 20;
-        int endY = center.getY() - 400;
+        int endY = (int) (center.getY() * 0.5);
+        System.out.println("Center X = " + center.getX());
+        System.out.println("Center Y = " + center.getY());
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
@@ -80,8 +81,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.sendKeys(input);
+                inputElement(targetElement, input);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -97,8 +97,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.click();
+                tapElement(targetElement);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -146,6 +145,8 @@ public class RegisterPage {
 
     public static String fullNameSetter(String firstName, String lastName) {
         // Null changer
+        System.out.println("First Name = " + "'" + firstName + "'");
+        System.out.println("Last Name = " + "'" + lastName + "'");
         firstName = nullChanger(firstName);
         lastName = nullChanger(lastName);
 
@@ -156,6 +157,8 @@ public class RegisterPage {
             } else {
                 return lastName;
             }
+        } else if (lastName.equals("")) {
+            return firstName;
         } else {
             return firstName.concat(" " + lastName);
         }

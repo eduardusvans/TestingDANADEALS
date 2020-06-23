@@ -3,8 +3,8 @@
 Feature: Register
 
   Background:
-    Given User is on DANA Deals Login page
-    Given User tap the Register here link on Login page
+    Given User is on Landing page
+    Given User tap the Create Account button on Landing page
 
   @Positive
   Scenario Outline: Register with valid input
