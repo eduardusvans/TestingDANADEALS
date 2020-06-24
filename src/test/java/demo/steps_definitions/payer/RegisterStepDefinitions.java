@@ -14,11 +14,11 @@ public class RegisterStepDefinitions {
     LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
 
-    @Given("User is on Landing page")
+    /*@Given("User is on Landing page")
     public void userIsOnLandingPage() {
         boolean status = landingPage.isOnPage();
         Assert.assertTrue(status);
-    }
+    }*/
 
     @Given("User tap the Create Account button on Landing page")
     public void userTapTheCreateAccountButtonOnLandingPage() {

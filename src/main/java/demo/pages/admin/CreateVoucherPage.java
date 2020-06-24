@@ -1,16 +1,17 @@
 package demo.pages.admin;
 import demo.driver.AndroidDriverInstance;
-import demo.driver.WebDriverInstance;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.locators.admin.CreateVoucherPageLocator.*;
-import static demo.locators.admin.HomeAdminPageLocator.BUTTON_LOGOUT;
+import static demo.driver.AndroidDriverInstance.androidDriver;
+import static demo.utils.ActionUtils.inputElement;
 import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class CreateVoucherPage {
 
@@ -47,23 +48,23 @@ public class CreateVoucherPage {
     }
 
     public void inputMaxDiscount(String maxDiscount){
-        AndroidDriverInstance.androidDriver.findElement(MAX_DISCOUNT).sendKeys(maxDiscount);
+        inputAndScroll(MAX_DISCOUNT, maxDiscount);
     }
 
     public void chooseExpiredDate(String expireDate){
-        AndroidDriverInstance.androidDriver.findElement(EXPIRED_DATE).sendKeys(expireDate);
+        inputAndScroll(EXPIRED_DATE, expireDate);
     }
 
     public void quotaVoucher(String quotaVou){
-        AndroidDriverInstance.androidDriver.findElement(QUOTA).sendKeys(quotaVou);
+        inputAndScroll(QUOTA, quotaVou);
     }
 
     public void inputVoucherPrice(String vouPrice){
-        AndroidDriverInstance.androidDriver.findElement(VOUCHER_PRICE).sendKeys(vouPrice);
+        inputAndScroll(VOUCHER_PRICE, vouPrice);
     }
 
     public void clickCreateButton(){
-        AndroidDriverInstance.androidDriver.findElement(CREATE_BUTTON).click();
+        tapAndScroll(CREATE_BUTTON);
     }
 
     public void waitAbit(int millis){
@@ -72,6 +73,52 @@ public class CreateVoucherPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void scrollDown() {
+        AndroidElement screen = androidDriver
+                .findElement(By.xpath("//android.widget.ScrollView/android.widget.LinearLayout"));
+        Point center =  screen.getCenter();
+        int startX = 20;
+        int startY = (int) (center.getY() * 1.5);
+        int endX = 20;
+        int endY = (int) (center.getY() * 0.5);
+        @SuppressWarnings("rawtypes")
+        TouchAction scroll = new TouchAction(androidDriver);
+        scroll.press(PointOption.point(startX, startY))
+                .moveTo(PointOption.point(endX, endY)).perform();
+    }
+
+    public static void inputAndScroll(By targetElement, String input) {
+        boolean isFound = false;
+        int counter = 0;
+
+        do {
+            try {
+                inputElement(targetElement, input);
+                isFound = true;
+            } catch (Exception e) {
+                scrollDown();
+                counter++;
+            }
+
+        } while (!isFound && counter < 5);
+    }
+
+    public static void tapAndScroll(By targetElement) {
+        boolean isFound = false;
+        int counter = 0;
+
+        do {
+            try {
+                tapElement(targetElement);
+                isFound = true;
+            } catch (Exception e) {
+                scrollDown();
+                counter++;
+            }
+
+        } while (!isFound && counter < 5);
     }
 
 }

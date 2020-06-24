@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 public interface CreateVoucherPageLocator {
     By CREATE_PAGE = MobileBy.className("tv_voucher_status");
     By STATUS_VOUCHER = MobileBy.xpath("//android.widget.TextView[contains(@text,'Active')]");
-    By ACTIVE_STATUS = MobileBy.xpath("android.widget.TextView[1]");
-    By INACTIVE_STATUS = MobileBy.xpath("android.widget.TextView[2]");
+    By ACTIVE_STATUS = MobileBy.xpath("//android.widget.TextView[1]");
+    By INACTIVE_STATUS = MobileBy.xpath("//android.widget.TextView[2]");
     By VOUCHER_NAME = MobileBy.id("et_voucher_name");
     By MERCHANT_ID = MobileBy.id("et_merchant_id");
     By DISCOUNT = MobileBy.id("et_discount");

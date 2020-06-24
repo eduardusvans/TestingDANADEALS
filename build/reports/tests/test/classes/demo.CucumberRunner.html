@@ -93,18 +93,33 @@
   ?[32mAnd ?[0m?[32mUser click Login button?[0m                                                       ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
   ?[32mWhen ?[0m?[32mUser is on Home Admin page?[0m                                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()?[0m
   ?[32mAnd ?[0m?[32mUser click create voucher button on Home Page?[0m                                 ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userClickCreateVoucherButtonOnHomePage()?[0m
+  ?[32mAnd ?[0m?[32mUser click status dropdown for changing the status in Create Voucher Page?[0m     ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userClickStatusDropdownForChangingTheStatusInCreateVoucherPage()?[0m
+  ?[32mAnd ?[0m?[32mUser choose ?[0m?[32m?[1m&quot;active&quot;?[0m?[32m for status of voucher in Create Voucher Page?[0m             ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userChooseForStatusOfVoucherInCreateVoucherPage(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;Baskin Robbins&quot;?[0m?[32m in Voucher Name text field on Create Voucher Page?[0m ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInVoucherNameTextFieldOnCreateVoucherPage(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;1001&quot;?[0m?[32m in Merchant ID text field on Create Voucher Page?[0m            ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMerchantIDTextFieldOnCreateVoucherPage(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;50&quot;?[0m?[32m in Discount text field on Create Voucher Page?[0m                 ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInDiscountTextFieldOnCreateVoucherPage(java.lang.String)?[0m
-  ?[31mAnd ?[0m?[31mUser input ?[0m?[31m?[1m&quot;10000&quot;?[0m?[31m in Max Discount text field on Create Voucher Page?[0m          ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(java.lang.String)?[0m
-      ?[31morg.openqa.selenium.UnsupportedCommandException: Method is not implemented
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;10000&quot;?[0m?[32m in Max Discount text field on Create Voucher Page?[0m          ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser choose ?[0m?[32m?[1m&quot;2020-06-30&quot;?[0m?[32m in Expired Date text field on Create Voucher Page?[0m    ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userChooseInExpiredDateTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;250&quot;?[0m?[32m in Quota text field on Create Voucher Page?[0m                   ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInQuotaTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;20000&quot;?[0m?[32m in Voucher Price text field on Create Voucher Page?[0m         ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInVoucherPriceTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser click create button on Create Voucher Page?[0m                               ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userClickCreateButtonOnCreateVoucherPage()?[0m
+  ?[31mThen ?[0m?[31mUser will redirect into Home Page?[0m                                            ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage()?[0m
+      ?[31morg.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.id: btn_logout (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at demo.utils.ActionUtils.waitElement(ActionUtils.java:15)
+	at demo.pages.admin.HomeAdminPage.isOnPage(HomeAdminPage.java:15)
+	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage(CreateVoucherStepDefinitions.java:72)
+	at ✽.User will redirect into Home Page(file:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:25)
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'dnid0663l01.local', ip: 'fe80:0:0:0:1875:9d:4ec5:894a%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '1.8.0_251'
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {app: /Users/bhaskaram/IdeaProjec..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UIAutomator2, databaseEnabled: false, desired: {app: /Users/bhaskaram/IdeaProjec..., autoGrantPermissions: true, automationName: UIAutomator2, deviceName: device, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+Session ID: af78bf9a-4955-4e9e-80eb-3eae9c49f0d2
+*** Element info: {Using=id, value=btn_logout}
+	at sun.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
@@ -116,18 +131,90 @@ Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
-	at demo.pages.admin.CreateVoucherPage.inputMaxDiscount(CreateVoucherPage.java:53)
-	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(CreateVoucherStepDefinitions.java:47)
-	at ✽.User input &quot;10000&quot; in Max Discount text field on Create Voucher Page(file:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:20)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at demo.utils.ActionUtils.waitElement(ActionUtils.java:15)
+	at demo.pages.admin.HomeAdminPage.isOnPage(HomeAdminPage.java:15)
+	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage(CreateVoucherStepDefinitions.java:72)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:27)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:27)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:64)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:49)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:46)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:51)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:67)
+	at io.cucumber.junit.PickleRunners$WithStepDescriptions.run(PickleRunners.java:100)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:83)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:24)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:185)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:83)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:219)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.lang.Thread.run(Thread.java:748)
 ?[0m
-  ?[36mAnd ?[0m?[36mUser choose ?[0m?[36m?[1m&quot;2020-07-30&quot;?[0m?[36m in Expired Date text field on Create Voucher Page?[0m    ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userChooseInExpiredDateTextFieldOnCreateVoucherPage(java.lang.String)?[0m
-  ?[36mAnd ?[0m?[36mUser input ?[0m?[36m?[1m&quot;250&quot;?[0m?[36m in Quota text field on Create Voucher Page?[0m                   ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInQuotaTextFieldOnCreateVoucherPage(java.lang.String)?[0m
-  ?[36mAnd ?[0m?[36mUser input ?[0m?[36m?[1m&quot;20000&quot;?[0m?[36m in Voucher Price text field on Create Voucher Page?[0m         ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInVoucherPriceTextFieldOnCreateVoucherPage(java.lang.String)?[0m
-  ?[36mAnd ?[0m?[36mUser click create button on Create Voucher Page?[0m                               ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userClickCreateButtonOnCreateVoucherPage()?[0m
-  ?[36mThen ?[0m?[36mUser will redirect into Home Page?[0m                                            ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage()?[0m
 
-    Embedding null [image/png 87531 bytes]
+    Embedding null [image/png 84547 bytes]
 
 
     Scenario Fail
@@ -137,18 +224,26 @@ Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
 ?[31mfile:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:29?[0m# Create Voucher with valid normal input
 
 1 Scenarios (?[31m1 failed?[0m)
-17 Steps (?[31m1 failed?[0m, ?[36m5 skipped?[0m, ?[32m11 passed?[0m)
-0m45.300s
+19 Steps (?[31m1 failed?[0m, ?[32m18 passed?[0m)
+1m3.734s
 
 
-org.openqa.selenium.UnsupportedCommandException: Method is not implemented
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.id: btn_logout (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at demo.utils.ActionUtils.waitElement(ActionUtils.java:15)
+	at demo.pages.admin.HomeAdminPage.isOnPage(HomeAdminPage.java:15)
+	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage(CreateVoucherStepDefinitions.java:72)
+	at ✽.User will redirect into Home Page(file:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:25)
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'dnid0663l01.local', ip: 'fe80:0:0:0:1875:9d:4ec5:894a%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '1.8.0_251'
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {app: /Users/bhaskaram/IdeaProjec..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UIAutomator2, databaseEnabled: false, desired: {app: /Users/bhaskaram/IdeaProjec..., autoGrantPermissions: true, automationName: UIAutomator2, deviceName: device, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+Session ID: af78bf9a-4955-4e9e-80eb-3eae9c49f0d2
+*** Element info: {Using=id, value=btn_logout}
+	at sun.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
@@ -160,10 +255,87 @@ Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
-	at demo.pages.admin.CreateVoucherPage.inputMaxDiscount(CreateVoucherPage.java:53)
-	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(CreateVoucherStepDefinitions.java:47)
-	at ✽.User input &quot;10000&quot; in Max Discount text field on Create Voucher Page(file:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:20)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at demo.utils.ActionUtils.waitElement(ActionUtils.java:15)
+	at demo.pages.admin.HomeAdminPage.isOnPage(HomeAdminPage.java:15)
+	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage(CreateVoucherStepDefinitions.java:72)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:27)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:27)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:64)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:49)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:46)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:51)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:67)
+	at io.cucumber.junit.PickleRunners$WithStepDescriptions.run(PickleRunners.java:100)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:83)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:24)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:185)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:83)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:219)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.lang.Thread.run(Thread.java:748)
 
 
 </pre>
@@ -172,7 +344,7 @@ Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Jun 24, 2020 11:15:22 AM io.cucumber.core.options.CucumberPropertiesParser parse
+<pre>Jun 24, 2020 2:30:52 PM io.cucumber.core.options.CucumberPropertiesParser parse
 WARNING: Passing commandline options via the property `cucumber.options` has been deprecatedin favour of explicitly using property names.
 Please use these instead: [cucumber.ansi-colors.disabled, cucumber.execution.dry-run, cucumber.execution.limit, cucumber.execution.order, cucumber.execution.strict, cucumber.execution.wip, cucumber.features, cucumber.filter.name, cucumber.filter.tags, cucumber.glue, cucumber.object-factory, cucumber.plugin, cucumber.snippet-type]
 </pre>
@@ -186,7 +358,7 @@ Please use these instead: [cucumber.ansi-colors.disabled, cucumber.execution.dry
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 24, 2020 11:16:08 AM</p>
+<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 24, 2020 2:31:56 PM</p>
 </div>
 </div>
 </body>
