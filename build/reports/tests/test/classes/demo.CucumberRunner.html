@@ -85,56 +85,85 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>  ?[32mGiven ?[0m?[32mUser is on Landing page?[0m                                           ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()?[0m
-  ?[32mWhen ?[0m?[32mUser click Login to Account button?[0m                                 ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on DANA Deals Login page?[0m                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()?[0m
-  ?[32mWhen ?[0m?[32mUser input ?[0m?[32m?[1m&quot;83196747870&quot;?[0m?[32m on phone number input field on login page?[0m ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;P@sswordku1&quot;?[0m?[32m on password input field on login page?[0m      ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser click Login button?[0m                                             ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on Home page?[0m                                               ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnHomePage()?[0m
-Request method:	POST
-Request URI:	https://teamdeals.burrow.io/api/user/null/logout
-Proxy:			&lt;none&gt;
-Request params:	&lt;none&gt;
-Query params:	&lt;none&gt;
-Form params:	&lt;none&gt;
-Path params:	&lt;none&gt;
-Headers:		Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		&lt;none&gt;
-Multiparts:		&lt;none&gt;
-Body:
-{
-    
-}
-{&quot;path&quot;:&quot;\/api\/user\/null\/logout&quot;,&quot;data&quot;:null,&quot;message&quot;:&quot;You are not authorized.&quot;,&quot;timestamp&quot;:&quot;2020\/06\/23 09:40&quot;,&quot;status&quot;:&quot;021&quot;}
-  ?[32mGiven ?[0m?[32mUser is on Landing page?[0m                                           ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()?[0m
-  ?[32mWhen ?[0m?[32mUser click Login to Account button?[0m                                 ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on DANA Deals Login page?[0m                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()?[0m
-  ?[32mWhen ?[0m?[32mUser input ?[0m?[32m?[1m&quot;87800000000&quot;?[0m?[32m on phone number input field on login page?[0m ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;P@ssw0rd&quot;?[0m?[32m on password input field on login page?[0m         ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser click Login button?[0m                                             ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on Home Admin page?[0m                                         ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()?[0m
-Request method:	POST
-Request URI:	https://teamdeals.burrow.io/api/user/null/logout
-Proxy:			&lt;none&gt;
-Request params:	&lt;none&gt;
-Query params:	&lt;none&gt;
-Form params:	&lt;none&gt;
-Path params:	&lt;none&gt;
-Headers:		Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		&lt;none&gt;
-Multiparts:		&lt;none&gt;
-Body:
-{
-    
-}
-{&quot;path&quot;:&quot;\/api\/user\/null\/logout&quot;,&quot;data&quot;:null,&quot;message&quot;:&quot;You are not authorized.&quot;,&quot;timestamp&quot;:&quot;2020\/06\/23 09:41&quot;,&quot;status&quot;:&quot;021&quot;}
+<pre>  ?[32mGiven ?[0m?[32mUser is on Landing page?[0m                                                     ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()?[0m
+  ?[32mAnd ?[0m?[32mUser click Login to Account button?[0m                                            ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()?[0m
+  ?[32mAnd ?[0m?[32mUser is on DANA Deals Login page?[0m                                              ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;87800000000&quot;?[0m?[32m on phone number input field on login page?[0m            ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;P@ssw0rd&quot;?[0m?[32m on password input field on login page?[0m                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser click Login button?[0m                                                       ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
+  ?[32mWhen ?[0m?[32mUser is on Home Admin page?[0m                                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()?[0m
+  ?[32mAnd ?[0m?[32mUser click create voucher button on Home Page?[0m                                 ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userClickCreateVoucherButtonOnHomePage()?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;Baskin Robbins&quot;?[0m?[32m in Voucher Name text field on Create Voucher Page?[0m ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInVoucherNameTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;1001&quot;?[0m?[32m in Merchant ID text field on Create Voucher Page?[0m            ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMerchantIDTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;50&quot;?[0m?[32m in Discount text field on Create Voucher Page?[0m                 ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInDiscountTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[31mAnd ?[0m?[31mUser input ?[0m?[31m?[1m&quot;10000&quot;?[0m?[31m in Max Discount text field on Create Voucher Page?[0m          ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+      ?[31morg.openqa.selenium.UnsupportedCommandException: Method is not implemented
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'dnid0663l01.local', ip: 'fe80:0:0:0:1875:9d:4ec5:894a%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '1.8.0_251'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: /Users/bhaskaram/IdeaProjec..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UIAutomator2, databaseEnabled: false, desired: {app: /Users/bhaskaram/IdeaProjec..., autoGrantPermissions: true, automationName: UIAutomator2, deviceName: device, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
+	at demo.pages.admin.CreateVoucherPage.inputMaxDiscount(CreateVoucherPage.java:53)
+	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(CreateVoucherStepDefinitions.java:47)
+	at ✽.User input &quot;10000&quot; in Max Discount text field on Create Voucher Page(file:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:20)
+?[0m
+  ?[36mAnd ?[0m?[36mUser choose ?[0m?[36m?[1m&quot;2020-07-30&quot;?[0m?[36m in Expired Date text field on Create Voucher Page?[0m    ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userChooseInExpiredDateTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[36mAnd ?[0m?[36mUser input ?[0m?[36m?[1m&quot;250&quot;?[0m?[36m in Quota text field on Create Voucher Page?[0m                   ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInQuotaTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[36mAnd ?[0m?[36mUser input ?[0m?[36m?[1m&quot;20000&quot;?[0m?[36m in Voucher Price text field on Create Voucher Page?[0m         ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInVoucherPriceTextFieldOnCreateVoucherPage(java.lang.String)?[0m
+  ?[36mAnd ?[0m?[36mUser click create button on Create Voucher Page?[0m                               ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userClickCreateButtonOnCreateVoucherPage()?[0m
+  ?[36mThen ?[0m?[36mUser will redirect into Home Page?[0m                                            ?[90m# demo.steps_definitions.admin.CreateVoucherStepDefinitions.userWillRedirectIntoHomePage()?[0m
 
-2 Scenarios (?[32m2 passed?[0m)
-14 Steps (?[32m14 passed?[0m)
-0m42.270s
+    Embedding null [image/png 87531 bytes]
+
+
+    Scenario Fail
+
+
+?[31mFailed scenarios:?[0m
+?[31mfile:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:29?[0m# Create Voucher with valid normal input
+
+1 Scenarios (?[31m1 failed?[0m)
+17 Steps (?[31m1 failed?[0m, ?[36m5 skipped?[0m, ?[32m11 passed?[0m)
+0m45.300s
+
+
+org.openqa.selenium.UnsupportedCommandException: Method is not implemented
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'dnid0663l01.local', ip: 'fe80:0:0:0:1875:9d:4ec5:894a%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '1.8.0_251'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: /Users/bhaskaram/IdeaProjec..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UIAutomator2, databaseEnabled: false, desired: {app: /Users/bhaskaram/IdeaProjec..., autoGrantPermissions: true, automationName: UIAutomator2, deviceName: device, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 98b323dc-6cba-4545-b564-a7f056054de5
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
+	at demo.pages.admin.CreateVoucherPage.inputMaxDiscount(CreateVoucherPage.java:53)
+	at demo.steps_definitions.admin.CreateVoucherStepDefinitions.userInputInMaxDiscountTextFieldOnCreateVoucherPage(CreateVoucherStepDefinitions.java:47)
+	at ✽.User input &quot;10000&quot; in Max Discount text field on Create Voucher Page(file:///Users/bhaskaram/IdeaProjects/TestingDANADEALS/src/test/resources/features/admin/CreateVoucher.feature:20)
 
 
 </pre>
@@ -143,12 +172,9 @@ Body:
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Jun 23, 2020 9:40:28 AM io.cucumber.core.options.CucumberPropertiesParser parse
+<pre>Jun 24, 2020 11:15:22 AM io.cucumber.core.options.CucumberPropertiesParser parse
 WARNING: Passing commandline options via the property `cucumber.options` has been deprecatedin favour of explicitly using property names.
 Please use these instead: [cucumber.ansi-colors.disabled, cucumber.execution.dry-run, cucumber.execution.limit, cucumber.execution.order, cucumber.execution.strict, cucumber.execution.wip, cucumber.features, cucumber.filter.name, cucumber.filter.tags, cucumber.glue, cucumber.object-factory, cucumber.plugin, cucumber.snippet-type]
-SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 </pre>
 </span>
 </div>
@@ -160,7 +186,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 23, 2020, 9:41:11 AM</p>
+<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 24, 2020 11:16:08 AM</p>
 </div>
 </div>
 </body>
