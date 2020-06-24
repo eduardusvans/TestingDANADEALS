@@ -54,4 +54,30 @@ public class RandomUtils {
         return email.get(randomPick);
     }
 
+    public static String generateRandomEmailAlphabetic() {
+        String randomName;
+        int randomPick = faker.number().numberBetween(0, 2);
+
+        randomName = faker.name().fullName().toLowerCase().replace(" ","");
+
+        List<String> email = new ArrayList<>();
+        email.add(randomName.concat("@gmail.com"));
+        email.add(randomName.concat("@yahoo.com"));
+
+        return email.get(randomPick);
+    }
+
+    public static String generateRandomEmailNumeric() {
+        String randomName;
+        int randomPick = faker.number().numberBetween(0, 2);
+        int randomLength = faker.number().numberBetween(8, 17);
+
+        randomName = faker.number().digits(randomLength);
+
+        List<String> email = new ArrayList<>();
+        email.add(randomName.concat("@gmail.com"));
+        email.add(randomName.concat("@yahoo.com"));
+
+        return email.get(randomPick);
+    }
 }
