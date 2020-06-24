@@ -1,5 +1,6 @@
 package demo.steps_definitions.payer;
 
+import demo.pages.LandingPage;
 import demo.pages.LoginPage;
 import demo.pages.payer.forgotPassword.ForgotPasswordPage;
 import demo.pages.payer.forgotPassword.OtpPage;
@@ -12,14 +13,20 @@ import org.junit.Assert;
 
 public class ForgotPasswordStepDefinitions {
 
+    LandingPage landingPage = new LandingPage();
     LoginPage loginPage = new LoginPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     OtpPage otpPage = new OtpPage();
     ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
 
-    @Given("User tap the Forgot password link on Login page")
+    @Given("User tap the Login to Account button on Landing page")
+    public void userTapTheLoginToAccountButtonOnLandingPage() {
+        landingPage.tapLoginToAccountButton();
+    }
+
+    @Given("User tap the Forgot Password link on Login page")
     public void userTapTheForgotPasswordLinkOnLoginPage() {
-        loginPage.tapForgotPasswordLink();
+        loginPage.clickForgot();
     }
 
     @Given("User is on Forgot Password page")

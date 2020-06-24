@@ -3,8 +3,10 @@
 Feature: Forgot Password
 
   Background:
+    Given User is on Landing page
+    Given User tap the Login to Account button on Landing page
     Given User is on DANA Deals Login page
-    Given User tap the Forgot password link on Login page
+    Given User tap the Forgot Password link on Login page
 
   @Positive
   Scenario Outline: Reset password with valid input
@@ -46,6 +48,8 @@ Feature: Forgot Password
       | 89695966514 |
       # FGP009
       | 6885559737  |
+      # FGP010
+      | 877220742N  |
 
   @Negative @2
   Scenario Outline: Reset password with invalid OTP input
@@ -54,7 +58,6 @@ Feature: Forgot Password
     When User tap the Send OTP button on Forgot Password page
     When User is on OTP page
     When User input "<otp>" on OTP input text field on OTP page
-    When User is on Reset Password page
     Then User is still on OTP page
     Examples:
       | phoneNumber | otp  |
