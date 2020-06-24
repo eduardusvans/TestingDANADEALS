@@ -1,16 +1,16 @@
 package demo.pages.payer.profile;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.profile.ProfilePageLocator.*;
+import static demo.utils.ActionUtils.tapElement;
+import static demo.utils.ActionUtils.waitElement;
 
 public class ProfilePage {
-    public boolean isOnPageHistory() {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement profile_icon = wait
-                .until(ExpectedConditions.presenceOfElementLocated(Profile_Icon));
-        return profile_icon.isDisplayed();
+    public boolean isOnPageProfile() {
+        return waitElement(assertProfilePage, 15).isDisplayed();
+    }
+    public void tapAccountInfoMenu(){ tapElement(Account_Info);}
+    public void tapChangeUserDataMenu(){ tapElement(Change_User_Data);}
+    public void tapLogoutButton(){
+        tapElement(LOGOUT_BTN);
     }
 }
