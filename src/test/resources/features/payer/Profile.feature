@@ -75,7 +75,9 @@ Feature: Profile
     And User tap Back button on Change Password screen
     Then User is on Change User Data screen
 
+
   #P008 - P015
+  @b
   Scenario Outline: Change name with valid input
     Given User is on Home page
     When User tap profile icon
