@@ -1,5 +1,6 @@
 @Android @Topup
 Feature: Topup feature for DANA Deals
+
   Background:
     Given User is on Landing page
     And User click Login to Account button
@@ -95,16 +96,16 @@ Feature: Topup feature for DANA Deals
     And User click Top up button on Top up cashier Page
 
     Examples:
-      | nominal | bankTransfer | vaNumber |
-      | RP. 10.000   | BNI          | 0247     |
-      | 25000   | BNI          | 0247     |
-      | 50000   | BNI          | 0247     |
-      | 10000   | Mandiri      | 0247     |
-      | 25000   | Mandiri      | 0247     |
-      | 50000   | Mandiri      | 0247     |
-      | 10000   | BCA          | 0247     |
-      | 25000   | BCA          | 0247     |
-      | 50000   | BCA          | 0247     |
+      | nominal    | bankTransfer | vaNumber |
+      | RP. 10.000 | BNI          | 0247     |
+      | 25000      | BNI          | 0247     |
+      | 50000      | BNI          | 0247     |
+      | 10000      | Mandiri      | 0247     |
+      | 25000      | Mandiri      | 0247     |
+      | 50000      | Mandiri      | 0247     |
+      | 10000      | BCA          | 0247     |
+      | 25000      | BCA          | 0247     |
+      | 50000      | BCA          | 0247     |
 
   Scenario Outline: Top up with All nominal using bank transfer payment method as a new user
     Given User is on DANA Deals Login page
@@ -121,17 +122,17 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal    | bankTransfer |
       #TOP001
-      |81904106060 | P@ssw0rd  | RP. 10.000 | BNI          |
-      |81904106060 | P@ssw0rd  | RP. 25.000 | BNI          |
-      |81904106060 | P@ssw0rd  | RP. 50.000 | BNI          |
+      | 81904106060 | P@ssw0rd | RP. 10.000 | BNI          |
+      | 81904106060 | P@ssw0rd | RP. 25.000 | BNI          |
+      | 81904106060 | P@ssw0rd | RP. 50.000 | BNI          |
       #TOP002
-      |81904106060 | P@ssw0rd  | RP. 10.000 | Mandiri      |
-      |81904106060 | P@ssw0rd  | RP. 25.000 | Mandiri      |
-      |81904106060 | P@ssw0rd  | RP. 50.000 | Mandiri      |
+      | 81904106060 | P@ssw0rd | RP. 10.000 | Mandiri      |
+      | 81904106060 | P@ssw0rd | RP. 25.000 | Mandiri      |
+      | 81904106060 | P@ssw0rd | RP. 50.000 | Mandiri      |
       #TOP003
-      |81904106060 | P@ssw0rd  | RP. 10.000 | BCA          |
-      |81904106060 | P@ssw0rd  | RP. 25.000 | BCA          |
-      |81904106060 | P@ssw0rd  | RP. 50.000 | BCA          |
+      | 81904106060 | P@ssw0rd | RP. 10.000 | BCA          |
+      | 81904106060 | P@ssw0rd | RP. 25.000 | BCA          |
+      | 81904106060 | P@ssw0rd | RP. 50.000 | BCA          |
 
   @Test
   Scenario Outline: Top up with All nominal using bank transfer payment method as a new user
@@ -142,11 +143,15 @@ Feature: Topup feature for DANA Deals
     And User choose "<bankTransfer>" to pay the top up on Top up Page
     And User click Next Button on Top up Page
     Then User will redirect into Payment Page
+    And User will get "<vaNumber>" as Virtual Account Number
 
     Examples:
-      | nominal    | bankTransfer |
+      | nominal | bankTransfer | vaNumber         |
       #TOP001
-      | 10k | BNI          |
+      | 10k     | BNI          | 9030081904107070 |
+      | 25k     | Mandiri      | 2372081904107070 |
+      | 50k     | BCA          | 4354081904107070 |
+
 
 
 
