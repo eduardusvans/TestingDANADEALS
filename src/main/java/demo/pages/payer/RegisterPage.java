@@ -128,9 +128,13 @@ public class RegisterPage {
 
         // Generate random email if needed
         if (email.toLowerCase().contains("random")) {
-            if (email.toLowerCase().contains("min")) {
+            if (email.toLowerCase().contains("alphabetic")) {
+                return RandomUtils.generateRandomEmailAlphabetic();
+            } else if (email.toLowerCase().contains("numeric")) {
+                return RandomUtils.generateRandomEmailNumeric();
+            } else if (email.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomEmail(6);
-            } else if(email.toLowerCase().contains("max")) {
+            } else if (email.toLowerCase().contains("max")) {
                 return RandomUtils.generateRandomEmail(74);
             } else {
                 return RandomUtils.generateRandomEmail(0);
