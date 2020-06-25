@@ -236,7 +236,8 @@ Feature: Profile
     And User is on Change Password screen
     And User input "<oldPassword>" on old password input text field on Change Password screen
     And User input "<newPassword>" on new password input text field on Change Password screen
-    Then User see warning text below newPassword
+    And User tap Change Password button on Change Password screen
+    Then User is on Change Password screen
     Examples:
       | oldPassword | newPassword |
     # P040

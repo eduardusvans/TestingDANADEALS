@@ -9,7 +9,7 @@ public interface ChangeUserDataPageLocator {
     By BTN_UPDATE = By.id("btn_update");
 
     By fullNameInput = By.id("et_full_name");
-    By mailInput = By.id("et_mail");
+    By mailInput = By.id("et_email");
 
     By warningText = By.id("textinput_error");
 
