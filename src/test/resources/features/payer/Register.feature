@@ -19,30 +19,30 @@ Feature: Register
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber | firstName  | lastName         | email             | password         | confirmPassword  |
-      # REG001
-      | Random      | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
-      # REG002
-      | Random      | abcdefghij |                  | Random            | TestingREG1!     | TestingREG1!     |
-      # REG003
-      | Random      | abc        | defghijklmnopqrs | Random            | TestingREG1!     | TestingREG1!     |
-      # REG004
-      | Random      | abcdefghij | klmnopqrs        | Random            | TestingREG1!     | TestingREG1!     |
-      # REG005
-      | Random      | abc        |                  | Random Min        | TestingREG1!     | TestingREG1!     |
-      # REG006
-      | Random      | abc        |                  | Random Max        | TestingREG1!     | TestingREG1!     |
+#      # REG001
+#      | Random      | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
+#      # REG002
+#      | Random      | abcdefghij |                  | Random            | TestingREG1!     | TestingREG1!     |
+#      # REG003
+#      | Random      | abc        | defghijklmnopqrs | Random            | TestingREG1!     | TestingREG1!     |
+#      # REG004
+#      | Random      | abcdefghij | klmnopqrs        | Random            | TestingREG1!     | TestingREG1!     |
+#      # REG005
+#      | Random      | abc        |                  | Random Min        | TestingREG1!     | TestingREG1!     |
+#      # REG006
+#      | Random      | abc        |                  | Random Max        | TestingREG1!     | TestingREG1!     |
       # REG007
       | Random      | abc        |                  | Random Alphabetic | TestingREG1!     | TestingREG1!     |
-      # REG008
-      | Random      | abc        |                  | Random Numeric    | TestingREG1!     | TestingREG1!     |
-      # REG009
-      | Random Min  | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
-      # REG010
-      | Random Max  | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
-      # REG011
-      | Random      | abc        |                  | Random            | Abcdef1!         | Abcdef1!         |
-      # REG012
-      | Random      | abc        |                  | Random            | Abcdefghijklmn1! | Abcdefghijklmn1! |
+#      # REG008
+#      | Random      | abc        |                  | Random Numeric    | TestingREG1!     | TestingREG1!     |
+#      # REG009
+#      | Random Min  | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
+#      # REG010
+#      | Random Max  | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
+#      # REG011
+#      | Random      | abc        |                  | Random            | Abcdef1!         | Abcdef1!         |
+#      # REG012
+#      | Random      | abc        |                  | Random            | Abcdefghijklmn1! | Abcdefghijklmn1! |
 
   @Negative
   Scenario Outline: Register with one of the input is invalid

@@ -58,7 +58,7 @@ public class RandomUtils {
         String randomName;
         int randomPick = faker.number().numberBetween(0, 2);
 
-        randomName = faker.name().fullName().toLowerCase().replace(" ","");
+        randomName = faker.name().fullName().toLowerCase().replace(" ","").replace(".", "");
 
         List<String> email = new ArrayList<>();
         email.add(randomName.concat("@gmail.com"));
