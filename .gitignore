@@ -2,3 +2,4 @@
 /.idea
 /src/main/java/demo/driver/
 /src/test/java/demo/CucumberRunner.java
+/build/

@@ -12,18 +12,23 @@ import static demo.locators.payer.home.TopUpPageLocator.*;
 public class TopUpPagePage {
     public boolean isOnTopupPage(){
         WebDriverWait wait = new WebDriverWait(AndroidDriverInstance.androidDriver, 30);
-        WebElement topupPage = wait
+        WebElement userLabel = wait
                 .until(ExpectedConditions.presenceOfElementLocated(TOPUP_PAGE));
-        return topupPage.isDisplayed();
+        return userLabel.isDisplayed();
     }
 
     public void chooseTopupNominal(String nominalTopup){
-        List<AndroidElement> topup = AndroidDriverInstance.androidDriver.findElements(NOMINAL_TOPUP);
-        for (int i=0; i<topup.size(); i++){
-            if(topup.get(i).getText().equalsIgnoreCase(nominalTopup)){
-                topup.get(i).click();
+
+        switch (nominalTopup.toLowerCase()){
+            case "10k":
+                AndroidDriverInstance.androidDriver.findElement(BUTTON_10K).click();
                 break;
-            }
+            case "25k":
+                AndroidDriverInstance.androidDriver.findElement(BUTTON_25K).click();
+                break;
+            case "50k":
+                AndroidDriverInstance.androidDriver.findElement(BUTTON_50K).click();
+                break;
         }
 
     }
@@ -35,7 +40,6 @@ public class TopUpPagePage {
     public void chooseMerchant() {
         AndroidDriverInstance.androidDriver.findElement(MERCHANT_BUTTON).click();
     }
-
 
 
     public void chooseBankPayment(String bankPayment){

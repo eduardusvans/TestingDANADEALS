@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static demo.utils.ActionUtils.*;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
 import static demo.driver.AndroidDriverInstance.androidDriver;
 
@@ -19,6 +20,7 @@ public class HomePayer {
     }
 
     public void topupIcon(){
+        waitABit(2000);
         androidDriver.findElement(TOPUP_ICON).click();
     }
 }

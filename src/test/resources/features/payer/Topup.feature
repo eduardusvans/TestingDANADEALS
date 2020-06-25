@@ -1,14 +1,17 @@
 @Android @Topup
 Feature: Topup feature for DANA Deals
   Background:
-    Given User is on DANA Deals Login page
-    And User input "phoneNumber" on phone number input field on login page
-    And User input "password" on password input field on login page
+    Given User is on Landing page
+    And User click Login to Account button
+    And User is on DANA Deals Login page
+    And User input "81904107070" on phone number input field on login page
+    And User input "P@ssw0rd" on password input field on login page
+    And User click Login button
     And User is on Home page
-    And User click top up icon button on Home Page
 
   Scenario Outline: Top up with All nominal using bank transfer payment method as a new user
-    When User is on Top up Page
+    When User click top up icon button on Home Page
+    And User is on Top up Page
     And User choose "<nominal>" as top up nominal on Top up Page
     And User choose Virtual account as a payment method on Top up Page
     And User choose "<bankTransfer>" to pay the top up on Top up Page
@@ -129,6 +132,21 @@ Feature: Topup feature for DANA Deals
       |81904106060 | P@ssw0rd  | RP. 10.000 | BCA          |
       |81904106060 | P@ssw0rd  | RP. 25.000 | BCA          |
       |81904106060 | P@ssw0rd  | RP. 50.000 | BCA          |
+
+  @Test
+  Scenario Outline: Top up with All nominal using bank transfer payment method as a new user
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User choose "<nominal>" as top up nominal on Top up Page
+    And User choose Virtual account as a payment method on Top up Page
+    And User choose "<bankTransfer>" to pay the top up on Top up Page
+    And User click Next Button on Top up Page
+    Then User will redirect into Payment Page
+
+    Examples:
+      | nominal    | bankTransfer |
+      #TOP001
+      | 10k | BNI          |
 
 
 
