@@ -1,4 +1,5 @@
 package demo.pages.payer.forgotPassword;
+import static demo.locators.payer.forgotPassword.ForgotPasswordPageLocator.BUTTON_SEND_OTP;
 import static demo.locators.payer.forgotPassword.ResetPasswordPageLocator.*;
 import static demo.utils.ActionUtils.*;
 
@@ -17,6 +18,10 @@ public class ResetPasswordPage {
 
     public void tapChangeButton() {
         tapElement(BUTTON_CHANGE);
+    }
+
+    public boolean changeButtonStatus() {
+        return waitElement(BUTTON_CHANGE, 15).isEnabled();
     }
 
 }

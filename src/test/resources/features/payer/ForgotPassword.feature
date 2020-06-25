@@ -32,11 +32,11 @@ Feature: Forgot Password
       # FGP004
       | 87722074250  | 0000 | Abcdefghijklmn3! | Abcdefghijklmn3!   |
 
-  @Negative @1
+  @Negative @1-1
   Scenario Outline: Reset password with invalid Phone Number input
     Given User is on Forgot Password page
     When User input "<phoneNumber>" on Phone Number input text field on Forgot Password page
-    When User tap the Send OTP button on Forgot Password page
+    When User cannot tap the Send OTP button on Forgot Password page
     When User is still on Forgot Password page
     Examples:
       | phoneNumber |
@@ -44,12 +44,19 @@ Feature: Forgot Password
       |             |
       # FGP006
       | 87722074    |
-      # FGP008
-      | 89695966514 |
+      #
       # FGP009
       | 6885559737  |
       # FGP010
       | 877220742N  |
+
+  @Negative @1-2
+  # FGP008
+  Scenario: Reset password with unregistered Phone Number input
+    Given User is on Forgot Password page
+    When User input "89695966513" on Phone Number input text field on Forgot Password page
+    When User tap the Send OTP button on Forgot Password page
+    When User is still on Forgot Password page
 
   @Negative @2
   Scenario Outline: Reset password with invalid OTP input
@@ -78,7 +85,7 @@ Feature: Forgot Password
     When User is on Reset Password page
     When User input "<newPassword>" on New Password input text field on Reset Password page
     When User input "<confirmNewPassword>" on Confirm New Password input text field on Reset Password page
-    When User tap the Change button on Reset Password page
+    When User cannot tap the Change button on Reset Password page
     Then User is still on Reset Password page
     Examples:
       | phoneNumber | otp  | newPassword      | confirmNewPassword |

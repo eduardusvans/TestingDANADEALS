@@ -97,4 +97,16 @@ public class ForgotPasswordStepDefinitions {
         boolean status = resetPasswordPage.isOnPage();
         Assert.assertTrue(status);
     }
+
+    @When("User cannot tap the Send OTP button on Forgot Password page")
+    public void userCannotTapTheSendOTPButtonOnForgotPasswordPage() {
+        boolean status = forgotPasswordPage.sendOtpButtonStatus();
+        Assert.assertFalse(status);
+    }
+
+    @When("User cannot tap the Change button on Reset Password page")
+    public void userCannotTapTheChangeButtonOnResetPasswordPage() {
+        boolean status = resetPasswordPage.changeButtonStatus();
+        Assert.assertFalse(status);
+    }
 }
