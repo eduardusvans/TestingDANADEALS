@@ -61,6 +61,13 @@ public class RegisterStepDefinitions {
         registerPage.tapCreateAccountButton();
     }
 
+    @When("User cannot tap the Create Account button on Register page")
+    public void userCannotTapTheCreateAccountButtonOnRegisterPage() {
+        registerPage.tapCreateAccountButton();
+        boolean status = registerPage.createAccountButtonStatus();
+        Assert.assertFalse(status);
+    }
+
     @Then("User see the success message on Login page")
     public void userSeeTheSuccessMessageOnLoginPage() {
         ActionUtils.waitABit(5000);
@@ -72,5 +79,4 @@ public class RegisterStepDefinitions {
         boolean status = registerPage.isOnPage();
         Assert.assertTrue(status);
     }
-
 }
