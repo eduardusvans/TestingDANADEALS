@@ -25,7 +25,6 @@ public class ActionUtils {
         element.getText();
     }
 
-
     public static void inputElement(By targetElement, String input) {
         // Null changer
         input = nullChanger(input);

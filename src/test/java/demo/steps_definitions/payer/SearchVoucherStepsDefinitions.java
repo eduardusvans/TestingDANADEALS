@@ -11,35 +11,26 @@ public class SearchVoucherStepsDefinitions {
     }
 
     @When("User type a {string} at search field on DANA Deals Homepage")
-    public void userTypeAAtSearchFieldOnDANADealsHomepage(String Keyword) {
-    }
-
-    @Then("User see all vouchers that contains the {string} are displayed")
-    public void userSeeAllVouchersThatContainsTheAreDisplayed(String Keyword) {
+    public void userTypeAAtSearchFieldOnDANADealsHomepage(String arg0) {
     }
 
     @Then("User see all vouchers of {string} that contains the {string} are displayed")
-    public void userSeeAllVouchersOfThatContainsTheAreDisplayed(String Keyword1, String Keyword2) {
+    public void userSeeAllVouchersOfThatContainsTheAreDisplayed(String arg0, String arg1) {
     }
 
     @When("User type {string} at search field on DANA Deals Homepage")
-    public void userTypeAtSearchFieldOnDANADealsHomepage(String Keyword) {
+    public void userTypeAtSearchFieldOnDANADealsHomepage(String arg0) {
     }
-
-    @And("User see the voucher that {string} is displayed")
-    public void userSeeTheVoucherThatIsDisplayed(String Keyword) {
-    }
-
-    @And("User delete the {string} on search field")
-    public void userDeleteTheOnSearchField(String Keyword) {
-    }
-
-    @Then("User see all vouchers are displayed")
-    public void userSeeAllVouchersAreDisplayed() {
-    }
-
 
     @Then("User can't find any voucher and see error message")
     public void userCanTFindAnyVoucherAndSeeErrorMessage() {
+    }
+
+    @When("User click pay voucher button on cashier page")
+    public void userClickPayVoucherButtonOnCashierPage() {
+    }
+
+    @When("User back to DANA Deals homepage and type a {string} at search field")
+    public void userBackToDANADealsHomepageAndTypeAAtSearchField(String arg0) {
     }
 }
