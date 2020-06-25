@@ -77,7 +77,6 @@ Feature: Profile
 
 
   #P008 - P015
-  @b
   Scenario Outline: Change name with valid input
     Given User is on Home page
     When User tap profile icon

@@ -1,6 +1,5 @@
 package demo.pages.payer.profile;
-import static demo.locators.LoginPageLocator.BUTTON_LOGIN;
-import static demo.locators.payer.profile.ProfilePageLocator.assertProfilePage;
+
 import static demo.locators.payer.profile.ViewAccountInfoPageLocator.*;
 import static demo.utils.ActionUtils.tapElement;
 import static demo.utils.ActionUtils.waitElement;
