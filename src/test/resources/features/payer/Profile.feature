@@ -258,6 +258,7 @@ Feature: Profile
       |Van1234!     |Vans12!😎            |
 
   #P048
+  @a
   Scenario: change password on confirm new password not match with new password input
     Given User is on Home page
     When User tap profile icon
@@ -266,9 +267,9 @@ Feature: Profile
     And User is on Change User Data screen
     And User tap Edit Password radio button on Change User Data screen
     And User is on Change Password screen
-    And User input "oldPassword" on old password input text field on Change Password screen
-    And User input "newPassword" on new password input text field on Change Password screen
-    And User input "confirmNewPassword" on confirm new password input text field on Change Password screen
+    And User input "Van1234!" on old password input text field on Change Password screen
+    And User input "Vans123!" on new password input text field on Change Password screen
+    And User input "Vans321!" on confirm new password input text field on Change Password screen
     And User tap Change Password button on Change Password screen
     Then User see warning text below confirmNewPassword
 
