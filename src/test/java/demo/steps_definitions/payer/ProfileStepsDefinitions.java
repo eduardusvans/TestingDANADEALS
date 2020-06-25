@@ -26,7 +26,6 @@ public class ProfileStepsDefinitions {
     @Then("User is on Profile screen")
     public void userIsOnProfileScreen() {
         profilePage.isOnPageProfile();
-        waitABit(10);
     }
 
     @When("User tap Account Info menu")
@@ -47,7 +46,6 @@ public class ProfileStepsDefinitions {
     @Then("User is on Change User Data screen")
     public void userIsOnChangeUserDataScreen() {
         changeUserDataPage.isOnPageChangeUserDataPage();
-        waitABit(10);
     }
 
     @When("User tap Edit Password radio button on Change User Data screen")
@@ -58,7 +56,6 @@ public class ProfileStepsDefinitions {
     @Then("User is on Change Password screen")
     public void userIsOnChangePasswordScreen() {
         changePasswordPage.isOnPageChangePassword();
-        waitABit(10);
     }
 
     @When("User tap Back button on Account Info screen")
@@ -94,7 +91,6 @@ public class ProfileStepsDefinitions {
     @Then("User tap Done button on Account Info screen")
     public void userTapDoneButtonOnAccountInfoScreen() {
         viewAccountInfoPage.tapDoneBtn();
-        waitABit(10);
     }
 
     @When("User tap Edit Mail Address radio button on Change User Data screen")
@@ -130,31 +126,26 @@ public class ProfileStepsDefinitions {
     @Then("User see warning text below oldPassword")
     public void userSeeWarningTextBelowOldPassword() {
         changePasswordPage.seeWarningText();
-        waitABit(10);
     }
 
     @Then("User see warning text below newPassword")
     public void userSeeWarningTextBelowNewPassword() {
         changePasswordPage.seeWarningText();
-        waitABit(10);
     }
 
     @Then("User see warning below oldPassword")
     public void userSeeWarningBelowOldPassword() {
         changePasswordPage.seeWarningText();
-        waitABit(10);
     }
 
     @Then("User see warning text below confirmNewPassword")
     public void userSeeWarningTextBelowConfirmNewPassword() {
         changePasswordPage.seeWarningText();
-        waitABit(10);
     }
 
 
     @When("User tap Change Password button on Change Password screen")
     public void userTapChangePasswordButtonOnChangePasswordScreen() {
         changePasswordPage.tapChangePasswordBtn();
-        waitABit(10);
     }
 }

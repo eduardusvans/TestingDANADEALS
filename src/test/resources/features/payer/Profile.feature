@@ -138,14 +138,14 @@ Feature: Profile
     And User input "<oldPassword>" on old password input text field on Change Password screen
     And User input "<newPassword>" on new password input text field on Change Password screen
     And User input "<confirmNewPassword>" on confirm new password input text field on Change Password screen
-    And User tap Update button on Change User Data screen
+    And User tap Change Password button on Change Password screen
     Then User is on Profile screen
     Examples:
       | oldPassword | newPassword        | confirmNewPassword |
     # P018
       | Van1234!    | Vans123!           | Vans123!           |
     # P019
-      | Van1234!     | Vansvansvansvans1! | Vansvansvansvans1! |
+      | Van1234!     | Vansvansvansva1! | Vansvansvansva1! |
 
   #P020
   Scenario: log out from app
@@ -196,8 +196,7 @@ Feature: Profile
     And User tap Edit Mail Address radio button on Change User Data screen
     And User input "<e-mail>" on E-mail input text field on Change User Data screen
     And User tap Update button on Change User Data screen
-    Then User is on Account Info screen
-    Then User tap Done button on Account Info screen
+    Then User is on Change User Data screen
     Examples:
       | e-mail                                                                         |
     # P033
@@ -236,7 +235,7 @@ Feature: Profile
     And User is on Change Password screen
     And User input "<oldPassword>" on old password input text field on Change Password screen
     And User input "<newPassword>" on new password input text field on Change Password screen
-    And User tap Change Password button on Change Password screen
+    And User see warning text below newPassword
     Then User is on Change Password screen
     Examples:
       | oldPassword | newPassword |
@@ -258,7 +257,6 @@ Feature: Profile
       |Van1234!     |Vans12!😎            |
 
   #P048
-  @a
   Scenario: change password on confirm new password not match with new password input
     Given User is on Home page
     When User tap profile icon

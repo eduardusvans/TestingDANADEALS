@@ -5,13 +5,16 @@ import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.utils.ActionUtils.*;
 
 public class ChangeUserDataPage {
-    public boolean isOnPageChangeUserDataPage() {
-        return waitElement(assertChangeUserDataPage, 20).isDisplayed();
+    public void isOnPageChangeUserDataPage() {
+        //return waitElement(assertChangeUserDataPage, 30).isDisplayed();
+        waitABit(5000);
+        waitElement(assertChangeUserDataPage,30).isDisplayed();
     }
     public void tapEditPasswordRB(){
         tapElement(passwordRB);
     }
     public void tapBackBtn(){
+        waitABit(2000);
         tapElement(BACK_BTN_ChangeUserData);
     }
     public void tapFullNameRB(){
@@ -21,20 +24,20 @@ public class ChangeUserDataPage {
         tapElement(mailAddressRB);
     }
     public void tapBtnUpdate(){
+        waitABit(1000);
         tapElement(BTN_UPDATE);
-        waitABit(15);
     }
     public void inputFullName(String firstName, String lastName){
         String fullName = fullNameSetter(firstName, lastName);
         androidDriver.findElement(fullNameInput).sendKeys(fullName);
-        waitABit(10);
+        waitABit(1000);
     }
     public void inputMail(String editMail){
         androidDriver.findElement(mailInput).sendKeys(editMail);
-        waitABit(10);
+        waitABit(1000);
     }
     public boolean seeWarningText(){
-        return waitElement(warningText,15).isDisplayed();
+        return waitElement(warningText,30).isDisplayed();
     }
     public static String fullNameSetter(String firstName, String lastName) {
         // Null changer

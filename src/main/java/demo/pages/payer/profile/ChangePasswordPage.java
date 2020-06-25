@@ -11,13 +11,17 @@ import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.utils.ActionUtils.*;
 
 public class ChangePasswordPage {
-    public boolean isOnPageChangePassword() {
-        return waitElement(assertChangePasswordPage, 15).isDisplayed();
+    public void isOnPageChangePassword() {
+        //return waitElement(assertChangePasswordPage, 30).isDisplayed();
+        waitABit(5000);
+        waitElement(assertChangePasswordPage,30).isDisplayed();
     }
     public void tapChangePasswordBtn(){
+        waitABit(2000);
         tapElement(BTN_Change_Password);
     }
     public void tapBackBtn(){
+        waitABit(2000);
         tapElement(Back_BTN_Change_Password);
     }
     public void inputOldPassword(String oldPassword){
@@ -30,6 +34,6 @@ public class ChangePasswordPage {
         androidDriver.findElement(confirmNewPasswordInput).sendKeys(confirmNewPassword);
     }
     public boolean seeWarningText(){
-        return waitElement(warningText,15).isDisplayed();
+        return waitElement(warningText,30).isDisplayed();
     }
 }
