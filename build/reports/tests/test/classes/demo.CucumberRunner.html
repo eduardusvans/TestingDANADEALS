@@ -85,56 +85,109 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>  ?[32mGiven ?[0m?[32mUser is on Landing page?[0m                                           ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()?[0m
-  ?[32mWhen ?[0m?[32mUser click Login to Account button?[0m                                 ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on DANA Deals Login page?[0m                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()?[0m
-  ?[32mWhen ?[0m?[32mUser input ?[0m?[32m?[1m&quot;83196747870&quot;?[0m?[32m on phone number input field on login page?[0m ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;P@sswordku1&quot;?[0m?[32m on password input field on login page?[0m      ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser click Login button?[0m                                             ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on Home page?[0m                                               ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnHomePage()?[0m
-Request method:	POST
-Request URI:	https://teamdeals.burrow.io/api/user/null/logout
-Proxy:			&lt;none&gt;
-Request params:	&lt;none&gt;
-Query params:	&lt;none&gt;
-Form params:	&lt;none&gt;
-Path params:	&lt;none&gt;
-Headers:		Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		&lt;none&gt;
-Multiparts:		&lt;none&gt;
-Body:
-{
-    
-}
-{&quot;path&quot;:&quot;\/api\/user\/null\/logout&quot;,&quot;data&quot;:null,&quot;message&quot;:&quot;You are not authorized.&quot;,&quot;timestamp&quot;:&quot;2020\/06\/23 09:40&quot;,&quot;status&quot;:&quot;021&quot;}
-  ?[32mGiven ?[0m?[32mUser is on Landing page?[0m                                           ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()?[0m
-  ?[32mWhen ?[0m?[32mUser click Login to Account button?[0m                                 ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on DANA Deals Login page?[0m                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()?[0m
-  ?[32mWhen ?[0m?[32mUser input ?[0m?[32m?[1m&quot;87800000000&quot;?[0m?[32m on phone number input field on login page?[0m ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;P@ssw0rd&quot;?[0m?[32m on password input field on login page?[0m         ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)?[0m
-  ?[32mAnd ?[0m?[32mUser click Login button?[0m                                             ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
-  ?[32mThen ?[0m?[32mUser is on Home Admin page?[0m                                         ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()?[0m
-Request method:	POST
-Request URI:	https://teamdeals.burrow.io/api/user/null/logout
-Proxy:			&lt;none&gt;
-Request params:	&lt;none&gt;
-Query params:	&lt;none&gt;
-Form params:	&lt;none&gt;
-Path params:	&lt;none&gt;
-Headers:		Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		&lt;none&gt;
-Multiparts:		&lt;none&gt;
-Body:
-{
-    
-}
-{&quot;path&quot;:&quot;\/api\/user\/null\/logout&quot;,&quot;data&quot;:null,&quot;message&quot;:&quot;You are not authorized.&quot;,&quot;timestamp&quot;:&quot;2020\/06\/23 09:41&quot;,&quot;status&quot;:&quot;021&quot;}
+<pre>  ?[32mGiven ?[0m?[32mUser is on Landing page?[0m                                          ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()?[0m
+  ?[32mWhen ?[0m?[32mUser click Login to Account button?[0m                                ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()?[0m
+  ?[32mAnd ?[0m?[32mUser is on DANA Deals Login page?[0m                                   ?[90m# demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;87811223344&quot;?[0m?[32m on phone number input field on login page?[0m ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser input ?[0m?[32m?[1m&quot;P@ssw0rd&quot;?[0m?[32m on password input field on login page?[0m        ?[90m# demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mUser click Login button?[0m                                            ?[90m# demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()?[0m
+  ?[32mGiven ?[0m?[32mUser is on DANA Deals Homepage?[0m                                   ?[90m# demo.steps_definitions.payer.SearchVoucherStepsDefinitions.userIsOnDANADealsHomepage()?[0m
+  ?[31mWhen ?[0m?[31mUser click ?[0m?[31m?[1m&quot;aasseekk pocer&quot;?[0m?[31m on DANA Deals homepage?[0m                ?[90m# demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userClickOnDANADealsHomepage(java.lang.String)?[0m
+      ?[31morg.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'dnid0662l01.local', ip: 'fe80:0:0:0:826:3de4:3ec4:283f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '1.8.0_251'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: /Users/rahardianr/Documents..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UiAutomator2, databaseEnabled: false, desired: {app: /Users/rahardianr/Documents..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Android Emulator, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2220, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 66, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 2022, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 8da5d2ec-e647-41f8-a0de-470f59598bf9
+*** Element info: {Using=xpath, value=//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = 'aasseekk pocer']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
+	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at demo.pages.payer.home.HomePayer.clickVoucher(HomePayer.java:66)
+	at demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userClickOnDANADealsHomepage(BuyVoucherStepsDefinitions.java:24)
+	at ✽.User click &quot;aasseekk pocer&quot; on DANA Deals homepage(file:///Users/rahardianr/Documents/DANApprentech/HandsOn/automation%20repo/TestingDANADEALS/src/test/resources/features/payer/PayVoucher.feature:23)
+?[0m
+  ?[36mWhen ?[0m?[36mUser is on voucher details page of ?[0m?[36m?[1m&quot;aasseekk pocer&quot;?[0m               ?[90m# demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userIsOnVoucherDetailsPageOf(java.lang.String)?[0m
+  ?[36mWhen ?[0m?[36mUser click buy button on voucher details page?[0m                     ?[90m# demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userClickBuyButtonOnVoucherDetailsPage()?[0m
+  ?[36mWhen ?[0m?[36mUser see is on cashier page of ?[0m?[36m?[1m&quot;aasseekk pocer&quot;?[0m                   ?[90m# demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userSeeIsOnCashierPageOf(java.lang.String)?[0m
+  ?[36mWhen ?[0m?[36mUser click pay button on cashier page?[0m                             ?[90m# demo.steps_definitions.payer.PayVoucherStepsDefinitions.userClickPayButtonOnCashierPage()?[0m
+  ?[36mThen ?[0m?[36mUser see pop up notification that pay success?[0m                     ?[90m# demo.steps_definitions.payer.PayVoucherStepsDefinitions.userSeePopUpNotificationThatPaySuccess()?[0m
 
-2 Scenarios (?[32m2 passed?[0m)
-14 Steps (?[32m14 passed?[0m)
-0m42.270s
+    Embedding null [image/png 109554 bytes]
+
+
+    Scenario Fail
+
+
+?[31mFailed scenarios:?[0m
+?[31mfile:///Users/rahardianr/Documents/DANApprentech/HandsOn/automation%20repo/TestingDANADEALS/src/test/resources/features/payer/PayVoucher.feature:21?[0m# Pay voucher from voucher details page
+
+1 Scenarios (?[31m1 failed?[0m)
+13 Steps (?[31m1 failed?[0m, ?[36m5 skipped?[0m, ?[32m7 passed?[0m)
+0m40.406s
+
+
+org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'dnid0662l01.local', ip: 'fe80:0:0:0:826:3de4:3ec4:283f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '1.8.0_251'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: /Users/rahardianr/Documents..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UiAutomator2, databaseEnabled: false, desired: {app: /Users/rahardianr/Documents..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Android Emulator, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2220, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 66, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 2022, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 8da5d2ec-e647-41f8-a0de-470f59598bf9
+*** Element info: {Using=xpath, value=//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = 'aasseekk pocer']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
+	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at demo.pages.payer.home.HomePayer.clickVoucher(HomePayer.java:66)
+	at demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userClickOnDANADealsHomepage(BuyVoucherStepsDefinitions.java:24)
+	at ✽.User click &quot;aasseekk pocer&quot; on DANA Deals homepage(file:///Users/rahardianr/Documents/DANApprentech/HandsOn/automation%20repo/TestingDANADEALS/src/test/resources/features/payer/PayVoucher.feature:23)
 
 
 </pre>
@@ -143,12 +196,9 @@ Body:
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Jun 23, 2020 9:40:28 AM io.cucumber.core.options.CucumberPropertiesParser parse
+<pre>Jun 26, 2020 12:08:58 AM io.cucumber.core.options.CucumberPropertiesParser parse
 WARNING: Passing commandline options via the property `cucumber.options` has been deprecatedin favour of explicitly using property names.
 Please use these instead: [cucumber.ansi-colors.disabled, cucumber.execution.dry-run, cucumber.execution.limit, cucumber.execution.order, cucumber.execution.strict, cucumber.execution.wip, cucumber.features, cucumber.filter.name, cucumber.filter.tags, cucumber.glue, cucumber.object-factory, cucumber.plugin, cucumber.snippet-type]
-SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 </pre>
 </span>
 </div>
@@ -160,7 +210,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 23, 2020, 9:41:11 AM</p>
+<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 26, 2020 12:09:39 AM</p>
 </div>
 </div>
 </body>

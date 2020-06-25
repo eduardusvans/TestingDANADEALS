@@ -19,8 +19,8 @@ public class VoucherDetailPayerPage {
         tapElement(TNC_TAB);
     }
 
-    public void checkVoucherName(){
-        getElement(VOUCHER_NAME);
+    public String checkVoucherName(){
+        return getElement(VOUCHER_NAME);
     }
 
     public void checkContentOnTab(){

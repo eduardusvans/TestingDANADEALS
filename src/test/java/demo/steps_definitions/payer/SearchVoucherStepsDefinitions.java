@@ -1,11 +1,19 @@
 package demo.steps_definitions.payer;
 
+import demo.pages.payer.home.HomePayer;
+import demo.pages.payer.home.VoucherCashierPage;
+import demo.pages.payer.home.VoucherDetailPayerPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SearchVoucherStepsDefinitions {
+
+    HomePayer homePayer = new HomePayer();
+    VoucherDetailPayerPage voucherDetailPayerPage = new VoucherDetailPayerPage();
+    VoucherCashierPage voucherCashierPage = new VoucherCashierPage();
+
     @Given("User is on DANA Deals Homepage")
     public void userIsOnDANADealsHomepage() {
     }

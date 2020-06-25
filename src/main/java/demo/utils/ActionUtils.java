@@ -20,9 +20,9 @@ public class ActionUtils {
         element.click();
     }
 
-    public static void getElement(By targetElement){
+    public static String getElement(By targetElement){
         AndroidElement element = androidDriver.findElement(targetElement);
-        element.getText();
+        return element.getText();
     }
 
     public static void inputElement(By targetElement, String input) {

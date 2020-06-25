@@ -36,7 +36,7 @@
       Given User is on DANA Deals Homepage
       When User type a "character" at search field on DANA Deals Homepage
       When User see all vouchers of "merchant name" that contains the "character" are displayed
-      When User choose "voucher name" to see voucher details
+      When User click "voucher name" to see voucher details
       When User see the voucher details of "voucher name" is displayed
       When User click buy button on voucher details page
       Then User see is on cashier page of "voucher name"
@@ -76,7 +76,7 @@
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
       When User choose "voucher value" to sort the voucher
-      When User see all vouchers of the "sort by voucher value" are displayed
+      When User see all vouchers are sorted from high to low of voucher value start from "voucher value"
       When User choose "voucher name" to see voucher details
       When User see the voucher details of "voucher name" is displayed
       When User click buy button on voucher details page

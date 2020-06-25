@@ -1,10 +1,18 @@
 package demo.steps_definitions.payer;
 
+import demo.pages.payer.home.HomePayer;
+import demo.pages.payer.home.VoucherCashierPage;
+import demo.pages.payer.home.VoucherDetailPayerPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ViewDetailsStepsDefinitions {
+
+    HomePayer homePayer = new HomePayer();
+    VoucherDetailPayerPage voucherDetailPayerPage = new VoucherDetailPayerPage();
+
+
     @When("User click {string} voucher on DANA Deals homepage")
     public void userClickVoucherOnDANADealsHomepage(String arg0) {
     }

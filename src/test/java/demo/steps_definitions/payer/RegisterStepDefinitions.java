@@ -1,5 +1,6 @@
 package demo.steps_definitions.payer;
 
+import demo.pages.LoginPage;
 import demo.pages.payer.RegisterPage;
 import demo.utils.ActionUtils;
 import io.cucumber.java.en.Given;
@@ -14,7 +15,7 @@ public class RegisterStepDefinitions {
 
     @Given("User tap the Register here link on Login page")
     public void userTapTheRegisterHereLinkOnLoginPage() {
-        loginPage.tapRegisterHereLink();
+        loginPage.clickRegister();
     }
 
     @Given("User is on Register page")

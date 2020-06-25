@@ -1,7 +1,13 @@
 package demo.pages.payer.home;
 import demo.driver.AndroidDriverInstance;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+
+import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
 import static demo.utils.ActionUtils.*;
 
@@ -43,7 +49,7 @@ public class HomePayer {
     }
 
     public void clickBuy(String Keyword){
-        AndroidDriverInstance.androidDriver.findElement(MobileBy.xpath("/hierarchy/android.widget.FrameLayout/" +
+        androidDriver.findElement(MobileBy.xpath("/hierarchy/android.widget.FrameLayout/" +
                 "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
                 "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/" +
                 "android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
@@ -51,13 +57,19 @@ public class HomePayer {
                 "android.widget.Button")).click();
     }
 
-    public void clickVoucher(String VoucherName){
+    public void clickVoucher(String VoucherName) {
+        if (VoucherName == "aasseekk pocer") {
             String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
-            AndroidDriverInstance.androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).click();
+            androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).click();
+        } else {
+            String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
+            androidDriver.findElement(By.xpath(String.format(xpath, VoucherName)));
+            tapAndScroll(VoucherName);
 
+        }
     }
 
-    public String checkVoucherPrice() {
+        public String checkVoucherPrice() {
         return waitElement(VOUCHER_PRICE_CHECK, 20).getText();
     }
 
@@ -66,14 +78,46 @@ public class HomePayer {
     }
 
     public void checkMerchantCategory(String VoucherName){
-        waitABit(10);
+        waitABit(2000);
         String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
-        AndroidDriverInstance.androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).getText();
+        androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).getText();
 
 
     }
 
+    public static void scrollDown() {
+        AndroidElement screen = androidDriver.findElement(By.id("rv_voucher"));
+        Point center =  screen.getCenter();
+        int startX = 112;
+        int startY = (int) (center.getY() * 1.5);
+        int endX = 112;
+        int endY = (int) (center.getY() * 0.5);
+        @SuppressWarnings("rawtypes")
+        TouchAction scroll = new TouchAction(androidDriver);
+        scroll.press(PointOption.point(startX, startY))
+                .moveTo(PointOption.point(endX, endY)).perform();
     }
+
+    public static void tapAndScroll(String Keyword) {
+        boolean isFound = false;
+        int counter = 0;
+
+        do {
+            try {
+                AndroidDriverInstance.androidDriver.findElement(By.id(Keyword)).click();
+                isFound = true;
+            } catch (Exception e) {
+                scrollDown();
+                counter++;
+            }
+
+        } while (!isFound && counter < 2);
+    }
+
+
+
+
+}
 
 
 
