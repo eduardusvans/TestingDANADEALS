@@ -33,33 +33,4 @@ public class ChangePasswordPage {
         return waitElement(warningText,15).isDisplayed();
     }
 
-    public static void scrollDown() {
-        AndroidElement screen = androidDriver
-                .findElement(By.id("action_bar_root"));
-        Point center =  screen.getCenter();
-        int startX = 20;
-        int startY = (int) (center.getY() * 1.5);
-        int endX = 20;
-        int endY = (int) (center.getY() * 0.5);
-        @SuppressWarnings("rawtypes")
-        TouchAction scroll = new TouchAction(androidDriver);
-        scroll.press(PointOption.point(startX, startY))
-                .moveTo(PointOption.point(endX, endY)).perform();
-    }
-
-    public static void inputAndScroll(By targetElement, String input) {
-        boolean isFound = false;
-        int counter = 0;
-
-        do {
-            try {
-                inputElement(targetElement, input);
-                isFound = true;
-            } catch (Exception e) {
-                scrollDown();
-                counter++;
-            }
-
-        } while (!isFound && counter < 5);
-    }
 }

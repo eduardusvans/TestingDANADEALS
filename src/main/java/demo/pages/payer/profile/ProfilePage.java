@@ -1,8 +1,7 @@
 package demo.pages.payer.profile;
 
 import static demo.locators.payer.profile.ProfilePageLocator.*;
-import static demo.utils.ActionUtils.tapElement;
-import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class ProfilePage {
     public boolean isOnPageProfile() {
@@ -12,5 +11,6 @@ public class ProfilePage {
     public void tapChangeUserDataMenu(){ tapElement(Change_User_Data);}
     public void tapLogoutButton(){
         tapElement(LOGOUT_BTN);
+        waitABit(15);
     }
 }
