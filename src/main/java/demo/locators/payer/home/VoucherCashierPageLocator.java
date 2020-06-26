@@ -11,7 +11,7 @@ public interface VoucherCashierPageLocator {
     By VOUCHER_NAME = MobileBy.id("tv_voucher_name");
     By VOUCHER_PRICE = MobileBy.id("tv_price");
     By CONFIRM_PAYMENT_TEXT = MobileBy.id("tv_confirm");
-    By BACK_BUTTON = MobileBy.AccessibilityId("Navigate up");
+    By BACK_BUTTON = MobileBy.xpath("//android.widget.ImageButton[@content-desc=\"Navigate up\"]");
     By PAY_BUTTON = MobileBy.id("btn_pay");
 
 }

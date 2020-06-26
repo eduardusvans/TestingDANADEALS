@@ -132,3 +132,41 @@
       When User2 see pop up notification that payment success
       When User1 click pay button on cashier page
       Then User1 see pop up notification that voucher is out of stock
+
+
+    @TestForHistoryFeature @PaySuccess
+    Scenario: Pay voucher success
+      Given User is on DANA Deals Homepage
+      When User click "aasseekk pocer" on DANA Deals homepage
+      When User is on voucher details page of "aasseekk pocer"
+      When User click buy button on voucher details page
+      When User see is on cashier page of "aasseekk pocer"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success
+
+    @TestForHistoryFeature @PayFailed
+    Scenario: Pay voucher from voucher details page
+      Given User is on DANA Deals Homepage
+      When User type a "kfc" at search field on DANA Deals Homepage
+      When User click buy on crazy deals kfc
+      Then User see pop up notification that pay failed
+
+    @TestForHistoryFeature @PayInprogress
+    Scenario: Pay voucher for inprogress
+      Given User is on DANA Deals Homepage
+      When User click "aasseekk pocer" on DANA Deals homepage
+      When User is on voucher details page of "aasseekk pocer"
+      When User click buy button on voucher details page
+      When User see is on cashier page of "aasseekk pocer"
+      When User click back button on cashier page
+      When User click back button on voucher details page
+      Then User is on DANA Deals Homepage
+
+    @TestForHistoryFeature @PayRefund
+    Scenario: Pay Voucher refund
+      Given User is on DANA Deals Homepage
+      When User type a "Telkom" at search field on DANA Deals Homepage
+      When User click Bayar indiehome voucher on DANA Deals homepage
+      When User is on voucher details page of "Bayar Indiehome 11"
+      When User click buy button on voucher details page
+      Then User see pop up notification that pay failed

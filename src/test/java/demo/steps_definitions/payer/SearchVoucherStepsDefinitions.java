@@ -19,7 +19,8 @@ public class SearchVoucherStepsDefinitions {
     }
 
     @When("User type a {string} at search field on DANA Deals Homepage")
-    public void userTypeAAtSearchFieldOnDANADealsHomepage(String arg0) {
+    public void userTypeAAtSearchFieldOnDANADealsHomepage(String Keyword) {
+        homePayer.inputSearch(Keyword);
     }
 
     @Then("User see all vouchers of {string} that contains the {string} are displayed")

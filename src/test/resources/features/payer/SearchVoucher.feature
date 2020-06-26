@@ -12,7 +12,7 @@
       @Positive
     Scenario: Search voucher with a character
       Given User is on DANA Deals Homepage
-      When User type a "a" at search field on DANA Deals Homepage
+      When User type a "character" at search field on DANA Deals Homepage
       Then User see all vouchers of "merchant name" that contains the "character" are displayed
 
       @Negative

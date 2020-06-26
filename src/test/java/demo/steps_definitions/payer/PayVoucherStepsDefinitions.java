@@ -58,4 +58,25 @@ public class PayVoucherStepsDefinitions {
     @When("User{int} click pay button on cashier page")
     public void userClickPayButtonOnCashierPage(int arg0) {
     }
+
+    @When("User click back button on cashier page")
+    public void userClickBackButtonOnCashierPage() {
+        voucherCashierPage.clickBack();
+    }
+
+    @Then("User see pop up notification that pay failed")
+    public void userSeePopUpNotificationThatPayFailed() {
+        
+    }
+
+
+    @When("User click Bayar indiehome voucher on DANA Deals homepage")
+    public void userClickBayarIndiehomeVoucherOnDANADealsHomepage() {
+        homePayer.clickVoucherRefund();
+    }
+
+    @When("User click buy on crazy deals kfc")
+    public void userClickBuyOnCrazyDealsKfc() {
+        homePayer.clickVoucherFailed();
+    }
 }

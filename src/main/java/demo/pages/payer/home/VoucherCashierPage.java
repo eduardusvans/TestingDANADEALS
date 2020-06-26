@@ -23,9 +23,16 @@ public class VoucherCashierPage {
 
     public void clickPay(){
        tapElement(PAY_BUTTON);
+        waitABit(2000);
+    }
+
+    public void clickBack(){
+        tapElement(BACK_BUTTON);
+        waitABit(2000);
     }
 
     public String checkToastMessage() {
+        waitABit(3000);
         WebElement toastView = AndroidDriverInstance.androidDriver.findElement(By.xpath("//android.widget.Toast[1]"));
         return toastView.getAttribute("name");
     }

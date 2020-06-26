@@ -43,6 +43,7 @@ public class ViewDetailsStepsDefinitions {
 
     @When("User click back button on voucher details page")
     public void userClickBackButtonOnVoucherDetailsPage() {
+        voucherDetailPayerPage.clickBack();
     }
 
     @Then("User back to DANA Deals homepage")

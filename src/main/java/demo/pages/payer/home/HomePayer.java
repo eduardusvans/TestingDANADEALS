@@ -58,14 +58,11 @@ public class HomePayer {
     }
 
     public void clickVoucher(String VoucherName) {
-        if (VoucherName == "aasseekk pocer") {
-            String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
+        if (VoucherName == "aasseekk pocer" || VoucherName == "aaa asiiik voucher" || VoucherName == "AAAA Deals Z") {
+            String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name') and @text = '%s']";
             androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).click();
         } else {
-            String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
-            androidDriver.findElement(By.xpath(String.format(xpath, VoucherName)));
             tapAndScroll(VoucherName);
-
         }
     }
 
@@ -104,16 +101,26 @@ public class HomePayer {
 
         do {
             try {
-                AndroidDriverInstance.androidDriver.findElement(By.id(Keyword)).click();
+                String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name') and @text = '%s']";
+                androidDriver.findElement(By.xpath(String.format(xpath, Keyword))).click();
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
                 counter++;
             }
 
-        } while (!isFound && counter < 2);
+        } while (!isFound && counter < 3);
     }
 
+    public void clickVoucherRefund(){
+        waitABit(5000);
+        tapElement(VOUCHER_REFUND);
+    }
+
+    public void clickVoucherFailed(){
+        waitABit(5000);
+        tapElement(VOUCHER_FAILED);
+    }
 
 
 

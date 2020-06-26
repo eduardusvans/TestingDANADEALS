@@ -16,10 +16,10 @@ public interface HomePayerPageLocator {
     //voucher
     By VOUCHER_PRICE_CHECK = MobileBy.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
-            "android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/" +
-            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
-            "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[6]");
+                    "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+                    "android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/" +
+                    "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
+                    "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[6]");
 
     By VOUCHER_DISCOUNT_CHECK = MobileBy.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
@@ -35,5 +35,18 @@ public interface HomePayerPageLocator {
                     "android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/" +
                     "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
                     "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[1]");
-}
 
+
+    By VOUCHER_REFUND = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+            "android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/" +
+            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
+            "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[1]");
+
+    By VOUCHER_FAILED = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
+            "android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/" +
+            "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/" +
+            "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button\n");
+
+}

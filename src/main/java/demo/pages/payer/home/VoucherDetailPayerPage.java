@@ -29,5 +29,11 @@ public class VoucherDetailPayerPage {
 
     public void clickBuy(){
         tapElement(BUY_BUTTON_VIEW_DETAILS);
+        waitABit(5000);
+    }
+
+    public void clickBack(){
+        tapElement(BACK_BUTTON);
+        waitABit(2000);
     }
 }
