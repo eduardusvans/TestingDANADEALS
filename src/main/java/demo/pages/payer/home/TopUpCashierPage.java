@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.locators.payer.home.TopUpCashierPageLocator.*;
+import static demo.locators.payer.home.TopUpPageLocator.NOMINAL_BALANCE;
+import static demo.utils.ActionUtils.waitABit;
 
 public class TopUpCashierPage {
     public boolean isOnTopupPaymentPage(){
@@ -33,5 +35,11 @@ public class TopUpCashierPage {
 
     public void clickTopupButton(){
         AndroidDriverInstance.androidDriver.findElement(TOPUP_BUTTON).click();
+    }
+
+    public String getOrderNominal(){
+        waitABit(2000);
+        AndroidElement orderNom = AndroidDriverInstance.androidDriver.findElement(TOPUP_AMOUNT_ORDER);
+        return orderNom.getText();
     }
 }

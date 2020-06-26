@@ -53,7 +53,7 @@ Feature: Topup feature for DANA Deals
     And User choose Virtual account as a payment method on Top up Page
     And User choose "<bankTransfer>" to pay the top up on Top up Page
     And User click Next Button on Top up Page
-    And User click Top up button on Top up cashier Page
+    And User click Top up button on Top up Payment Page
     Then User will see total balance is increase in Home page
     Examples:
       | nominal    | bankTransfer |
@@ -75,7 +75,7 @@ Feature: Topup feature for DANA Deals
     And User choose "<nominal>" as top up nominal on Top up Page
     And User choose Merchant as a payment method on Top up Page
     And User click Next Button on Top up Page
-    And User click Top up button on Top up cashier Page
+    And User click Top up button on Top up Payment Page
     Then User will see total balance is increase in Home page
     Examples:
       | nominal    |
@@ -92,8 +92,8 @@ Feature: Topup feature for DANA Deals
     And User choose "<bankTransfer>" to pay the top up on Top up Page
     And User click Next Button on Top up Page
     Then User will redirect into Payment Page
-    And User will get "<vaNumber>" as Virtual Account Number
-    And User click Top up button on Top up cashier Page
+    And User will get "<vaNumber>" as Virtual Account Number on Payment Page
+    And User click Top up button on Top up Payment Page
 
     Examples:
       | nominal    | bankTransfer | vaNumber |
@@ -143,7 +143,29 @@ Feature: Topup feature for DANA Deals
     And User choose "<bankTransfer>" to pay the top up on Top up Page
     And User click Next Button on Top up Page
     Then User will redirect into Payment Page
-    And User will get "<vaNumber>" as Virtual Account Number
+    And User will get "<vaNumber>" as Virtual Account Number on Payment Page
+
+    Examples:
+      | nominal | bankTransfer | vaNumber         |
+      #TOP001
+      | 10k     | BNI          | 9030081904107070 |
+      | 25k     | Mandiri      | 2372081904107070 |
+      | 50k     | BCA          | 4354081904107070 |
+
+  @Test2
+  Scenario Outline: Top up with All nominal using bank transfer payment method as a new user
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User see Balance on Top up Page
+    And User choose "<nominal>" as top up nominal on Top up Page
+    And User choose Virtual account as a payment method on Top up Page
+    And User choose "<bankTransfer>" to pay the top up on Top up Page
+    And User click Next Button on Top up Page
+    Then User will redirect into Payment Page
+    And User will get "<vaNumber>" as Virtual Account Number on Payment Page
+    And User get info of Nominal top up ordered on Payment Page
+    And User click Top up button on Top up Payment Page
+    And User will see total balance is increase in Home page
 
     Examples:
       | nominal | bankTransfer | vaNumber         |

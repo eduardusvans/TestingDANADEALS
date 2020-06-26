@@ -6,4 +6,5 @@ import org.openqa.selenium.By;
 
 public interface HomePayerPageLocator {
     By TOPUP_ICON = MobileBy.id("btn_topup");
+    By USER_BALANCE = MobileBy.id("");
 }

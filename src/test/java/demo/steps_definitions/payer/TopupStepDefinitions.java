@@ -23,6 +23,11 @@ public class TopupStepDefinitions {
         topupPage.isOnTopupPage();
     }
 
+    @And("User see Balance on Top up Page")
+    public void userSeeBalanceOnTopUpPage() {
+        topupPage.getBalance();
+    }
+
     @And("User choose {string} as top up nominal on Top up Page")
     public void userChooseAsTopUpNominalOnTopUpPage(String nominal) {
         topupPage.chooseTopupNominal(nominal);
@@ -56,20 +61,37 @@ public class TopupStepDefinitions {
 
     }
 
-    @And("User will get {string} as Virtual Account Number")
-    public void userWillGetAsVirtualAccountNumber(String vaCode) {
+    @And("User will get {string} as Virtual Account Number on Payment Page")
+    public void userWillGetAsVirtualAccountNumberOnPaymentPage(String vaCode) {
         String code = topUpCashierPage.getVirtualAccNumber();
         Assert.assertEquals(vaCode, code);
-
     }
 
-    @And("User click Top up button on Top up cashier Page")
-    public void userClickTopUpButtonOnTopUpCashierPage() {
+    @And("User click Top up button on Top up Payment Page")
+    public void userClickTopUpButtonOnTopUpPaymentPage() {
         topUpCashierPage.clickTopupButton();
     }
 
     @Then("User will see total balance is increase in Home page")
     public void userWillSeeTotalBalanceIsIncreaseInHomePage() {
+        String replaceBalance = topupPage.getBalance().replace("Rp","")
+                .replace(".","");
+        String replaceNominal = topupPage.getBalance().replace("Rp","")
+                .replace(".","");
+        String replaceSaldo = topupPage.getBalance().replace("Rp","")
+                .replace(".","");
+
+        int balance = Integer.parseInt(replaceBalance);
+        int nominal = Integer.parseInt(replaceNominal);
+        int topup = balance + nominal;
+        int actual = Integer.parseInt(replaceSaldo);
+        Assert.assertEquals(topup,actual);
+    }
+
+
+    @And("User get info of Nominal top up ordered on Payment Page")
+    public void userGetInfoOfNominalTopUpOrderedOnPaymentPage() {
+
     }
 
 }
