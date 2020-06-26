@@ -59,7 +59,7 @@ public class RegisterPage {
     }
 
     public boolean createAccountButtonStatus() {
-        return waitElement(BUTTON_CREATE_ACCOUNT, 15).isEnabled();
+        return getElement(BUTTON_CREATE_ACCOUNT).isEnabled();
     }
 
     public static void scrollDown() {
