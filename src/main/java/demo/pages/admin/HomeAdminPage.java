@@ -11,17 +11,16 @@ import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.admin.HomeAdminPageLocator.*;
 import static demo.locators.admin.VoucherDetailAdminPageLocator.INPUT_QUOTA;
 import static demo.locators.admin.VoucherDetailAdminPageLocator.TXT_STATUS;
+import static demo.utils.ActionUtils.tapElement;
+import static demo.utils.ActionUtils.waitElement;
 
 public class HomeAdminPage {
     public boolean isOnPage() {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement userLabel = wait
-                .until(ExpectedConditions.presenceOfElementLocated(VOUCHER));
-        return userLabel.isDisplayed();
+        return waitElement(INPUT_SEARCH_VOUCHER, 15).isDisplayed();
     }
 
     public void clickVoucher(String statusVoucher) {
-        androidDriver.findElement(VOUCHER).click();
+        tapElement(VOUCHER);
     }
 
     public void clickVoucher3Param(String name,String statusVoucher, String quota) {
@@ -29,8 +28,7 @@ public class HomeAdminPage {
     }
     public String getVoucherUpdate(){
         AndroidElement labelquota = androidDriver.findElement(INPUT_QUOTA);
-        String quota = labelquota.getText();
-        return quota ;
+        return labelquota.getText();
     }
 
 
