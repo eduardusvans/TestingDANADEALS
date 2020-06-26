@@ -21,7 +21,7 @@ public class ResetPasswordPage {
     }
 
     public boolean changeButtonStatus() {
-        return waitElement(BUTTON_CHANGE, 15).isEnabled();
+        return getElement(BUTTON_CHANGE).isEnabled();
     }
 
 }

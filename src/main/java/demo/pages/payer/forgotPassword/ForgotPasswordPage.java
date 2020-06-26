@@ -16,7 +16,7 @@ public class ForgotPasswordPage {
     }
 
     public boolean sendOtpButtonStatus() {
-        return waitElement(BUTTON_SEND_OTP, 15).isEnabled();
+        return getElement(BUTTON_SEND_OTP).isEnabled();
     }
 
 }
