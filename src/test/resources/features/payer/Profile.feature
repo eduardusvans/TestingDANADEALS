@@ -221,7 +221,9 @@ Feature: Profile
     And User is on Change User Data screen
     And User tap Edit Password radio button on Change User Data screen
     And User is on Change Password screen
-    And User input "oldPassword" on old password input text field on Change Password screen
+    And User input "Vans12345!" on old password input text field on Change Password screen
+    And User input "Van1234!" on new password input text field on Change Password screen
+    And User input "Van1234!" on confirm new password input text field on Change Password screen
     Then User see warning text below oldPassword
     Then User is on Change Password screen
 

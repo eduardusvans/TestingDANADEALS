@@ -1,5 +1,11 @@
 package demo.pages.payer.profile;
 
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+
 import static demo.locators.payer.profile.ChangeUserDataPageLocator.*;
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.utils.ActionUtils.*;
@@ -7,7 +13,7 @@ import static demo.utils.ActionUtils.*;
 public class ChangeUserDataPage {
     public void isOnPageChangeUserDataPage() {
         //return waitElement(assertChangeUserDataPage, 30).isDisplayed();
-        waitABit(5000);
+        waitABit(2000);
         waitElement(assertChangeUserDataPage,30).isDisplayed();
     }
     public void tapEditPasswordRB(){
