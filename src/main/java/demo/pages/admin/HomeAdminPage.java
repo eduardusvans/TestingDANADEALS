@@ -1,6 +1,10 @@
 package demo.pages.admin;
+import demo.driver.AndroidDriverInstance;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -60,20 +64,91 @@ public class HomeAdminPage {
     }
 
     public boolean checkAllVouchersPresence() {
-        boolean mixStatus = false;
         boolean mixMerchant = false;
-        while (!mixStatus && !mixMerchant) {
+        boolean mixStatus = false;
+        int counter = 0;
 
-        }
+        do {
+            if (!mixMerchant) {
+                List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
+                for (AndroidElement name : nameList) {
+                    if (!name.getText().equalsIgnoreCase(nameList.get(0).getText())) {
+                        mixMerchant = true;
+                        break;
+                    }
+                }
+            }
+            if (!mixStatus) {
+                List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
+                for (AndroidElement status : statusList) {
+                    if (!status.getText().equalsIgnoreCase(statusList.get(0).getText())) {
+                        mixStatus = true;
+                        break;
+                    }
+                }
+            }
+
+            scrollDown();
+            waitABit(2000);
+            counter++;
+            if (counter >= 100) {
+                return false;
+            }
+        } while (!mixStatus && !mixMerchant);
         return true;
     }
 
     public boolean checkKeywordVoucherPresence(String keyword) {
+        int counter = 0;
+
+        do {
+            List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
+            for (AndroidElement name : nameList) {
+                if (!name.getText().equalsIgnoreCase(keyword)) {
+                    return false;
+                }
+            }
+
+        scrollDown();
+        waitABit(2000);
+        counter++;
+
+        } while (counter <= 3);
+
         return true;
     }
 
     public boolean checkStatusVoucherPresence(String chosenStatus) {
+        int counter = 0;
+
+        do {
+            List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
+            for (AndroidElement status : statusList) {
+                if (!status.getText().equalsIgnoreCase(chosenStatus)) {
+                    return false;
+                }
+            }
+
+            scrollDown();
+            waitABit(2000);
+            counter++;
+
+        } while (counter <= 3);
+
         return true;
+    }
+
+    public static void scrollDown() {
+        AndroidElement screen = getElement(RECYCLE_VIEW_VOUCHER);
+        Point center =  screen.getCenter();
+        int startX = 20;
+        int startY = (int) (center.getY() * 1.5);
+        int endX = 20;
+        int endY = (int) (center.getY() * 0.5);
+        @SuppressWarnings("rawtypes")
+        TouchAction scroll = new TouchAction(androidDriver);
+        scroll.press(PointOption.point(startX, startY))
+                .moveTo(PointOption.point(endX, endY)).perform();
     }
 
 }

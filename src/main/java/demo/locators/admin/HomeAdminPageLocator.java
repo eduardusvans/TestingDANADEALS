@@ -12,4 +12,9 @@ public interface HomeAdminPageLocator {
     By BUTTON_LOGOUT = By.id("btn_logout");
     By BUTTON_RESET = By.id("tv_reset_admin");
 
+    By RECYCLE_VIEW_VOUCHER = By.id("rv_admin");
+
+    By VOUCHER_MERCHANT_NAME = By.xpath("//androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[2]");
+    By VOUCHER_STATUS = By.xpath("//androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button");
+
 }
