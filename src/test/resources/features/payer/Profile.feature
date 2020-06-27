@@ -138,14 +138,14 @@ Feature: Profile
     And User input "<oldPassword>" on old password input text field on Change Password screen
     And User input "<newPassword>" on new password input text field on Change Password screen
     And User input "<confirmNewPassword>" on confirm new password input text field on Change Password screen
-    And User tap Change Password button on Change Password screen
-    Then User is on Profile screen
+    Then User tap Change Password button on Change Password screen
+    Then User is on Home page
     Examples:
-      | oldPassword | newPassword        | confirmNewPassword |
+      | oldPassword | newPassword      | confirmNewPassword |
     # P018
-      | Van1234!    | Vans123!           | Vans123!           |
+      | Van1234!    | Vans123!         | Vans123!           |
     # P019
-      | Van1234!     | Vansvansvansva1! | Vansvansvansva1! |
+      | Van1234!    | Vansvansvansva1! | Vansvansvansva1!   |
 
   #P020
   Scenario: log out from app
@@ -223,6 +223,7 @@ Feature: Profile
     And User is on Change Password screen
     And User input "oldPassword" on old password input text field on Change Password screen
     Then User see warning text below oldPassword
+    Then User is on Change Password screen
 
   #P040 - P047
   Scenario Outline: Change password using new password with invalid input
@@ -235,26 +236,26 @@ Feature: Profile
     And User is on Change Password screen
     And User input "<oldPassword>" on old password input text field on Change Password screen
     And User input "<newPassword>" on new password input text field on Change Password screen
-    And User see warning text below newPassword
+    Then User see warning text below newPassword
     Then User is on Change Password screen
     Examples:
-      | oldPassword | newPassword |
+      | oldPassword | newPassword           |
     # P040
-      |Van1234!     |Vans         |
+      | Van1234!    | Vans                  |
     # P041
-      |Van1234!     |Vansvansvansvansvans1|
+      | Van1234!    | Vansvansvansvansvans1 |
     # P042
-      |Van1234!     |vans123!             |
+      | Van1234!    | vans123!              |
     # P043
-      |Van1234!     |VANS123!             |
+      | Van1234!    | VANS123!              |
     # P044
-      |Van1234!     |1234567!             |
+      | Van1234!    | 1234567!              |
     # P045
-      |Van1234!     |VansVan!             |
+      | Van1234!    | VansVan!              |
     # P046
-      |Van1234!     |Vans1234             |
+      | Van1234!    | Vans1234              |
     # P047
-      |Van1234!     |Vans12!😎            |
+      | Van1234!    | Vans12!😎             |
 
   #P048
   Scenario: change password on confirm new password not match with new password input
@@ -270,6 +271,7 @@ Feature: Profile
     And User input "Vans321!" on confirm new password input text field on Change Password screen
     And User tap Change Password button on Change Password screen
     Then User see warning text below confirmNewPassword
+    Then User is on Change Password screen
 
   #P049
   Scenario: change password using blank input on old password
@@ -282,6 +284,7 @@ Feature: Profile
     And User is on Change Password screen
     And User input "" on old password input text field on Change Password screen
     Then User see warning below oldPassword
+    Then User is on Change Password screen
 
   #P050
   Scenario: change password using blank input on new password
@@ -295,6 +298,7 @@ Feature: Profile
     And User input "Van1234!" on old password input text field on Change Password screen
     And User input "" on new password input text field on Change Password screen
     Then User see warning text below newPassword
+    Then User is on Change Password screen
 
   #P051
   Scenario: change password using blank input on confirm new password
@@ -309,4 +313,5 @@ Feature: Profile
     And User input "Vans123!" on new password input text field on Change Password screen
     And User input "" on confirm new password input text field on Change Password screen
     Then User see warning text below confirmNewPassword
+    Then User is on Change Password screen
 
