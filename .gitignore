@@ -1,4 +1,5 @@
 /.gradle
+/build
 /.idea
 /build
 /build/cucumber.json
