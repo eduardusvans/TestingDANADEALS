@@ -127,6 +127,7 @@ Feature: Profile
       | eduardusvansarderitoeduardusvansarderitoeduardusvansarderito1997@gmail.com |
 
   #P018 - P019
+    # don't forget to change password into Van1234! every time this scenario already done running
   Scenario Outline: Change password with valid input
     Given User is on Home page
     When User tap profile icon
