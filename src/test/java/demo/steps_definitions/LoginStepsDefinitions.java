@@ -20,6 +20,13 @@ public class LoginStepsDefinitions {
     HomeAdminPage homeAdminPage = new HomeAdminPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
+
+    private static String id;
+    private static String token;
+    public static String getId() { return id; }
+    public static String getToken() { return token; }
+
+
     @Given("User is on Landing page")
     public void userIsOnLandingPage() { landingPage.isOnPage(); }
 
@@ -43,7 +50,6 @@ public class LoginStepsDefinitions {
 
     @Then("User is on Home Admin page")
     public void userIsOnHomeAdminPage() { Assert.assertTrue(homeAdminPage.isOnPage()); }
-
 
     @Then("User see DANA DEALS textview")
     public void userSeeDANADEALSTextview() { Assert.assertTrue(loginPage.isOnPage()); }
@@ -69,21 +75,13 @@ public class LoginStepsDefinitions {
     @When("User click Forgot Password link")
     public void userClickForgotPasswordLink() { loginPage.clickForgot();  }
 
-    @Then("User is on Forgot Password Page")
-    public void userIsOnForgotPasswordPage() { Assert.assertTrue( forgotPasswordPage.isOnPage()); }
-
     @When("User click Register Here link")
     public void userClickRegisterHereLink() { loginPage.clickRegister(); }
-
-    @Then("User is on Register Page")
-    public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
-
 
     @Then("User see warning text")
     public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }
 
     @Then("User see pop up notification")
     public void userSeePopUpNotification() { Assert.assertTrue( loginPage.seePopUpNotification()); }
-
 
 }

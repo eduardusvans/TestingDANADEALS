@@ -1,17 +1,22 @@
 package demo.pages.payer.forgotPassword;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.forgotPassword.ForgotPasswordPageLocator.*;
+import static demo.utils.ActionUtils.*;
 
 public class ForgotPasswordPage {
     public boolean isOnPage() {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement userLabel = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btn_send_otp")));
-        return userLabel.isDisplayed();
+        return waitElement(BUTTON_SEND_OTP, 15).isDisplayed();
     }
+
+    public void inputPhoneNumber(String phoneNumber) {
+        inputElement(INPUT_PHONE_NUMBER, phoneNumber);
+    }
+
+    public void tapSendOtpButton() {
+        tapElement(BUTTON_SEND_OTP);
+    }
+
+    public boolean sendOtpButtonStatus() {
+        return getElement(BUTTON_SEND_OTP).isEnabled();
+    }
+
 }
