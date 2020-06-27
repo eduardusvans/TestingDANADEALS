@@ -3,9 +3,12 @@ import demo.driver.AndroidDriverInstance;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+
+import java.time.Duration;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
@@ -83,17 +86,23 @@ public class HomePayer {
     }
 
     public static void scrollDown() {
-        AndroidElement screen = androidDriver.findElement(By.id("rv_voucher"));
-        Point center =  screen.getCenter();
-        int startX = 112;
-        int startY = (int) (center.getY() * 1.5);
-        int endX = 112;
-        int endY = (int) (center.getY() * 0.5);
-        @SuppressWarnings("rawtypes")
-        TouchAction scroll = new TouchAction(androidDriver);
+            AndroidElement screen = androidDriver.findElement(VOUCHER_SCROLL);
+            Point center =  screen.getCenter();
+            int width = screen.getSize().width;
+            int height = screen.getSize().height;
+            int startX = center.getX() - (width / 2) + 20;
+            int startY = center.getY() + (height / 2);
+            int endX = center.getX() - (width / 2) + 20;
+            int endY = center.getY() - (height / 2);
+            System.out.println("Xstart, Ystart = " + startX + " " + startY);
+            System.out.println("Xend, Yend = " + endX + " " + endY);
+            @SuppressWarnings("rawtypes")
+            TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
-                .moveTo(PointOption.point(endX, endY)).perform();
-    }
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(endX, endY)).release().perform();
+
+         }
 
     public static void tapAndScroll(String Keyword) {
         boolean isFound = false;

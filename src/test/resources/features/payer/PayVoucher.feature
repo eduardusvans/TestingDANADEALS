@@ -20,10 +20,10 @@
     @Test
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
-      When User click "aasseekk pocer" on DANA Deals homepage
-      When User is on voucher details page of "aasseekk pocer"
+      When User click "ada pocer nih" on DANA Deals homepage
+      When User is on voucher details page of "ada pocer nih"
       When User click buy button on voucher details page
-      When User see is on cashier page of "aasseekk pocer"
+      When User see is on cashier page of "ada pocer nih"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 

@@ -92,10 +92,7 @@ formatter.scenario({
       "name": "@PayVoucher"
     },
     {
-      "name": "@TestForHistoryFeature"
-    },
-    {
-      "name": "@PayFailed"
+      "name": "@Test"
     }
   ]
 });
@@ -110,31 +107,61 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User type a \"kfc\" at search field on DANA Deals Homepage",
+  "name": "User click \"ada pocer nih\" on DANA Deals homepage",
   "keyword": "When "
 });
 formatter.match({
-  "location": "demo.steps_definitions.payer.SearchVoucherStepsDefinitions.userTypeAAtSearchFieldOnDANADealsHomepage(java.lang.String)"
+  "location": "demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userClickOnDANADealsHomepage(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User click buy on crazy deals kfc",
+  "name": "User is on voucher details page of \"ada pocer nih\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "demo.steps_definitions.payer.PayVoucherStepsDefinitions.userClickBuyOnCrazyDealsKfc()"
+  "location": "demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userIsOnVoucherDetailsPageOf(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User see pop up notification that pay failed",
+  "name": "User click buy button on voucher details page",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userClickBuyButtonOnVoucherDetailsPage()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User see is on cashier page of \"ada pocer nih\"",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "demo.steps_definitions.payer.BuyVoucherStepsDefinitions.userSeeIsOnCashierPageOf(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User click pay button on cashier page",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "demo.steps_definitions.payer.PayVoucherStepsDefinitions.userClickPayButtonOnCashierPage()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User see pop up notification that pay success",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "demo.steps_definitions.payer.PayVoucherStepsDefinitions.userSeePopUpNotificationThatPayFailed()"
+  "location": "demo.steps_definitions.payer.PayVoucherStepsDefinitions.userSeePopUpNotificationThatPaySuccess()"
 });
 formatter.result({
   "status": "passed"

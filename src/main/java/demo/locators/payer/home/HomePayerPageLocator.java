@@ -14,6 +14,7 @@ public interface HomePayerPageLocator {
     By RESET_BUTTON = MobileBy.id("tv_reset");
 
     //voucher
+    By VOUCHER_SCROLL = MobileBy.id("rv_voucher");
     By VOUCHER_PRICE_CHECK = MobileBy.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
                     "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
