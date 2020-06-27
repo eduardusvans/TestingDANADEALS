@@ -44,7 +44,7 @@ Feature: Register
       # REG012
       | Random      | abc        |                  | Random            | Abcdefghijklmn1! | Abcdefghijklmn1! |
 
-  @Negative
+  @Negative @1-1
   Scenario Outline: Register with one of the input is invalid
     Given User is on Register page
     When User input "<phoneNumber>" on Phone Number input text field on Register page
@@ -52,7 +52,7 @@ Feature: Register
     When User input "<email>" on E-Mail input text field on Register page
     When User input "<password>" on Password input text field on Register page
     When User input "<confirmPassword>" on Confirm Password input text field on Register page
-    When User tap the Create Account button on Register page
+    When User cannot tap the Create Account button on Register page
     Then User is still on Register page
     Examples:
       | phoneNumber | firstName   | lastName | email                         | password         | confirmPassword  |
@@ -69,8 +69,7 @@ Feature: Register
       #
       # REG019
       | Random      | abc         |          |                               | TestingREG1!     | TestingREG1!     |
-      # REG020
-      | Random      | abc         |          | testinglogin3@gmail.com       | TestingREG1!     | TestingREG1!     |
+      #
       # REG021
       | Random      | abc         |          | testingregister3              | TestingREG1!     | TestingREG1!     |
       # REG022
@@ -89,8 +88,7 @@ Feature: Register
       | Random      | abc         |          | a@g.c                         | TestingREG1!     | TestingREG1!     |
       # REG030
       |             | abc         |          | Random                        | TestingREG1!     | TestingREG1!     |
-      # REG031
-      | 87722074250 | abc         |          | Random                        | TestingREG1!     | TestingREG1!     |
+      #
       # REG032
       | 6885559737  | abc         |          | Random                        | TestingREG1!     | TestingREG1!     |
       # REG033
@@ -121,3 +119,19 @@ Feature: Register
       # REG047
       | Random      | abc         |          | Random                        | Abcdef1!         | Abcdefghijklmn1! |
 
+  @Negative @1-2
+  Scenario Outline: Register with registered email or phone number
+    Given User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    Then User is still on Register page
+    Examples:
+      | phoneNumber | firstName   | lastName | email                         | password         | confirmPassword  |
+      # REG020
+      | Random      | abc         |          | testinglogin3@gmail.com       | TestingREG1!     | TestingREG1!     |
+      # REG031
+      | 87722074250 | abc         |          | Random                        | TestingREG1!     | TestingREG1!     |
