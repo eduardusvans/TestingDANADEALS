@@ -8,4 +8,5 @@ public interface TopUpCashierPageLocator {
     By TOPUP_AMOUNT_ORDER = MobileBy.id("tv_topup_amount");
     By TOPUP_BUTTON = MobileBy.id("btn_topup");
     By TOPUP_PAYMENT_PAGE = MobileBy.id("btn_topup");
+    By TOAST_MESSAGE = MobileBy.xpath("//android.widget.Toast[contains(@text, 'Top-up failed! You have reached your maximum balance.')]");
 }

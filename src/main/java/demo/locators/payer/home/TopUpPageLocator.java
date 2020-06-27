@@ -15,5 +15,8 @@ public interface TopUpPageLocator {
     By BANK_MANDIRI_BUTTON = MobileBy.id("tvBankMandiri");
     By BANK_BCA_BUTTON = MobileBy.id("tvBankBca");
     By NEXT_BUTTON_TOPUP = MobileBy.id("btn_next");
+    By DONE_BUTTON_TOPUP = MobileBy.id("btn_next");
+    By TOAST_MESSAGE = MobileBy.xpath("//android.widget.Toast[contains(@text, 'Top-up failed! You have reached your maximum balance.')]");
+
 
 }

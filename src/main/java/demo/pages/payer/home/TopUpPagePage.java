@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
 import static demo.locators.payer.home.TopUpPageLocator.*;
 import static demo.utils.ActionUtils.waitABit;
 
@@ -62,10 +60,20 @@ public class TopUpPagePage {
         AndroidDriverInstance.androidDriver.findElement(NEXT_BUTTON_TOPUP).click();
     }
 
+    public void clickDoneButton(){
+        AndroidDriverInstance.androidDriver.findElement(DONE_BUTTON_TOPUP).click();
+    }
+
     public String getBalance(){
         waitABit(2000);
         AndroidElement balance = AndroidDriverInstance.androidDriver.findElement(NOMINAL_BALANCE);
         return balance.getText();
+    }
+
+    public String failedTopup(){
+        waitABit(2000);
+        AndroidElement failedMessage = AndroidDriverInstance.androidDriver.findElement(TOAST_MESSAGE);
+        return failedMessage.getText();
     }
 
 }

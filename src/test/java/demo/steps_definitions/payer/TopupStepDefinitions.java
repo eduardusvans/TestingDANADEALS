@@ -13,6 +13,9 @@ public class TopupStepDefinitions {
     TopUpCashierPage topUpCashierPage = new TopUpCashierPage();
     HomePayer homePayer = new HomePayer();
 
+    String balanceUser;
+    String totalOrder;
+
     @When("User click top up icon button on Home Page")
     public void userClickTopUpIconButtonOnHomePage() {
         homePayer.topupIcon();
@@ -25,7 +28,7 @@ public class TopupStepDefinitions {
 
     @And("User see Balance on Top up Page")
     public void userSeeBalanceOnTopUpPage() {
-        topupPage.getBalance();
+        balanceUser = topupPage.getBalance();
     }
 
     @And("User choose {string} as top up nominal on Top up Page")
@@ -54,17 +57,25 @@ public class TopupStepDefinitions {
         topupPage.clickNextButton();
     }
 
+    @And("User click Done Button on Top up Page")
+    public void userClickDoneButtonOnTopUpPage() {
+        topupPage.clickDoneButton();
+    }
+
     @Then("User will redirect into Payment Page")
     public void userWillRedirectIntoPaymentPage() {
         topUpCashierPage.isOnTopupPaymentPage();
-
-
     }
 
     @And("User will get {string} as Virtual Account Number on Payment Page")
     public void userWillGetAsVirtualAccountNumberOnPaymentPage(String vaCode) {
         String code = topUpCashierPage.getVirtualAccNumber();
         Assert.assertEquals(vaCode, code);
+    }
+
+    @And("User get info of Nominal top up ordered on Payment Page")
+    public void userGetInfoOfNominalTopUpOrderedOnPaymentPage() {
+        totalOrder = topUpCashierPage.getOrderNominal();
     }
 
     @And("User click Top up button on Top up Payment Page")
@@ -74,12 +85,17 @@ public class TopupStepDefinitions {
 
     @Then("User will see total balance is increase in Home page")
     public void userWillSeeTotalBalanceIsIncreaseInHomePage() {
-        String replaceBalance = topupPage.getBalance().replace("Rp","")
-                .replace(".","");
-        String replaceNominal = topupPage.getBalance().replace("Rp","")
-                .replace(".","");
-        String replaceSaldo = topupPage.getBalance().replace("Rp","")
-                .replace(".","");
+        //homePayer.getUserBalance();
+
+        String replaceBalance = balanceUser.replace("Rp","")
+                .replace(".","")
+                .replace(",00","");
+        String replaceNominal = totalOrder.replace("Rp","")
+                .replace(".","")
+                .replace(",00","");
+        String replaceSaldo = homePayer.getUserBalance().replace("Rp","")
+                .replace(".","")
+                .replace(",00","");
 
         int balance = Integer.parseInt(replaceBalance);
         int nominal = Integer.parseInt(replaceNominal);
@@ -88,10 +104,38 @@ public class TopupStepDefinitions {
         Assert.assertEquals(topup,actual);
     }
 
+    @And("User total balance is added as {string} nominal top up")
+    public void userTotalBalanceIsAddedAsNominalTopUp(String orderNominal) {
+        String replaceBalance = balanceUser.replace("Rp","")
+                .replace(".","")
+                .replace(",00","");
+        String replaceSaldo = homePayer.getUserBalance().replace("Rp","")
+                .replace(".","")
+                .replace(",00","");
 
-    @And("User get info of Nominal top up ordered on Payment Page")
-    public void userGetInfoOfNominalTopUpOrderedOnPaymentPage() {
+        int balance = Integer.parseInt(replaceBalance);
+        int nominal = Integer.parseInt(orderNominal);
+        int topup = balance + nominal;
+        int actual = Integer.parseInt(replaceSaldo);
+        Assert.assertEquals(topup,actual);
+
 
     }
 
+    @Then("User will see error message topup failed on Top up Payment page")
+    public void userWillSeeErrorMessageTopupFailedOnTopUpPaymentPage() {
+
+    }
+
+    @Then("User will see error message {string} on Top up Payment Page")
+    public void userWillSeeErrorMessageOnTopUpPaymentPage(String message) {
+        String errorMessage = topUpCashierPage.failedTopup();
+        Assert.assertEquals(message,errorMessage);
+    }
+
+    @Then("User will see error message {string} on Top up Page")
+    public void userWillSeeErrorMessageOnTopUpPage(String message) {
+        String errorMessage = topupPage.failedTopup();
+        Assert.assertEquals(message,errorMessage);
+    }
 }

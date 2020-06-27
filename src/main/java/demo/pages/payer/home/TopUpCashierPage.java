@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.locators.payer.home.TopUpCashierPageLocator.*;
-import static demo.locators.payer.home.TopUpPageLocator.NOMINAL_BALANCE;
 import static demo.utils.ActionUtils.waitABit;
 
 public class TopUpCashierPage {
@@ -19,18 +18,9 @@ public class TopUpCashierPage {
     }
 
     public String getVirtualAccNumber(){
-        waitAbit(3000);
+        waitABit(3000);
         AndroidElement vaNumber = AndroidDriverInstance.androidDriver.findElement(VIRTUAL_ACCOUNT_NUMBER);
         return vaNumber.getText();
-    }
-
-    public void waitAbit(int millis){
-        try {
-            Thread.sleep(millis);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
     }
 
     public void clickTopupButton(){
@@ -41,5 +31,11 @@ public class TopUpCashierPage {
         waitABit(2000);
         AndroidElement orderNom = AndroidDriverInstance.androidDriver.findElement(TOPUP_AMOUNT_ORDER);
         return orderNom.getText();
+    }
+
+    public String failedTopup(){
+        waitABit(2000);
+        AndroidElement failedMessage = AndroidDriverInstance.androidDriver.findElement(TOAST_MESSAGE);
+        return failedMessage.getText();
     }
 }
