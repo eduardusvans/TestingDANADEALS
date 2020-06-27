@@ -1,7 +1,6 @@
 /.gradle
 /build
 /.idea
-/build
 /build/cucumber.json
 /APP
 /src/main/java/demo/driver/
