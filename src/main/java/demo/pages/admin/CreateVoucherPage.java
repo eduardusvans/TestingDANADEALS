@@ -1,10 +1,13 @@
 package demo.pages.admin;
+import com.github.javafaker.Faker;
 import demo.driver.AndroidDriverInstance;
+import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.locators.admin.CreateVoucherPageLocator.*;
@@ -14,6 +17,8 @@ import static demo.utils.ActionUtils.waitElement;
 import static demo.utils.ActionUtils.*;
 
 public class CreateVoucherPage {
+
+    private static final Faker faker = new Faker();
 
     public boolean isOnCreatePage() {
         return waitElement(CREATE_PAGE, 30).isDisplayed();
@@ -36,6 +41,9 @@ public class CreateVoucherPage {
     }
 
     public void inputVoucherName(String voucherName){
+
+        voucherName = voucherNameSetter(voucherName);
+
         AndroidDriverInstance.androidDriver.findElement(VOUCHER_NAME).sendKeys(voucherName);
     }
 
@@ -119,6 +127,31 @@ public class CreateVoucherPage {
             }
 
         } while (!isFound && counter < 5);
+    }
+
+    public static String voucherNameSetter(String voucherName) {
+        voucherName = nullChanger(voucherName);
+        int randomPick = faker.number().numberBetween(4, 20);
+
+        //Generate random voucherName for positive scenario
+        if(voucherName.toLowerCase().contains("random")) {
+            if(voucherName.toLowerCase().contains("min")) {
+                return RandomUtils.generateVoucherName(3);
+            }
+            else if(voucherName.toLowerCase().contains("max")) {
+                return RandomUtils.generateVoucherName(20);
+            }
+            else if(voucherName.toLowerCase().contains("invalid min")) {
+                return RandomUtils.generateVoucherName(2);
+            }
+            else if(voucherName.toLowerCase().contains("invalid max")) {
+                return RandomUtils.generateVoucherName(21);
+            } else {
+                return RandomUtils.generateVoucherName(randomPick);
+            }
+        } else {
+            return voucherName;
+        }
     }
 
 }

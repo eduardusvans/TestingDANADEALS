@@ -41,5 +41,9 @@ public class HomeAdminPage {
         }
     }
 
+    public String successMessage(){
+        return androidDriver.findElement(SUCCESS_TOAST_MESSAGE).getText();
+    }
+
 
 }

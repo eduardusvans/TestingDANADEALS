@@ -227,3 +227,57 @@ Feature: Create Voucher
       | inactive | Baskin Robbins | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 12,567       |
       #CRV062
       | active   | Baskin Robbins | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 12/34        |
+      #CRV003
+      | active   | Baskin 123     | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+    #CRV016
+      | active   | 1234567        | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+
+  @Testing
+  Scenario Outline: Create Voucher with valid input
+    When User is on Home Admin page
+    And User click create voucher button on Home Page
+    And User is on Create Voucher Page
+    And User click status dropdown for changing the status in Create Voucher Page
+    And User choose "<status>" for status of voucher in Create Voucher Page
+    And User input "<voucherName>" in Voucher Name text field on Create Voucher Page
+    And User input "<merchantId>" in Merchant ID text field on Create Voucher Page
+    And User input "<discount>" in Discount text field on Create Voucher Page
+    And User input "<maxDiscount>" in Max Discount text field on Create Voucher Page
+    And User choose "<expiredDate>" in Expired Date text field on Create Voucher Page
+    And User input "<quota>" in Quota text field on Create Voucher Page
+    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
+    And User click create button on Create Voucher Page
+    Then User will redirect into Home Page
+    And User will see "Success" message in Home Page
+
+    Examples:
+      | status   | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
+      #CRV001
+      | active   | random      | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV002
+      | inactive | random      | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV004
+      | active   | random min  | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV005
+      | inactive | random max  | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV006
+      | inactive | random      | 1001       | 1        | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV007
+      | active   | random      | 1001       | 100      | 10000       | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV008
+      | active   | random      | 1001       | 50       | 10          | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV009
+      | inactive | random      | 1001       | 50       | 1000000     | 2020-06-30 11:59:00 | 250   | 20000        |
+      #CRV010 1 day
+      | inactive | random      | 1001       | 50       | 10000       | 2020-06-29 11:59:00 | 250   | 20000        |
+      #CRV011 30 days
+      | active   | random      | 1001       | 50       | 10000       | 2020-07-27 11:59:00 | 250   | 20000        |
+      #CRV012
+      | active   | random      | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 1    | 20000        |
+      #CRV013
+      | inactive | random      | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 1000  | 20000        |
+      #CRV014
+      | inactive | random      | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 10           |
+      #CRV015
+      | inactive | random      | 1001       | 50       | 10000       | 2020-06-30 11:59:00 | 250   | 1000000      |
+

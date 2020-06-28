@@ -4,7 +4,7 @@ import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 
 public interface CreateVoucherPageLocator {
-    By CREATE_PAGE = MobileBy.className("tv_voucher_status");
+    By CREATE_PAGE = MobileBy.id("tv_voucher_status");
     By STATUS_VOUCHER = MobileBy.xpath("//android.widget.TextView[contains(@text,'Active')]");
     By ACTIVE_STATUS = MobileBy.xpath("//android.widget.TextView[1]");
     By INACTIVE_STATUS = MobileBy.xpath("//android.widget.TextView[2]");
@@ -16,5 +16,6 @@ public interface CreateVoucherPageLocator {
     By QUOTA = MobileBy.id("et_quota");
     By VOUCHER_PRICE = MobileBy.id("et_voucher_price");
     By CREATE_BUTTON = MobileBy.id("btn_create");
+    By FAILED_TOAST_MESSAGE = MobileBy.xpath("//android.widget.Toast[contains(@text, 'Failed')]");
 
 }

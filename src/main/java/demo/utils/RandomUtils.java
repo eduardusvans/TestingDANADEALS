@@ -54,4 +54,27 @@ public class RandomUtils {
         return email.get(randomPick);
     }
 
+    public static String generateVoucherName(int length) {
+        String randomVoucher ="";
+        //int randomPick = faker.number().numberBetween(0, 3);
+
+
+        if (length < 6) {
+            for (int i=0; i < length; i++) {
+                randomVoucher = randomVoucher.concat(faker.letterify("?"));
+            }
+        } else {
+            do {
+                randomVoucher = faker.food().spice();
+                int nameLength = length - randomVoucher.length();
+                for (int i=0; i < nameLength; i++){
+                    randomVoucher = randomVoucher.concat(faker.letterify("?"));
+                }
+            } while (randomVoucher.length() != length);
+
+        }
+        return randomVoucher;
+
+    }
+
 }

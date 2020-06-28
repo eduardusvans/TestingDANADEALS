@@ -5,6 +5,7 @@ import demo.pages.admin.HomeAdminPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class CreateVoucherStepDefinitions {
 
@@ -14,7 +15,11 @@ public class CreateVoucherStepDefinitions {
     @When("User click create voucher button on Home Page")
     public void userClickCreateVoucherButtonOnHomePage() {
         homeAdmin.clickCreateVou();
+    }
 
+    @And("User is on Create Voucher Page")
+    public void userIsOnCreateVoucherPage() {
+        createVoucherPage.isOnCreatePage();
     }
 
     @And("User click status dropdown for changing the status in Create Voucher Page")
@@ -72,4 +77,9 @@ public class CreateVoucherStepDefinitions {
         homeAdmin.isOnPage();
     }
 
+    @And("User will see {string} message in Home Page")
+    public void userWillSeeMessageInHomePage(String success) {
+        String actual = homeAdmin.successMessage();
+        Assert.assertEquals(success,actual);
+    }
 }
