@@ -1,5 +1,6 @@
 package demo.steps_definitions.payer;
 
+import demo.pages.LandingPage;
 import demo.pages.LoginPage;
 import demo.pages.payer.RegisterPage;
 import demo.utils.ActionUtils;
@@ -10,12 +11,18 @@ import org.junit.Assert;
 
 public class RegisterStepDefinitions {
 
-    LoginPage loginPage = new LoginPage();
+    LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
 
-    @Given("User tap the Register here link on Login page")
-    public void userTapTheRegisterHereLinkOnLoginPage() {
-        loginPage.clickRegister();
+    @Given("User is on Landing page")
+    public void userIsOnLandingPage() {
+        boolean status = landingPage.isOnPage();
+        Assert.assertTrue(status);
+    }
+
+    @Given("User tap the Create Account button on Landing page")
+    public void userTapTheCreateAccountButtonOnLandingPage() {
+        landingPage.tapCreateAccountButton();
     }
 
     @Given("User is on Register page")
@@ -56,6 +63,7 @@ public class RegisterStepDefinitions {
 
     @Then("User see the success message on Login page")
     public void userSeeTheSuccessMessageOnLoginPage() {
+        ActionUtils.waitABit(5000);
     }
 
     @Then("User is still on Register page")
@@ -64,4 +72,5 @@ public class RegisterStepDefinitions {
         boolean status = registerPage.isOnPage();
         Assert.assertTrue(status);
     }
+
 }
