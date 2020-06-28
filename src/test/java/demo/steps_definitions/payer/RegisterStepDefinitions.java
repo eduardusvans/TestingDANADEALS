@@ -17,12 +17,6 @@ public class RegisterStepDefinitions {
     String userRegisterPhoneNumber = "";
     String userRegisterPassword = "";
 
-    @Given("User is on Landing page")
-    public void userIsOnLandingPage() {
-        boolean status = landingPage.isOnPage();
-        Assert.assertTrue(status);
-    }
-
     @Given("User tap the Create Account button on Landing page")
     public void userTapTheCreateAccountButtonOnLandingPage() {
         landingPage.tapCreateAccountButton();
@@ -74,7 +68,7 @@ public class RegisterStepDefinitions {
 
     @Then("User see the success message on Login page")
     public void userSeeTheSuccessMessageOnLoginPage() {
-        ActionUtils.waitABit(5000);
+        ActionUtils.waitABit(3000);
     }
 
     @Then("User is still on Register page")

@@ -45,7 +45,7 @@ public class RandomUtils {
             }
         } else {
             randomName = faker.name().fullName().toLowerCase().replace(" ",".");
-            randomName = randomName.concat("." + faker.number().digits(2));
+            randomName = randomName.concat("." + faker.number().digits(faker.number().numberBetween(2, 5)));
         }
         List<String> email = new ArrayList<>();
         email.add(randomName.concat("@gmail.com"));

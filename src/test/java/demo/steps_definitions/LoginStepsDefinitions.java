@@ -81,9 +81,6 @@ public class LoginStepsDefinitions {
     @When("User click Register Here link")
     public void userClickRegisterHereLink() { loginPage.clickRegister(); }
 
-    @Then("User is on Register Page")
-    public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
-
     @Then("User see warning text")
     public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }
 
