@@ -65,6 +65,29 @@ public class HomeAdminPage {
         }
     }
 
+    public void tapVoucher(String wantedName) {
+        boolean isFound = false;
+        int counter = 0;
+
+        do {
+            waitABit(5000);
+            List<AndroidElement> vNameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
+            for (AndroidElement vName : vNameList) {
+                if (vName.getText().equalsIgnoreCase(wantedName)) {
+                    vName.click();
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (!isFound) {
+                scrollDown();
+                counter++;
+            }
+
+        } while (!isFound && counter <= 10);
+    }
+
     public boolean checkProgressBar() {
         try {
             boolean status = waitElement(PROGRESS_BAR, 5).isDisplayed();

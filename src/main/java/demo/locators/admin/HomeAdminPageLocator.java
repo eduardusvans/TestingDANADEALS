@@ -15,8 +15,7 @@ public interface HomeAdminPageLocator {
     By PROGRESS_BAR = By.id("progress_bar_horizontal_activity_main");
 
     By RECYCLE_VIEW_VOUCHER = By.id("rv_admin");
-//    By VOUCHER_MERCHANT_NAME = By.xpath("//androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[2]");
-//    By VOUCHER_STATUS = By.xpath("//androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button");
+    By VOUCHER_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_voucher_name')]");
     By VOUCHER_MERCHANT_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_merchant_name')]");
     By VOUCHER_STATUS = By.xpath("//android.widget.Button[contains(@resource-id, 'btn_buy')]");
 
