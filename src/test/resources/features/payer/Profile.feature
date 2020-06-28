@@ -101,7 +101,7 @@ Feature: Profile
     # P012
       | vansvansva | s                |
     # P013
-      | vanvansvan  | arderitoo        |
+      | vanvansvan | arderitoo        |
     # P014
       | van's      |                  |
     # P015
@@ -125,6 +125,8 @@ Feature: Profile
       | a@b.id                                                                     |
     # P017
       | eduardusvansarderitoeduardusvansarderitoeduardusvansarderito1997@gmail.com |
+    #reset e-mail into eduardusvansa@gmail.com
+      | eduardusvansa@gmail.com                                                    |
 
   #P018 - P019
   Scenario Outline: Change password with valid input
@@ -152,11 +154,11 @@ Feature: Profile
       | oldPassword      | newPassword      | confirmNewPassword | Password         |
     # P018
       | Van1234!         | Vans123!         | Vans123!           | Vans123!         |
-    # change password into Van1234! for login purposes
+    # reset password for login purposes
       | Vans123!         | Van1234!         | Van1234!           | Van1234!         |
     # P019
       | Van1234!         | Vansvansvansva1! | Vansvansvansva1!   | Vansvansvansva1! |
-    # change password into Van1234! for login purposes
+    # reset password for login purposes
       | Vansvansvansva1! | Van1234!         | Van1234!           | Van1234!         |
 
   #P020
