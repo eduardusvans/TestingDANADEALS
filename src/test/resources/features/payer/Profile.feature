@@ -127,7 +127,6 @@ Feature: Profile
       | eduardusvansarderitoeduardusvansarderitoeduardusvansarderito1997@gmail.com |
 
   #P018 - P019
-    # don't forget to change password into Van1234! every time this scenario already done running
   Scenario Outline: Change password with valid input
     Given User is on Home page
     When User tap profile icon
@@ -139,14 +138,26 @@ Feature: Profile
     And User input "<oldPassword>" on old password input text field on Change Password screen
     And User input "<newPassword>" on new password input text field on Change Password screen
     And User input "<confirmNewPassword>" on confirm new password input text field on Change Password screen
-    Then User tap Change Password button on Change Password screen
+    And User tap Change Password button on Change Password screen
+    And User is on Home page
+    And User tap profile icon
+    And User is on Profile screen
+    And User tap LogOut button
+    And User is on DANA Deals Login page
+    And User input "81290137272" on phone number input field on login page
+    And User input "<Password>" on password input field on login page
+    And User click Login button
     Then User is on Home page
     Examples:
-      | oldPassword | newPassword      | confirmNewPassword |
+      | oldPassword      | newPassword      | confirmNewPassword | Password         |
     # P018
-      | Van1234!    | Vans123!         | Vans123!           |
+      | Van1234!         | Vans123!         | Vans123!           | Vans123!         |
+    # change password into Van1234! for login purposes
+      | Vans123!         | Van1234!         | Van1234!           | Van1234!         |
     # P019
-      | Van1234!    | Vansvansvansva1! | Vansvansvansva1!   |
+      | Van1234!         | Vansvansvansva1! | Vansvansvansva1!   | Vansvansvansva1! |
+    # change password into Van1234! for login purposes
+      | Vansvansvansva1! | Van1234!         | Van1234!           | Van1234!         |
 
   #P020
   Scenario: log out from app
@@ -225,7 +236,6 @@ Feature: Profile
     And User input "Vans12345!" on old password input text field on Change Password screen
     And User input "Van1234!" on new password input text field on Change Password screen
     And User input "Van1234!" on confirm new password input text field on Change Password screen
-    Then User see warning text below oldPassword
     Then User is on Change Password screen
 
   #P040 - P047
