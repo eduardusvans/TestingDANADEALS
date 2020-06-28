@@ -101,7 +101,7 @@ Feature: Profile
     # P012
       | vansvansva | s                |
     # P013
-      | vanvansva  | arderitoo        |
+      | vanvansvan  | arderitoo        |
     # P014
       | van's      |                  |
     # P015
