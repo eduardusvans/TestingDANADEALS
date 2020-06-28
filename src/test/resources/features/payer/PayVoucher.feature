@@ -31,7 +31,7 @@
     Scenario: Pay voucher from DANA Deals homepage using search merchant name
       Given User is on DANA Deals Homepage
       When User type a "character" at search field on DANA Deals Homepage
-      When User see all vouchers of "merchant name" that contains the "character" are displayed
+      When User see all vouchers of "merchant name" are displayed
       When User click buy button on "voucher name"
       When User see is on cashier page of "voucher name"
       When User click pay button on cashier page

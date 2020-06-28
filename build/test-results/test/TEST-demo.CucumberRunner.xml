@@ -17,11 +17,11 @@
 
 1 Scenarios (?[32m1 passed?[0m)
 13 Steps (?[32m13 passed?[0m)
-0m52.435s
+1m10.615s
 
 
 ]]></system-out>
-  <system-err><![CDATA[Jun 27, 2020 7:09:14 PM io.cucumber.core.options.CucumberPropertiesParser parse
+  <system-err><![CDATA[Jun 28, 2020 6:11:14 PM io.cucumber.core.options.CucumberPropertiesParser parse
 WARNING: Passing commandline options via the property `cucumber.options` has been deprecatedin favour of explicitly using property names.
 Please use these instead: [cucumber.ansi-colors.disabled, cucumber.execution.dry-run, cucumber.execution.limit, cucumber.execution.order, cucumber.execution.strict, cucumber.execution.wip, cucumber.features, cucumber.filter.name, cucumber.filter.tags, cucumber.glue, cucumber.object-factory, cucumber.plugin, cucumber.snippet-type]
 ]]></system-err>

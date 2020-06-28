@@ -1,7 +1,4 @@
 package demo.pages.payer.home;
-import demo.driver.AndroidDriverInstance;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import static demo.locators.payer.home.VoucherDetailPayerPageLocator.*;
 import static demo.utils.ActionUtils.*;
 
@@ -23,8 +20,9 @@ public class VoucherDetailPayerPage {
         return getElement(VOUCHER_NAME);
     }
 
-    public void checkContentOnTab(){
+    public String checkContentOnTab(){
         getElement(DETAIL_CONTENT);
+        return null;
     }
 
     public void clickBuy(){

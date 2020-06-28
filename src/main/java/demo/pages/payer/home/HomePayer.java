@@ -14,6 +14,7 @@ import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
 import static demo.utils.ActionUtils.*;
 
+
 public class HomePayer {
 
     public boolean isOnPage() {
@@ -28,6 +29,11 @@ public class HomePayer {
     public boolean seeSearchBar(){
         return waitElement(SEARCH_VOUCHER, 30).isDisplayed();
     }
+
+    public boolean seeVoucher(){
+        return waitElement(VOUCHER_SCROLL, 30).isDisplayed();
+    }
+
 
     public void inputSearch(String Keyword){
         inputElement(SEARCH_VOUCHER, Keyword);
@@ -77,12 +83,10 @@ public class HomePayer {
         return waitElement(VOUCHER_DISCOUNT_CHECK, 20).getText();
     }
 
-    public void checkMerchantCategory(String VoucherName){
+    public String checkMerchantCategory(){
         waitABit(2000);
-        String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
-        androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).getText();
-
-
+        String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_merchant_name')]";
+        return androidDriver.findElement(By.xpath(xpath)).getText();
     }
 
     public static void scrollDown() {
@@ -118,7 +122,7 @@ public class HomePayer {
                 counter++;
             }
 
-        } while (!isFound && counter < 3);
+        } while (!isFound && counter < 5);
     }
 
     public void clickVoucherRefund(){

@@ -7,6 +7,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.checkerframework.checker.units.qual.K;
+import org.junit.Assert;
 
 public class SearchVoucherStepsDefinitions {
 
@@ -16,6 +18,9 @@ public class SearchVoucherStepsDefinitions {
 
     @Given("User is on DANA Deals Homepage")
     public void userIsOnDANADealsHomepage() {
+        homePayer.isOnPage();
+        homePayer.seeVoucher();
+        homePayer.seeTopUp();
     }
 
     @When("User type a {string} at search field on DANA Deals Homepage")
@@ -23,16 +28,10 @@ public class SearchVoucherStepsDefinitions {
         homePayer.inputSearch(Keyword);
     }
 
-    @Then("User see all vouchers of {string} that contains the {string} are displayed")
-    public void userSeeAllVouchersOfThatContainsTheAreDisplayed(String arg0, String arg1) {
-    }
-
-    @When("User type {string} at search field on DANA Deals Homepage")
-    public void userTypeAtSearchFieldOnDANADealsHomepage(String arg0) {
-    }
-
     @Then("User can't find any voucher and see error message")
     public void userCanTFindAnyVoucherAndSeeErrorMessage() {
+        String text = voucherCashierPage.checkToastMessage();
+        Assert.assertTrue(text.contains("not found"));
     }
 
     @When("User click pay voucher button on cashier page")
@@ -40,6 +39,12 @@ public class SearchVoucherStepsDefinitions {
     }
 
     @When("User back to DANA Deals homepage and type a {string} at search field")
-    public void userBackToDANADealsHomepageAndTypeAAtSearchField(String arg0) {
+    public void userBackToDANADealsHomepageAndTypeAAtSearchField(String Keyword) {
+    }
+
+    @Then("User see all vouchers of {string} are displayed")
+    public void userSeeAllVouchersOfAreDisplayed(String Keyword) {
+        String Merchant = homePayer.checkMerchantCategory();
+        Assert.assertTrue(Merchant.contains(Keyword));
     }
 }
