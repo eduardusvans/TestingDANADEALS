@@ -11,14 +11,17 @@ public class HomeAdminStepDefinitions {
 
     HomeAdminPage homeAdminPage = new HomeAdminPage();
 
+    @Given("User wait for the voucher list to be loaded")
+    public void userWaitForTheVoucherListToBeLoaded() {
+        boolean status = homeAdminPage.checkProgressBar();
+        Assert.assertFalse(status);
+        status = homeAdminPage.checkVoucherListPresence();
+        Assert.assertTrue(status);
+    }
+
     @Given("User input {string} on Search Merchant input text field on Home Admin page")
     public void userInputOnSearchMerchantInputTextFieldOnHomeAdminPage(String keyword) {
         homeAdminPage.inputSearchVoucher(keyword);
-    }
-
-    @When("User wait for a new voucher list to be loaded")
-    public void userWaitForANewVoucherListToBeLoaded() {
-        ActionUtils.waitABit(3000);
     }
 
     @Then("User see the voucher in the voucher list that has {string} on its merchant name on Home Admin page")
@@ -33,7 +36,7 @@ public class HomeAdminStepDefinitions {
 
     @Then("User cannot see any voucher on Home Admin page")
     public void userCannotSeeAnyVoucherOnHomeAdminPage() {
-        boolean status = homeAdminPage.checkAllVouchersPresence();
+        boolean status = homeAdminPage.checkVoucherListPresence();
         Assert.assertFalse(status);
     }
 
@@ -72,4 +75,5 @@ public class HomeAdminStepDefinitions {
     @When("User see the loading screen")
     public void userSeeTheLoadingScreen() {
     }
+
 }

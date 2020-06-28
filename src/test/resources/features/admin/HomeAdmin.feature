@@ -11,10 +11,11 @@ Feature: Home
     Given User click Login button
     Given User is on Home Admin page
 
-  @Search @Positive
+  @Search @Positive @Basic
   Scenario Outline: Search voucher with the valid condition
+    Given User wait for the voucher list to be loaded
     Given User input "<keyword>" on Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | keyword |
@@ -23,34 +24,37 @@ Feature: Home
       #HSA002
       | tel     |
       #HSA003
-      | telkom  |
+      | kfc  |
       #HSA004
       | TELKOM  |
 
   @Reset @Search @Positive @1-1
   #HSA005
   Scenario: Search voucher and followed by clearing the input
+    Given User wait for the voucher list to be loaded
     Given User input "kfc" on Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     When User see the voucher in the voucher list that has "kfc" on its merchant name on Home Admin page
     When User clear the Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see all of the existing vouchers on Home Admin page
 
   @Reset @Search @Positive @1-2
   #HSA006
   Scenario: Search voucher and followed by resetting with Reset button
+    Given User wait for the voucher list to be loaded
     Given User input "kfc" on Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     When User see the voucher in the voucher list that has "kfc" on its merchant name on Home Admin page
     When User tap Reset button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see all of the existing vouchers on Home Admin page
 
   @Search @Negative
   Scenario Outline: Search voucher with the invalid condition
+    Given User wait for the voucher list to be loaded
     Given User input "<keyword>" on Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see the warning notification that says the voucher cannot be found
     Then User cannot see any voucher on Home Admin page
     Examples:
@@ -78,8 +82,9 @@ Feature: Home
 
   @Filter @Positive @1-1
   Scenario Outline: Filter the voucher by its status
+    Given User wait for the voucher list to be loaded
     Given User tap "<status>" button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     Examples:
       | status   |
@@ -90,12 +95,13 @@ Feature: Home
 
   @Filter @Positive @1-2
   Scenario Outline: Change from one filter status to the other
+    Given User wait for the voucher list to be loaded
     Given User tap "<firstStatus>" button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     When User see the voucher in the voucher list that has "<firstStatus>" on its status on Home Admin page
     When User tap Reset button on Home Admin page
     Given User tap "<secondStatus>" button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     When User see the voucher in the voucher list that has "<secondStatus>" on its status on Home Admin page
     Examples:
       | firstStatus | secondStatus |
@@ -106,11 +112,12 @@ Feature: Home
 
   @Reset @Filter @Positive
   Scenario Outline: Filter voucher and followed by resetting with Reset button
+    Given User wait for the voucher list to be loaded
     Given User tap "<status>" button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     When User tap Reset button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see all of the existing vouchers on Home Admin page
     Examples:
       | status   |
@@ -121,11 +128,12 @@ Feature: Home
 
   @Search @Filter @Positive @1-1
   Scenario Outline: Filter voucher and followed by search voucher
+    Given User wait for the voucher list to be loaded
     Given User tap "<status>" button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     When User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     When User input "<keyword>" on Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | status   | keyword |
@@ -136,11 +144,12 @@ Feature: Home
 
   @Search @Filter @Positive @1-2
   Scenario Outline: Search voucher and followed by filter voucher
+    Given User wait for the voucher list to be loaded
     Given User input "<keyword>" on Search Merchant input text field on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     When User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     When User tap "<status>" button on Home Admin page
-    When User wait for a new voucher list to be loaded
+    When User wait for the voucher list to be loaded
     Then User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     Examples:
       | keyword | status   |
@@ -151,6 +160,7 @@ Feature: Home
 
   @Logout @Positive
   Scenario: Log out the the account
+    Given User wait for the voucher list to be loaded
     Given User tap Logout button on Home Admin page
     When User see the loading screen
     Then User is on DANA Deals Login page
