@@ -125,6 +125,8 @@ Feature: Profile
       | a@b.id                                                                     |
     # P017
       | eduardusvansarderitoeduardusvansarderitoeduardusvansarderito1997@gmail.com |
+    #reset e-mail into eduardusvansa@gmail.com
+      | eduardusvansa@gmail.com                                                    |
 
   #P018 - P019
   Scenario Outline: Change password with valid input
