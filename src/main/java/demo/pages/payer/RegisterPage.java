@@ -3,9 +3,12 @@ package demo.pages.payer;
 import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+
+import java.time.Duration;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
@@ -21,9 +24,6 @@ public class RegisterPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
-        // Optional random phone number
-        phoneNumber = phoneNumberSetter(phoneNumber);
-
         // Input text into element and scroll page
         inputAndScroll(INPUT_PHONE_NUMBER, phoneNumber);
     }
@@ -62,18 +62,41 @@ public class RegisterPage {
         return getElement(BUTTON_CREATE_ACCOUNT).isEnabled();
     }
 
+    public String phoneNumberSetter(String phoneNumber) {
+        // Null changer
+        phoneNumber = nullChanger(phoneNumber);
+
+        // Generate random phone number if needed
+        if (phoneNumber.toLowerCase().contains("random")) {
+            if (phoneNumber.toLowerCase().contains("min")) {
+                return RandomUtils.generateRandomPhoneNumber(9);
+            } else if(phoneNumber.toLowerCase().contains("max")) {
+                return RandomUtils.generateRandomPhoneNumber(12);
+            } else {
+                return RandomUtils.generateRandomPhoneNumber(0);
+            }
+        } else {
+            return phoneNumber;
+        }
+    }
+
     public static void scrollDown() {
         AndroidElement screen = androidDriver
                 .findElement(By.id("action_bar_root"));
         Point center =  screen.getCenter();
-        int startX = 20;
-        int startY = (int) (center.getY() * 1.5);
-        int endX = 20;
-        int endY = (int) (center.getY() * 0.5);
+        int width = screen.getSize().width;
+        int height = screen.getSize().height;
+        int startX = center.getX() - (width / 2) + 20;
+        int startY = center.getY() + (height / 3);
+        int endX = center.getX() - (width / 2) + 20;
+        int endY = center.getY() - (height / 2);
+        System.out.println("Xstart, Ystart = " + startX + " " + startY);
+        System.out.println("Xend, Yend = " + endX + " " + endY);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
-                .moveTo(PointOption.point(endX, endY)).perform();
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(endX, endY)).release().perform();
     }
 
     public static void inputAndScroll(By targetElement, String input) {
@@ -106,24 +129,6 @@ public class RegisterPage {
             }
 
         } while (!isFound && counter < 5);
-    }
-
-    public static String phoneNumberSetter(String phoneNumber) {
-        // Null changer
-        phoneNumber = nullChanger(phoneNumber);
-
-        // Generate random phone number if needed
-        if (phoneNumber.toLowerCase().contains("random")) {
-            if (phoneNumber.toLowerCase().contains("min")) {
-                return RandomUtils.generateRandomPhoneNumber(9);
-            } else if(phoneNumber.toLowerCase().contains("max")) {
-                return RandomUtils.generateRandomPhoneNumber(12);
-            } else {
-                return RandomUtils.generateRandomPhoneNumber(0);
-            }
-        } else {
-            return phoneNumber;
-        }
     }
 
     public static String emailSetter(String email) {

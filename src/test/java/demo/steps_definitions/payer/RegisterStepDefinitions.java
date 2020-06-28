@@ -14,6 +14,9 @@ public class RegisterStepDefinitions {
     LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
 
+    String userRegisterPhoneNumber = "";
+    String userRegisterPassword = "";
+
     @Given("User is on Landing page")
     public void userIsOnLandingPage() {
         boolean status = landingPage.isOnPage();
@@ -33,7 +36,8 @@ public class RegisterStepDefinitions {
 
     @When("User input {string} on Phone Number input text field on Register page")
     public void userInputOnPhoneNumberInputTextFieldOnRegisterPage(String phoneNumber) {
-        registerPage.inputPhoneNumber(phoneNumber);
+        userRegisterPhoneNumber = registerPage.phoneNumberSetter(phoneNumber);
+        registerPage.inputPhoneNumber(userRegisterPhoneNumber);
     }
 
     @When("User input {string} {string} on Full Name input text field on Register page")
