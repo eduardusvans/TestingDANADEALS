@@ -15,8 +15,7 @@ public class HomeAdminStepDefinitions {
     public void userWaitForTheVoucherListToBeLoaded() {
         boolean status = homeAdminPage.checkProgressBar();
         Assert.assertFalse(status);
-        status = homeAdminPage.checkVoucherListPresence();
-        Assert.assertTrue(status);
+        ActionUtils.waitABit(1000);
     }
 
     @Given("User input {string} on Search Merchant input text field on Home Admin page")
@@ -32,6 +31,7 @@ public class HomeAdminStepDefinitions {
 
     @Then("User see the warning notification that says the voucher cannot be found")
     public void userSeeTheWarningNotificationThatSaysTheVoucherCannotBeFound() {
+        ActionUtils.waitABit(5000);
     }
 
     @Then("User cannot see any voucher on Home Admin page")
@@ -76,4 +76,9 @@ public class HomeAdminStepDefinitions {
     public void userSeeTheLoadingScreen() {
     }
 
+    @When("User see the voucher list on Home Admin page")
+    public void userSeeTheVoucherListOnHomeAdminPage() {
+        boolean status = homeAdminPage.checkVoucherListPresence();
+        Assert.assertTrue(status);
+    }
 }

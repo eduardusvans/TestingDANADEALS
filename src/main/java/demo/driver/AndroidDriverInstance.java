@@ -23,6 +23,7 @@ public class AndroidDriverInstance {
         caps.setCapability("app",
                 System.getProperty("user.dir") + File.separator + "APP" + File.separator + app);
         caps.setCapability("automationName", "UIAutomator2");
+        caps.setCapability("appWaitActivity", "*");
         try {
             androidDriver = new AndroidDriver<>(new URL(appiumUrl), caps);
             androidDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

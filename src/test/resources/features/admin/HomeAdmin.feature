@@ -1,4 +1,4 @@
-@Android @Home
+@Android @HomeAdmin
 #noinspection NonAsciiCharacters
 Feature: Home
 
@@ -16,6 +16,7 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User input "<keyword>" on Search Merchant input text field on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | keyword |
@@ -34,9 +35,11 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User input "kfc" on Search Merchant input text field on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "kfc" on its merchant name on Home Admin page
     When User clear the Search Merchant input text field on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see all of the existing vouchers on Home Admin page
 
   @Reset @Search @Positive @1-2
@@ -45,16 +48,17 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User input "kfc" on Search Merchant input text field on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "kfc" on its merchant name on Home Admin page
     When User tap Reset button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see all of the existing vouchers on Home Admin page
 
   @Search @Negative
   Scenario Outline: Search voucher with the invalid condition
     Given User wait for the voucher list to be loaded
-    Given User input "<keyword>" on Search Merchant input text field on Home Admin page
-    When User wait for the voucher list to be loaded
+    When User input "<keyword>" on Search Merchant input text field on Home Admin page
     Then User see the warning notification that says the voucher cannot be found
     Then User cannot see any voucher on Home Admin page
     Examples:
@@ -85,6 +89,7 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User tap "<status>" button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     Examples:
       | status   |
@@ -98,10 +103,12 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User tap "<firstStatus>" button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "<firstStatus>" on its status on Home Admin page
     When User tap Reset button on Home Admin page
     Given User tap "<secondStatus>" button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "<secondStatus>" on its status on Home Admin page
     Examples:
       | firstStatus | secondStatus |
@@ -115,9 +122,11 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User tap "<status>" button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     When User tap Reset button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see all of the existing vouchers on Home Admin page
     Examples:
       | status   |
@@ -131,9 +140,11 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User tap "<status>" button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     When User input "<keyword>" on Search Merchant input text field on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | status   | keyword |
@@ -147,9 +158,11 @@ Feature: Home
     Given User wait for the voucher list to be loaded
     Given User input "<keyword>" on Search Merchant input text field on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     When User tap "<status>" button on Home Admin page
     When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
     Then User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
     Examples:
       | keyword | status   |
@@ -161,7 +174,8 @@ Feature: Home
   @Logout @Positive
   Scenario: Log out the the account
     Given User wait for the voucher list to be loaded
-    Given User tap Logout button on Home Admin page
+    When User see the voucher list on Home Admin page
+    When User tap Logout button on Home Admin page
     When User see the loading screen
     Then User is on DANA Deals Login page
 

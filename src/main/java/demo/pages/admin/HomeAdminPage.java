@@ -6,9 +6,6 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
@@ -38,6 +35,7 @@ public class HomeAdminPage {
 
     public void inputSearchVoucher(String keyword) {
         inputElement(INPUT_SEARCH_VOUCHER, keyword);
+        waitABit(3000);
     }
 
     public void clearInputSearchVoucher() {
@@ -73,7 +71,7 @@ public class HomeAdminPage {
             waitABit(5000);
             List<AndroidElement> vNameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
             for (AndroidElement vName : vNameList) {
-                if (vName.getText().equalsIgnoreCase(wantedVoucher)) {
+                if (vName.getText().trim().equalsIgnoreCase(wantedVoucher.trim())) {
                     vName.click();
                     isFound = true;
                     break;
@@ -85,7 +83,7 @@ public class HomeAdminPage {
                 counter++;
             }
 
-        } while (!isFound && counter <= 10);
+        } while (!isFound && counter <= 100);
     }
 
     public boolean checkProgressBar() {
@@ -96,7 +94,7 @@ public class HomeAdminPage {
                 waitABit(3000);
                 status = getElement(PROGRESS_BAR).isDisplayed();
                 if (!status) {
-                    return status;
+                    return false;
                 }
                 waitCounter++;
             }
@@ -159,8 +157,23 @@ public class HomeAdminPage {
     }
 
     public boolean checkKeywordVoucherPresence(String keyword) {
-
         int counter = 0;
+        int counterRefreshed = 0;
+        boolean isRefreshed = false;
+
+        do {
+            if (counterRefreshed < 3) {
+                List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
+                if (nameList.get(0).getText().equalsIgnoreCase(keyword)) {
+                    isRefreshed = true;
+                } else {
+                    waitABit(3000);
+                }
+            } else {
+                return false;
+            }
+            counterRefreshed ++;
+        } while (isRefreshed);
 
         do {
             waitABit(5000);
@@ -185,6 +198,22 @@ public class HomeAdminPage {
 
     public boolean checkStatusVoucherPresence(String chosenStatus) {
         int counter = 0;
+        int counterRefreshed = 0;
+        boolean isRefreshed = false;
+
+        do {
+            if (counterRefreshed < 3) {
+                List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
+                if (statusList.get(0).getText().equalsIgnoreCase(chosenStatus)) {
+                    isRefreshed = true;
+                } else {
+                    waitABit(3000);
+                }
+            } else {
+                return false;
+            }
+            counterRefreshed ++;
+        } while (isRefreshed);
 
         do {
             waitABit(5000);
@@ -212,7 +241,7 @@ public class HomeAdminPage {
         int startX = center.getX() - (width / 2) + 20;
         int startY = center.getY() + (height / 3);
         int endX = center.getX() - (width / 2) + 20;
-        int endY = center.getY() - (height / 2);
+        int endY = center.getY() - (height / 3);
         System.out.println("Xstart, Ystart = " + startX + " " + startY);
         System.out.println("Xend, Yend = " + endX + " " + endY);
         @SuppressWarnings("rawtypes")
