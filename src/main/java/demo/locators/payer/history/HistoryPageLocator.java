@@ -17,9 +17,9 @@ public interface HistoryPageLocator {
     By BTN_CANCEL = MobileBy.id("cancel_button");
     By BTN_SAVE = MobileBy.id("confirm_button");
 
-    By BTN_EDIT = MobileBy.id("mtrl_picker_header_toggle");
-    By START_DATE = MobileBy.id("mtrl_picker_text_input_range_start"); // m/d/yy
-    By END_DATE = MobileBy.id("mtrl_picker_text_input_range_end"); // m/d/yy
+    //By BTN_EDIT = MobileBy.id("mtrl_picker_header_toggle");
+    //By START_DATE = MobileBy.id("mtrl_picker_text_input_range_start"); // m/d/yy
+    //By END_DATE = MobileBy.id("mtrl_picker_text_input_range_end"); // m/d/yy
 
     By START_DATE_Picker = MobileBy.xpath("//android.widget.TextView[@content-desc='Sat, Jun 27']\n");
     By END_DATE_Picker = MobileBy.xpath("//android.widget.TextView[@content-desc='Sat, Jun 27']\n");
