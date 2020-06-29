@@ -37,7 +37,7 @@ public class RandomUtils {
             case 74:
                 randomName = faker.name().fullName().toLowerCase().replace(".","").replace(" ", ".");
                 int nameLength = length - randomName.length() - ("@gmail.com").length();
-                randomName = randomName.concat(faker.number().digits(nameLength));
+                randomName = randomName.concat("." + faker.number().digits(nameLength));
                 break;
             case 6:
                 if (faker.bool().bool()) {
@@ -45,13 +45,9 @@ public class RandomUtils {
                 } else {
                     return faker.bothify("#@?.??");
                 }
-            case 1:
-                randomName = faker.name().fullName().toLowerCase().replace(".","").replace(" ", ".");
-                randomName = randomName.concat("." + faker.number().digits(faker.number().numberBetween(2, 5)));
-                break;
             default:
                 randomName = faker.name().fullName().toLowerCase().replace(".","").replace(" ", ".");
-                randomName = randomName.concat(faker.number().digits(faker.number().numberBetween(2, 5)));
+                randomName = randomName.concat("." + faker.number().digits(faker.number().numberBetween(2, 5)));
         }
         List<String> email = new ArrayList<>();
         email.add(randomName.concat("@gmail.com"));

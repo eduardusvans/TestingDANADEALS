@@ -24,7 +24,7 @@ Feature: Register
       # REG002
       | Random      | abcdefghij |                  | Random            | TestingREG1!     | TestingREG1!     |
       # REG003
-      | Random      | abc'-      |                  | Random            | TestingREG1!     | TestingREG1!     |
+      | Random      | abc'd-     |                  | Random            | TestingREG1!     | TestingREG1!     |
       # REG004
       | Random      | abc        | defghijklmnopqrs | Random            | TestingREG1!     | TestingREG1!     |
       # REG005
@@ -37,7 +37,6 @@ Feature: Register
       | Random      | abc        |                  | Random Alphabetic | TestingREG1!     | TestingREG1!     |
       # REG009
       | Random      | abc        |                  | Random Numeric    | TestingREG1!     | TestingREG1!     |
-      | Random      | abc        |                  | Random Double (.) | TestingREG1!     | TestingREG1!     |
       # REG010
       | Random Min  | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
       # REG011
@@ -139,3 +138,49 @@ Feature: Register
       | Random      | abc       |          | testinglogin3@gmail.com | TestingREG1! | TestingREG1!    |
       # REG032
       | 87722074250 | abc       |          | Random                  | TestingREG1! | TestingREG1!    |
+
+  @Demo @Positive
+  Scenario Outline: Register with valid input
+    Given User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    Then User see the success message on Login page
+    Then User is on DANA Deals Login page
+    Examples:
+      | phoneNumber | firstName | lastName | email  | password     | confirmPassword |
+      # REG001
+      | Random      | Bilal     | El Bari  | Random | TestingREG1! | TestingREG1!    |
+
+  @Demo @Negative @1-1
+  Scenario Outline: Register with one of the input is invalid
+    Given User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User cannot tap the Create Account button on Register page
+    Then User is still on Register page
+    Examples:
+      | phoneNumber | firstName   | lastName | email                         | password         | confirmPassword  |
+      # REG014
+      | Random      |             |          | Random                        | TestingREG1!     | TestingREG1!     |
+
+  @Demo @Negative @1-2
+  Scenario Outline: Register with registered email or phone number
+    Given User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    Then User is still on Register page
+    Examples:
+      | phoneNumber | firstName | lastName | email                   | password     | confirmPassword |
+      # REG021
+      | Random      | abc       |          | testinglogin3@gmail.com | TestingREG1! | TestingREG1!    |
