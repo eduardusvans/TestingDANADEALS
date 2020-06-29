@@ -10,7 +10,7 @@ public class HistoryPage {
     public boolean isOnPageHistory() {
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement history_icon = wait
-                .until(ExpectedConditions.presenceOfElementLocated(History_Icon));
+                .until(ExpectedConditions.presenceOfElementLocated(In_Progress_Tab));
         return history_icon.isDisplayed();
     }
 }

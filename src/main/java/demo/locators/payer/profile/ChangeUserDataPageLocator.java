@@ -15,5 +15,4 @@ public interface ChangeUserDataPageLocator {
     By warningText = MobileBy.id("textinput_error");
 
     By BACK_BTN_ChangeUserData = MobileBy.xpath("//android.widget.ImageButton[@content-desc='Navigate up']");
-    By assertChangeUserDataPage = MobileBy.id("tv_edit_profile");
 }
