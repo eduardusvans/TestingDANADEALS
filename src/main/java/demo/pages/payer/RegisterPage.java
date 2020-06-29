@@ -9,15 +9,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
-import static demo.utils.ActionUtils.waitElement;
 
 public class RegisterPage {
     public boolean isOnPage() {
-        try {
-            return waitElement(INPUT_PHONE_NUMBER, 15).isDisplayed();
-        } catch (Exception e) {
-            return waitElement(INPUT_CONFIRM_PASSWORD, 15).isDisplayed();
-        }
+        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
+        WebElement passwordInput = wait
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("password_textbox")));
+        return passwordInput.isDisplayed();
     }
 
+    public void inputPhoneNumber(String phoneNumberInput) {
+        AndroidElement input = AndroidDriverInstance
+                .androidDriver
+                .findElement(By.id("phonenumber_textbox"));
+
+        input.sendKeys(phoneNumberInput);
+    }
 }
