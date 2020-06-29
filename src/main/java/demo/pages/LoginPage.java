@@ -7,7 +7,7 @@ import static demo.utils.ActionUtils.waitElement;
 
 public class LoginPage {
 
-    public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 15).isDisplayed(); }
+    public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 20).isDisplayed(); }
 
     public void inputPhoneNumber(String phoneNumber){ androidDriver.findElement(INPUT_PHONE).sendKeys(phoneNumber); }
     public void inputPassword(String password){ androidDriver.findElement(INPUT_PASSWORD).sendKeys(password); }

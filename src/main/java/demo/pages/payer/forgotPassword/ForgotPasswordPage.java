@@ -4,7 +4,7 @@ import static demo.utils.ActionUtils.*;
 
 public class ForgotPasswordPage {
     public boolean isOnPage() {
-        return waitElement(BUTTON_SEND_OTP, 15).isDisplayed();
+        return waitElement(BUTTON_SEND_OTP, 30).isDisplayed();
     }
 
     public void inputPhoneNumber(String phoneNumber) {
@@ -12,7 +12,7 @@ public class ForgotPasswordPage {
     }
 
     public void tapSendOtpButton() {
-        tapElement(BUTTON_SEND_OTP);
+        waitElement(BUTTON_SEND_OTP, 15).click();
     }
 
     public boolean sendOtpButtonStatus() {
