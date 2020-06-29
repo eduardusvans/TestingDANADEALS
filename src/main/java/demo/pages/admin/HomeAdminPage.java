@@ -65,7 +65,7 @@ public class HomeAdminPage {
         }
     }
 
-    public void tapVoucher(String wantedName) {
+    public void tapVoucher(String wantedVoucher) {
         boolean isFound = false;
         int counter = 0;
 
@@ -73,7 +73,7 @@ public class HomeAdminPage {
             waitABit(5000);
             List<AndroidElement> vNameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
             for (AndroidElement vName : vNameList) {
-                if (vName.getText().equalsIgnoreCase(wantedName)) {
+                if (vName.getText().equalsIgnoreCase(wantedVoucher)) {
                     vName.click();
                     isFound = true;
                     break;
@@ -154,7 +154,7 @@ public class HomeAdminPage {
             if (counter >= 100) {
                 return false;
             }
-        } while (!mixStatus || !mixMerchant);
+        } while (!(mixStatus && mixMerchant));
         return true;
     }
 
