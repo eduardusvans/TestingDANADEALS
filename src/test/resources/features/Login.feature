@@ -315,6 +315,41 @@ Feature: Login
     Then User is on Register Page
 
 
+  @E2ELoginFeature
+  @Payer
+  # ETEL001
+  Scenario : Register - Login - Logout
+    Given User is on Landing page
+    Given User tap the Create Account button on Landing page
+    Given User is on Register page
+    When User input "Sihaloho" on Phone Number input text field on Register page
+    When User input "Sihaloho" "Oriani" on Full Name input text field on Register page
+    When User input "sihalohooriani@gmail.com" on E-Mail input text field on Register page
+    When User input "P@ssword1" on Password input text field on Register page
+    When User input "P@ssword1" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    Then User see the success message on Login page
+    Then User is on DANA Deals Login page
+    When User input "83196747870" on phone number input field on login page
+    And User input "P@sswordku1" on password input field on login page
+    And User click Login button
+    Then User see message
+    Then User is on Home page
+    When User tap profile icon
+    Then User is on Profile screen
+    When User tap LogOut button
+    Then User is on DANA Deals Login page
 
-
-
+  @Admin
+  # ETEL002
+  Scenario: Admin Login - Logout
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
+    When User input "87800000000" on phone number input field on login page
+    And User input "P@ssw0rd" on password input field on login page
+    And User click Login button
+    Then User see message
+    Then User is on Home Admin page
+    When User tap LogOut button on Home Admin page
+    Then User is on DANA Deals Login page

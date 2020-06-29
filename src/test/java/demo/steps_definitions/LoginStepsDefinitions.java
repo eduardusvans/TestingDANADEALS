@@ -99,4 +99,7 @@ public class LoginStepsDefinitions {
 
     @Then("User see message")
     public void UserSeeMessage() { loginPage.seeMessage(); }
+
+    @When("User tap LogOut button on Home Admin page")
+    public void userTapLogOutButtonOnHomeAdminPage() { homeAdminPage.tapLogoutButton(); }
 }

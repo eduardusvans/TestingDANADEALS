@@ -7,13 +7,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
-import static demo.locators.payer.profile.ProfilePageLocator.assertProfilePage;
 
 public class ActionUtils {
 
     public static WebElement waitElement(By targetElement, int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(androidDriver, timeOutInSeconds);
         return wait.until(ExpectedConditions.presenceOfElementLocated(targetElement));
+    }
+
+    public static AndroidElement getElement(By targetElement){
+        return androidDriver.findElement(targetElement);
     }
 
     public static void tapElement(By targetElement) {
