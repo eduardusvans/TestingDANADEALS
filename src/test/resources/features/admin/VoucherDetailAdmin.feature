@@ -1,4 +1,4 @@
-@Android @VoucherDetail
+@Android @VoucherDetailAdmin
 Feature: VoucherDetail
 
   Background:

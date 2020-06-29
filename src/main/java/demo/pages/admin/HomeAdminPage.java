@@ -21,23 +21,62 @@ public class HomeAdminPage {
         return waitElement(INPUT_SEARCH_VOUCHER, 30).isDisplayed();
     }
     public void tapAnyVoucher(){ tapElement(VOUCHER); }
-    public void tapVoucher(String voucherName){
+    public void tapVoucherB(String voucherName){
 
             String nameVouc = "";
             do {
                 waitABit(5000);
                 List<AndroidElement> voucherList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
                 for (AndroidElement name : voucherList) {
-//                    nameVouc = name.getText();
-                    if (!name.getText().equalsIgnoreCase(voucherName)) {
+                    if (name.getText().equalsIgnoreCase(voucherName)) {
                         nameVouc = name.getText();
-                        System.out.println("Voucher Name = " + nameVouc);
+                        System.out.println("Voucher Name ketemu= " + nameVouc);
+                        break;
                     }
-                }
-                scrollDown();
-            } while (nameVouc.equals(voucherName));
-            tapElement(VOUCHER_ITEM);
 
+                }
+                   if(!nameVouc.equalsIgnoreCase(voucherName)){
+                       System.out.println("Pass Vouc"+nameVouc);
+                    scrollDown();
+                }
+            } while (nameVouc.equalsIgnoreCase(voucherName));
+
+
+    }
+
+    public void tapVoucher(String voucherName) {
+        boolean isFound = false;
+        int counter = 0;
+
+        do {
+            String vouc ="";
+            waitABit(5000);
+            List<AndroidElement> vCardList = androidDriver.findElements(VOUCHER_ITEM);
+            List<AndroidElement> vNameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
+           for(AndroidElement vCard : vCardList) {
+            for (AndroidElement vName : vNameList) {
+                vouc = vName.getText();
+                if (vName.getText().equalsIgnoreCase(voucherName)) {
+                    System.out.println("Voucher is found :"+vouc);
+
+//                    List<AndroidElement> vCardListt = androidDriver.findElements(VOUCHER_ITEM);
+//                    List<AndroidElement> vNameListt = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
+                    vCard.click();
+
+//                    vName.click();
+                    isFound = true;
+
+                    break;
+                }
+            }
+        }
+            if (!isFound) {
+                scrollDown();
+                System.out.println("Pass " +vouc);
+                counter++;
+            }
+
+        } while (!isFound && counter <= 100);
     }
 
     public void inputSearchVoucher(String keyword) {
@@ -186,9 +225,9 @@ public class HomeAdminPage {
         int width = screen.getSize().width;
         int height = screen.getSize().height;
         int startX = center.getX() - (width / 2) + 20;
-        int startY = center.getY() + (height / 3);
+        int startY = center.getY() + (height / 5);
         int endX = center.getX() - (width / 2) + 20;
-        int endY = center.getY() - (height / 2);
+        int endY = center.getY() - (height / 5);
         System.out.println("Xstart, Ystart = " + startX + " " + startY);
         System.out.println("Xend, Yend = " + endX + " " + endY);
         @SuppressWarnings("rawtypes")
