@@ -27,8 +27,6 @@ public class HomePayer {
     }
 
     public String getUserBalance(){
-        waitABit(2000);
-        AndroidElement userBalance = AndroidDriverInstance.androidDriver.findElement(USER_BALANCE);
-        return userBalance.getText();
+        return waitElement(USER_BALANCE,30).getText();
     }
 }
