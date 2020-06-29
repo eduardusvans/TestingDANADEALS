@@ -12,6 +12,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import static demo.utils.ActionUtils.waitABit;
+
 public class LoginStepsDefinitions {
 
     LandingPage landingPage = new LandingPage();
@@ -34,7 +36,10 @@ public class LoginStepsDefinitions {
     public void userClickLoginToAccountButton() { landingPage.tapLoginToAccountButton(); }
 
     @Then("User is on DANA Deals Login page")
-    public void userIsOnDANADealsLoginPage() { loginPage.isOnPage(); }
+    public void userIsOnDANADealsLoginPage() {
+        loginPage.isOnPage();
+        waitABit(10);
+    }
 
     @When("User input {string} on phone number input field on login page")
     public void userInputOnPhoneNumberInputFieldOnLoginPage(String phoneNumber) { loginPage.inputPhoneNumber(phoneNumber); }
@@ -46,7 +51,9 @@ public class LoginStepsDefinitions {
     public void userClickLoginButton() { loginPage.clickLogin(); }
 
     @Then("User is on Home page")
-    public void userIsOnHomePage() { Assert.assertTrue(homePayer.isOnPage()); }
+    public void userIsOnHomePage() {
+        Assert.assertTrue(homePayer.isOnPage());
+    }
 
     @Then("User is on Home Admin page")
     public void userIsOnHomeAdminPage() { Assert.assertTrue(homeAdminPage.isOnPage()); }
