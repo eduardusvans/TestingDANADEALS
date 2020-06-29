@@ -14,9 +14,9 @@ import static demo.locators.admin.VoucherDetailAdminPageLocator.TXT_STATUS;
 
 public class HomeAdminPage {
     public boolean isOnPage() {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
+        WebDriverWait wait = new WebDriverWait(androidDriver, 150);
         WebElement userLabel = wait
-                .until(ExpectedConditions.presenceOfElementLocated(VOUCHER));
+                .until(ExpectedConditions.presenceOfElementLocated(BUTTON_LOGOUT));
         return userLabel.isDisplayed();
     }
 

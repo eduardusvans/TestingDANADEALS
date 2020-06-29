@@ -9,13 +9,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
+import static demo.utils.ActionUtils.waitElement;
 
 public class RegisterPage {
     public boolean isOnPage() {
-        WebDriverWait wait = new WebDriverWait(androidDriver, 15);
-        WebElement btnRegister = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btn_register")));
-        return btnRegister.isDisplayed();
+        try {
+            return waitElement(INPUT_PHONE_NUMBER, 15).isDisplayed();
+        } catch (Exception e) {
+            return waitElement(INPUT_CONFIRM_PASSWORD, 15).isDisplayed();
+        }
     }
 
 }

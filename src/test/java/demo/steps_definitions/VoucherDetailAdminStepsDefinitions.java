@@ -47,11 +47,11 @@ public class VoucherDetailAdminStepsDefinitions {
         Assert.assertEquals(quota,actual);
     }
 
-    @Then("User check Voucher {string} status {string} and quota {string} on Home Admin Page")
-    public void userCheckVoucherStatusAndQuotaOnHomeAdminPage(String name, String statusVoucher, String quota) {
-        String actual = homeAdminPage.getVoucherUpdate();
-        Assert.assertEquals(name,statusVoucher,quota,actual);
-    }
+//    @Then("User check Voucher {string} status {string} and quota {string} on Home Admin Page")
+//    public void userCheckVoucherStatusAndQuotaOnHomeAdminPage(String name, String statusVoucher, String quota) {
+//        String actual = homeAdminPage.getVoucherUpdate();
+//        Assert.assertEquals(name,statusVoucher,quota,actual);
+//    }
 
     @Then("User see status textview")
     public void userSeeStatusTextview() { Assert.assertTrue(voucherDetailAdminPage.seeStatusVoucher()); }

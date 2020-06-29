@@ -90,4 +90,6 @@ public class LoginStepsDefinitions {
     @Then("User see pop up notification")
     public void userSeePopUpNotification() { Assert.assertTrue( loginPage.seePopUpNotification()); }
 
+    @Then("User see message")
+    public void UserSeeMessage() { loginPage.seeMessage(); }
 }
