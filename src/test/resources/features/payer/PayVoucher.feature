@@ -20,10 +20,10 @@
     @Test
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
-      When User click "ada pocer nih" on DANA Deals homepage
-      When User is on voucher details page of "ada pocer nih"
+      When User click "Bayar Indiehome 11" on DANA Deals homepage
+      When User is on voucher details page of "Bayar Indiehome 11"
       When User click buy button on voucher details page
-      When User see is on cashier page of "ada pocer nih"
+      When User see is on cashier page of "Bayar Indiehome 11"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
@@ -41,7 +41,7 @@
     Scenario: Pay voucher from voucher details page using search merchant name
       Given User is on DANA Deals Homepage
       When User type a "character" at search field on DANA Deals Homepage
-      When User see all vouchers of "merchant name" that contains the "character" are displayed
+      When User see all vouchers of "merchant name" are displayed
       When User click "voucher name" to see voucher details
       When User see the voucher details of "voucher name" is displayed
       When User click buy button on voucher details page

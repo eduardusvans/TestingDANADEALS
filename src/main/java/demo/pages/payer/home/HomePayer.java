@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 
 import java.time.Duration;
+import java.util.List;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
@@ -67,13 +68,11 @@ public class HomePayer {
     }
 
     public void clickVoucher(String VoucherName) {
-        if (VoucherName == "aasseekk pocer" || VoucherName == "aaa asiiik voucher" || VoucherName == "AAAA Deals Z") {
-            String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name') and @text = '%s']";
-            androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).click();
-        } else {
+
             tapAndScroll(VoucherName);
         }
-    }
+
+
 
         public String checkVoucherPrice() {
         return waitElement(VOUCHER_PRICE_CHECK, 20).getText();
@@ -113,16 +112,22 @@ public class HomePayer {
         int counter = 0;
 
         do {
-            try {
-                String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name') and @text = '%s']";
-                androidDriver.findElement(By.xpath(String.format(xpath, Keyword))).click();
-                isFound = true;
-            } catch (Exception e) {
+            waitABit(5000);
+            List<AndroidElement> vNameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
+            for (AndroidElement vName : vNameList) {
+                if (vName.getText().equalsIgnoreCase(Keyword)) {
+                    vName.click();
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (!isFound) {
                 scrollDown();
                 counter++;
             }
 
-        } while (!isFound && counter < 5);
+        } while (!isFound && counter <= 10);
     }
 
     public void clickVoucherRefund(){

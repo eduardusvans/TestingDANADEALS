@@ -3,14 +3,16 @@ package demo.pages.payer;
 import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 
+import java.time.Duration;
+
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
-import static demo.utils.ActionUtils.nullChanger;
-import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
@@ -32,7 +34,6 @@ public class RegisterPage {
     public void inputFullName(String firstName, String lastName) {
         // Set the full name
         String fullName = fullNameSetter(firstName, lastName);
-
         // Input text into element and scroll page
         inputAndScroll(INPUT_FULL_NAME, fullName);
     }
@@ -60,18 +61,25 @@ public class RegisterPage {
         tapAndScroll(BUTTON_CREATE_ACCOUNT);
     }
 
+    public boolean createAccountButtonStatus() {
+        return getElement(BUTTON_CREATE_ACCOUNT).isEnabled();
+    }
+
     public static void scrollDown() {
         AndroidElement screen = androidDriver
-                .findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup"));
+                .findElement(By.id("action_bar_root"));
         Point center =  screen.getCenter();
-        int startX = 20;
-        int startY = center.getY() + 400;
-        int endX = 20;
-        int endY = center.getY() - 400;
+        int width = screen.getSize().width;
+        int height = screen.getSize().height;
+        int startX = center.getX() - (width / 2) + 20;
+        int startY = center.getY() + (height / 3);
+        int endX = center.getX() - (width / 2) + 20;
+        int endY = center.getY() - (height / 2);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
-                .moveTo(PointOption.point(endX, endY)).perform();
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(endX, endY)).release().perform();
     }
 
     public static void inputAndScroll(By targetElement, String input) {
@@ -80,8 +88,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.sendKeys(input);
+                inputElement(targetElement, input);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -97,8 +104,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.click();
+                tapElement(targetElement);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -132,9 +138,13 @@ public class RegisterPage {
 
         // Generate random email if needed
         if (email.toLowerCase().contains("random")) {
-            if (email.toLowerCase().contains("min")) {
+            if (email.toLowerCase().contains("alphabetic")) {
+                return RandomUtils.generateRandomEmailAlphabetic();
+            } else if (email.toLowerCase().contains("numeric")) {
+                return RandomUtils.generateRandomEmailNumeric();
+            } else if (email.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomEmail(6);
-            } else if(email.toLowerCase().contains("max")) {
+            } else if (email.toLowerCase().contains("max")) {
                 return RandomUtils.generateRandomEmail(74);
             } else {
                 return RandomUtils.generateRandomEmail(0);
@@ -156,6 +166,8 @@ public class RegisterPage {
             } else {
                 return lastName;
             }
+        } else if (lastName.equals("")) {
+            return firstName;
         } else {
             return firstName.concat(" " + lastName);
         }
