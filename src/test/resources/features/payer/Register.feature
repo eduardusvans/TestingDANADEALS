@@ -37,6 +37,7 @@ Feature: Register
       | Random      | abc        |                  | Random Alphabetic | TestingREG1!     | TestingREG1!     |
       # REG009
       | Random      | abc        |                  | Random Numeric    | TestingREG1!     | TestingREG1!     |
+      | Random      | abc        |                  | Random Double (.) | TestingREG1!     | TestingREG1!     |
       # REG010
       | Random Min  | abc        |                  | Random            | TestingREG1!     | TestingREG1!     |
       # REG011
