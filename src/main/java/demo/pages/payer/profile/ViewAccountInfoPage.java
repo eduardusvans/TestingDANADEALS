@@ -11,7 +11,7 @@ public class ViewAccountInfoPage {
     }
     public void tapBackBtn(){ tapElement(Back_Btn_ViewAccountInfo); }
     public void tapDoneBtn(){
-        waitABit(2000);
+        waitABit(5000);
         tapElement(Btn_Done_ViewAccountInfo);
     }
 }

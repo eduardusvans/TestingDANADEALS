@@ -101,11 +101,13 @@ Feature: Profile
     # P012
       | vansvansva | s                |
     # P013
-      | vanvansvan  | arderitoo        |
+      | vanvansvan | arderitoo        |
     # P014
       | van's      |                  |
     # P015
       | va-ns      |                  |
+    # reset name
+      | Vans       |                  |
 
   #P016 - P017
   Scenario Outline: Change e-mail with valid input
