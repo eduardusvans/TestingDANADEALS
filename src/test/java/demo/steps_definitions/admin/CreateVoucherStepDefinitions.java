@@ -82,4 +82,10 @@ public class CreateVoucherStepDefinitions {
         String actual = homeAdmin.successMessage();
         Assert.assertEquals(success,actual);
     }
+
+    @Then("User will see error {string} message in Create Voucher Page")
+    public void userWillSeeErrorMessageInCreateVoucherPage(String failed) {
+        String actual = createVoucherPage.failedMessage();
+        Assert.assertEquals(failed,actual);
+    }
 }

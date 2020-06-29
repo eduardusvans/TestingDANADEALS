@@ -25,7 +25,7 @@ public class AndroidDriverInstance {
         caps.setCapability("automationName", "UIAutomator2");
         try {
             androidDriver = new AndroidDriver<>(new URL(appiumUrl), caps);
-            androidDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            androidDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

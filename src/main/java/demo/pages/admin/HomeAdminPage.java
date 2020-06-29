@@ -12,7 +12,7 @@ import static demo.utils.ActionUtils.waitElement;
 
 public class HomeAdminPage {
     public boolean isOnPage() {
-        return waitElement(BUTTON_LOGOUT, 20).isDisplayed();
+        return waitElement(BUTTON_LOGOUT, 30).isDisplayed();
     }
 
     public void clickVoucher(String statusVoucher) {

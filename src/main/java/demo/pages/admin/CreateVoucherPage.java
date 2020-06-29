@@ -154,4 +154,8 @@ public class CreateVoucherPage {
         }
     }
 
+    public String failedMessage(){
+        return androidDriver.findElement(FAILED_TOAST_MESSAGE).getText();
+    }
+
 }
