@@ -13,6 +13,9 @@ public class RegisterStepDefinitions {
 
     LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
+    LoginPage loginPage = new LoginPage();
+
+    String userRegisterPhoneNumber = "";
 
     @Given("User tap the Create Account button on Landing page")
     public void userTapTheCreateAccountButtonOnLandingPage() {
@@ -27,7 +30,8 @@ public class RegisterStepDefinitions {
 
     @When("User input {string} on Phone Number input text field on Register page")
     public void userInputOnPhoneNumberInputTextFieldOnRegisterPage(String phoneNumber) {
-        registerPage.inputPhoneNumber(phoneNumber);
+        userRegisterPhoneNumber = registerPage.phoneNumberSetter(phoneNumber);
+        registerPage.inputPhoneNumber(userRegisterPhoneNumber);
     }
 
     @When("User input {string} {string} on Full Name input text field on Register page")
@@ -64,7 +68,7 @@ public class RegisterStepDefinitions {
 
     @Then("User see the success message on Login page")
     public void userSeeTheSuccessMessageOnLoginPage() {
-        ActionUtils.waitABit(5000);
+        ActionUtils.waitABit(3000);
     }
 
     @Then("User is still on Register page")
@@ -72,5 +76,10 @@ public class RegisterStepDefinitions {
         ActionUtils.waitABit(3000);
         boolean status = registerPage.isOnPage();
         Assert.assertTrue(status);
+    }
+
+    @When("User input registered phone number on Phone Number input text field on login page")
+    public void userInputRegisteredPhoneNumberOnPhoneNumberInputTextFieldOnLoginPage() {
+        loginPage.inputPhoneNumber(userRegisterPhoneNumber);
     }
 }

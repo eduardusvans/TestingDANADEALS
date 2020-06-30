@@ -1,25 +1,13 @@
 package demo.steps_definitions;
 
-import demo.pages.admin.HomeAdminPage;
 import demo.pages.admin.VoucherDetailAdminPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class VoucherDetailAdminStepsDefinitions {
-    HomeAdminPage homeAdminPage = new HomeAdminPage();
     VoucherDetailAdminPage voucherDetailAdminPage = new VoucherDetailAdminPage();
-
-    String itemStatus;
-
-    @Given("User click Voucher status {string}")
-    public void userClickVoucherStatus(String statusVoucher) { homeAdminPage.clickVoucher(statusVoucher); }
-
-
-    @Given("User click Voucher {string} status {string} and quota {string}")
-    public void userClickVoucherStatusAndQuota(String name,String statusVoucher, String quota) { homeAdminPage.clickVoucher3Param(name,statusVoucher,quota); }
 
     @Then("User is on DANA Deals Voucher Detail page")
     public void userIsOnDANADealsVoucherDetailPage() { voucherDetailAdminPage.isOnPage(); }
@@ -34,24 +22,6 @@ public class VoucherDetailAdminStepsDefinitions {
 
     @Then("User see success notification")
     public void userSeeSuccessNotification() { }
-
-    @Then("User see quota {string} before update")
-    public void userSeeQuotaBeforeUpdate(String quota) {
-        String actual = voucherDetailAdminPage.getQuota();
-        Assert.assertEquals(quota,actual);
-    }
-
-    @Then("User check quota {string} after update")
-    public void userCheckQuotaAfterUpdate(String quota) {
-        String actual = voucherDetailAdminPage.getQuota();
-        Assert.assertEquals(quota,actual);
-    }
-
-    @Then("User check Voucher {string} status {string} and quota {string} on Home Admin Page")
-    public void userCheckVoucherStatusAndQuotaOnHomeAdminPage(String name, String statusVoucher, String quota) {
-        String actual = homeAdminPage.getVoucherUpdate();
-//        Assert.assertEquals(name,statusVoucher,quota,actual);
-    }
 
     @Then("User see status textview")
     public void userSeeStatusTextview() { Assert.assertTrue(voucherDetailAdminPage.seeStatusVoucher()); }
