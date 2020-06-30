@@ -15,14 +15,16 @@ public class SortVoucherStepsDefinitions {
 
     @When("User click sort dropdown menu button on DANA Deals homepage")
     public void userClickSortDropdownMenuButtonOnDANADealsHomepage() {
+        homePayer.clickSortButton();
     }
 
     @When("User choose {string} to sort the voucher")
-    public void userChooseToSortTheVoucher(String arg0) {
+    public void userChooseToSortTheVoucher(String Keyword) {
+        homePayer.chooseSort(Keyword);
     }
 
     @Then("User see sort voucher by {string} feature is not displayed")
-    public void userSeeSortVoucherByFeatureIsNotDisplayed(String arg0) {
+    public void userSeeSortVoucherByFeatureIsNotDisplayed(String Keyword) {
     }
 
     @When("User see pop up notification that payment is success")

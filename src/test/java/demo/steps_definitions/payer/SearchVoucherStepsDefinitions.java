@@ -44,7 +44,7 @@ public class SearchVoucherStepsDefinitions {
 
     @Then("User see all vouchers of {string} are displayed")
     public void userSeeAllVouchersOfAreDisplayed(String Keyword) {
-        String Merchant = homePayer.checkMerchantCategory();
-        Assert.assertTrue(Merchant.contains(Keyword));
+        boolean Merchant = homePayer.checkMerchantCategory(Keyword);
+        Assert.assertTrue(Merchant);
     }
 }

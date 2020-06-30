@@ -9,20 +9,26 @@
       And User input "P@ssw0rd" on password input field on login page
       And User click Login button
 
-    @Positive
-    Scenario: Filter voucher using merchant category
+    @filter
+    Scenario Outline: Filter voucher using merchant category
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
-      When User choose "merchant category" to filter the voucher
-      Then User see all vouchers of the "merchant category" are displayed
+      When User choose <Keyword> to filter the voucher
+      Then User see all vouchers of the <arg0> are displayed
+      Examples:
+        | Keyword | arg0  |
+        | "fnb"   | "kfc" |
+        | "online"   | "telkom" |
 
-     @Positive
+     @filter2
     Scenario: Filter voucher using multiple merchant category
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
-      When User choose "merchant category" to filter the voucher
-      When User choose "merchant category 2" to filter the voucher
-      Then User see all vouchers of the "merchant category 2" are displayed
+      When User choose "fnb" to filter the voucher
+       When User see all vouchers of "kfc" are displayed
+      When User click filter dropdown menu button on DANA Deals homepage
+      When User choose "online" to filter the voucher
+      Then User see all vouchers of the "telkom" are displayed
 
      @Positive
     Scenario: Reset filter voucher by click reset button
@@ -33,11 +39,6 @@
       When User click reset button on DANA Deals homepage
       Then User see all vouchers are displayed
 
-    @Negative
-    Scenario: Filter voucher using invalid data
-      Given User is on DANA Deals Homepage
-      When User choose "test data" value to filter the voucher
-      Then User can't find any "test data" value on the filter menu
 
     @EdgeCase
     Scenario: Filter voucher using out of stock voucher

@@ -61,7 +61,6 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-
     @Positive
     Scenario: Pay voucher from DANA Deals homepage using sort voucher
       Given User is on DANA Deals Homepage
@@ -73,11 +72,6 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-    @Negative
-    Scenario: Pay voucher when invalid condition
-      Given User is on DANA Deals Homepage
-      When User search "voucher name" to buy voucher on DANA Deals homepage
-      Then User see "voucher name" is not displayed
 
     @Negative
     Scenario: Pay voucher when balance not enough
@@ -116,22 +110,6 @@
       When Admin edit "voucher name" voucher stock become out of stock on admin voucher details page
       When User click pay button on cashier page
       Then User see pop up notification that voucher is out of stock
-
-    @EdgeCase
-    Scenario: Pay voucher when voucher suddenly out of stock (payer edit)
-      Given User is on DANA Deals Homepage
-      When User1 click "voucher name" on DANA Deals homepage
-      When User1 is on voucher details page of "voucher name"
-      When User1 click buy button on voucher details page
-      When User1 is on voucher cashier page of "voucher name"
-      When User2 click "voucher name" on DANA Deals homepage
-      When User2 is on voucher details page of "voucher name"
-      When User2 click buy button on voucher details page
-      When User2 see is on cashier page of "voucher name"
-      When User2 is on voucher cashier page of "voucher name"
-      When User2 see pop up notification that payment success
-      When User1 click pay button on cashier page
-      Then User1 see pop up notification that voucher is out of stock
 
 
     @TestForHistoryFeature @PaySuccess

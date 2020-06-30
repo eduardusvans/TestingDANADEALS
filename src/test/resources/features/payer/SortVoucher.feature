@@ -5,15 +5,15 @@
       Given User is on Landing page
       When User click Login to Account button
       And User is on DANA Deals Login page
-      And User input "phoneNumber" on phone number input field on login page
-      And User input "password" on password input field on login page
+      And User input "87811223344" on phone number input field on login page
+      And User input "P@ssw0rd" on password input field on login page
       And User click Login button
 
-    @Positive
+    @sort
     Scenario: Sort voucher
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
-      When User choose "saving rate" to sort the voucher
+      When User choose "discount" to sort the voucher
       Then User see all vouchers of the "sort by saving rate" are displayed
 
     @Positive
