@@ -139,8 +139,8 @@ Feature: Register
       # REG032
       | 87722074250 | abc       |          | Random                  | TestingREG1! | TestingREG1!    |
 
-  @E2E @Randomized
-  Scenario Outline: Register with valid randomized phone number and email and followed by trying to login
+  @E2E
+  Scenario Outline: Register with valid phone number and email and followed by trying to login
     Given User is on Register page
     When User input "<phoneNumber>" on Phone Number input text field on Register page
     When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
