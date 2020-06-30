@@ -78,8 +78,8 @@ public class RegisterStepDefinitions {
         Assert.assertTrue(status);
     }
 
-    @When("User input chosen random phone number on Phone Number input text field on login page")
-    public void userInputChosenRandomPhoneNumberOnPhoneNumberInputTextFieldOnLoginPage() {
+    @When("User input registered phone number on Phone Number input text field on login page")
+    public void userInputRegisteredPhoneNumberOnPhoneNumberInputTextFieldOnLoginPage() {
         loginPage.inputPhoneNumber(userRegisterPhoneNumber);
     }
 }

@@ -150,7 +150,7 @@ Feature: Register
     When User tap the Create Account button on Register page
     When User see the success message on Login page
     When User is on DANA Deals Login page
-    When User input chosen random phone number on Phone Number input text field on login page
+    When User input registered phone number on Phone Number input text field on login page
     When User input "<password>" on password input field on login page
     When User click Login button
     When User is on Home page
