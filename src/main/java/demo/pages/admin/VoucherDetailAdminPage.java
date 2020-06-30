@@ -19,20 +19,12 @@ public class VoucherDetailAdminPage {
     public boolean seeExpired() { return waitElement(TXT_EXPIRED, 15).isDisplayed(); }
     public boolean seeQuota() { return waitElement(INPUT_QUOTA, 15).isDisplayed(); }
     public boolean seeIncrease() { return waitElement(BUTTON_INCREASE, 15).isDisplayed(); }
-    public boolean seeDecrease() { return waitElement(BUTTON_DECREASE, 15).isDisplayed(); }
     public boolean seeSave() { return waitElement(BUTTON_SAVE, 15).isDisplayed(); }
 
     public void inputQuota(String quota){ androidDriver.findElement(INPUT_QUOTA).sendKeys(quota); }
+    public void tapStatus() { tapElement(TXT_STATUS); }
+    public void tapIncrease(){ tapElement(BUTTON_INCREASE);}
+    public void tapSave(){ tapElement(BUTTON_SAVE); }
 
-    public void selectStatus() { tapElement(TXT_STATUS); }
-    public void clickIncrease(){ tapElement(BUTTON_INCREASE);}
-    public void clickDecrease(){ tapElement(BUTTON_DECREASE); }
-    public void clickSave(){ tapElement(BUTTON_SAVE); }
-
-    public String getQuota(){
-        AndroidElement labelquota = androidDriver.findElement(INPUT_QUOTA);
-        String quotas = labelquota.getText();
-        return quotas ;
-    }
 
 }

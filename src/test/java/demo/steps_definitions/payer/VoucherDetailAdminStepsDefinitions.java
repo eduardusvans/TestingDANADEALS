@@ -1,4 +1,4 @@
-package demo.steps_definitions.payer;
+package demo.steps_definitions;
 
 import demo.pages.admin.HomeAdminPage;
 import demo.pages.admin.VoucherDetailAdminPage;
@@ -8,50 +8,31 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import static demo.locators.admin.HomeAdminPageLocator.VOUCHER;
+import static demo.utils.ActionUtils.tapElement;
+
 public class VoucherDetailAdminStepsDefinitions {
     HomeAdminPage homeAdminPage = new HomeAdminPage();
     VoucherDetailAdminPage voucherDetailAdminPage = new VoucherDetailAdminPage();
 
-    String itemStatus;
-
-    @Given("User click Voucher status {string}")
-    public void userClickVoucherStatus(String statusVoucher) { homeAdminPage.clickVoucher(statusVoucher); }
 
 
-    @Given("User click Voucher {string} status {string} and quota {string}")
-    public void userClickVoucherStatusAndQuota(String name,String statusVoucher, String quota) { homeAdminPage.clickVoucher3Param(name,statusVoucher,quota); }
+    @Then("User is on Voucher Detail page")
+    public void userIsOnVoucherDetailPage() { voucherDetailAdminPage.isOnPage(); }
 
-    @Then("User is on DANA Deals Voucher Detail page")
-    public void userIsOnDANADealsVoucherDetailPage() { voucherDetailAdminPage.isOnPage(); }
+    @Given("User tap any voucher")
+    public void userTapAnyVoucher() { homeAdminPage.tapAnyVoucher();}
 
-    @When("User click status")
-    public void userClickStatus() {
-       voucherDetailAdminPage.selectStatus();
+    @When("User tap Status")
+    public void userTapStatus() {
+       voucherDetailAdminPage.tapStatus();
     }
 
-    @And("User click Save button")
-    public void userClickSaveButton() { voucherDetailAdminPage.clickSave(); }
+    @And("User tap Save")
+    public void userTapSave() { voucherDetailAdminPage.tapSave(); }
 
     @Then("User see success notification")
     public void userSeeSuccessNotification() { }
-
-    @Then("User see quota {string} before update")
-    public void userSeeQuotaBeforeUpdate(String quota) {
-        String actual = voucherDetailAdminPage.getQuota();
-        Assert.assertEquals(quota,actual);
-    }
-
-    @Then("User check quota {string} after update")
-    public void userCheckQuotaAfterUpdate(String quota) {
-        String actual = voucherDetailAdminPage.getQuota();
-        Assert.assertEquals(quota,actual);
-    }
-
-    @Then("User check Voucher {string} status {string} and quota {string} on Home Admin Page")
-    public void userCheckVoucherStatusAndQuotaOnHomeAdminPage(String name, String statusVoucher, String quota) {
-        String actual = homeAdminPage.getVoucherUpdate();
-//        Assert.assertEquals(name,statusVoucher,quota,actual);
-    }
 
     @Then("User see status textview")
     public void userSeeStatusTextview() { Assert.assertTrue(voucherDetailAdminPage.seeStatusVoucher()); }
@@ -80,16 +61,15 @@ public class VoucherDetailAdminStepsDefinitions {
     @Then("User see increase button")
     public void userSeeIncreaseButton() { Assert.assertTrue(voucherDetailAdminPage.seeIncrease()); }
 
-    @Then("User see decrease button")
-    public void userSeeDecreaseButton() { Assert.assertTrue(voucherDetailAdminPage.seeDecrease());}
-
     @Then("User see save button")
     public void userSeeSaveButton() { Assert.assertTrue(voucherDetailAdminPage.seeSave()); }
 
-    @When("User click Increase button")
-    public void userClickIncreaseButton() { voucherDetailAdminPage.clickIncrease();}
+    @When("User tap Increase")
+    public void userTapIncrease() { voucherDetailAdminPage.tapIncrease();}
 
-    @When("User click Decrease button")
-    public void userClickDecreaseButton() { voucherDetailAdminPage.clickDecrease();}
+    @When("User tap Voucher {string}")
+    public void userTapVoucher(String voucherName) { homeAdminPage.tapVoucher(voucherName); }
 
+    @When("User input quota {string}")
+    public void userInputQuota(String quota) { voucherDetailAdminPage.inputQuota(quota); }
 }

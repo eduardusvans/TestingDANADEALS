@@ -4,7 +4,7 @@ Feature: Login
 
   @Positive
   @Payer
-  # LOG001  LOGN014
+  # LOG001  LOGN010
   Scenario: Login with registered account
     Given User is on Landing page
     When User click Login to Account button
@@ -158,6 +158,8 @@ Feature: Login
     Given User is on Landing page
     When User click Login to Account button
     Then User is on DANA Deals Login page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
@@ -255,13 +257,12 @@ Feature: Login
     Examples:
       | phoneNumber          | password    |
       # LOG037
-      | 896596651401111         | P@sswordku1 |
+      | 896596651401         | P@sswordku1 |
       # LOG038
-      | 896596651401111         | Passwordku1 |
+      | 896596651401         | Passwordku1 |
       # LOG039
-      | 896596651401111         |              |
+      | 896596651401         |              |
 
-  # indonesian format phonenumber
   @14  # LOGN008  LOGN009  LOGN011  LOGN012
   Scenario Outline: Login with phone number start with 84
     Given User is on Landing page
@@ -270,7 +271,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User see pop up notification
+    Then User see warning text
     Examples:
       | phoneNumber          | password    |
       # LOG040
