@@ -1,8 +1,9 @@
 package demo.pages.payer.home;
+
 import demo.driver.AndroidDriverInstance;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
@@ -10,9 +11,10 @@ import org.openqa.selenium.Point;
 
 import java.time.Duration;
 
-import static demo.driver.AndroidDriverInstance.androidDriver;
-import static demo.locators.payer.home.HomePayerPageLocator.*;
+
 import static demo.utils.ActionUtils.*;
+import static demo.locators.payer.home.HomePayerPageLocator.*;
+import static demo.driver.AndroidDriverInstance.androidDriver;
 
 public class HomePayer {
 
@@ -68,7 +70,18 @@ public class HomePayer {
         }
     }
 
-        public String checkVoucherPrice() {
+    public void topupIcon(){
+        waitABit(2000);
+        androidDriver.findElement(TOPUP_ICON).click();
+    }
+
+    public String getUserBalance(){
+        waitABit(2000);
+        AndroidElement userBalance = AndroidDriverInstance.androidDriver.findElement(USER_BALANCE);
+        return userBalance.getText();
+    }
+
+    public String checkVoucherPrice() {
         return waitElement(VOUCHER_PRICE_CHECK, 20).getText();
     }
 
