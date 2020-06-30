@@ -29,7 +29,7 @@ Feature: E2EProfile
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber | firstName | lastName | email              | password     | confirmPassword | phoneNumberLogin | passwordLogin |
-      | 81290137271 | Vans      | View     | vansview@gmail.com | VansView123! | VansView123!    | 81290137271      | VansView123!  |
+      | 81290135050 | Vans      | View     | vans5050@gmail.com | VansView123! | VansView123!    | 81290135050      | VansView123!  |
 
     #ETEP002
   Scenario Outline: Register - Login - Change Name - Logout
@@ -63,7 +63,7 @@ Feature: E2EProfile
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber | firstName | lastName | email              | password     | confirmPassword | phoneNumberLogin | passwordLogin |
-      | 81290137270 | Vans      | Name     | vansname@gmail.com | VansName123! | VansName123!    | 81290137270      | VansName123!  |
+      | 81290135151 | Vans      | Name     | vans5151@gmail.com | VansName123! | VansName123!    | 81290135151      | VansName123!  |
 
     #ETEP003
   Scenario Outline: Register - Login - Change E-mail - Logout
@@ -97,7 +97,7 @@ Feature: E2EProfile
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber | firstName | lastName | email               | password  | confirmPassword | phoneNumberLogin | passwordLogin | e-mail                    |
-      | 81290137070 | Vans      | Email    | vansemail@gmail.com | Vans1234! | Vans1234!       | 81290137070      | Vans1234!     | vanschangeemail@gmail.com |
+      | 81290135252 | Vans      | Email    | vans5252@gmail.com | Vans1234! | Vans1234!       | 81290135252      | Vans1234!     | vanschangeemail@gmail.com |
 
     #ETEP004
   Scenario Outline: Register - Login - Change Password - Logout - Login - Logout
@@ -137,7 +137,7 @@ Feature: E2EProfile
     Then User is on Home page
     Examples:
       | phoneNumber | firstName | lastName | email                  | password | confirmPassword | phoneNumberLogin | passwordLogin | oldPassword | newPassword | confirmNewPassword | phoneNumber2 | passwordAfterChange |
-      | 81290137069 | Vans      | Password | vanspassword@gmail.com | Vans123! | Vans123!        | 81290137069      | Vans123!      | Vans123!    | Van1234!    | Van1234!           | 81290137069  | Van1234!            |
+      | 81290135353 | Vans      | Password | vans5353@gmail.com | Vans123! | Vans123!        | 81290135353      | Vans123!      | Vans123!    | Van1234!    | Van1234!           | 81290137069  | Van1234!            |
 
     #ETEP005
   Scenario Outline: Register - Login - Logout
@@ -162,5 +162,5 @@ Feature: E2EProfile
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber | firstName | lastName | email                | password | confirmPassword | phoneNumberLogin | passwordLogin |
-      | 81290137066 | Vans      | Logout   | vanslogout@gmail.com | Van1234! | Van1234!        | 81290137066      | Van1234!      |
+      | 81290135454 | Vans      | Logout   | vans5454@gmail.com | Van1234! | Van1234!        | 81290135454      | Van1234!      |
 
