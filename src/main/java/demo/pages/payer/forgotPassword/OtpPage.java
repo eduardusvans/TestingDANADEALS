@@ -5,18 +5,19 @@ import static demo.utils.ActionUtils.*;
 
 public class OtpPage {
     public boolean isOnPage() {
-        int count = 0;
-        do {
-            try{
-                return waitElement(INPUT_OTP, 15).isDisplayed();
-            } catch (Exception e) {
-                if(getElement(BUTTON_SEND_OTP).isDisplayed()) {
-                    tapElement(BUTTON_SEND_OTP);
-                }
-            }
-            count++;
-        } while (count < 3);
-        return false;
+//        int count = 0;
+//        do {
+//            try{
+//                return waitElement(INPUT_OTP, 15).isDisplayed();
+//            } catch (Exception e) {
+//                if(getElement(BUTTON_SEND_OTP).isDisplayed()) {
+//                    tapElement(BUTTON_SEND_OTP);
+//                }
+//            }
+//            count++;
+//        } while (count < 3);
+//        return false;
+        return waitElement(INPUT_OTP, 15).isDisplayed();
     }
 
     public void inputOtp(String otp) {

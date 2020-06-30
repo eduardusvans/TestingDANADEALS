@@ -302,7 +302,7 @@ Feature: Login
     When User click Login to Account button
     Then User is on DANA Deals Login page
     When User click Forgot Password link
-    Then User is on Forgot Password Page
+    Then User is on Forgot Password page
 
   @NonFunctional
   @3
@@ -318,7 +318,7 @@ Feature: Login
   @E2ELoginFeature
   @Payer
   # ETEL001
-  Scenario : Register - Login - Logout
+  Scenario: Register - Login - Logout
     Given User is on Landing page
     Given User tap the Create Account button on Landing page
     Given User is on Register page
