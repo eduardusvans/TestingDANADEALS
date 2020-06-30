@@ -83,9 +83,9 @@ public class HomeAdminPage {
         inputElement(INPUT_SEARCH_VOUCHER, keyword);
     }
 
-//    public void clearInputSearchVoucher() {
-//        getElement(INPUT_SEARCH_VOUCHER).clear();
-//    }
+    public void clearInputSearchVoucher() {
+        getElement(INPUT_SEARCH_VOUCHER).clear();
+    }
 
     public void tapLogoutButton() { tapElement(BUTTON_LOGOUT); }
     public void tapResetButton() { tapElement(BUTTON_RESET); }
@@ -103,23 +103,23 @@ public class HomeAdminPage {
         }
     }
 
-//    public boolean checkProgressBar() {
-//        try {
-//            boolean status = waitElement(PROGRESS_BAR, 5).isDisplayed();
-//            int waitCounter = 0;
-//            while (status && waitCounter < 10) {
-//                waitABit(3000);
-//                status = getElement(PROGRESS_BAR).isDisplayed();
-//                if (!status) {
-//                    return status;
-//                }
-//                waitCounter++;
-//            }
-//            return false;
-//        } catch (Exception e) {
-//            return false;
-//        }
-//    }
+    public boolean checkProgressBar() {
+        try {
+            boolean status = waitElement(PROGRESS_BAR, 5).isDisplayed();
+            int waitCounter = 0;
+            while (status && waitCounter < 10) {
+                waitABit(3000);
+                status = getElement(PROGRESS_BAR).isDisplayed();
+                if (!status) {
+                    return status;
+                }
+                waitCounter++;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     public boolean checkVoucherListPresence() {
         return waitElement(VOUCHER_MERCHANT_NAME, 30).isDisplayed();

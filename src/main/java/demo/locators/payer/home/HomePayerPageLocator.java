@@ -14,7 +14,7 @@ public interface HomePayerPageLocator {
     By RESET_BUTTON = MobileBy.id("tv_reset");
 
     //voucher
-    By VOUCHER_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_voucher_name')]");
+    By VOUCHERS_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name')]");
     By VOUCHER_SCROLL = MobileBy.id("com.team.danadeals:id/rv_voucher");
     By VOUCHER_CONTAINER = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
             "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +

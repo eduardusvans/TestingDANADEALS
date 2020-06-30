@@ -21,8 +21,8 @@ public interface HomeAdminPageLocator {
     By VOUCHER_ITEM =By.id("voucher_item_admin");
 //    By VOUCHER_ITEM =By.xpath("//android.widget.LinearLayout[contains(@resource-id,'voucher_item_admin')]");
 
-    By VOUCHER_NAME = By.id("tv_voucher_name");
-//        By VOUCHER_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_voucher_name')]");
+   // By VOUCHER_NAME = By.id("tv_voucher_name");
+        By VOUCHER_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_voucher_name')]");
 
     By VOUCHER_MERCHANT_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_merchant_name')]");
     By VOUCHER_STATUS = By.xpath("//android.widget.Button[contains(@resource-id, 'btn_buy')]");

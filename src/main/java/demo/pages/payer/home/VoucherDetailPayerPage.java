@@ -17,7 +17,7 @@ public class VoucherDetailPayerPage {
     }
 
     public String checkVoucherName(){
-        return getElement(VOUCHER_NAME);
+        return getElement(VOUCHER_NAME).getText();
     }
 
     public String checkContentOnTab(){

@@ -112,10 +112,13 @@ public class HomePayer {
         int counter = 0;
 
         do {
+            String voucher ="";
             waitABit(5000);
-            List<AndroidElement> vNameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_NAME);
+            List<AndroidElement> vNameList = androidDriver.findElements(VOUCHERS_NAME);
             for (AndroidElement vName : vNameList) {
-                if (vName.getText().equalsIgnoreCase(Keyword)) {
+                voucher = vName.getText();
+                if (vName.getText().trim().equalsIgnoreCase(Keyword.trim())) {
+                    System.out.println("Your voucher is found: "+voucher);
                     vName.click();
                     isFound = true;
                     break;
@@ -124,22 +127,12 @@ public class HomePayer {
 
             if (!isFound) {
                 scrollDown();
+                System.out.println("Passed of Voucher: "+voucher);
                 counter++;
             }
 
-        } while (!isFound && counter <= 10);
+        } while (!isFound && counter <= 100);
     }
-
-    public void clickVoucherRefund(){
-        waitABit(5000);
-        tapElement(VOUCHER_REFUND);
-    }
-
-    public void clickVoucherFailed(){
-        waitABit(5000);
-        tapElement(VOUCHER_FAILED);
-    }
-
 
 
 }

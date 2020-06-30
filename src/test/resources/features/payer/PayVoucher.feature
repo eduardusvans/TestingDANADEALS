@@ -148,7 +148,8 @@
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
       When User type a "kfc" at search field on DANA Deals Homepage
-      When User click buy on crazy deals kfc
+      When User click "Crazy Deals" on DANA Deals homepage
+      When User is on voucher details page of "Crazy Deals"
       Then User see pop up notification that pay failed
 
     @TestForHistoryFeature @PayInprogress
@@ -166,7 +167,9 @@
     Scenario: Pay Voucher refund
       Given User is on DANA Deals Homepage
       When User type a "Telkom" at search field on DANA Deals Homepage
-      When User click Bayar indiehome voucher on DANA Deals homepage
-      When User is on voucher details page of "Bayar Indiehome 11"
+      When User click "Bayar Indiehome A" on DANA Deals homepage
+      When User is on voucher details page of "Bayar Indiehome A"
       When User click buy button on voucher details page
-      Then User see pop up notification that pay failed
+      When User is on voucher cashier page of "Bayar Indiehome A"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success

@@ -24,10 +24,6 @@ public class ActionUtils {
         element.click();
     }
 
-    public static String getElement(By targetElement){
-        AndroidElement element = androidDriver.findElement(targetElement);
-        return element.getText();
-    }
 
     public static void inputElement(By targetElement, String input) {
         // Null changer

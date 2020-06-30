@@ -14,11 +14,11 @@ public class VoucherCashierPage {
     }
 
     public String checkVoucherName(){
-     return getElement(VOUCHER_NAME);
+     return getElement(VOUCHER_NAME).getText();
     }
 
     public String checkVoucherPrice(){
-        return getElement(VOUCHER_PRICE);
+        return getElement(VOUCHER_PRICE).getText();
     }
 
     public void clickPay(){
