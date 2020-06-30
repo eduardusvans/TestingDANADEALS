@@ -87,6 +87,9 @@ public class HomeAdminPage {
     }
 
     public boolean checkProgressBar() {
+        if (androidDriver.isKeyboardShown()) {
+            androidDriver.hideKeyboard();
+        }
         try {
             boolean status = waitElement(PROGRESS_BAR, 5).isDisplayed();
             int waitCounter = 0;
@@ -104,8 +107,12 @@ public class HomeAdminPage {
         }
     }
 
-    public boolean checkVoucherListPresence() {
-        return waitElement(VOUCHER_MERCHANT_NAME, 30).isDisplayed();
+    public boolean checkVoucherListPresence(int timeOut) {
+        try {
+            return waitElement(VOUCHER_MERCHANT_NAME, timeOut).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean checkAllVouchersPresence() {
@@ -119,10 +126,12 @@ public class HomeAdminPage {
             if (!mixMerchant) {
                 waitABit(5000);
                 List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
+                if (counter == 0) {
+                    nameParam = nameList.get(0).getText();
+                    System.out.println("Set Merchant Name param = " + nameParam);
+                }
                 for (AndroidElement name : nameList) {
-                    if (counter == 0) {
-                        nameParam = name.getText();
-                    } else if (!name.getText().equalsIgnoreCase(nameParam)) {
+                    if (!name.getText().equalsIgnoreCase(nameParam)) {
                         System.out.println("MN OK!!!");
                         System.out.println("Merchant Name Var = " + name.getText());
                         System.out.println("Merchant Name param = " + nameParam);
@@ -134,10 +143,12 @@ public class HomeAdminPage {
             if (!mixStatus) {
                 waitABit(3000);
                 List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
+                if (counter == 0) {
+                    statusParam = statusList.get(0).getText();
+                    System.out.println("Set Merchant Status param = " + statusParam);
+                }
                 for (AndroidElement status : statusList) {
-                    if (counter == 0) {
-                        statusParam = status.getText();
-                    } else if (!status.getText().equalsIgnoreCase(statusParam)) {
+                    if (!status.getText().equalsIgnoreCase(statusParam)) {
                         System.out.println("MN OK!!!");
                         System.out.println("Merchant Status Var = " + status.getText());
                         System.out.println("Merchant Status param = " + statusParam);
@@ -158,22 +169,6 @@ public class HomeAdminPage {
 
     public boolean checkKeywordVoucherPresence(String keyword) {
         int counter = 0;
-        int counterRefreshed = 0;
-        boolean isRefreshed = false;
-
-        do {
-            if (counterRefreshed < 3) {
-                List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
-                if (nameList.get(0).getText().equalsIgnoreCase(keyword)) {
-                    isRefreshed = true;
-                } else {
-                    waitABit(3000);
-                }
-            } else {
-                return false;
-            }
-            counterRefreshed ++;
-        } while (isRefreshed);
 
         do {
             waitABit(5000);
@@ -198,23 +193,6 @@ public class HomeAdminPage {
 
     public boolean checkStatusVoucherPresence(String chosenStatus) {
         int counter = 0;
-        int counterRefreshed = 0;
-        boolean isRefreshed = false;
-
-        do {
-            if (counterRefreshed < 3) {
-                List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
-                if (statusList.get(0).getText().equalsIgnoreCase(chosenStatus)) {
-                    isRefreshed = true;
-                } else {
-                    waitABit(3000);
-                }
-            } else {
-                return false;
-            }
-            counterRefreshed ++;
-        } while (isRefreshed);
-
         do {
             waitABit(5000);
             List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);

@@ -36,7 +36,7 @@ public class HomeAdminStepDefinitions {
 
     @Then("User cannot see any voucher on Home Admin page")
     public void userCannotSeeAnyVoucherOnHomeAdminPage() {
-        boolean status = homeAdminPage.checkVoucherListPresence();
+        boolean status = homeAdminPage.checkVoucherListPresence(5);
         Assert.assertFalse(status);
     }
 
@@ -78,7 +78,7 @@ public class HomeAdminStepDefinitions {
 
     @When("User see the voucher list on Home Admin page")
     public void userSeeTheVoucherListOnHomeAdminPage() {
-        boolean status = homeAdminPage.checkVoucherListPresence();
+        boolean status = homeAdminPage.checkVoucherListPresence(30);
         Assert.assertTrue(status);
     }
 }
