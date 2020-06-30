@@ -32,6 +32,7 @@ public class LoginPage {
     public boolean seeWarningText(){ return waitElement(WARNING_TEXT, 15).isDisplayed(); }
     public boolean seePopUpNotification(){return waitElement(POP_UP_NOTIFICATION, 15).isDisplayed(); }
     public void seeMessage() {
+        waitABit(50);
         WebElement toastView = androidDriver.findElement(By.xpath("//android.widget.Toast[1]"));
         String text = toastView.getAttribute("text");
     }

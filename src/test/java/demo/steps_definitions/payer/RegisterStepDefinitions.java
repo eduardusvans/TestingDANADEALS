@@ -1,7 +1,6 @@
 package demo.steps_definitions.payer;
 
 import demo.pages.LandingPage;
-import demo.pages.LoginPage;
 import demo.pages.payer.RegisterPage;
 import demo.utils.ActionUtils;
 import io.cucumber.java.en.Given;
@@ -13,12 +12,6 @@ public class RegisterStepDefinitions {
 
     LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
-
-    @Given("User is on Landing page")
-    public void userIsOnLandingPage() {
-        boolean status = landingPage.isOnPage();
-        Assert.assertTrue(status);
-    }
 
     @Given("User tap the Create Account button on Landing page")
     public void userTapTheCreateAccountButtonOnLandingPage() {

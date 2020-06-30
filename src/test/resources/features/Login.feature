@@ -349,7 +349,6 @@ Feature: Login
     When User input "87800000000" on phone number input field on login page
     And User input "P@ssw0rd" on password input field on login page
     And User click Login button
-    Then User see message
     Then User is on Home Admin page
     When User tap LogOut button on Home Admin page
     Then User is on DANA Deals Login page
