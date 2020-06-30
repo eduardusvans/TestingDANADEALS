@@ -95,4 +95,8 @@ public class HistoryStepsDefinition {
     @When("User tap seven day before on date picker")
     public void userTapSevenDayBeforeOnDatePicker() {
     }
+
+    @Then("User see transaction on In Progress tab")
+    public void userSeeTransactionOnInProgressTab() {
+    }
 }

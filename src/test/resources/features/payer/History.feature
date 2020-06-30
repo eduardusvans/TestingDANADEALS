@@ -18,7 +18,7 @@ Feature: History
     Then User is on History screen
 
   #H002
-  Scenario: Go to In Progress tav
+  Scenario: Go to In Progress tab
     Given User is on Home page
     When User tap history icon
     And User is on History screen
@@ -145,7 +145,6 @@ Feature: History
     Then User tap a voucher which user bought
 
   #H019
-  @TestForHistoryFeature @PayRefund
   Scenario: Check voucher transaction status failed
     Given User is on DANA Deals Homepage
     When User type a "Telkom" at search field on DANA Deals Homepage
@@ -158,6 +157,22 @@ Feature: History
     When User tap completed tab
     When User is on Completed tab screen
     Then User tap a voucher which user bought
+
+  #H020
+  Scenario: Check voucher transaction status in progress
+    Given User is on DANA Deals Homepage
+    When User click "aasseekk pocer" on DANA Deals homepage
+    When User is on voucher details page of "aasseekk pocer"
+    When User click buy button on voucher details page
+    When User see is on cashier page of "aasseekk pocer"
+    When User click back button on cashier page
+    When User click back button on voucher details page
+    When User is on DANA Deals Homepage
+    When User tap history icon
+    When User is on History screen
+    When User tap in progress tab
+    When User is on In Progress tab screen
+    Then User see transaction on In Progress tab
 
   #H020
   Scenario: Filter transaction based on today date on Completed tab
