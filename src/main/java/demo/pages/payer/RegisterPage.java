@@ -72,7 +72,10 @@ public class RegisterPage {
                 return RandomUtils.generateRandomPhoneNumber(9);
             } else if(phoneNumber.toLowerCase().contains("max")) {
                 return RandomUtils.generateRandomPhoneNumber(12);
-            } else {
+            } else if (phoneNumber.toLowerCase().contains("double (.)")) {
+                return RandomUtils.generateRandomPhoneNumber(1);
+            }
+            else {
                 return RandomUtils.generateRandomPhoneNumber(0);
             }
         } else {
