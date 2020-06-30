@@ -9,8 +9,7 @@ import org.openqa.selenium.Point;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.payer.RegisterPageLocator.*;
-import static demo.utils.ActionUtils.nullChanger;
-import static demo.utils.ActionUtils.waitElement;
+import static demo.utils.ActionUtils.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
@@ -32,7 +31,6 @@ public class RegisterPage {
     public void inputFullName(String firstName, String lastName) {
         // Set the full name
         String fullName = fullNameSetter(firstName, lastName);
-
         // Input text into element and scroll page
         inputAndScroll(INPUT_FULL_NAME, fullName);
     }
@@ -62,12 +60,12 @@ public class RegisterPage {
 
     public static void scrollDown() {
         AndroidElement screen = androidDriver
-                .findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup"));
+                .findElement(By.id("action_bar_root"));
         Point center =  screen.getCenter();
         int startX = 20;
-        int startY = center.getY() + 400;
+        int startY = (int) (center.getY() * 1.5);
         int endX = 20;
-        int endY = center.getY() - 400;
+        int endY = (int) (center.getY() * 0.5);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
@@ -80,8 +78,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.sendKeys(input);
+                inputElement(targetElement, input);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -97,8 +94,7 @@ public class RegisterPage {
 
         do {
             try {
-                AndroidElement element = androidDriver.findElement(targetElement);
-                element.click();
+                tapElement(targetElement);
                 isFound = true;
             } catch (Exception e) {
                 scrollDown();
@@ -132,9 +128,13 @@ public class RegisterPage {
 
         // Generate random email if needed
         if (email.toLowerCase().contains("random")) {
-            if (email.toLowerCase().contains("min")) {
+            if (email.toLowerCase().contains("alphabetic")) {
+                return RandomUtils.generateRandomEmailAlphabetic();
+            } else if (email.toLowerCase().contains("numeric")) {
+                return RandomUtils.generateRandomEmailNumeric();
+            } else if (email.toLowerCase().contains("min")) {
                 return RandomUtils.generateRandomEmail(6);
-            } else if(email.toLowerCase().contains("max")) {
+            } else if (email.toLowerCase().contains("max")) {
                 return RandomUtils.generateRandomEmail(74);
             } else {
                 return RandomUtils.generateRandomEmail(0);
@@ -156,6 +156,8 @@ public class RegisterPage {
             } else {
                 return lastName;
             }
+        } else if (lastName.equals("")) {
+            return firstName;
         } else {
             return firstName.concat(" " + lastName);
         }

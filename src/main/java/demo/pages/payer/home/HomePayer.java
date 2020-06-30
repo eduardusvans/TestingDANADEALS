@@ -17,8 +17,7 @@ import static demo.utils.ActionUtils.*;
 public class HomePayer {
 
     public boolean isOnPage() {
-
-      return waitElement(USER_NAME, 30).isDisplayed();
+      return waitElement(USER_NAME, 150).isDisplayed();
     }
 
     public boolean seeTopUp(){

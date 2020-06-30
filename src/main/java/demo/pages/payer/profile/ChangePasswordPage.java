@@ -25,16 +25,19 @@ public class ChangePasswordPage {
         tapElement(Back_BTN_Change_Password);
     }
     public void inputOldPassword(String oldPassword){
+        tapElement(ShowPassword1);
         androidDriver.findElement(oldPasswordInput).sendKeys(oldPassword);
         scrollDown();
         //inputAndScroll(oldPasswordInput, oldPassword);
     }
     public void inputNewPassword(String newPassword){
+        tapElement(ShowPassword2);
         androidDriver.findElement(newPasswordInput).sendKeys(newPassword);
         scrollDown();
         //inputAndScroll(newPasswordInput, newPassword);
     }
     public void inputConfirmNewPassword(String confirmNewPassword){
+        tapElement(ShowPassword3);
         androidDriver.findElement(confirmNewPasswordInput).sendKeys(confirmNewPassword);
         scrollDown();
         //inputAndScroll(confirmNewPasswordInput,confirmNewPassword );
