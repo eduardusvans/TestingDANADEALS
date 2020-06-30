@@ -310,9 +310,9 @@ Feature: Login
   Scenario: Verify clickable link Register Here
     Given User is on Landing page
     When User click Login to Account button
-    Then User is on DANA Deals Login page
+    When User is on DANA Deals Login page
     When User click Register Here link
-    Then User is on Register Page
+    Then User is on Register page
 
 
   @E2ELoginFeature

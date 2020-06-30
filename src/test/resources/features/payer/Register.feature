@@ -123,7 +123,7 @@ Feature: Register
       | Random      | abc         |          | Random                        | Abcdef1!         | Abcdefghijklmn1! |
 
   @Negative @1-2
-  Scenario Outline: Register with registered email or phone number
+  Scenario Outline: Register with registered phone number or email
     Given User is on Register page
     When User input "<phoneNumber>" on Phone Number input text field on Register page
     When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
@@ -138,6 +138,30 @@ Feature: Register
       | Random      | abc       |          | testinglogin3@gmail.com | TestingREG1! | TestingREG1!    |
       # REG032
       | 87722074250 | abc       |          | Random                  | TestingREG1! | TestingREG1!    |
+
+  @E2E @Randomized
+  Scenario Outline: Register with valid randomized phone number and email and followed by trying to login
+    Given User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    When User see the success message on Login page
+    When User is on DANA Deals Login page
+    When User input chosen random phone number on Phone Number input text field on login page
+    When User input "<password>" on password input field on login page
+    When User click Login button
+    When User is on Home page
+    When User tap profile icon
+    When User is on Profile screen
+    When User tap LogOut button
+    Then User is on DANA Deals Login page
+    Examples:
+      | phoneNumber | firstName | lastName | email  | password     | confirmPassword |
+      | Random      | Bilal     | Bari     | Random | TestingREG1! | TestingREG1!    |
+
 
   @Demo @Positive
   Scenario Outline: Register with valid input
@@ -166,9 +190,9 @@ Feature: Register
     When User cannot tap the Create Account button on Register page
     Then User is still on Register page
     Examples:
-      | phoneNumber | firstName   | lastName | email                         | password         | confirmPassword  |
+      | phoneNumber | firstName | lastName | email  | password     | confirmPassword |
       # REG014
-      | Random      |             |          | Random                        | TestingREG1!     | TestingREG1!     |
+      | Random      |           |          | Random | TestingREG1! | TestingREG1!    |
 
   @Demo @Negative @1-2
   Scenario Outline: Register with registered email or phone number

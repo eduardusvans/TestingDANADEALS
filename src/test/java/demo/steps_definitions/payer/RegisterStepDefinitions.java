@@ -13,9 +13,9 @@ public class RegisterStepDefinitions {
 
     LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
+    LoginPage loginPage = new LoginPage();
 
     String userRegisterPhoneNumber = "";
-    String userRegisterPassword = "";
 
     @Given("User tap the Create Account button on Landing page")
     public void userTapTheCreateAccountButtonOnLandingPage() {
@@ -76,5 +76,10 @@ public class RegisterStepDefinitions {
         ActionUtils.waitABit(3000);
         boolean status = registerPage.isOnPage();
         Assert.assertTrue(status);
+    }
+
+    @When("User input chosen random phone number on Phone Number input text field on login page")
+    public void userInputChosenRandomPhoneNumberOnPhoneNumberInputTextFieldOnLoginPage() {
+        loginPage.inputPhoneNumber(userRegisterPhoneNumber);
     }
 }
