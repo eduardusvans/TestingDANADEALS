@@ -24,9 +24,6 @@ public class RegisterPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
-        // Optional random phone number
-        phoneNumber = phoneNumberSetter(phoneNumber);
-
         // Input text into element and scroll page
         inputAndScroll(INPUT_PHONE_NUMBER, phoneNumber);
     }
@@ -65,6 +62,27 @@ public class RegisterPage {
         return getElement(BUTTON_CREATE_ACCOUNT).isEnabled();
     }
 
+    public String phoneNumberSetter(String phoneNumber) {
+        // Null changer
+        phoneNumber = nullChanger(phoneNumber);
+
+        // Generate random phone number if needed
+        if (phoneNumber.toLowerCase().contains("random")) {
+            if (phoneNumber.toLowerCase().contains("min")) {
+                return RandomUtils.generateRandomPhoneNumber(9);
+            } else if(phoneNumber.toLowerCase().contains("max")) {
+                return RandomUtils.generateRandomPhoneNumber(12);
+            } else if (phoneNumber.toLowerCase().contains("double (.)")) {
+                return RandomUtils.generateRandomPhoneNumber(1);
+            }
+            else {
+                return RandomUtils.generateRandomPhoneNumber(0);
+            }
+        } else {
+            return phoneNumber;
+        }
+    }
+
     public static void scrollDown() {
         AndroidElement screen = androidDriver
                 .findElement(By.id("action_bar_root"));
@@ -75,6 +93,8 @@ public class RegisterPage {
         int startY = center.getY() + (height / 3);
         int endX = center.getX() - (width / 2) + 20;
         int endY = center.getY() - (height / 2);
+        System.out.println("Xstart, Ystart = " + startX + " " + startY);
+        System.out.println("Xend, Yend = " + endX + " " + endY);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
@@ -112,24 +132,6 @@ public class RegisterPage {
             }
 
         } while (!isFound && counter < 5);
-    }
-
-    public static String phoneNumberSetter(String phoneNumber) {
-        // Null changer
-        phoneNumber = nullChanger(phoneNumber);
-
-        // Generate random phone number if needed
-        if (phoneNumber.toLowerCase().contains("random")) {
-            if (phoneNumber.toLowerCase().contains("min")) {
-                return RandomUtils.generateRandomPhoneNumber(9);
-            } else if(phoneNumber.toLowerCase().contains("max")) {
-                return RandomUtils.generateRandomPhoneNumber(12);
-            } else {
-                return RandomUtils.generateRandomPhoneNumber(0);
-            }
-        } else {
-            return phoneNumber;
-        }
     }
 
     public static String emailSetter(String email) {
