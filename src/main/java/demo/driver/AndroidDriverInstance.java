@@ -19,7 +19,7 @@ public class AndroidDriverInstance {
         caps.setCapability("deviceName", "device");
         caps.setCapability("udid", "emulator-5554");
         caps.setCapability("autoGrantPermissions", true);
-        caps.setCapability("appWaitActivity","com.team.danadeals.ui.splash.SplashActivity");
+        caps.setCapability("appWaitActivity","*");
         caps.setCapability("newCommandTimeout", 120);
         caps.setCapability("app",
                 System.getProperty("user.dir") + File.separator + "APP" + File.separator + app);
