@@ -6,12 +6,11 @@ import demo.pages.payer.home.VoucherDetailPayerPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class SortVoucherStepsDefinitions {
 
     HomePayer homePayer = new HomePayer();
-    VoucherDetailPayerPage voucherDetailPayerPage = new VoucherDetailPayerPage();
-    VoucherCashierPage voucherCashierPage = new VoucherCashierPage();
 
     @When("User click sort dropdown menu button on DANA Deals homepage")
     public void userClickSortDropdownMenuButtonOnDANADealsHomepage() {
@@ -22,20 +21,19 @@ public class SortVoucherStepsDefinitions {
     public void userChooseToSortTheVoucher(String Keyword) {
         homePayer.chooseSort(Keyword);
     }
+    
 
-    @Then("User see sort voucher by {string} feature is not displayed")
-    public void userSeeSortVoucherByFeatureIsNotDisplayed(String Keyword) {
+    @Then("User see all vouchers of the sort by discount are displayed")
+    public void userSeeAllVouchersOfTheSortByDiscountAreDisplayed() {
+        String text = homePayer.checkVoucherDiscount();
+        Assert.assertTrue(text.contains("101%"));
     }
 
-    @When("User see pop up notification that payment is success")
-    public void userSeePopUpNotificationThatPaymentIsSuccess() {
-    }
+    @Then("User see all vouchers of the sort by voucher price are displayed")
+    public void userSeeAllVouchersOfTheSortByVoucherPriceAreDisplayed() {
+        String text = homePayer.checkVoucherPrice();
+        Assert.assertTrue(text.contains("Rp1.000.000,00"));
 
-    @When("User back to DANA Deals homepage and choose {string} to sort the voucher")
-    public void userBackToDANADealsHomepageAndChooseToSortTheVoucher(String arg0) {
-    }
 
-    @Then("User see the {string} voucher is not displayed")
-    public void userSeeTheVoucherIsNotDisplayed(String arg0) {
     }
 }

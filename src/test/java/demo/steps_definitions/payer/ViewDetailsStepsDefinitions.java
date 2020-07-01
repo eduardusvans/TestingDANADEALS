@@ -10,13 +10,7 @@ import org.junit.Assert;
 
 public class ViewDetailsStepsDefinitions {
 
-    HomePayer homePayer = new HomePayer();
     VoucherDetailPayerPage voucherDetailPayerPage = new VoucherDetailPayerPage();
-
-
-    @When("User click {string} voucher on DANA Deals homepage")
-    public void userClickVoucherOnDANADealsHomepage(String arg0) {
-    }
 
     @Then("User see the T&C of voucher is displayed")
     public void userSeeTheTCOfVoucherIsDisplayed() {
@@ -40,20 +34,15 @@ public class ViewDetailsStepsDefinitions {
         voucherDetailPayerPage.clickTnCTab();
     }
 
-    @When("User see that all vouchers only based on {string} can be displayed")
-    public void userSeeThatAllVouchersOnlyBasedOnCanBeDisplayed(String arg0) {
-    }
-
-    @When("User see the voucher details of {string} is displayed")
-    public void userSeeTheVoucherDetailsOfIsDisplayed(String arg0) {
-    }
 
     @When("User click back button on voucher details page")
     public void userClickBackButtonOnVoucherDetailsPage() {
         voucherDetailPayerPage.clickBack();
     }
 
-    @Then("User back to DANA Deals homepage")
-    public void userBackToDANADealsHomepage() {
+
+    @When("User click back on voucher details page")
+    public void userClickBackOnVoucherDetailsPage() {
+        voucherDetailPayerPage.clickBack();
     }
 }
