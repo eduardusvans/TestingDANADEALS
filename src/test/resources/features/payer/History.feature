@@ -10,13 +10,14 @@ Feature: History
     And User click Login button
     Then User is on Home page
 
-  @Positive
+  @HistoryPositive
   #H001
   Scenario: Go to History screen
     Given User is on Home page
     When User tap history icon
     Then User is on History screen
 
+  @HistoryPositive
   #H002
   Scenario: Go to In Progress tab
     Given User is on Home page
@@ -25,6 +26,7 @@ Feature: History
     And User tap in progress tab
     Then User is on In Progress tab screen
 
+  @HistoryPositive
   #H003
   Scenario: Go to Completed tab
     Given User is on Home page
@@ -34,88 +36,88 @@ Feature: History
     Then User is on Completed tab screen
 
   #H004
-  Scenario: Go to Voucher Detail screen with transaction status success
+  Scenario: Go to History Detail screen with transaction status success on completed tab
     Given User is on Home page
     When User tap history icon
     And User is on History screen
     And User tap completed tab
     And User is on Completed tab screen
     And User tap a voucher with transaction status success
-    Then User is on voucher detail
+    And User is on history detail
 
   #H005
-  Scenario: Go to Voucher Detail screen with transaction status refund
+  Scenario: Go to History Detail screen with transaction status refund on completed tab
     Given User is on Home page
     When User tap history icon
     And User is on History screen
     And User tap completed tab
     And User is on Completed tab screen
     And User tap a voucher with transaction status refund
-    Then User is on voucher detail
+    And User is on history detail
 
   #H006
-  Scenario: Go to Voucher Detail screen with transaction status failed
+  Scenario: Go to History Detail screen with transaction status failed on completed tab
     Given User is on Home page
     When User tap history icon
     And User is on History screen
     And User tap completed tab
     And User is on Completed tab screen
     And User tap a voucher with transaction status failed
-    Then User is on voucher detail
+    And User is on history detail
 
-  #H007 - H009
-  Scenario: Back to Completed tab from Voucher Detail with transaction status success
+  #H007
+  Scenario: Back to Completed tab from History Detail with transaction status success
     Given User is on Home page
     When User tap history icon
     And User is on History screen
     And User tap completed tab
     And User is on Completed tab screen
     And User tap a voucher with transaction status success
-    And User is on voucher detail
-    Then User tap Back button on Voucher detail
+    And User is on history detail
+    Then User tap Back button on history detail
     Then User is on Completed tab screen
 
   #H008
-  Scenario: Back to Completed tab from Voucher Detail with transaction status refund
+  Scenario: Back to Completed tab from History Detail with transaction status refund
     Given User is on Home page
     When User tap history icon
     And User is on History screen
     And User tap completed tab
     And User is on Completed tab screen
     And User tap a voucher with transaction status refund
-    And User is on voucher detail
-    Then User tap Back button on Voucher detail
+    And User is on history detail
+    Then User tap Back button on history detail
     Then User is on Completed tab screen
 
   #H009
-  Scenario: Back to Completed tab from Voucher Detail with transaction status failed
+  Scenario: Back to Completed tab from History Detail with transaction status failed
     Given User is on Home page
     When User tap history icon
     And User is on History screen
     And User tap completed tab
     And User is on Completed tab screen
     And User tap a voucher with transaction status failed
-    And User is on voucher detail
-    Then User tap Back button on Voucher detail
+    And User is on history detail
+    Then User tap Back button on history detail
     Then User is on Completed tab screen
 
-  #H013
-  Scenario: User see message when there is no transaction on In Progress tab
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap in progress tab
-    And User is on In Progress tab screen
-    Then User see message about there is no transaction
-
-  #H014
-  Scenario: User see message when there is no transaction on Completed tab
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    Then User see message about there is no transaction
+#  #H013
+#  Scenario: User see message when there is no transaction on In Progress tab
+#    Given User is on Home page
+#    When User tap history icon
+#    And User is on History screen
+#    And User tap in progress tab
+#    And User is on In Progress tab screen
+#    Then User see message about there is no transaction
+#
+#  #H014
+#  Scenario: User see message when there is no transaction on Completed tab
+#    Given User is on Home page
+#    When User tap history icon
+#    And User is on History screen
+#    And User tap completed tab
+#    And User is on Completed tab screen
+#    Then User see message about there is no transaction
 
   #H017
   Scenario: Check voucher transaction status success
@@ -174,7 +176,47 @@ Feature: History
     When User is on In Progress tab screen
     Then User see transaction on In Progress tab
 
-  #H020
+  #H021
+  Scenario: Check Top Up transaction success using bank transfer payment method
+    Given User is on DANA Deals Homepage
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User see Balance on Top up Page
+    And User choose "50k" as top up nominal on Top up Page
+    And User choose Virtual account as a payment method on Top up Page
+    And User choose "BCA" to pay the top up on Top up Page
+    And User click Next Button on Top up Page
+    Then User will redirect into Payment Page
+    And User will get "4354081904107070" as Virtual Account Number on Payment Page
+    And User get info of Nominal top up ordered on Payment Page
+    And User click Top up button on Top up Payment Page
+    And User will see total balance is increase in Home page
+    When User is on DANA Deals Homepage
+    When User tap history icon
+    When User is on History screen
+    When User tap completed tab
+    When User is on Completed tab screen
+    Then User tap a top up which user bought
+
+    #H022
+  Scenario: Check Top Up transaction success using merchant payment method
+    Given User is on DANA Deals Homepage
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User see Balance on Top up Page
+    And User choose "50k" as top up nominal on Top up Page
+    And User choose Merchant as a payment method on Top up Page
+    And User click Done Button on Top up Page
+    Then User is on Home page
+    And User total balance is added as "50000" nominal top up
+    When User is on DANA Deals Homepage
+    When User tap history icon
+    When User is on History screen
+    When User tap completed tab
+    When User is on Completed tab screen
+    Then User tap a top up which user bought
+
+  #H023
   Scenario: Filter transaction based on today date on Completed tab
     Given User is on Home page
     When User tap history icon
@@ -189,7 +231,7 @@ Feature: History
     Then User is on Completed tab screen
     Then User see transaction based on filter date
 
-  #H021
+  #H024
   Scenario: Filter transaction 1 day before the date of today on Completed tab
     Given User is on Home page
     When User tap history icon
@@ -204,7 +246,7 @@ Feature: History
     Then User is on Completed tab screen
     Then User see transaction based on filter date
 
-  #H022
+  #H025
   Scenario: Filter transaction 5 day before the date of today on Completed tab
     Given User is on Home page
     When User tap history icon
@@ -219,7 +261,7 @@ Feature: History
     Then User is on Completed tab screen
     Then User see transaction based on filter date
 
-  #H023
+  #H026
   Scenario: Filter transaction 5 day before the date of today on Completed tab
     Given User is on Home page
     When User tap history icon

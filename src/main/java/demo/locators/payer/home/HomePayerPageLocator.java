@@ -12,6 +12,8 @@ public interface HomePayerPageLocator {
     By FILTER_BUTTON = MobileBy.id("dropdown_filter");
     By SORT_BUTTON = MobileBy.id("dropdown_sort");
     By RESET_BUTTON = MobileBy.id("tv_reset");
+    By TOPUP_ICON = MobileBy.id("btn_topup");
+    By USER_BALANCE = MobileBy.id("tv_wallet_balance");
 
     //voucher
     By VOUCHER_SCROLL = MobileBy.id("rv_voucher");
@@ -29,17 +31,12 @@ public interface HomePayerPageLocator {
                     "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
                     "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[5]");
 
-
     By VOUCHER_NAME_CHECK = MobileBy.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
                     "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
                     "android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/" +
                     "androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/" +
                     "androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[1]");
-    By TOPUP_ICON = MobileBy.id("btn_topup");
-    By USER_BALANCE = MobileBy.id("tv_wallet_balance");
-}
-
 
     By VOUCHER_REFUND = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
             "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/" +
