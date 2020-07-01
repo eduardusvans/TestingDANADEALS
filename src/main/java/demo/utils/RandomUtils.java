@@ -37,7 +37,7 @@ public class RandomUtils {
             case 74:
                 randomName = faker.name().fullName().toLowerCase().replace(".","").replace(" ", ".");
                 int nameLength = length - randomName.length() - ("@gmail.com").length();
-                randomName = randomName.concat("." + faker.number().digits(nameLength));
+                randomName = randomName.concat("." + faker.number().digits(nameLength - 1));
                 break;
             case 6:
                 if (faker.bool().bool()) {

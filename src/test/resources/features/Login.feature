@@ -318,7 +318,7 @@ Feature: Login
   @E2ELoginFeature
   @Payer
   # ETEL001
-  Scenario : Register - Login - Logout
+  Scenario: Register - Login - Logout
     Given User is on Landing page
     Given User tap the Create Account button on Landing page
     Given User is on Register page

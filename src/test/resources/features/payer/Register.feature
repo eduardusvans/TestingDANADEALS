@@ -160,7 +160,7 @@ Feature: Register
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber | firstName | lastName | email  | password     | confirmPassword |
-      | Random      | Bilal     | Bari     | Random | TestingREG1! | TestingREG1!    |
+      | Random      | Bilal     | El Bari  | Random | TestingREG1! | TestingREG1!    |
 
 
   @Demo @Positive
