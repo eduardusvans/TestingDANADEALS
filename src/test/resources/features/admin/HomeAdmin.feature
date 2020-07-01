@@ -20,12 +20,12 @@ Feature: Home
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | keyword |
-#      #HSA001
-#      | t       |
-#      #HSA002
-#      | tel     |
-#      #HSA003
-      | kfc  |
+      #HSA001
+      | t       |
+      #HSA002
+      | tel     |
+      #HSA003
+      | kfc     |
       #HSA004
       | TELKOM  |
 
@@ -179,6 +179,25 @@ Feature: Home
     When User see the loading screen
     Then User is on DANA Deals Login page
 
+  @E2E
+  Scenario Outline: Search voucher and followed by filter voucher and then followed by logout
+    Given User wait for the voucher list to be loaded
+    Given User input "<keyword>" on Search Merchant input text field on Home Admin page
+    When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
+    When User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
+    When User tap "<status>" button on Home Admin page
+    When User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
+    When User see the voucher in the voucher list that has "<status>" on its status on Home Admin page
+    When User see the voucher list on Home Admin page
+    When User tap Logout button on Home Admin page
+    When User see the loading screen
+    Then User is on DANA Deals Login page
+    Examples:
+      | keyword | status |
+      #HFA007
+      | telkom  | Active |
 
 
 

@@ -1,4 +1,4 @@
-package demo.steps_definitions;
+package demo.steps_definitions.admin;
 
 import demo.pages.admin.HomeAdminPage;
 import demo.utils.ActionUtils;
