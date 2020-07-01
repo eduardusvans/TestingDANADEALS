@@ -20,10 +20,10 @@
     @Test
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
-      When User click "ada pocer nih" on DANA Deals homepage
-      When User is on voucher details page of "ada pocer nih"
+      When User click "Bayar Indiehome 11" on DANA Deals homepage
+      When User is on voucher details page of "Bayar Indiehome 11"
       When User click buy button on voucher details page
-      When User see is on cashier page of "ada pocer nih"
+      When User see is on cashier page of "Bayar Indiehome 11"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
@@ -31,7 +31,7 @@
     Scenario: Pay voucher from DANA Deals homepage using search merchant name
       Given User is on DANA Deals Homepage
       When User type a "character" at search field on DANA Deals Homepage
-      When User see all vouchers of "merchant name" that contains the "character" are displayed
+      When User see all vouchers of "merchant name" are displayed
       When User click buy button on "voucher name"
       When User see is on cashier page of "voucher name"
       When User click pay button on cashier page
@@ -41,7 +41,7 @@
     Scenario: Pay voucher from voucher details page using search merchant name
       Given User is on DANA Deals Homepage
       When User type a "character" at search field on DANA Deals Homepage
-      When User see all vouchers of "merchant name" that contains the "character" are displayed
+      When User see all vouchers of "merchant name" are displayed
       When User click "voucher name" to see voucher details
       When User see the voucher details of "voucher name" is displayed
       When User click buy button on voucher details page
@@ -61,7 +61,6 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-
     @Positive
     Scenario: Pay voucher from DANA Deals homepage using sort voucher
       Given User is on DANA Deals Homepage
@@ -73,11 +72,6 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-    @Negative
-    Scenario: Pay voucher when invalid condition
-      Given User is on DANA Deals Homepage
-      When User search "voucher name" to buy voucher on DANA Deals homepage
-      Then User see "voucher name" is not displayed
 
     @Negative
     Scenario: Pay voucher when balance not enough
@@ -117,22 +111,6 @@
       When User click pay button on cashier page
       Then User see pop up notification that voucher is out of stock
 
-    @EdgeCase
-    Scenario: Pay voucher when voucher suddenly out of stock (payer edit)
-      Given User is on DANA Deals Homepage
-      When User1 click "voucher name" on DANA Deals homepage
-      When User1 is on voucher details page of "voucher name"
-      When User1 click buy button on voucher details page
-      When User1 is on voucher cashier page of "voucher name"
-      When User2 click "voucher name" on DANA Deals homepage
-      When User2 is on voucher details page of "voucher name"
-      When User2 click buy button on voucher details page
-      When User2 see is on cashier page of "voucher name"
-      When User2 is on voucher cashier page of "voucher name"
-      When User2 see pop up notification that payment success
-      When User1 click pay button on cashier page
-      Then User1 see pop up notification that voucher is out of stock
-
 
     @TestForHistoryFeature @PaySuccess
     Scenario: Pay voucher success
@@ -148,7 +126,8 @@
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
       When User type a "kfc" at search field on DANA Deals Homepage
-      When User click buy on crazy deals kfc
+      When User click "Crazy Deals" on DANA Deals homepage
+      When User is on voucher details page of "Crazy Deals"
       Then User see pop up notification that pay failed
 
     @TestForHistoryFeature @PayInprogress
@@ -166,7 +145,9 @@
     Scenario: Pay Voucher refund
       Given User is on DANA Deals Homepage
       When User type a "Telkom" at search field on DANA Deals Homepage
-      When User click Bayar indiehome voucher on DANA Deals homepage
-      When User is on voucher details page of "Bayar Indiehome 11"
+      When User click "Bayar Indiehome A" on DANA Deals homepage
+      When User is on voucher details page of "Bayar Indiehome A"
       When User click buy button on voucher details page
-      Then User see pop up notification that pay failed
+      When User is on voucher cashier page of "Bayar Indiehome A"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success

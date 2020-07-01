@@ -70,13 +70,4 @@ public class PayVoucherStepsDefinitions {
     }
 
 
-    @When("User click Bayar indiehome voucher on DANA Deals homepage")
-    public void userClickBayarIndiehomeVoucherOnDANADealsHomepage() {
-        homePayer.clickVoucherRefund();
-    }
-
-    @When("User click buy on crazy deals kfc")
-    public void userClickBuyOnCrazyDealsKfc() {
-        homePayer.clickVoucherFailed();
-    }
 }

@@ -15,10 +15,12 @@ public class FilterVoucherStepsDefinitions {
 
     @When("User click filter dropdown menu button on DANA Deals homepage")
     public void userClickFilterDropdownMenuButtonOnDANADealsHomepage() {
+        homePayer.clickFilterButton();
     }
 
     @When("User choose {string} to filter the voucher")
-    public void userChooseToFilterTheVoucher(String arg0) {
+    public void userChooseToFilterTheVoucher(String Keyword) {
+        homePayer.chooseFilter(Keyword);
     }
 
     @Then("User see all vouchers of the {string} are displayed")

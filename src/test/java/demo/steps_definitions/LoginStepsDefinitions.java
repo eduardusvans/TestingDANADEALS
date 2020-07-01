@@ -82,14 +82,8 @@ public class LoginStepsDefinitions {
     @When("User click Forgot Password link")
     public void userClickForgotPasswordLink() { loginPage.clickForgot();  }
 
-    @Then("User is on Forgot Password Page")
-    public void userIsOnForgotPasswordPage() { Assert.assertTrue( forgotPasswordPage.isOnPage()); }
-
     @When("User click Register Here link")
     public void userClickRegisterHereLink() { loginPage.clickRegister(); }
-
-    @Then("User is on Register Page")
-    public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
 
     @Then("User see warning text")
     public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }

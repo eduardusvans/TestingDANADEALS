@@ -15,15 +15,15 @@ public class ActionUtils {
         return wait.until(ExpectedConditions.presenceOfElementLocated(targetElement));
     }
 
+    public static AndroidElement getElement(By targetElement){
+        return androidDriver.findElement(targetElement);
+    }
+
     public static void tapElement(By targetElement) {
         AndroidElement element = androidDriver.findElement(targetElement);
         element.click();
     }
 
-    public static String getElement(By targetElement){
-        AndroidElement element = androidDriver.findElement(targetElement);
-        return element.getText();
-    }
 
     public static void inputElement(By targetElement, String input) {
         // Null changer

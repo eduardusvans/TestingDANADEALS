@@ -1,20 +1,27 @@
 package demo.pages.payer.home;
-
+import com.github.javafaker.Bool;
 import demo.driver.AndroidDriverInstance;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 
+import java.security.Key;
 import java.time.Duration;
+import java.util.List;
 
-
-import static demo.utils.ActionUtils.*;
-import static demo.locators.payer.home.HomePayerPageLocator.*;
 import static demo.driver.AndroidDriverInstance.androidDriver;
+import static demo.locators.admin.HomeAdminPageLocator.VOUCHER_MERCHANT_NAME;
+import static demo.locators.payer.home.HomePayerPageLocator.*;
+import static demo.utils.ActionUtils.*;
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import static java.time.Duration.between;
+import static java.time.Duration.ofSeconds;
+
 
 public class HomePayer {
 
@@ -30,45 +37,54 @@ public class HomePayer {
         return waitElement(SEARCH_VOUCHER, 30).isDisplayed();
     }
 
+    public boolean seeVoucher(){
+        return waitElement(VOUCHER_SCROLL, 30).isDisplayed();
+    }
+
+
     public void inputSearch(String Keyword){
         inputElement(SEARCH_VOUCHER, Keyword);
     }
 
+    public void pressByCoordinates (int x, int y, long seconds) {
+        new TouchAction(androidDriver).press(point(x,y)).waitAction(waitOptions(ofSeconds(seconds)))
+                .release()
+                .perform();
+    }
+
+    public void clickFilterButton(){
+        tapElement(FILTER_BUTTON);
+    }
+    public void clickSortButton(){
+        tapElement(SORT_BUTTON);
+    }
+
     public void chooseFilter(String Keyword){
        switch (Keyword) {
-           case "fnb": tapElement(USER_NAME);
+           case "fnb": pressByCoordinates(620, 677, 1);
            break;
-           case "online": tapElement(USER_NAME);
+           case "online": pressByCoordinates(772, 802, 1);
            break;
        }
     }
 
     public void chooseSort(String Keyword){
-        switch (Keyword) {
-            case "price": tapElement(USER_NAME);
-                break;
-            case "discount": tapElement(USER_NAME);
-                break;
-        }
+       switch (Keyword){
+           case "voucher price" :
+           pressByCoordinates(256,672,1);
+            break;
+           case "discount" :
+           pressByCoordinates(208,811,1);
+           break;
+       }
     }
 
-    public void clickBuy(String Keyword){
-        androidDriver.findElement(MobileBy.xpath("/hierarchy/android.widget.FrameLayout/" +
-                "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/" +
-                "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/" +
-                "android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/" +
-                "android.widget.LinearLayout[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/" +
-                "android.widget.Button")).click();
-    }
 
     public void clickVoucher(String VoucherName) {
-        if (VoucherName == "aasseekk pocer" || VoucherName == "aaa asiiik voucher" || VoucherName == "AAAA Deals Z") {
-            String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name') and @text = '%s']";
-            androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).click();
-        } else {
             tapAndScroll(VoucherName);
         }
-    }
+
+
 
     public void topupIcon(){
         waitABit(2000);
@@ -87,13 +103,29 @@ public class HomePayer {
         return waitElement(VOUCHER_DISCOUNT_CHECK, 20).getText();
     }
 
-    public void checkMerchantCategory(String VoucherName){
-        waitABit(2000);
-        String xpath = "//android.widget.TextView[contains(@resource-id, 'tv_voucher_name') and @text = '%s']";
-        androidDriver.findElement(By.xpath(String.format(xpath, VoucherName))).getText();
+    public Boolean checkMerchantCategory(String keyword){
+        int counter = 0;
 
+        do {
+            waitABit(10000);
+            List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
+            for (AndroidElement name : nameList) {
+                if (!name.getText().toLowerCase().startsWith(keyword.toLowerCase())) {
+                    System.out.println("name = " + name.getText());
+                    System.out.println("keyword = " + keyword);
+                    return false;
+                }
+            }
 
+            scrollDown();
+            System.out.println("scrolling!!!");
+            counter++;
+
+        } while (counter <= 50);
+
+        return true;
     }
+
 
     public static void scrollDown() {
             AndroidElement screen = androidDriver.findElement(VOUCHER_SCROLL);
@@ -108,9 +140,9 @@ public class HomePayer {
             System.out.println("Xend, Yend = " + endX + " " + endY);
             @SuppressWarnings("rawtypes")
             TouchAction scroll = new TouchAction(androidDriver);
-        scroll.press(PointOption.point(startX, startY))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
-                .moveTo(PointOption.point(endX, endY)).release().perform();
+        scroll.press(point(startX, startY))
+                .waitAction(waitOptions(ofSeconds(1)))
+                .moveTo(point(endX, endY)).release().perform();
 
          }
 
@@ -119,28 +151,27 @@ public class HomePayer {
         int counter = 0;
 
         do {
-            try {
-                String xpath = "//android.widget.TextView[contains(@resource-id, 'com.team.danadeals:id/tv_voucher_name') and @text = '%s']";
-                androidDriver.findElement(By.xpath(String.format(xpath, Keyword))).click();
-                isFound = true;
-            } catch (Exception e) {
+            String voucher ="";
+            waitABit(5000);
+            List<AndroidElement> vNameList = androidDriver.findElements(VOUCHERS_NAME);
+            for (AndroidElement vName : vNameList) {
+                voucher = vName.getText();
+                if (vName.getText().trim().equalsIgnoreCase(Keyword.trim())) {
+                    System.out.println("Your voucher is found: "+voucher);
+                    vName.click();
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (!isFound) {
                 scrollDown();
+                System.out.println("Passed of Voucher: "+voucher);
                 counter++;
             }
 
-        } while (!isFound && counter < 3);
+        } while (!isFound && counter <= 100);
     }
-
-    public void clickVoucherRefund(){
-        waitABit(5000);
-        tapElement(VOUCHER_REFUND);
-    }
-
-    public void clickVoucherFailed(){
-        waitABit(5000);
-        tapElement(VOUCHER_FAILED);
-    }
-
 
 
 }
