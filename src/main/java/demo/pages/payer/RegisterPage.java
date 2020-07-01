@@ -24,6 +24,7 @@ public class RegisterPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
+        phoneNumber = phoneNumberSetter(phoneNumber);
         // Input text into element and scroll page
         inputAndScroll(INPUT_PHONE_NUMBER, phoneNumber);
     }
