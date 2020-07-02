@@ -13,7 +13,8 @@ public class UserController {
     private static String path = "/api";
 
     public static Response postLogin(LoginRequest loginRequest) {
-        Response response = RestAssured
+
+        return RestAssured
                 .given()
                 .baseUri(url)
                 .basePath(path)
@@ -23,25 +24,22 @@ public class UserController {
                 .header("Accept", "*/*")
                 .body(loginRequest)
                 .post("/auth/login");
-
-        return response;
     }
 
-    public static Response postLogout(LogoutRequest logoutRequest, String id) {
-        Response response = RestAssured
+    public static Response postLogout(LogoutRequest logoutRequest, String id, String bearerToken) {
+
+        return RestAssured
                 .given()
                 .baseUri(url)
                 .basePath(path)
                 .log()
                 .all()
+                .header("Authorization",
+                        "Bearer " + bearerToken)
                 .header("Content-type", "application/json")
                 .header("Accept", "*/*")
                 .body(logoutRequest)
-
                 .post(String.format("/user/%s/logout",id));
-        //        .post("/user/",id,"/login");
-//                .post("/user/'(String.format(",id,"))'/logout");
-        return response;
     }
 
 

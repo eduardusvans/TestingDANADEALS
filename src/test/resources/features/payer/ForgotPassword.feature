@@ -54,7 +54,7 @@ Feature: Forgot Password
   # FGP008
   Scenario: Reset password with unregistered Phone Number input
     Given User is on Forgot Password page
-    When User input "89695966513" on Phone Number input text field on Forgot Password page
+    When User input "89695916513" on Phone Number input text field on Forgot Password page
     When User tap the Send OTP button on Forgot Password page
     When User is still on Forgot Password page
 
@@ -109,8 +109,8 @@ Feature: Forgot Password
       | 87722074250 | 0000 | Abcdef3!         |                    |
       # FGP029
       | 87722074250 | 0000 | Abcdef3!         | Abcdefghijklmn3!   |
-    
-  
+
+
   @E2E
   Scenario Outline: Reset password with valid input and followed by try to login
     Given User is on Forgot Password page
@@ -133,5 +133,16 @@ Feature: Forgot Password
     When User tap LogOut button
     Then User is on DANA Deals Login page
     Examples:
-      | phoneNumber  | otp  | newPassword      | confirmNewPassword |
-      | 877220742    | 0000 | TestingFGP3!     | TestingFGP3!       |
+      | phoneNumber | otp  | newPassword  | confirmNewPassword |
+      | 877220742   | 0000 | TestingFGP3! | TestingFGP3!       |
+
+  @EdgeCase @LoginAPI
+  Scenario Outline: User is blocked to reset the password when the account is still logged in
+    Given User login with "<phoneNumber>" as a phone number and "<password>" as a password on another device
+    Given User is on Forgot Password page
+    When User input "<phoneNumber>" on Phone Number input text field on Forgot Password page
+    When User tap the Send OTP button on Forgot Password page
+    When User is still on Forgot Password page
+    Examples:
+      | phoneNumber | password        |
+      | 89695966514 | Bilalelbari123! |
