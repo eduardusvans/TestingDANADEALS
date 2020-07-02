@@ -20,13 +20,13 @@ Feature: Home
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | keyword |
-      #HSA001
-      | t       |
-      #HSA002
-      | tel     |
-      #HSA003
-      | kfc     |
-      #HSA004
+#      #HSA001
+#      | t       |
+#      #HSA002
+#      | tel     |
+#      #HSA003
+#      | kfc     |
+#      #HSA004
       | TELKOM  |
 
   @Reset @Search @Positive @1-1
@@ -70,19 +70,7 @@ Feature: Home
       #HSA009
       | 10%             |
       #HSA010
-      | 10% kfc         |
-      #HSA011
-      | Rp10.000,00     |
-      #HSA012
-      | Rp10.000,00 kfc |
-      #HSA013
-      | Rp5.000,00      |
-      #HSA014
-      | Rp10.000,00 kfc |
-      #HSA015
-      | kfc!            |
-      #HSA016
-      | kfc😎           |
+      | kfc 10%        |
 
   @Filter @Positive @1-1
   Scenario Outline: Filter the voucher by its status
@@ -106,10 +94,10 @@ Feature: Home
     When User see the voucher list on Home Admin page
     When User see the voucher in the voucher list that has "<firstStatus>" on its status on Home Admin page
     When User tap Reset button on Home Admin page
-    Given User tap "<secondStatus>" button on Home Admin page
+    When User tap "<secondStatus>" button on Home Admin page
     When User wait for the voucher list to be loaded
     When User see the voucher list on Home Admin page
-    When User see the voucher in the voucher list that has "<secondStatus>" on its status on Home Admin page
+    Then User see the voucher in the voucher list that has "<secondStatus>" on its status on Home Admin page
     Examples:
       | firstStatus | secondStatus |
       #HFA003
@@ -146,6 +134,7 @@ Feature: Home
     When User wait for the voucher list to be loaded
     When User see the voucher list on Home Admin page
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
+    Then User tap Logout button on Home Admin page
     Examples:
       | status   | keyword |
       #HSA017
@@ -171,14 +160,6 @@ Feature: Home
       #HSA008
       | telkom  | Inactive |
 
-  @Logout @Positive
-  Scenario: Log out the the account
-    Given User wait for the voucher list to be loaded
-    When User see the voucher list on Home Admin page
-    When User tap Logout button on Home Admin page
-    When User see the loading screen
-    Then User is on DANA Deals Login page
-
   @E2E
   Scenario Outline: Search voucher and followed by filter voucher and then followed by logout
     Given User wait for the voucher list to be loaded
@@ -199,6 +180,13 @@ Feature: Home
       #HFA007
       | telkom  | Active |
 
+  @Logout @Positive
+  Scenario: Log out the the account
+    Given User wait for the voucher list to be loaded
+    When User see the voucher list on Home Admin page
+    When User tap Logout button on Home Admin page
+    When User see the loading screen
+    Then User is on DANA Deals Login page
 
 
 

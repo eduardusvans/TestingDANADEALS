@@ -34,8 +34,10 @@ public class HomeAdminPage {
     }
 
     public void inputSearchVoucher(String keyword) {
+        tapElement(INPUT_SEARCH_VOUCHER);
         inputElement(INPUT_SEARCH_VOUCHER, keyword);
-        waitABit(3000);
+        hideKeyboard();
+        waitABit(5000);
     }
 
     public void clearInputSearchVoucher() {
@@ -94,7 +96,7 @@ public class HomeAdminPage {
             boolean status = waitElement(PROGRESS_BAR, 5).isDisplayed();
             int waitCounter = 0;
             while (status && waitCounter < 10) {
-                waitABit(3000);
+                waitABit(1000);
                 status = getElement(PROGRESS_BAR).isDisplayed();
                 if (!status) {
                     return false;
@@ -124,7 +126,7 @@ public class HomeAdminPage {
 
         do {
             if (!mixMerchant) {
-                waitABit(5000);
+                waitABit(2500);
                 List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
                 if (counter == 0) {
                     nameParam = nameList.get(0).getText();
@@ -141,7 +143,7 @@ public class HomeAdminPage {
                 }
             }
             if (!mixStatus) {
-                waitABit(3000);
+                waitABit(2500);
                 List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
                 if (counter == 0) {
                     statusParam = statusList.get(0).getText();
@@ -171,7 +173,7 @@ public class HomeAdminPage {
         int counter = 0;
 
         do {
-            waitABit(5000);
+            waitABit(2500);
             List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
             for (AndroidElement name : nameList) {
                 if (!name.getText().toLowerCase().startsWith(keyword.toLowerCase())) {
@@ -194,7 +196,7 @@ public class HomeAdminPage {
     public boolean checkStatusVoucherPresence(String chosenStatus) {
         int counter = 0;
         do {
-            waitABit(5000);
+            waitABit(2500);
             List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
             for (AndroidElement status : statusList) {
                 if (!status.getText().equalsIgnoreCase(chosenStatus)) {
