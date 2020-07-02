@@ -28,8 +28,6 @@ Feature: Create Voucher
     And User click create button on Create Voucher Page
     Then User will see "Success" message in Home Page
     And User will redirect into Home Page
-
-
     Examples:
       | status   | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
   #CRV001
@@ -80,24 +78,24 @@ Feature: Create Voucher
     Then User will find button is disabled on Create Voucher Page
 
     Examples:
-      | status   | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
-  #CRV017
-      | active   | KF          | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 6     | 20000        |
-  #CRV019
-      | active   | random      | 100        | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
-  #CRV021
+      | status | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
+      #CRV017
+      | active | KF          | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 6     | 20000        |
+      #CRV019
+      | active | random      | 100        | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
+      #CRV021
       | active   | random      | 1001       | 0        | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
-  #CRV023
+      #CRV023
       | active   | random      | 1001       | 50       | 99          | 2020-07-16 23:59:00 | 250   | 20000        |
-  #CRV024
+      #CRV024
       | inactive | random      | 1001       | 50       | 1000001     | 2020-07-16 23:59:00 | 250   | 20000        |
-  #CRV027
+      #CRV027
       | inactive | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 0     | 20000        |
-  #CRV028
+      #CRV028
       | inactive | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 1001  | 20000        |
-  #CRV029
+      #CRV029
       | inactive | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 99           |
-  #CRV030
+      #CRV030
       | inactive | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 1000001      |
 
 
@@ -135,25 +133,25 @@ Feature: Create Voucher
 
 
 
-#  #NegativeSpecialCharScenario
-#  Scenario Outline: Create Voucher with special characters input
-#    When User is on Home Admin page
-#    And User click create voucher button on Home Page
-#    And User click status dropdown for changing the status in Create Voucher Page
-#    And User choose "<status>" for status of voucher in Create Voucher Page
-#    And User input "<voucherName>" in Voucher Name text field on Create Voucher Page
-#    And User input "<merchantId>" in Merchant ID text field on Create Voucher Page
-#    And User input "<discount>" in Discount text field on Create Voucher Page
-#    And User input "<maxDiscount>" in Max Discount text field on Create Voucher Page
-#    And User choose "<expiredDate>" in Expired Date text field on Create Voucher Page
-#    And User input "<quota>" in Quota text field on Create Voucher Page
-#    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
-#    Then User will find button is disabled on Create Voucher Page
-#
-#    Examples:
-#      | status   | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota    | voucherPrice |
-#  #CRV038
-#      | active   | !*$#%       | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250      | 20000        |
+  #NegativeSpecialCharScenario
+  Scenario Outline: Create Voucher with special characters input
+    When User is on Home Admin page
+    And User click create voucher button on Home Page
+    And User click status dropdown for changing the status in Create Voucher Page
+    And User choose "<status>" for status of voucher in Create Voucher Page
+    And User input "<voucherName>" in Voucher Name text field on Create Voucher Page
+    And User input "<merchantId>" in Merchant ID text field on Create Voucher Page
+    And User input "<discount>" in Discount text field on Create Voucher Page
+    And User input "<maxDiscount>" in Max Discount text field on Create Voucher Page
+    And User choose "<expiredDate>" in Expired Date text field on Create Voucher Page
+    And User input "<quota>" in Quota text field on Create Voucher Page
+    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
+    Then User will find button is disabled on Create Voucher Page
+
+    Examples:
+      | status   | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota    | voucherPrice |
+  #CRV038
+      | active   | !*$#%       | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250      | 20000        |
 #  #CRV039
 #      | active   | random      | !*$#%      | 50       | 10000       | 2020-07-16 23:59:00 | 250      | 20000        |
 #  #CRV040
@@ -164,8 +162,8 @@ Feature: Create Voucher
 #      | inactive | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | !*$#%    | 20000        |
 #  #CRV043
 #      | inactive | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250      | !*$#%        |
-#  #CRV044
-#      | inactive | 😅🤣🥰😎    | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250      | 20000        |
+  #CRV044
+      | inactive | 😅🤣🥰😎    | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250      | 20000        |
 #  #CRV045
 #      | inactive | random      | 😅🤣🥰😎   | 50       | 10000       | 2020-07-16 23:59:00 | 250      | 20000        |
 #  #CRV046
@@ -195,7 +193,7 @@ Feature: Create Voucher
     Then User will find button is disabled on Create Voucher Page
 
     Examples:
-      | status   | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
+      | status | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
 #  #CRV050
 #      | active   | random      | Abcde      | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
 #  #CRV051
@@ -223,35 +221,35 @@ Feature: Create Voucher
 #  #CRV062
 #      | active   | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 12/34        |
   #CRV003
-      | active   | Baskin 123  | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
+      | active | Baskin 123  | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
   #CRV016
-      | active   | 1234567     | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
+      | active | 1234567     | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
 
 
-#  @Retest
-#  #ReservedReruntest
-#  Scenario Outline: Create Voucher with valid input
-#    When User is on Home Admin page
-#    And User click create voucher button on Home Page
-#    And User is on Create Voucher Page
-#    And User click status dropdown for changing the status in Create Voucher Page
-#    And User choose "<status>" for status of voucher in Create Voucher Page
-#    And User input "<voucherName>" in Voucher Name text field on Create Voucher Page
-#    And User input "<merchantId>" in Merchant ID text field on Create Voucher Page
-#    And User input "<discount>" in Discount text field on Create Voucher Page
-#    And User input "<maxDiscount>" in Max Discount text field on Create Voucher Page
-#    And User choose "<expiredDate>" in Expired Date text field on Create Voucher Page
-#    And User input "<quota>" in Quota text field on Create Voucher Page
-#    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
-#    And User click create button on Create Voucher Page
-#    Then User will see "Success" message in Home Page
-#    And User will redirect into Home Page
-#
-#
-#    Examples:
-#      | status | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
-#      | active | random      | 1001       | 50       | 10000       | 2020-08-01 23:59:00 | 250   | 20000        |
-#
+  @Retest
+  #ReservedReruntest
+  Scenario Outline: Create Voucher with valid input
+    When User is on Home Admin page
+    And User click create voucher button on Home Page
+    And User is on Create Voucher Page
+    And User click status dropdown for changing the status in Create Voucher Page
+    And User choose "<status>" for status of voucher in Create Voucher Page
+    And User input "<voucherName>" in Voucher Name text field on Create Voucher Page
+    And User input "<merchantId>" in Merchant ID text field on Create Voucher Page
+    And User input "<discount>" in Discount text field on Create Voucher Page
+    And User input "<maxDiscount>" in Max Discount text field on Create Voucher Page
+    And User choose "<expiredDate>" in Expired Date text field on Create Voucher Page
+    And User input "<quota>" in Quota text field on Create Voucher Page
+    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
+    And User click create button on Create Voucher Page
+    Then User will see "Success" message in Home Page
+    And User will redirect into Home Page
+
+
+    Examples:
+      | status | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
+     | inactive | random      | 1001       | 50       | 1000000     | 2020-07-16 23:59:00 | 250   | 20000        |
+
 #  @Retest
 #  Scenario Outline: Create Voucher with invalid input
 #    When User is on Home Admin page
@@ -266,8 +264,7 @@ Feature: Create Voucher
 #    And User input "<quota>" in Quota text field on Create Voucher Page
 #    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
 #    Then User will find button is disabled on Create Voucher Page
+#
 #    Examples:
 #      | status | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
-#      | active | random      | 1001       | 0        | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
-#      #| active | random      | @!%$       | 0        | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
-#      #| active | random      | 😅🤣🥰😎     | 0        | 10000       | 2020-07-16 23:59:00 | 250   | 20000        |
+#      | active | random      | 1001       | 50       | 10000       | 2020-07-16 23:59:00 | 250   |              |

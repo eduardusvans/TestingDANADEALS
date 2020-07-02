@@ -169,6 +169,7 @@ public class CreateVoucherPage {
     }
 
     public boolean createDisabledButton(){
+        waitABit(2000);
         return androidDriver.findElement(CREATE_BUTTON).isEnabled();
     }
 
