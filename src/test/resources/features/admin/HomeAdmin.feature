@@ -20,13 +20,13 @@ Feature: Home
     Then User see the voucher in the voucher list that has "<keyword>" on its merchant name on Home Admin page
     Examples:
       | keyword |
-#      #HSA001
-#      | t       |
-#      #HSA002
-#      | tel     |
-#      #HSA003
-#      | kfc     |
-#      #HSA004
+      #HSA001
+      | t       |
+      #HSA002
+      | tel     |
+      #HSA003
+      | kfc     |
+      #HSA004
       | TELKOM  |
 
   @Reset @Search @Positive @1-1

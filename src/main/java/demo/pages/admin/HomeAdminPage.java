@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
 
@@ -18,6 +19,8 @@ import static demo.locators.admin.VoucherDetailAdminPageLocator.TXT_STATUS;
 import static demo.utils.ActionUtils.*;
 
 public class HomeAdminPage {
+    int keywordLength = 0;
+
     public boolean isOnPage() {
         return waitElement(INPUT_SEARCH_VOUCHER, 30).isDisplayed();
     }
@@ -35,16 +38,22 @@ public class HomeAdminPage {
     }
 
     public void inputSearchVoucher(String keyword) {
+        keywordLength = keyword.length();
         tapElement(INPUT_SEARCH_VOUCHER);
-//        inputElement(INPUT_SEARCH_VOUCHER, keyword);
         Actions action = new Actions(androidDriver);
-        action.sendKeys("keyword").perform();
+        action.sendKeys(keyword).perform();
         hideKeyboard();
-        waitABit(5000);
+        waitABit(6500);
     }
 
     public void clearInputSearchVoucher() {
-        getElement(INPUT_SEARCH_VOUCHER).clear();
+        tapElement(INPUT_SEARCH_VOUCHER);
+        Actions action = new Actions(androidDriver);
+        for (int i = 0; i < keywordLength; i++) {
+            action.sendKeys(Keys.BACK_SPACE).perform();
+        }
+        hideKeyboard();
+        waitABit(6500);
     }
 
     public void tapLogoutButton() {
