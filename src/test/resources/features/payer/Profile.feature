@@ -198,6 +198,7 @@ Feature: Profile
     And User tap Edit Full Name radio button on Change User Data screen
     And User input "<firstName>" "<lastName>" on Full Name input text field on Change User Data screen
     And User tap Update button on Change User Data screen
+    And User see warning text on Change User Data screen
     Then User is on Change User Data screen
     Examples:
       | firstName        | lastName |
@@ -227,6 +228,7 @@ Feature: Profile
     And User tap Edit Mail Address radio button on Change User Data screen
     And User input "<e-mail>" on E-mail input text field on Change User Data screen
     And User tap Update button on Change User Data screen
+    And User see warning text on Change User Data screen
     Then User is on Change User Data screen
     Examples:
       | e-mail                                                                         |
