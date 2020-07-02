@@ -6,6 +6,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.List;
@@ -35,7 +36,9 @@ public class HomeAdminPage {
 
     public void inputSearchVoucher(String keyword) {
         tapElement(INPUT_SEARCH_VOUCHER);
-        inputElement(INPUT_SEARCH_VOUCHER, keyword);
+//        inputElement(INPUT_SEARCH_VOUCHER, keyword);
+        Actions action = new Actions(androidDriver);
+        action.sendKeys("keyword").perform();
         hideKeyboard();
         waitABit(5000);
     }
