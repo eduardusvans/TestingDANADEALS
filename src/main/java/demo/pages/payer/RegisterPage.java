@@ -58,6 +58,10 @@ public class RegisterPage {
         tapAndScroll(BUTTON_CREATE_ACCOUNT);
     }
 
+    public boolean createAccountButtonStatus() {
+        return getElement(BUTTON_CREATE_ACCOUNT).isEnabled();
+    }
+
     public static void scrollDown() {
         AndroidElement screen = androidDriver
                 .findElement(By.id("action_bar_root"));

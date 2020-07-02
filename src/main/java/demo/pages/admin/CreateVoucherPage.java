@@ -4,11 +4,14 @@ import demo.driver.AndroidDriverInstance;
 import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static demo.locators.admin.CreateVoucherPageLocator.*;
 import static demo.driver.AndroidDriverInstance.androidDriver;
@@ -75,6 +78,7 @@ public class CreateVoucherPage {
         tapAndScroll(CREATE_BUTTON);
     }
 
+
     public void waitAbit(int millis){
         try {
             Thread.sleep(millis);
@@ -87,15 +91,21 @@ public class CreateVoucherPage {
         AndroidElement screen = androidDriver
                 .findElement(By.xpath("//android.widget.ScrollView/android.widget.LinearLayout"));
         Point center =  screen.getCenter();
-        int startX = 20;
-        int startY = (int) (center.getY() * 1.5);
-        int endX = 20;
-        int endY = (int) (center.getY() * 0.5);
+        int width = screen.getSize().width;
+        int height = screen.getSize().height;
+        int startX = center.getX() - (width / 2) + 20;
+        int startY = center.getY() + (height / 3);
+        int endX = center.getX() - (width / 2) + 20;
+        int endY = center.getY() - (height / 2);
+        System.out.println("Xstart, Ystart = " + startX + " " + startY);
+        System.out.println("Xend, Yend = " + endX + " " + endY);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
-                .moveTo(PointOption.point(endX, endY)).perform();
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(endX, endY)).release().perform();
     }
+
 
     public static void inputAndScroll(By targetElement, String input) {
         boolean isFound = false;
@@ -155,7 +165,11 @@ public class CreateVoucherPage {
     }
 
     public String failedMessage(){
-        return androidDriver.findElement(FAILED_TOAST_MESSAGE).getText();
+        return waitElement(FAILED_TOAST_MESSAGE, 15).getText();
+    }
+
+    public boolean createDisabledButton(){
+        return androidDriver.findElement(CREATE_BUTTON).isEnabled();
     }
 
 }

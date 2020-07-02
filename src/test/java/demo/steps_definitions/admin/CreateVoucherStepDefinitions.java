@@ -19,7 +19,8 @@ public class CreateVoucherStepDefinitions {
 
     @And("User is on Create Voucher Page")
     public void userIsOnCreateVoucherPage() {
-        createVoucherPage.isOnCreatePage();
+        boolean status = createVoucherPage.isOnCreatePage();
+        Assert.assertTrue(status);
     }
 
     @And("User click status dropdown for changing the status in Create Voucher Page")
@@ -87,5 +88,12 @@ public class CreateVoucherStepDefinitions {
     public void userWillSeeErrorMessageInCreateVoucherPage(String failed) {
         String actual = createVoucherPage.failedMessage();
         Assert.assertEquals(failed,actual);
+    }
+
+    @And("User will find button is disabled on Create Voucher Page")
+    public void userWillFindButtonIsDisabledOnCreateVoucherPage() {
+        createVoucherPage.clickCreateButton();
+        boolean status = createVoucherPage.createDisabledButton();
+        Assert.assertFalse(status);
     }
 }
