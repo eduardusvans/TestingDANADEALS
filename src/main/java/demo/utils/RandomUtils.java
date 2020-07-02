@@ -94,7 +94,7 @@ public class RandomUtils {
             }
         } else {
             do {
-                randomVoucher = faker.food().spice();
+                randomVoucher = faker.food().ingredient();
                 int nameLength = length - randomVoucher.length();
                 for (int i=0; i < nameLength; i++){
                     randomVoucher = randomVoucher.concat(faker.letterify("?"));

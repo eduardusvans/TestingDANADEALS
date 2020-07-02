@@ -248,7 +248,7 @@ Feature: Create Voucher
 
     Examples:
       | status | voucherName | merchantId | discount | maxDiscount | expiredDate         | quota | voucherPrice |
-     | inactive | random      | 1001       | 50       | 1000000     | 2020-07-16 23:59:00 | 250   | 20000        |
+      | inactive | random      | 1001       | 50       | 1000000     | 2020-07-16 23:59:00 | 250   | 20000        |
 
 #  @Retest
 #  Scenario Outline: Create Voucher with invalid input
