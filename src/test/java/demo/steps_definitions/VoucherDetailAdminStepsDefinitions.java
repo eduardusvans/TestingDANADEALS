@@ -8,14 +8,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import static demo.locators.admin.HomeAdminPageLocator.VOUCHER;
-import static demo.utils.ActionUtils.tapElement;
-
 public class VoucherDetailAdminStepsDefinitions {
     HomeAdminPage homeAdminPage = new HomeAdminPage();
     VoucherDetailAdminPage voucherDetailAdminPage = new VoucherDetailAdminPage();
-
-
 
     @Then("User is on Voucher Detail page")
     public void userIsOnVoucherDetailPage() { voucherDetailAdminPage.isOnPage(); }
@@ -25,7 +20,7 @@ public class VoucherDetailAdminStepsDefinitions {
 
     @When("User tap Status")
     public void userTapStatus() {
-       voucherDetailAdminPage.tapStatus();
+        voucherDetailAdminPage.tapStatus();
     }
 
     @And("User tap Save")
@@ -72,4 +67,27 @@ public class VoucherDetailAdminStepsDefinitions {
 
     @When("User input quota {string}")
     public void userInputQuota(String quota) { voucherDetailAdminPage.inputQuota(quota); }
+
+    @Then("User see update quota {string}")
+    public void userSeeUpdateQuota(String updateQty) {
+        String Quota = voucherDetailAdminPage.getUpdateQty();
+        Assert.assertEquals(updateQty,Quota);
+    }
+
+    @Then("User see update status {string}")
+    public void userSeeUpdateStatus(String updateStatus) {
+        waitAbit(8000);
+        String Status = voucherDetailAdminPage.getUpdateStatus();
+        Assert.assertEquals(updateStatus,Status);
+    }
+
+
+    public void waitAbit(int millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

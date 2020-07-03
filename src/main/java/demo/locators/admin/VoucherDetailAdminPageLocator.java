@@ -1,5 +1,4 @@
 package demo.locators.admin;
-
 import org.openqa.selenium.By;
 
 public interface VoucherDetailAdminPageLocator {
