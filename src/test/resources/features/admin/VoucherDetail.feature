@@ -42,12 +42,12 @@ Feature: VoucherDetail
   @2  #VOUD002
   Scenario:  "Update with same status ""Active"" and restock by type more quota on Not Expired Voucher"
     When User tap Voucher "Agarsbyvuhjvogavtmza"
-    When User input quota "255"
+    When User input quota "252"
     When User tap Save
     Then User is on Home Admin page
     When User tap Voucher "Agarsbyvuhjvogavtmza"
     Then User see update status "Active"
-    Then User see update quota "255"
+    Then User see update quota "252"
 
   @3  #VOUD003
   Scenario: "Update with same status ""Active"" and restock by tap increase button on Not Expired Voucher"
@@ -63,13 +63,13 @@ Feature: VoucherDetail
   @4  #VOUD004
   Scenario: :"Update with same status ""Active"" and restock by type more quota and by tap increase button on Not Expired Voucher"
     When User tap Voucher "almsb"
-    When User input quota "251"
+    When User input quota "241"
     When User tap Increase
     When User tap Save
     Then User is on Home Admin page
     When User tap Voucher "almsb"
     Then User see update status "Active"
-    Then User see update quota "252"
+    Then User see update quota "241"
 
   @InvalidInputQuota
   Scenario Outline: "Update with same status ""Active"" and restock by type any invalid input quota  on Not Expired Voucher"
@@ -268,28 +268,28 @@ Feature: VoucherDetail
 
   @30  #VOUD030
   Scenario:  Update status "Inactive" to "Active" on not Expired Voucher , while current quota < 5
-    When User tap Voucher "Signature Box Spicy"
+    When User tap Voucher "Chives"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Signature Box Spicy"
+    When User tap Voucher "Chives"
     Then User see update status "Active"
     Then User see update quota "5"
 
 
   @31  #VOUD031
   Scenario: "Update with ""Inactive"" to ""Active"" and restock by type more quota on Not Expired Voucher , while current quota < 5"
-    When User tap Voucher "Crispy Box Spicy"
+    When User tap Voucher "Biryani Spice Mixgk"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Crispy Box Spicy"
+    When User tap Voucher "Biryani Spice Mixgk"
     Then User see update status "Active"
     Then User see update quota "5"
     When User input quota "6"
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Crispy Box Spicy"
+    When User tap Voucher "Biryani Spice Mixgk"
     Then User see update status "Active"
     Then User see update quota "6"
 
@@ -530,7 +530,7 @@ Feature: VoucherDetail
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher ""
+    When User tap Voucher "Bengawan Solo"
     When User input quota "10"
     When User tap Save
     Then User is on Home Admin page
@@ -551,7 +551,7 @@ Feature: VoucherDetail
     Then User is on Home Admin page
     When User tap Voucher "Bulghurd"
     Then User see update status "Active"
-    Then User see update quota "250"
+    Then User see update quota "251"
 
 
   @52  #VOUD0052
@@ -577,7 +577,7 @@ Feature: VoucherDetail
     When User tap Save
     Then User is on Home Admin page
     When User tap Voucher "Cassianvaa"
-    When User input quota "251"
+    When User input quota "5"
     When User tap Save
     Then User is on Voucher Detail page
     Then User see update status "Active"
@@ -683,11 +683,11 @@ Feature: VoucherDetail
 
   @62  #VOUD062
   Scenario: "Update ""Inactive"" to ""Active"" and restock by empty input (delete current quota) on Not Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Clear Medium Deal"
+    When User tap Voucher "Adzuki Beansmhv"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Clear Medium Deal"
+    When User tap Voucher "Adzuki Beansmhv"
     When User input quota " "
     When User tap Save
     Then User is on Voucher Detail page
@@ -775,13 +775,13 @@ Feature: VoucherDetail
     And User input "P@ssw0rd" on password input field on login page
     And User click Login button
     Then User is on Home Admin page
-    When User tap Voucher ""
-    When User input quota ""
+    When User tap Voucher "Blackberriesppzuppme"
+    When User input quota "301"
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher ""
+    When User tap Voucher "Blackberriesppzuppme"
     Then User see update status "Active"
-    Then User see update quota ""
+    Then User see update quota "301"
     Then User tap Save
     Then User is on Home Admin page
     When User tap LogOut button on Home Admin page
