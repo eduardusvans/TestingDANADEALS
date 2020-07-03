@@ -3,6 +3,7 @@ package demo.steps_definitions.payer;
 import demo.pages.payer.NavBarPayer;
 import demo.pages.payer.history.HistoryDetailPage;
 import demo.pages.payer.history.HistoryPage;
+import demo.pages.payer.history.HistoryProceedPayment;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +12,7 @@ public class HistoryStepsDefinition {
 
     HistoryPage historyPage = new HistoryPage();
     HistoryDetailPage historyDetailPage = new HistoryDetailPage();
+    HistoryProceedPayment historyProceedPayment = new HistoryProceedPayment();
     NavBarPayer navBarPayer = new NavBarPayer();
 
     @When("User tap history icon")
@@ -126,5 +128,20 @@ public class HistoryStepsDefinition {
     @And("User tap a voucher with transaction status failed")
     public void userTapAVoucherWithTransactionStatusFailed() {
         historyPage.statusFailed();
+    }
+
+    @When("User tap voucher on In Progress tab")
+    public void userTapVoucherOnInProgressTab() {
+        historyPage.tapInProgressVoucher();
+    }
+
+    @When("User is on proceed payment page")
+    public void userIsOnProceedPaymentPage() {
+        historyProceedPayment.isOnPageProceedPayment();
+    }
+
+    @When("User tap proceed to payment")
+    public void userTapProceedToPayment() {
+        historyProceedPayment.tapProceed();
     }
 }

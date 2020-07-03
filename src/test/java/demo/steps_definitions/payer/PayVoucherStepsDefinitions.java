@@ -17,7 +17,7 @@ public class PayVoucherStepsDefinitions {
     @Then("User see pop up notification that pay success")
     public void userSeePopUpNotificationThatPaySuccess() {
         String text = voucherCashierPage.checkToastMessage();
-        Assert.assertTrue(text.contains("done"));
+        Assert.assertTrue(text.contains("Payment successful!"));
     }
 
 

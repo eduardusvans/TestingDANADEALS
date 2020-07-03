@@ -35,79 +35,7 @@ Feature: History
     And User tap completed tab
     Then User is on Completed tab screen
 
-  @HistoryPositive
-  #H004
-  Scenario: Go to History Detail screen with transaction status success on completed tab
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    And User tap a voucher with transaction status success
-    And User is on history detail
-
-  @HistoryPositive
-  #H005
-  Scenario: Go to History Detail screen with transaction status refund on completed tab
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    And User tap a voucher with transaction status refund
-    And User is on history detail
-
-  @HistoryPositive
-  #H006
-  Scenario: Go to History Detail screen with transaction status failed on completed tab
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    And User tap a voucher with transaction status failed
-    And User is on history detail
-
-  @HistoryPositive
-  #H007
-  Scenario: Back to Completed tab from History Detail with transaction status success
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    And User tap a voucher with transaction status success
-    And User is on history detail
-    Then User tap Back button on history detail
-    Then User is on Completed tab screen
-
-  @HistoryPositive
-  #H008
-  Scenario: Back to Completed tab from History Detail with transaction status refund
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    And User tap a voucher with transaction status refund
-    And User is on history detail
-    Then User tap Back button on history detail
-    Then User is on Completed tab screen
-
-  @HistoryPositive
-  #H009
-  Scenario: Back to Completed tab from History Detail with transaction status failed
-    Given User is on Home page
-    When User tap history icon
-    And User is on History screen
-    And User tap completed tab
-    And User is on Completed tab screen
-    And User tap a voucher with transaction status failed
-    And User is on history detail
-    Then User tap Back button on history detail
-    Then User is on Completed tab screen
-
-  @HistoryPositive
+  @a
   #H017
   Scenario: Check voucher transaction status success
     Given User is on DANA Deals Homepage
@@ -214,6 +142,78 @@ Feature: History
     Then User tap a top up which user bought
 
   @HistoryPositive
+  #H004
+  Scenario: Go to History Detail screen with transaction status success on completed tab
+    Given User is on Home page
+    When User tap history icon
+    And User is on History screen
+    And User tap completed tab
+    And User is on Completed tab screen
+    And User tap a voucher with transaction status success
+    And User is on history detail
+
+  @HistoryPositive
+  #H005
+  Scenario: Go to History Detail screen with transaction status refund on completed tab
+    Given User is on Home page
+    When User tap history icon
+    And User is on History screen
+    And User tap completed tab
+    And User is on Completed tab screen
+    And User tap a voucher with transaction status refund
+    And User is on history detail
+
+  @HistoryPositive
+  #H006
+  Scenario: Go to History Detail screen with transaction status failed on completed tab
+    Given User is on Home page
+    When User tap history icon
+    And User is on History screen
+    And User tap completed tab
+    And User is on Completed tab screen
+    And User tap a voucher with transaction status failed
+    And User is on history detail
+
+  @HistoryPositive
+  #H007
+  Scenario: Back to Completed tab from History Detail with transaction status success
+    Given User is on Home page
+    When User tap history icon
+    And User is on History screen
+    And User tap completed tab
+    And User is on Completed tab screen
+    And User tap a voucher with transaction status success
+    And User is on history detail
+    Then User tap Back button on history detail
+    Then User is on Completed tab screen
+
+  @HistoryPositive
+  #H008
+  Scenario: Back to Completed tab from History Detail with transaction status refund
+    Given User is on Home page
+    When User tap history icon
+    And User is on History screen
+    And User tap completed tab
+    And User is on Completed tab screen
+    And User tap a voucher with transaction status refund
+    And User is on history detail
+    Then User tap Back button on history detail
+    Then User is on Completed tab screen
+
+  @HistoryPositive
+  #H009
+  Scenario: Back to Completed tab from History Detail with transaction status failed
+    Given User is on Home page
+    When User tap history icon
+    And User is on History screen
+    And User tap completed tab
+    And User is on Completed tab screen
+    And User tap a voucher with transaction status failed
+    And User is on history detail
+    Then User tap Back button on history detail
+    Then User is on Completed tab screen
+
+  @HistoryPositive
   #H023
   Scenario: Filter transaction based on today date on Completed tab
     Given User is on Home page
@@ -276,7 +276,25 @@ Feature: History
     When User tap save button on date picker
     Then User is on Completed tab screen
     Then User see transaction based on filter date
-    
+
+    @HistoryPositive
+    #H027
+    Scenario: Pay voucher from transaction on in progress tab
+      Given User is on DANA Deals Homepage
+      When User tap history icon
+      When User is on History screen
+      When User tap in progress tab
+      When User is on In Progress tab screen
+      When User tap voucher on In Progress tab
+      When User is on proceed payment page
+      When User tap proceed to payment
+      When User click pay button on cashier page
+      When User see pop up notification that pay success
+      When User tap history icon
+      When User is on History screen
+      When User tap completed tab
+      When User is on Completed tab screen
+      Then User tap a voucher which user bought
 
 
 

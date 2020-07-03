@@ -84,4 +84,8 @@ public class HistoryPage {
         tapElement(Status_Refund);
     }
 
+    public void tapInProgressVoucher(){
+        waitABit(3000);
+        tapElement(Voucher_LIST_INPROGRESS);
+    }
 }
