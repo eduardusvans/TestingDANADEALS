@@ -17,7 +17,7 @@ public class PayVoucherStepsDefinitions {
     @Then("User see pop up notification that pay success")
     public void userSeePopUpNotificationThatPaySuccess() {
         String text = voucherCashierPage.checkToastMessage();
-        Assert.assertTrue(text.contains("done"));
+        Assert.assertTrue(text.contains("successful"));
     }
 
 
@@ -44,19 +44,10 @@ public class PayVoucherStepsDefinitions {
         voucherCashierPage.clickBack();
     }
 
+
     @Then("User see pop up notification that pay failed")
     public void userSeePopUpNotificationThatPayFailed() {
-        
-    }
-
-
-    @When("User click pay voucher button on cashier page")
-    public void userClickPayVoucherButtonOnCashierPage() {
-    }
-
-    @When("User see pop up notification that payment is success")
-    public void userSeePopUpNotificationThatPaymentIsSuccess() {
         String text = voucherCashierPage.checkToastMessage();
-        Assert.assertTrue(text.contains("done"));
+        Assert.assertTrue(text.contains("failed"));
     }
 }

@@ -45,7 +45,9 @@ public class HomePayer {
 
 
     public void inputSearch(String Keyword) {
+        tapElement(SEARCH_VOUCHER);
         inputElement(SEARCH_VOUCHER, Keyword);
+        androidDriver.hideKeyboard();
         waitABit(5000);
     }
 
@@ -93,11 +95,9 @@ public class HomePayer {
         }
     }
 
-
     public void clickVoucher(String VoucherName) {
         tapAndScroll(VoucherName);
     }
-
 
     public String checkVoucherPrice() {
         return waitElement(VOUCHER_PRICE_CHECK, 20).getText();
@@ -177,12 +177,12 @@ public class HomePayer {
     }
 
     public boolean checkAllVouchers() {
-        boolean mixMerchant = false;
+        boolean Merchants = false;
         String nameParam = "";
         int counter = 0;
 
         do {
-            if (!mixMerchant) {
+            if (!Merchants) {
                 waitABit(5000);
                 List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
                 for (AndroidElement name : nameList) {
@@ -192,7 +192,7 @@ public class HomePayer {
                         System.out.println("MN OK!!!");
                         System.out.println("Merchant Name Var = " + name.getText());
                         System.out.println("Merchant Name param = " + nameParam);
-                        mixMerchant = true;
+                        Merchants = true;
                         break;
                     }
                 }
@@ -203,7 +203,7 @@ public class HomePayer {
             if (counter >= 10) {
                 return false;
             }
-        } while (!mixMerchant);
+        } while (!Merchants);
         return true;
     }
 

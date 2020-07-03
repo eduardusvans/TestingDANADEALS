@@ -40,15 +40,13 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-
-
     @Negative
     Scenario: Pay voucher when balance not enough
       Given User is on DANA Deals Homepage
-      When User click "voucher name" on DANA Deals homepage
-      When User is on voucher details page of "voucher name"
+      When User click "Baskin Robbins" on DANA Deals homepage
+      When User is on voucher details page of "Baskin Robbins"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "voucher name"
+      When User is on voucher cashier page of "Baskin Robbins"
       When User click pay button on cashier page
       Then User see pop up notification that balance not enough
 
@@ -83,6 +81,18 @@
 
     @TestForHistoryFeature @PayRefund
     Scenario: Pay Voucher refund
+      Given User is on DANA Deals Homepage
+      When User type a "Telkom" at search field on DANA Deals Homepage
+      When User click "Bayar Indiehome A" on DANA Deals homepage
+      When User is on voucher details page of "Bayar Indiehome A"
+      When User click buy button on voucher details page
+      When User is on voucher cashier page of "Bayar Indiehome A"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success
+
+
+    @Positive
+    Scenario: Pay Voucher using Search Voucher
       Given User is on DANA Deals Homepage
       When User type a "Telkom" at search field on DANA Deals Homepage
       When User click "Bayar Indiehome A" on DANA Deals homepage

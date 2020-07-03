@@ -17,10 +17,6 @@ public class VoucherCashierPage {
      return getElement(VOUCHER_NAME).getText();
     }
 
-    public String checkVoucherPrice(){
-        return getElement(VOUCHER_PRICE).getText();
-    }
-
     public void clickPay(){
        tapElement(PAY_BUTTON);
         waitABit(2000);
