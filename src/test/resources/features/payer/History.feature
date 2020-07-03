@@ -111,10 +111,10 @@ Feature: History
   #H017
   Scenario: Check voucher transaction status success
     Given User is on DANA Deals Homepage
-    When User click "aasseekk pocer" on DANA Deals homepage
-    When User is on voucher details page of "aasseekk pocer"
+    When User click "almsb" on DANA Deals homepage
+    When User is on voucher details page of "almsb"
     When User click buy button on voucher details page
-    When User see is on cashier page of "aasseekk pocer"
+    When User see is on cashier page of "almsb"
     When User click pay button on cashier page
     When User see pop up notification that pay success
     When User tap history icon
@@ -158,10 +158,10 @@ Feature: History
   #H020
   Scenario: Check voucher transaction status in progress
     Given User is on DANA Deals Homepage
-    When User click "aasseekk pocer" on DANA Deals homepage
-    When User is on voucher details page of "aasseekk pocer"
+    When User click "almsb" on DANA Deals homepage
+    When User is on voucher details page of "almsb"
     When User click buy button on voucher details page
-    When User see is on cashier page of "aasseekk pocer"
+    When User see is on cashier page of "almsb"
     When User click back button on cashier page
     When User click back button on voucher details page
     Then User is on DANA Deals Homepage
@@ -263,7 +263,7 @@ Feature: History
 
   @HistoryPositive
   #H026
-  Scenario: Filter transaction 5 day before the date of today on Completed tab
+  Scenario: Filter transaction 7 day before the date of today on Completed tab
     Given User is on Home page
     When User tap history icon
     When User is on History screen

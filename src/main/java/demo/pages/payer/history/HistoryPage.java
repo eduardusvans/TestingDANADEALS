@@ -36,30 +36,25 @@ public class HistoryPage {
         tapElement(Filter_Date);
     }
     public void isOnDatePicker(){
-        waitABit(3000);
+        waitABit(5000);
         waitElement(BTN_SAVE,20).isDisplayed();
     }
     public void startDate(){
-        waitABit(3000);
         tapElement(START_DATE_Picker);
     }
+    public void startOneDate(){
+        tapElement(START_DATE_Picker_1);
+    }
+    public void startFiveDate(){
+        tapElement(START_DATE_Picker_5);
+    }
+    public void startSevenDate(){
+        tapElement(START_DATE_Picker_7);
+    }
     public void endDate(){
-        waitABit(3000);
         tapElement(END_DATE_Picker);
     }
 
-    public void endOneDate(){
-        waitABit(3000);
-        tapElement(END_DATE_Picker_1);
-    }
-    public void endFiveDate(){
-        waitABit(3000);
-        tapElement(END_DATE_Picker_5);
-    }
-    public void endSevenDate(){
-        waitABit(3000);
-        tapElement(END_DATE_Picker_7);
-    }
     public void tapSaveBtn(){
         waitABit(3000);
         tapElement(BTN_SAVE);

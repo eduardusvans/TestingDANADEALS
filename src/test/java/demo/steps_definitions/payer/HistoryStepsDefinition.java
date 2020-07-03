@@ -80,17 +80,17 @@ public class HistoryStepsDefinition {
 
     @When("User tap one day before on date picker")
     public void userTapOneDayBeforeOnDatePicker() {
-        historyPage.endOneDate();
+        historyPage.startOneDate();
     }
 
     @When("User tap five day before on date picker")
     public void userTapFiveDayBeforeOnDatePicker() {
-        historyPage.endFiveDate();
+        historyPage.startFiveDate();
     }
 
     @When("User tap seven day before on date picker")
     public void userTapSevenDayBeforeOnDatePicker() {
-        historyPage.endSevenDate();
+        historyPage.startSevenDate();
     }
 
     @Then("User see transaction on In Progress tab")
