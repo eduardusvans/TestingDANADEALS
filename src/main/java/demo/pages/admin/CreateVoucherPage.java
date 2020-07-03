@@ -16,6 +16,7 @@ import static demo.utils.ActionUtils.*;
 public class CreateVoucherPage {
 
     public boolean isOnCreatePage() {
+        hideKeyboard();
         return waitElement(CREATE_PAGE, 30).isDisplayed();
     }
 

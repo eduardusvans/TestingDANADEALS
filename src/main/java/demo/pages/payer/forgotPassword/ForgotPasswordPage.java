@@ -9,6 +9,7 @@ import static demo.locators.payer.forgotPassword.ForgotPasswordPageLocator.*;
 
 public class ForgotPasswordPage {
     public boolean isOnPage() {
+
         WebDriverWait wait = new WebDriverWait(androidDriver, 15);
         WebElement userLabel = wait
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("btn_send_otp")));

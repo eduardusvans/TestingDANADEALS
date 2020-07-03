@@ -315,35 +315,33 @@ Feature: Login
     Then User is on Register Page
 
 
-#  @E2ELoginFeature
-#  @Payer
-#  # ETEL001
-#  Scenario Outline: Register - Login - Logout
-#    Given User is on Landing page
-#    When User tap the Create Account button on Landing page
-#    Then User is on Register page
-#    When User input "<phoneNumber>" on Phone Number input text field on Register page
-#    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
-#    When User input "<email>" on E-Mail input text field on Register page
-#    When User input "<password>" on Password input text field on Register page
-#    When User input "<confirmPassword>" on Confirm Password input text field on Register page
-#    When User tap the Create Account button on Register page
-#    Then User see the success message on Login page
-#    Then User is on DANA Deals Login page
-#    When User input "<phoneNumber>" on phone number input field on login page
-#    And User input "<password>" on password input field on login page
-#    And User click Login button
-#    Then User see message
-#    Then User is on Home page
-#    When User tap profile icon
-#    Then User is on Profile screen
-#    When User tap LogOut button
-#    Then User is on DANA Deals Login page
-#    Examples:
-#      | phoneNumber  | firstName | lastName | email  | password | confirmPassword |
-#      | 851300780000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+  @E2ELoginFeature
+  @Payer
+  # ETEL001
+  Scenario Outline: Register - Login - Logout
+    Given User is on Landing page
+    When User tap the Create Account button on Landing page
+    Then User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    Then User see the success message on Login page
+    Then User is on DANA Deals Login page
+    When User input "<phoneNumber>" on phone number input field on login page
+    And User input "<password>" on password input field on login page
+    And User click Login button
+    Then User see message
+    Then User is on Home page
+    When User tap profile icon
+    Then User is on Profile screen
+    When User tap LogOut button
+    Then User is on DANA Deals Login page
+    Examples:
+      | phoneNumber  | firstName | lastName | email  | password | confirmPassword |
+      | 851200030000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 851100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 851500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 851400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
@@ -361,7 +359,7 @@ Feature: Login
 #      | 871100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 871500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 871400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-
+#
 #  @Admin
 #  # ETEL002
 #  Scenario: Admin Login - Logout
