@@ -9,18 +9,18 @@ public class HistoryPage {
     public void isOnPageHistory() {
         //return waitElement(assertProfilePage, 30).isDisplayed();
         waitABit(5000);
-        waitElement(In_Progress_Tab,20).isDisplayed();
+        waitElement(In_Progress_Tab,100).isDisplayed();
     }
     public void tapInProgress(){
-        waitABit(3000);
+        waitABit(5000);
         tapElement(In_Progress_Tab);
     }
     public void isOnInProgress(){
-        waitABit(3000);
+        waitABit(5000);
         waitElement(In_Progress_Tab,20).isDisplayed();
     }
     public void tapCompleted(){
-        waitABit(3000);
+        waitABit(5000);
         tapElement(Completed_Tab);
     }
     public void isOnCompleted(){

@@ -35,7 +35,7 @@ Feature: History
     And User tap completed tab
     Then User is on Completed tab screen
 
-  @a
+  @HistoryPositive
   #H017
   Scenario: Check voucher transaction status success
     Given User is on DANA Deals Homepage
