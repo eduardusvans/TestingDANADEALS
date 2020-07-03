@@ -16,6 +16,7 @@ import static demo.utils.ActionUtils.*;
 
 public class RegisterPage {
     public boolean isOnPage() {
+        hideKeyboard();
         try {
             return waitElement(INPUT_PHONE_NUMBER, 15).isDisplayed();
         } catch (Exception e) {

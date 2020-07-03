@@ -40,6 +40,12 @@ public class ActionUtils {
         }
     }
 
+    public static void hideKeyboard(){
+        if (androidDriver.isKeyboardShown()) {
+            androidDriver.hideKeyboard();
+        }
+    }
+
     public static void waitABit(int millis){
         try {
             Thread.sleep(millis);

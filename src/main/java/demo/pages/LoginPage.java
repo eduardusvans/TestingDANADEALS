@@ -1,20 +1,15 @@
 package demo.pages;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.LoginPageLocator.*;
-import static demo.utils.ActionUtils.tapElement;
 import static demo.utils.ActionUtils.*;
 
 public class LoginPage {
 
-    public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 15).isDisplayed(); }
+    public boolean isOnPage() { hideKeyboard();return waitElement(BUTTON_LOGIN, 15).isDisplayed(); }
 
     public void inputPhoneNumber(String phoneNumber){ inputElement(INPUT_PHONE,phoneNumber); }
     public void inputPassword(String password){ inputElement(INPUT_PASSWORD,password); }
