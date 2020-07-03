@@ -53,7 +53,7 @@ public class HomeAdminPage {
             action.sendKeys(Keys.BACK_SPACE).perform();
         }
         hideKeyboard();
-        waitABit(6500);
+        waitABit(3000);
     }
 
     public void tapLogoutButton() {
@@ -207,6 +207,7 @@ public class HomeAdminPage {
 
     public boolean checkStatusVoucherPresence(String chosenStatus) {
         int counter = 0;
+        waitABit(4000);
         do {
             waitABit(2500);
             List<AndroidElement> statusList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_STATUS);
