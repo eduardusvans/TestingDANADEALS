@@ -12,22 +12,24 @@ Feature: Login
     When User input "83196747870" on phone number input field on login page
     And User input "P@sswordku1" on password input field on login page
     And User click Login button
+    Then User see message
     Then User is on Home page
 
-#  @Admin
-#  # ALOG001  ALOGN001
-#  Scenario: Login with registered admin account
-#    Given User is on Landing page
-#    When User click Login to Account button
-#    Then User is on DANA Deals Login page
-#    When User input "87800000000" on phone number input field on login page
-#    And User input "P@ssw0rd" on password input field on login page
-#    And User click Login button
-#    Then User is on Home Admin page
+  @Admin
+  # ALOG001  ALOGN001
+  Scenario: Login with registered admin account
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
+    When User input "87800000000" on phone number input field on login page
+    And User input "P@ssw0rd" on password input field on login page
+    And User click Login button
+    Then User see message
+    Then User is on Home Admin page
 
   @Negative
   @Payer
-  @1     # LOGN009 LOGN012
+  @1    # LOGN016
   Scenario Outline: Login with registered phone number and unregistered password
     Given User is on Landing page
     When User click Login to Account button
@@ -43,7 +45,7 @@ Feature: Login
       # LOG003
       | 83196747870      |              |
 
-  @2     # LOG008 LOG009 LOGN011 LOGN012
+  @2     # LOGN012
   Scenario Outline: Login with empty phone number
     Given User is on Landing page
     When User click Login to Account button
@@ -61,7 +63,7 @@ Feature: Login
       # LOG006
       |                    |              |
 
-  @3   # LOGN009 LOGN011 LOGN012
+  @3   # LOGN015
   Scenario Outline: Login with unregistered phone number
     Given User is on Landing page
     When User click Login to Account button
@@ -79,7 +81,7 @@ Feature: Login
       # LOG009
       | 83196747871      |               |
 
-  @4   # LOGN008 LOGN009 LOGN011 LOGN012
+   @4   # LOGN012
   Scenario Outline: Login with alphabetic
     Given User is on Landing page
     When User click Login to Account button
@@ -97,7 +99,7 @@ Feature: Login
       # LOG012
       | abcdef      |              |
 
-  @5   # LOGN008  LOGN009  LOGN011 LOGN012
+  @5   # LOGN012
   Scenario Outline: Login with symbol
     Given User is on Landing page
     When User click Login to Account button
@@ -115,7 +117,7 @@ Feature: Login
       # LOG015
       | @@          |              |
 
-  @6   # LOGN008  LOGN009  LOGN011  LOGN012
+  @6   # LOGN012
   Scenario Outline: Login with emoji
     Given User is on Landing page
     When User click Login to Account button
@@ -133,8 +135,7 @@ Feature: Login
       # LOG018
       | 😎          |              |
 
-
-  @7   # LOGN008  LOGN009  LOGN011  LOGN012
+  @7   # LOGN012
   Scenario Outline: Login with combination of alphabet,symbol and emoji
     Given User is on Landing page
     When User click Login to Account button
@@ -152,8 +153,7 @@ Feature: Login
       # LOG021
       | a@😎          |              |
 
-
-  @8     # LOGN008  LOGN009  LOGN011  LOGN012
+  @8 # LOGN012
   Scenario Outline: Login with combination of alphabetic and symbol
     Given User is on Landing page
     When User click Login to Account button
@@ -171,7 +171,7 @@ Feature: Login
       # LOG024
       | a@          |              |
 
-  @9   # LOGN008  LOGN009  LOGN011  LOGN012
+  @9   # LOGN012
   Scenario Outline: Login with combination of alphabetic and emoji
     Given User is on Landing page
     When User click Login to Account button
@@ -189,7 +189,7 @@ Feature: Login
      # LOG027
       | a😎          |              |
 
-  @10   # LOGN008  LOGN009  LOGN011  LOGN012
+  @10   # LOGN012
   Scenario Outline: Login with combination of symbol and emoji
     Given User is on Landing page
     When User click Login to Account button
@@ -207,7 +207,7 @@ Feature: Login
       # LOG030
       | @😎          |              |
 
-  @11   # LOGN008  LOGN009  LOGN011  LOGN012
+  @11   # LOGN012
   Scenario Outline: Login with phone number not start from 8
     Given User is on Landing page
     When User click Login to Account button
@@ -225,7 +225,7 @@ Feature: Login
       # LOG033
       | 6283196747870   |              |
 
-  @12   # LOGN008  LOGN009  LOGN011  LOGN012
+  @12   # LOGN012
   Scenario Outline: Login with phone number less than 8
     Given User is on Landing page
     When User click Login to Account button
@@ -243,7 +243,7 @@ Feature: Login
       # LOG036
       | 8965966         |              |
 
-  @13   # LOGN008  LOGN009  LOGN011  LOGN012
+  @13   # LOGN012
   Scenario Outline: Login with phone number exceeds 12
     Given User is on Landing page
     When User click Login to Account button
@@ -261,8 +261,7 @@ Feature: Login
       # LOG039
       | 896596651401111         |              |
 
-  # indonesian format phonenumber
-  @14  # LOGN008  LOGN009  LOGN011  LOGN012
+  @14  # LOGN012
   Scenario Outline: Login with phone number start with 84
     Given User is on Landing page
     When User click Login to Account button
@@ -270,7 +269,7 @@ Feature: Login
     When User input "<phoneNumber>" on phone number input field on login page
     And User input "<password>" on password input field on login page
     And User click Login button
-    Then User see pop up notification
+    Then User see warning text
     Examples:
       | phoneNumber          | password    |
       # LOG040
@@ -284,7 +283,7 @@ Feature: Login
   @NonFunctional
   @1
   # LOGN001
-  Scenario: Check element of Login Page
+  Scenario: Verify element of Login Page
     Given User is on Landing page
     When User click Login to Account button
     Then User is on DANA Deals Login page
@@ -298,23 +297,58 @@ Feature: Login
 
   @2
   # LOGN002
-  Scenario: Check clickable link Forgot Password?
+  Scenario: Verify clickable link Forgot Password?
     Given User is on Landing page
     When User click Login to Account button
     Then User is on DANA Deals Login page
     When User click Forgot Password link
     Then User is on Forgot Password Page
 
+  @NonFunctional
   @3
   # LOGN003
-  Scenario: Check clickable link Register Here
+  Scenario: Verify clickable link Register Here
+    Given User is on Landing page
+    When User click Login to Account button
+    When User is on DANA Deals Login page
+    When User click Register Here link
+    Then User is on Register page
+
+
+  @E2ELoginFeature
+  @Payer
+  # ETEL001
+  Scenario: Register - Login - Logout
+    Given User is on Landing page
+    Given User tap the Create Account button on Landing page
+    Given User is on Register page
+    When User input "Sihaloho" on Phone Number input text field on Register page
+    When User input "Sihaloho" "Oriani" on Full Name input text field on Register page
+    When User input "sihalohooriani@gmail.com" on E-Mail input text field on Register page
+    When User input "P@ssword1" on Password input text field on Register page
+    When User input "P@ssword1" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    Then User see the success message on Login page
+    Then User is on DANA Deals Login page
+    When User input "83196747870" on phone number input field on login page
+    And User input "P@sswordku1" on password input field on login page
+    And User click Login button
+    Then User see message
+    Then User is on Home page
+    When User tap profile icon
+    Then User is on Profile screen
+    When User tap LogOut button
+    Then User is on DANA Deals Login page
+
+  @Admin
+  # ETEL002
+  Scenario: Admin Login - Logout
     Given User is on Landing page
     When User click Login to Account button
     Then User is on DANA Deals Login page
-    When User click Register Here link
-    Then User is on Register Page
-
-
-
-
-
+    When User input "87800000000" on phone number input field on login page
+    And User input "P@ssw0rd" on password input field on login page
+    And User click Login button
+    Then User is on Home Admin page
+    When User tap LogOut button on Home Admin page
+    Then User is on DANA Deals Login page
