@@ -15,7 +15,7 @@ public interface LoginPageLocator {
 
         By TXT_NOT_REGISTER     = By.id("tv_not_yet_registered");
 
-        By WARNING_TEXT       = By.id("textinput_error");
-        By POP_UP_NOTIFICATION = By.id("cp_view");
+        By WARNING_TEXT       = By.id("");
+        By POP_UP_NOTIFICATION = By.id("");
 
 }

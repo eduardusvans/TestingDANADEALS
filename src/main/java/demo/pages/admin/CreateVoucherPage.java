@@ -1,22 +1,29 @@
 package demo.pages.admin;
+import com.github.javafaker.Faker;
 import demo.driver.AndroidDriverInstance;
+import demo.utils.RandomUtils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static demo.driver.AndroidDriverInstance.androidDriver;
+import java.time.Duration;
+
 import static demo.locators.admin.CreateVoucherPageLocator.*;
+import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.utils.ActionUtils.inputElement;
 import static demo.utils.ActionUtils.waitElement;
 import static demo.utils.ActionUtils.*;
 
 public class CreateVoucherPage {
 
+    private static final Faker faker = new Faker();
+
     public boolean isOnCreatePage() {
-        hideKeyboard();
         return waitElement(CREATE_PAGE, 30).isDisplayed();
     }
 
@@ -37,6 +44,9 @@ public class CreateVoucherPage {
     }
 
     public void inputVoucherName(String voucherName){
+
+        voucherName = voucherNameSetter(voucherName);
+
         AndroidDriverInstance.androidDriver.findElement(VOUCHER_NAME).sendKeys(voucherName);
     }
 
@@ -68,6 +78,7 @@ public class CreateVoucherPage {
         tapAndScroll(CREATE_BUTTON);
     }
 
+
     public void waitAbit(int millis){
         try {
             Thread.sleep(millis);
@@ -80,15 +91,21 @@ public class CreateVoucherPage {
         AndroidElement screen = androidDriver
                 .findElement(By.xpath("//android.widget.ScrollView/android.widget.LinearLayout"));
         Point center =  screen.getCenter();
-        int startX = 20;
-        int startY = (int) (center.getY() * 1.5);
-        int endX = 20;
-        int endY = (int) (center.getY() * 0.5);
+        int width = screen.getSize().width;
+        int height = screen.getSize().height;
+        int startX = center.getX() - (width / 2) + 20;
+        int startY = center.getY() + (height / 3);
+        int endX = center.getX() - (width / 2) + 20;
+        int endY = center.getY() - (height / 2);
+        System.out.println("Xstart, Ystart = " + startX + " " + startY);
+        System.out.println("Xend, Yend = " + endX + " " + endY);
         @SuppressWarnings("rawtypes")
         TouchAction scroll = new TouchAction(androidDriver);
         scroll.press(PointOption.point(startX, startY))
-                .moveTo(PointOption.point(endX, endY)).perform();
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                .moveTo(PointOption.point(endX, endY)).release().perform();
     }
+
 
     public static void inputAndScroll(By targetElement, String input) {
         boolean isFound = false;
@@ -120,6 +137,39 @@ public class CreateVoucherPage {
             }
 
         } while (!isFound && counter < 5);
+    }
+
+    public static String voucherNameSetter(String voucherName) {
+        voucherName = nullChanger(voucherName);
+        int randomPick = faker.number().numberBetween(4, 20);
+
+        //Generate random voucherName for positive scenario
+        if(voucherName.toLowerCase().contains("random")) {
+            if(voucherName.toLowerCase().contains("min")) {
+                return RandomUtils.generateVoucherName(3);
+            }
+            else if(voucherName.toLowerCase().contains("max")) {
+                return RandomUtils.generateVoucherName(20);
+            }
+            else if(voucherName.toLowerCase().contains("invalid min")) {
+                return RandomUtils.generateVoucherName(2);
+            }
+            else if(voucherName.toLowerCase().contains("invalid max")) {
+                return RandomUtils.generateVoucherName(21);
+            } else {
+                return RandomUtils.generateVoucherName(randomPick);
+            }
+        } else {
+            return voucherName;
+        }
+    }
+
+    public String failedMessage(){
+        return waitElement(FAILED_TOAST_MESSAGE, 15).getText();
+    }
+
+    public boolean createDisabledButton(){
+        return androidDriver.findElement(CREATE_BUTTON).isEnabled();
     }
 
 }

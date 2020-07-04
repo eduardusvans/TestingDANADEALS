@@ -22,4 +22,8 @@ public interface HomeAdminPageLocator {
     By VOUCHER_STATUS = By.xpath("//android.widget.Button[contains(@resource-id, 'btn_buy')]");
 
     By CREATE_VOUCHER = MobileBy.id("page_create_voucher");
+    By CREATE_VOUCHER = MobileBy.id("page_create_voucher");
+    By SUCCESS_TOAST_MESSAGE = MobileBy.xpath("//android.widget.Toast[contains(@text, 'Success')]");
+    By BUTTON_RESET = By.id("tv_reset_admin");
+
 }
