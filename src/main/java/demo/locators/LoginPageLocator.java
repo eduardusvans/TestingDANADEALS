@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public interface LoginPageLocator {
 
-        By APP_NAME             = By.id("");
+        By APP_NAME             = By.id("tv_app_name");
 
         By INPUT_PHONE          = By.id("et_phone");
         By INPUT_PASSWORD       = By.id("et_password");
@@ -14,8 +14,7 @@ public interface LoginPageLocator {
         By LINK_REGISTER_HERE   = By.id("tv_register_here");
 
         By TXT_NOT_REGISTER     = By.id("tv_not_yet_registered");
-
-        By WARNING_TEXT       = By.id("");
-        By POP_UP_NOTIFICATION = By.id("");
+        By WARNING_TEXT       = By.id("textinput_error");
+        By POP_UP_NOTIFICATION = By.id("cp_view");
 
 }

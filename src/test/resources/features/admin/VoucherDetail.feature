@@ -27,7 +27,6 @@ Feature: VoucherDetail
 
 
   @Functional
-
   @ChangeQuotaBeforeRun
   @1  #VOUD001
   Scenario: "Update with same status ""Active"" and same quota on Not Expired Voucher"
@@ -611,23 +610,23 @@ Feature: VoucherDetail
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
-
-  @64 @67
-  Scenario : "Update status ""Inactive"" to ""Active"" and restock quota by type any input on Expired Voucher , while current quota > = 5 || current quota > 5"
-    When User tap Voucher "Aaaab"
-    When User tap Status
-    When User tap Save
-    Then User see message
-    Then User is on Voucher Detail page
-    When User input quota "8"
-    When User tap Save
-    Then User is on Voucher Detail page
-    When User input quota "-1"
-    When User tap Save
-    Then User is on Voucher Detail page
-    When User input quota " "
-    When User tap Save
-    Then User is on Voucher Detail page
+#
+#  @64 @67
+#  Scenario : "Update status ""Inactive"" to ""Active"" and restock quota by type any input on Expired Voucher , while current quota > = 5 || current quota > 5"
+#    When User tap Voucher "Aaaab"
+#    When User tap Status
+#    When User tap Save
+#    Then User see message
+#    Then User is on Voucher Detail page
+#    When User input quota "8"
+#    When User tap Save
+#    Then User is on Voucher Detail page
+#    When User input quota "-1"
+#    When User tap Save
+#    Then User is on Voucher Detail page
+#    When User input quota " "
+#    When User tap Save
+#    Then User is on Voucher Detail page
 
   @65  #VOUD065
   Scenario: "Update status ""Inactive"" to ""Active"" and restock quota by tap increase button on Expired Voucher, while current quota > = 5"

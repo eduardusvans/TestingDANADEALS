@@ -341,26 +341,7 @@ Feature: Login
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber  | firstName | lastName | email  | password | confirmPassword |
-      | 851300780000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861700000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861300000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871700000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871300000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+      | 853010970000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 
   @Admin
   # ETEL002
