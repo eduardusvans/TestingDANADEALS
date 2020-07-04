@@ -15,21 +15,21 @@ Feature: Login
     Then User see message
     Then User is on Home page
 
-#  @Admin
-#  # ALOG001  ALOGN002
-#  Scenario: Login with registered admin account
-#    Given User is on Landing page
-#    When User click Login to Account button
-#    Then User is on DANA Deals Login page
-#    When User input "87800000000" on phone number input field on login page
-#    And User input "P@ssw0rd" on password input field on login page
-#    And User click Login button
-#    Then User see message
-#    Then User is on Home Admin page
+  @Admin
+  # ALOG001  ALOGN002
+  Scenario: Login with registered admin account
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
+    When User input "87800000000" on phone number input field on login page
+    And User input "P@ssw0rd" on password input field on login page
+    And User click Login button
+    Then User see message
+    Then User is on Home Admin page
 
   @Negative
-    @Payer
-    @1    # LOGN017
+  @Payer
+  @1    # LOGN017
   Scenario Outline: Login with registered phone number and unregistered password
     Given User is on Landing page
     When User click Login to Account button
@@ -81,7 +81,7 @@ Feature: Login
       # LOG009
       | 83196747871      |               |
 
-  @4   # LOGN013
+   @4   # LOGN013
   Scenario Outline: Login with alphabetic
     Given User is on Landing page
     When User click Login to Account button
@@ -341,34 +341,17 @@ Feature: Login
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber  | firstName | lastName | email  | password | confirmPassword |
-      | 851200030000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 851400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861700000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861300000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 861400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871700000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871300000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#      | 871400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#
-#  @Admin
-#  # ETEL002
-#  Scenario: Admin Login - Logout
-#    Given User is on Landing page
-#    When User click Login to Account button
-#    Then User is on DANA Deals Login page
-#    When User input "87800000000" on phone number input field on login page
-#    And User input "P@ssw0rd" on password input field on login page
-#    And User click Login button
-#    Then User is on Home Admin page
-#    When User tap LogOut button on Home Admin page
-#    Then User is on DANA Deals Login page
+      | 853010970000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+
+  @Admin
+  # ETEL002
+  Scenario: Admin Login - Logout
+    Given User is on Landing page
+    When User click Login to Account button
+    Then User is on DANA Deals Login page
+    When User input "87800000000" on phone number input field on login page
+    And User input "P@ssw0rd" on password input field on login page
+    And User click Login button
+    Then User is on Home Admin page
+    When User tap LogOut button on Home Admin page
+    Then User is on DANA Deals Login page

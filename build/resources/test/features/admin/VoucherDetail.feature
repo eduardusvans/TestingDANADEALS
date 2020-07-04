@@ -27,53 +27,52 @@ Feature: VoucherDetail
 
 
   @Functional
-
   @ChangeQuotaBeforeRun
   @1  #VOUD001
   Scenario: "Update with same status ""Active"" and same quota on Not Expired Voucher"
-    When User tap Voucher "Alfalfakkdntfrqbfp"
+    When User tap Voucher "Aaaa"
     Then User is on Voucher Detail page
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Alfalfakkdntfrqbfp"
+    When User tap Voucher "Aaaa"
     Then User see update status "Active"
-    Then User see update quota "249"
+    Then User see update quota "4"
 
   @2  #VOUD002
   Scenario:  "Update with same status ""Active"" and restock by type more quota on Not Expired Voucher"
-    When User tap Voucher "Agarsbyvuhjvogavtmza"
-    When User input quota "252"
+    When User tap Voucher "Aaab"
+    When User input quota "5"
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Agarsbyvuhjvogavtmza"
+    When User tap Voucher "Aaab"
     Then User see update status "Active"
-    Then User see update quota "252"
+    Then User see update quota "5"
 
   @3  #VOUD003
   Scenario: "Update with same status ""Active"" and restock by tap increase button on Not Expired Voucher"
-    When User tap Voucher "Asafoetida"
+    When User tap Voucher "Aaac"
     When User tap Increase
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Asafoetida"
+    When User tap Voucher "Aaac"
     Then User see update status "Active"
-    Then User see update quota "252"
+    Then User see update quota "5"
 
 
   @4  #VOUD004
   Scenario: :"Update with same status ""Active"" and restock by type more quota and by tap increase button on Not Expired Voucher"
-    When User tap Voucher "almsb"
-    When User input quota "241"
+    When User tap Voucher "Aaad"
+    When User input quota "5"
     When User tap Increase
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "almsb"
+    When User tap Voucher "Aaad"
     Then User see update status "Active"
-    Then User see update quota "241"
+    Then User see update quota "6"
 
   @InvalidInputQuota
   Scenario Outline: "Update with same status ""Active"" and restock by type any invalid input quota  on Not Expired Voucher"
-    When User tap Voucher "Basily"
+    When User tap Voucher "Aaae"
     When User input quota "<Quota>"
     When User tap Save
     Then User see message
@@ -104,7 +103,7 @@ Feature: VoucherDetail
   @DoNothing
   @15 #VOUD0015
   Scenario: "Update with same status ""Inactive"" and same quota on Not Expired Voucher"
-    When User tap Voucher "Allspice Wholexptc"
+    When User tap Voucher "Aaap"
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
@@ -112,17 +111,18 @@ Feature: VoucherDetail
 
   @16  #VOUD016
   Scenario: "Update with same status ""Inactive"" and restock quota by type any input on Not Expired Voucher"
-    When User tap Voucher "Allspice Wholexptc"
+    When User tap Voucher "Aaap"
     When User input quota "22"
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
+
     Then User see update status "Inactive"
 
 
   @17  #VOUD017
   Scenario: "Update with same status ""Inactive"" and restock by tap increase button on Not Expired Voucher"
-    When User tap Voucher "Allspice Wholexptc"
+    When User tap Voucher "Aaap"
     When User tap Increase
     When User tap Save
     Then User see message
@@ -132,7 +132,7 @@ Feature: VoucherDetail
 
   @18  #VOUD0018
   Scenario:  "Update with same status ""Inactive"" and restock by type any input and by tap increase button on Not Expired Voucher"
-    When User tap Voucher "Allspice Wholexptc"
+    When User tap Voucher "Aaap"
     When User input quota "13"
     When User tap Increase
     When User tap Save
@@ -143,7 +143,7 @@ Feature: VoucherDetail
 
   @19  #VOUD0019
   Scenario: "Update with same status ""Inactive"" and restock by empty input (delete current quota) on Not Expired Voucher"
-    When User tap Voucher "Allspice Wholexptc"
+    When User tap Voucher "Aaap"
     When User input quota " "
     When User tap Save
     Then User see message
@@ -151,10 +151,9 @@ Feature: VoucherDetail
     Then User see update status "Inactive"
 
 
-
   @20  #VOUD020
   Scenario: "Update with same status ""Inactive"" and same quota on Expired Voucher"
-    When User tap Voucher "asek asek"
+    When User tap Voucher "Aaaq"
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
@@ -163,7 +162,7 @@ Feature: VoucherDetail
 
   @21  #VOUD021
   Scenario:  "Update with same status ""Inactive"" and restock quota by type any input on Expired Voucher"
-    When User tap Voucher "asek asek"
+    When User tap Voucher "Aaaq"
     When User input quota "11"
     When User tap Save
     Then User see message
@@ -173,7 +172,7 @@ Feature: VoucherDetail
 
   @22  #VOUD022
   Scenario: "Update with same status ""Inactive"" and restock by tap increase button on  Expired Voucher"
-    When User tap Voucher "asek asek"
+    When User tap Voucher "Aaaq"
     When User tap Increase
     When User tap Save
     Then User see message
@@ -183,7 +182,7 @@ Feature: VoucherDetail
 
   @23  #VOUD023
   Scenario: "Update with same status ""Inactive"" and restock by type any input and by tap increase button on Expired Voucher"
-    When User tap Voucher "asek asek"
+    When User tap Voucher "Aaaq"
     When User input quota "11"
     When User tap Increase
     When User tap Save
@@ -192,10 +191,9 @@ Feature: VoucherDetail
     Then User see update status "Inactive"
 
 
-
   @24  #VOUD024
   Scenario:  "Update with same status ""Inactive"" and restock by empty input (delete current quota) on Expired Voucher"
-    When User tap Voucher "asek asek"
+    When User tap Voucher "Aaaq"
     When User input quota " "
     When User tap Save
     Then User see message
@@ -206,21 +204,21 @@ Feature: VoucherDetail
 
   @25  #VOUD025
   Scenario: "Update status ""Active"" to ""Inactive"" on not Expired Voucher"
-    When User tap Voucher "AlbinVoucher"
+    When User tap Voucher "Aaar"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "AlbinVoucher"
+    When User tap Voucher "Aaar"
     Then User see update status "Inactive"
 
   @26  #VOUD026
   Scenario:  "Update status ""Active"" to ""Inactive"" and restock quota by type any input on not Expired Voucher"
-    When User tap Voucher "Anises"
+    When User tap Voucher "Aaas"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Anises"
-    When User input quota "251"
+    When User tap Voucher "Aaas"
+    When User input quota "5"
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
@@ -228,11 +226,11 @@ Feature: VoucherDetail
 
   @27  #VOUD027
   Scenario:  "Update status ""Active"" to ""Inactive"" and restock quota by tap increase button on not Expired Voucher"
-    When User tap Voucher "Baconb"
+    When User tap Voucher "Aaat"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Baconb"
+    When User tap Voucher "Aaat"
     When User tap Increase
     When User tap Save
     Then User is on Voucher Detail page
@@ -240,12 +238,12 @@ Feature: VoucherDetail
 
   @28  #VOUD028
   Scenario: "Update status ""Active"" to ""Inactive"" and restock quota by type any input and by tap increase button on not Expired Voucher"
-    When User tap Voucher "bqe"
+    When User tap Voucher "Aaau"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "bqe"
-    When User input quota "251"
+    When User tap Voucher "Aaau"
+    When User input quota "6"
     When User tap Increase
     When User tap Save
     Then User is on Voucher Detail page
@@ -254,11 +252,11 @@ Feature: VoucherDetail
 
   @29  #VOUD029
   Scenario: "Update status ""Active"" to ""Inactive"" and restock by empty input (delete current quota) on not Expired Voucher"
-    When User tap Voucher "Butter"
+    When User tap Voucher "Aaav"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Butter"
+    When User tap Voucher "Aaav"
     When User input quota " "
     When User tap Save
     Then User is on Voucher Detail page
@@ -268,28 +266,28 @@ Feature: VoucherDetail
 
   @30  #VOUD030
   Scenario:  Update status "Inactive" to "Active" on not Expired Voucher , while current quota < 5
-    When User tap Voucher "Chives"
+    When User tap Voucher "Aaaw"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Chives"
+    When User tap Voucher "Aaaw"
     Then User see update status "Active"
     Then User see update quota "5"
 
 
   @31  #VOUD031
   Scenario: "Update with ""Inactive"" to ""Active"" and restock by type more quota on Not Expired Voucher , while current quota < 5"
-    When User tap Voucher "Biryani Spice Mixgk"
+    When User tap Voucher "Aaax"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Biryani Spice Mixgk"
+    When User tap Voucher "Aaax"
     Then User see update status "Active"
     Then User see update quota "5"
     When User input quota "6"
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Biryani Spice Mixgk"
+    When User tap Voucher "Aaax"
     Then User see update status "Active"
     Then User see update quota "6"
 
@@ -462,7 +460,7 @@ Feature: VoucherDetail
 
   @44  #VOUD044
   Scenario: "Update status ""Inactive"" to ""Active"" on Expired Voucher , while current quota < 5"
-    When User tap Voucher "Bigger Pack Deal"
+    When User tap Voucher "Aaay"
     When User tap Status
     When User tap Save
     Then User see message
@@ -470,7 +468,7 @@ Feature: VoucherDetail
 
   @45  #VOUD045
   Scenario:  "Update status ""Inactive"" to ""Active"" and restock quota by type any input on Expired Voucher , while current quota < 5"
-    When User tap Voucher "Bigger Pack Deal"
+    When User tap Voucher "Aaay"
     When User tap Status
     When User tap Save
     Then User see message
@@ -481,7 +479,7 @@ Feature: VoucherDetail
 
   @46  #VOUD046
   Scenario:  "Update status ""Inactive"" to ""Active"" and restock quota by tap increase button on Expired Voucher, while current quota < 5"
-    When User tap Voucher "Bigger Pack Deal"
+    When User tap Voucher "Aaay"
     When User tap Status
     When User tap Save
     Then User see message
@@ -492,7 +490,7 @@ Feature: VoucherDetail
 
   @47  #VOUD047
   Scenario: "Update status ""Inactive"" to ""Active"" and restock quota by type any input and by tap increase button on  Expired Voucher , while current quota < 5"
-    When User tap Voucher "Bigger Pack Deal"
+    When User tap Voucher "Aaay"
     When User tap Status
     When User tap Save
     Then User see message
@@ -504,7 +502,7 @@ Feature: VoucherDetail
 
   @48  #VOUD048
   Scenario: "Update status ""Inactive"" to ""Active"" and restock by empty input (delete current quota) on Expired Voucher, while current quota < 5"
-    When User tap Voucher "Bigger Pack Deal"
+    When User tap Voucher "Aaay"
     When User tap Status
     When User tap Save
     Then User see message
@@ -517,233 +515,127 @@ Feature: VoucherDetail
 
   @49  #VOUD049
   Scenario:  Update status "Inactive" to "Active" on not Expired Voucher, while current quota > = 5
-    When User tap Voucher "Baskin Robbins"
+    When User tap Voucher "Abaa"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Baskin Robbins"
+    When User tap Voucher "Abaa"
     Then User see update status "Active"
 
   @50  #VOUD050
   Scenario: "Update with ""Inactive"" to ""Active"" and restock by type more quota on Not Expired Voucher , while current quota >= 5"
-    When User tap Voucher "Bengawan Solo"
+    When User tap Voucher "Acaa"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Bengawan Solo"
-    When User input quota "10"
+    When User tap Voucher "Acaa"
+    When User input quota "8"
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Bengawan Solo"
+    When User tap Voucher "Acaa"
     Then User see update status "Active"
-    Then User see update quota "10"
+    Then User see update quota "8"
 
 
   @51  #VOUD0051
   Scenario: "Update status ""Inactive"" to ""Active"" and restock quota by tap increase button on not Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Bulghurd"
+    When User tap Voucher "Adaa"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Bulghurd"
+    When User tap Voucher "Adaa"
     When User tap Increase
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Bulghurd"
+    When User tap Voucher "Adaa"
     Then User see update status "Active"
-    Then User see update quota "251"
+    Then User see update quota "7"
 
 
   @52  #VOUD0052
   Scenario: Update status "Inactive" to "Active" and restock quota by type more quota and by tap increase button on not Expired Voucher, while current quota > = 5
-    When User tap Voucher "Cassia"
+    When User tap Voucher "Aeaa"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Cassia"
-    When User input quota "251"
+    When User tap Voucher "Aeaa"
+    When User input quota "8"
     When User tap Increase
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Cassia"
+    When User tap Voucher "9"
     Then User see update status "Active"
-    Then User see update quota "252"
+    Then User see update quota "9"
 
 
-  @53  #VOUD053
-  Scenario: Update "Inactive" to "Active" and restock by type less quota than current quota on Not Expired Voucher, while current quota > = 5
-    When User tap Voucher "Cassianvaa"
+  @53  @62
+  Scenario Outline: Update "Inactive" to "Active" and restock by type any invalid quota on Not Expired Voucher, while current quota > = 5
+    When User tap Voucher "Afaa"
     When User tap Status
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Cassianvaa"
-    When User input quota "5"
+    When User tap Voucher "Afaa"
+    When User input quota "<quota>"
     When User tap Save
     Then User is on Voucher Detail page
     Then User see update status "Active"
-
-  @54  #VOUD054
-  Scenario: Update "Inactive" to "Active" and restock by type negative number on Not Expired Voucher, while current quota > = 5
-    When User tap Voucher "Cassiauoih"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Cassiauoih"
-    When User input quota "-1"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-  @55  #VOUD055
-  Scenario: "Update ""Inactive"" to ""Active""and restock by type decimal number on Not Expired Voucher , while current quota > = 5"
-    When User tap Voucher "Cassiavbvwjv"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Cassiavbvwjv"
-    When User input quota "1.5"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-  @56  #VOUD056
-  Scenario:  "Update ""Inactive"" to ""Active"" and restock by type fraction number on Not Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Celery Saltrv"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Celery Saltrv"
-    When User input quota "1/2"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-  @57  #VOUD057
-  Scenario: "Update ""Inactive"" to ""Active"" and restock by type number exceeds 1000 on Not Expired Voucher, while current quota > = 5"#    When User tap Voucher "Name"
-    When User tap Voucher "Cheqweiriiriioi"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Cheqweiriiriioi"
-    When User input quota "1001"
-    When User tap Save
-    Then User see message
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-  @58  #VOUD058
-  Scenario:  "Update ""Inactive"" to ""Active"" and restock by type alphabet on Not Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Clear Small paket"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Clear Small paket"
-    When User input quota "abc"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-
-  @59  #VOUD059
-  Scenario:  "Update ""Inactive"" to ""Active"" and restock by type symbol on Not Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Clear Big Deal"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Clear Big Deal"
-    When User input quota "@@"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-  @60  #VOUD060
-  Scenario:  "Update ""Inactive"" to ""Active"" and restock by type emoji on Not Expired Voucher , while current quota > = 5"
-    When User tap Voucher "Clear Big Deals"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Clear Big Deals"
-    When User input quota "😅🤣🥰😎"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-  @61  #VOUD0061
-  Scenario: "Update ""Inactive"" to ""Active"" and restock by type ""0"" on Not Expired Voucher , while current quota > = 5"
-    When User tap Voucher "Clear Full Packet"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Clear Full Packet"
-    When User input quota "0"
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
-
-
-  @62  #VOUD062
-  Scenario: "Update ""Inactive"" to ""Active"" and restock by empty input (delete current quota) on Not Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Adzuki Beansmhv"
-    When User tap Status
-    When User tap Save
-    Then User is on Home Admin page
-    When User tap Voucher "Adzuki Beansmhv"
-    When User input quota " "
-    When User tap Save
-    Then User is on Voucher Detail page
-    Then User see update status "Active"
+    Examples:
+      | quota  |
+      #VOUD0053
+      | 2      |
+      #VOUD054
+      | -1     |
+      #VOUD055
+      | 1.5    |
+      #VOUD056
+      |1/2     |
+      #VOUD057
+      |1001    |
+      #VOUD058
+      |abc     |
+      #VOUD059
+      | @@     |
+      #VOUD060
+      |😅🤣🥰😎 |
+      #VOUD061
+      | 0       |
+      #VOUD062
+      |         |
 
   @NothingChangeforThisVoucher
   @63  #VOUD063
   Scenario:  "Update status ""Inactive"" to ""Active"" on Expired Voucher , while current quota > = 5"
-    When User tap Voucher "Chivesshlmd"
+    When User tap Voucher "Aaaab"
     When User tap Status
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
-
-  @64  #VOUD064
-  Scenario: "Update status ""Inactive"" to ""Active"" and restock quota by type any input on Expired Voucher , while current quota > = 5"
-    When User tap Voucher "Chivesshlmd"
-    When User tap Status
-    When User tap Save
-    Then User see message
-    Then User is on Voucher Detail page
-    When User input quota "8"
-    When User tap Save
-    Then User is on Voucher Detail page
+#
+#  @64 @67
+#  Scenario : "Update status ""Inactive"" to ""Active"" and restock quota by type any input on Expired Voucher , while current quota > = 5 || current quota > 5"
+#    When User tap Voucher "Aaaab"
+#    When User tap Status
+#    When User tap Save
+#    Then User see message
+#    Then User is on Voucher Detail page
+#    When User input quota "8"
+#    When User tap Save
+#    Then User is on Voucher Detail page
+#    When User input quota "-1"
+#    When User tap Save
+#    Then User is on Voucher Detail page
+#    When User input quota " "
+#    When User tap Save
+#    Then User is on Voucher Detail page
 
   @65  #VOUD065
   Scenario: "Update status ""Inactive"" to ""Active"" and restock quota by tap increase button on Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Chivesshlmd"
+    When User tap Voucher "Aaaab"
     When User tap Status
     When User tap Save
     Then User see message
     Then User is on Voucher Detail page
     When User tap Increase
-    When User tap Save
-    Then User is on Voucher Detail page
-
-
-  @67  #VOUD067
-  Scenario: "Update status ""Inactive"" to ""Active"" and restock quota by type any input and by tap increase button on  Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Chivesshlmd"
-    When User tap Status
-    When User tap Save
-    Then User see message
-    Then User is on Voucher Detail page
-    When User input quota "8"
-    When User tap Save
-    Then User is on Voucher Detail page
-
-  @68  #VOUD068
-  Scenario: "Update status ""Inactive"" to ""Active"" and restock by empty input (delete current quota) on Expired Voucher, while current quota > = 5"
-    When User tap Voucher "Chivesshlmd"
-    When User tap Status
-    When User tap Save
-    Then User see message
-    Then User is on Voucher Detail page
-    When User input quota " "
     When User tap Save
     Then User is on Voucher Detail page
 
@@ -775,13 +667,13 @@ Feature: VoucherDetail
     And User input "P@ssw0rd" on password input field on login page
     And User click Login button
     Then User is on Home Admin page
-    When User tap Voucher "Blackberriesppzuppme"
-    When User input quota "301"
+    When User tap Voucher "Abuu"
+    When User input quota "7"
     When User tap Save
     Then User is on Home Admin page
-    When User tap Voucher "Blackberriesppzuppme"
+    When User tap Voucher "Abuu"
     Then User see update status "Active"
-    Then User see update quota "301"
+    Then User see update quota "7"
     Then User tap Save
     Then User is on Home Admin page
     When User tap LogOut button on Home Admin page
