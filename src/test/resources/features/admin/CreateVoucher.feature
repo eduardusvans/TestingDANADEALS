@@ -148,7 +148,7 @@ Feature: Create Voucher
 #    And User choose "<expiredDate>" in Expired Date text field on Create Voucher Page
 #    And User input "<quota>" in Quota text field on Create Voucher Page
 #    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
-<<<<<<< HEAD
+
 #    And User click create button on Create Voucher Page
 #    Then User will redirect into Home Page
 #
@@ -187,7 +187,7 @@ Feature: Create Voucher
 #  Scenario Outline: Create Voucher with blank input
 #    When User is on Home Admin page
 #    And User click create voucher button on Home Page
-=======
+
 #    Then User will find button is disabled on Create Voucher Page
 #
 #    Examples:
@@ -274,7 +274,7 @@ Feature: Create Voucher
 #    When User is on Home Admin page
 #    And User click create voucher button on Home Page
 #    And User is on Create Voucher Page
->>>>>>> origin/Admin/CreateVoucher
+
 #    And User click status dropdown for changing the status in Create Voucher Page
 #    And User choose "<status>" for status of voucher in Create Voucher Page
 #    And User input "<voucherName>" in Voucher Name text field on Create Voucher Page
@@ -285,7 +285,7 @@ Feature: Create Voucher
 #    And User input "<quota>" in Quota text field on Create Voucher Page
 #    And User input "<voucherPrice>" in Voucher Price text field on Create Voucher Page
 #    And User click create button on Create Voucher Page
-<<<<<<< HEAD
+
 #    Then User will redirect into Home Page
 #
 #    Examples:
