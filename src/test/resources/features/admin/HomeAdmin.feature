@@ -137,9 +137,9 @@ Feature: Home
     Then User tap Logout button on Home Admin page
     Examples:
       | status   | keyword |
-      #HSA017
+      #HSA011
       | Active   | telkom  |
-      #HSA018
+      #HSA012
       | Inactive | telkom  |
 
   @Search @Filter @Positive @1-2
@@ -177,7 +177,7 @@ Feature: Home
     Then User is on DANA Deals Login page
     Examples:
       | keyword | status |
-      #HFA007
+      #HFA009
       | telkom  | Active |
 
   @Logout @Positive
