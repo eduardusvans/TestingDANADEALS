@@ -43,6 +43,16 @@ public class HomePayer {
         return waitElement(VOUCHER_SCROLL, 30).isDisplayed();
     }
 
+    public void waitVoucher() {
+        boolean cek = seeVoucher();
+            if (cek == true) {
+                System.out.println("vouchers is displayed");
+            } else {
+                tapReset();
+                waitABit(7000);
+            }
+        }
+
 
     public void inputSearch(String Keyword) {
         tapElement(SEARCH_VOUCHER);
@@ -74,6 +84,7 @@ public class HomePayer {
     }
 
     public void chooseFilter(String Keyword) {
+        waitABit(10000);
         switch (Keyword) {
             case "fnb":
                 pressByCoordinates(620, 677, 1);
@@ -85,6 +96,7 @@ public class HomePayer {
     }
 
     public void chooseSort(String Keyword) {
+        waitABit(10000);
         switch (Keyword) {
             case "voucher price":
                 pressByCoordinates(256, 672, 1);
@@ -100,15 +112,18 @@ public class HomePayer {
     }
 
     public String checkVoucherPrice() {
-        return waitElement(VOUCHER_PRICE_CHECK, 20).getText();
+        waitABit(5000);
+        return getElement(VOUCHER_PRICE_CHECK).getText();
     }
 
     public String checkVoucherDiscount() {
-        return waitElement(VOUCHER_DISCOUNT_CHECK, 20).getText();
+        waitABit(5000);
+        return getElement(VOUCHER_DISCOUNT_CHECK).getText();
     }
 
     public Boolean checkMerchantCategory(String keyword) {
         int counter = 0;
+        waitVoucher();
 
         do {
             waitABit(10000);
@@ -153,9 +168,10 @@ public class HomePayer {
         boolean isFound = false;
         int counter = 0;
 
+
         do {
             String voucher = "";
-            waitABit(5000);
+            waitABit(10000);
             List<AndroidElement> vNameList = androidDriver.findElements(VOUCHERS_NAME);
             for (AndroidElement vName : vNameList) {
                 voucher = vName.getText();
@@ -177,13 +193,13 @@ public class HomePayer {
     }
 
     public boolean checkAllVouchers() {
-        boolean Merchants = false;
+        boolean mixMerchant = false;
         String nameParam = "";
         int counter = 0;
 
         do {
-            if (!Merchants) {
-                waitABit(5000);
+            if (mixMerchant) {
+                waitABit(10000);
                 List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
                 for (AndroidElement name : nameList) {
                     if (counter == 0) {
@@ -192,7 +208,7 @@ public class HomePayer {
                         System.out.println("MN OK!!!");
                         System.out.println("Merchant Name Var = " + name.getText());
                         System.out.println("Merchant Name param = " + nameParam);
-                        Merchants = true;
+                        mixMerchant = true;
                         break;
                     }
                 }
@@ -203,16 +219,16 @@ public class HomePayer {
             if (counter >= 10) {
                 return false;
             }
-        } while (!Merchants);
+        } while (mixMerchant);
         return true;
     }
-
     public boolean checkVoucherName(String keyword) {
 
         int counter = 0;
+        waitVoucher();
 
         do {
-            waitABit(5000);
+            waitABit(10000);
             List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHERS_NAME);
             for (AndroidElement name : nameList) {
                 if (!name.getText().toLowerCase().startsWith(keyword.toLowerCase())) {
@@ -230,5 +246,18 @@ public class HomePayer {
         } while (counter <= 10);
 
         return true;
+    }
+
+    public void topupIcon(){
+        waitABit(5000);
+        androidDriver.findElement(TOPUP_ICON).click();
+    }
+
+    public String getUserBalance(){
+        return waitElement(USER_BALANCE,30).getText();
+    }
+
+    public String getResetedVoucherName(){
+        return getElement(VOUCHER_NAME_FIRST).getText();
     }
 }

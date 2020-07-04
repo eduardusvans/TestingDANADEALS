@@ -26,7 +26,7 @@ public class SortVoucherStepsDefinitions {
     @Then("User see all vouchers of the sort by discount are displayed")
     public void userSeeAllVouchersOfTheSortByDiscountAreDisplayed() {
         String text = homePayer.checkVoucherDiscount();
-        Assert.assertTrue(text.contains("101%"));
+        Assert.assertEquals("101%", text);
     }
 
     @Then("User see all vouchers of the sort by voucher price are displayed")
@@ -35,5 +35,11 @@ public class SortVoucherStepsDefinitions {
         Assert.assertTrue(text.contains("Rp1.000.000,00"));
 
 
+    }
+
+    @Then("User see all vouchers are displayed being reseted")
+    public void userSeeAllVouchersAreDisplayedBeingReseted() {
+        String text = homePayer.getResetedVoucherName();
+        Assert.assertTrue(text.contains("Aaa"));
     }
 }

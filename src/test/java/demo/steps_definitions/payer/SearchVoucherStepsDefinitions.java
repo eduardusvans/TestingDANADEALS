@@ -17,6 +17,7 @@ public class SearchVoucherStepsDefinitions {
         homePayer.isOnPage();
         homePayer.seeVoucher();
         homePayer.seeTopUp();
+        homePayer.seeSearchBar();
     }
 
     @When("User type a {string} at search field on DANA Deals Homepage")
@@ -29,7 +30,7 @@ public class SearchVoucherStepsDefinitions {
         boolean status = homePayer.checkAllVouchers();
         Assert.assertFalse(status);
         String text = voucherCashierPage.checkToastMessage();
-        Assert.assertTrue(text.contains("not found"));
+        Assert.assertTrue(text.contains("Voucher not found"));
     }
 
     @Then("User see all vouchers of {string} are displayed")

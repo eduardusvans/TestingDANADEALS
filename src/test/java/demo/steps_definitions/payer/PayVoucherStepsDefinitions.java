@@ -50,4 +50,9 @@ public class PayVoucherStepsDefinitions {
         String text = voucherCashierPage.checkToastMessage();
         Assert.assertTrue(text.contains("failed"));
     }
+
+    @When("User click pay voucher button on cashier page")
+    public void userClickPayVoucherButtonOnCashierPage() {
+        voucherCashierPage.clickPay();
+    }
 }

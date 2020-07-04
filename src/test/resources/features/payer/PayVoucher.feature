@@ -17,26 +17,25 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-    @Test
+    @Test12
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
-      When User click "Bengawan Solo" on DANA Deals homepage
-      When User is on voucher details page of "Bengawan Solo"
+      When User click "Almsb" on DANA Deals homepage
+      When User is on voucher details page of "Almsb"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "Bengawan Solo"
+      When User is on voucher cashier page of "Almsb"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
 
-    @Positive
+    @Test
     Scenario: Pay voucher from voucher details page using search merchant name
       Given User is on DANA Deals Homepage
-      When User type a "character" at search field on DANA Deals Homepage
-      When User see all vouchers of "merchant name" are displayed
-      When User click "voucher name" on DANA Deals homepage
-      When User is on voucher details page of "voucher name"
+      When User type a "kfc" at search field on DANA Deals Homepage
+      When User click "Almsb" on DANA Deals homepage
+      When User is on voucher details page of "Almsb"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "voucher name"
+      When User is on voucher cashier page of "Almsb"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 

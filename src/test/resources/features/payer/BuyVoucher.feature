@@ -10,6 +10,7 @@
       And User click Login button
 
     @Positive
+      #BUY
     Scenario: Buy voucher from DANA Deals homepage
       Given User is on DANA Deals Homepage
       When User click buy button of "voucher name" on DANA Deals homepage

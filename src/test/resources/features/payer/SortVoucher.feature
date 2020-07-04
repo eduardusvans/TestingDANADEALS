@@ -9,13 +9,16 @@
       And User input "P@ssw0rd" on password input field on login page
       And User click Login button
 
-    @sort
+    @Positive
+      #SORT001
     Scenario: Sort voucher by discount
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
       When User choose "discount" to sort the voucher
       Then User see all vouchers of the sort by discount are displayed
 
+    @Positive
+      #SORT003
     Scenario: Sort voucher
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
@@ -23,22 +26,36 @@
       Then User see all vouchers of the sort by voucher price are displayed
 
     @Positive
+      #SORT007
     Scenario: Reset sort voucher
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
       When User choose "voucher price" to sort the voucher
       When User see all vouchers of the sort by voucher price are displayed
       When User click reset button on DANA Deals homepage
-      Then User see all vouchers are displayed
+      Then User see all vouchers are displayed being reseted
 
     @Positive
-    Scenario: Sort voucher with out of stock voucher or invalid voucher
+      #SORT019 #SORT020 #SORT021 #SORT022
+    Scenario Outline: Sort voucher with out of stock voucher or invalid voucher
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
-      When User choose "discount" to sort the voucher
-      Then User see the "voucher name" is displayed
+      When User choose <Keyword> to sort the voucher
+      Then User see the <Keyword1> is displayed
+      Examples:
+        | Keyword    | Keyword1       |
+        #SORT019
+        | "discount" | "Aeaa" |
+        #SORT020
+        | "discount" | "Afaa" |
+        #SORT021
+        | "voucher price" | "Aeaa" |
+        #SORT022
+        | "voucher price" | "Afaa" |
+
 
     @Positive
+      #SORT003
     Scenario: change sort option to sort voucher
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
@@ -48,20 +65,22 @@
       When User choose "voucher price" to sort the voucher
       Then User see all vouchers of the sort by voucher price are displayed
 
-    @EdgeCase
+    @Positive
+      #SORT018
     Scenario: Change sort voucher from view details
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
       When User choose "voucher price" to sort the voucher
       When User see all vouchers of the sort by voucher price are displayed
-      When User click "voucher name" on DANA Deals homepage
-      When User is on voucher details page of "voucher name"
+      When User click "Afaa" on DANA Deals homepage
+      When User is on voucher details page of "Afaa"
       When User click back button on voucher details page
       When User is on DANA Deals Homepage
       When User choose "discount" to sort the voucher
       Then User see all vouchers of the sort by discount are displayed
 
     @EdgeCase
+      #SORT016 #SORT017
     Scenario: Sort voucher with out of stock voucher
       Given User is on DANA Deals Homepage
       When User click sort dropdown menu button on DANA Deals homepage
@@ -72,7 +91,7 @@
       When User click buy button on voucher details page
       When User is on voucher cashier page of "voucher name"
       When User click pay voucher button on cashier page
-      When User see pop up notification that payment is success
+      When User see pop up notification that pay success
       When User is on DANA Deals Homepage
       When User choose "saving rate" to sort the voucher
       Then User see the "voucher name" is displayed
