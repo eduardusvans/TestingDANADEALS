@@ -5,5 +5,5 @@ import static demo.utils.ActionUtils.hideKeyboard;
 import static demo.utils.ActionUtils.waitElement;
 
 public class HomePayer {
-    public boolean isOnPage() { hideKeyboard(); return waitElement(GREETING, 15).isDisplayed(); }
+    public boolean isOnPage() { hideKeyboard();return waitElement(GREETING, 150).isDisplayed(); }
 }

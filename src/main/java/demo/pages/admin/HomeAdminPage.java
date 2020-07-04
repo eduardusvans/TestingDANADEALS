@@ -13,6 +13,8 @@ import java.util.List;
 import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.admin.HomeAdminPageLocator.*;
 import static demo.utils.ActionUtils.hideKeyboard;
+import static demo.locators.admin.HomeAdminPageLocator.BUTTON_LOGOUT;
+import static demo.utils.ActionUtils.hideKeyboard;
 import static demo.utils.ActionUtils.tapElement;
 import static demo.utils.ActionUtils.*;
 import static demo.utils.ActionUtils.waitElement;
@@ -22,9 +24,9 @@ import static demo.locators.admin.VoucherDetailAdminPageLocator.TXT_STATUS;
 
 public class HomeAdminPage {
 
-    public boolean isOnPage() { hideKeyboard(); return waitElement(INPUT_SEARCH_VOUCHER, 30).isDisplayed(); }
+    public boolean isOnPage() { hideKeyboard(); return waitElement(BUTTON_LOGOUT, 30).isDisplayed(); }
 
-    public void waitAbit(int millis){
+    public void waitAbit(int millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {

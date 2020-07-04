@@ -27,6 +27,7 @@ public class ActionUtils {
     public static void inputElement(By targetElement, String input) {
         // Null changer
         input = nullChanger(input);
+
         AndroidElement element = androidDriver.findElement(targetElement);
         element.sendKeys(input);
     }

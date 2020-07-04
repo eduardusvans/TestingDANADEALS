@@ -28,8 +28,8 @@ Feature: Login
     Then User is on Home Admin page
 
   @Negative
-    @Payer
-    @1    # LOGN017
+  @Payer
+  @1    # LOGN017
   Scenario Outline: Login with registered phone number and unregistered password
     Given User is on Landing page
     When User click Login to Account button
@@ -81,7 +81,7 @@ Feature: Login
       # LOG009
       | 83196747871      |               |
 
-  @4   # LOGN013
+   @4   # LOGN013
   Scenario Outline: Login with alphabetic
     Given User is on Landing page
     When User click Login to Account button
@@ -341,7 +341,9 @@ Feature: Login
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber  | firstName | lastName | email  | password | confirmPassword |
-      | 851200030000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+      | 851300780000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+#      | 851900000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+#      | 851200000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 851100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 851500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 851400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
@@ -359,7 +361,7 @@ Feature: Login
 #      | 871100000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 871500000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 #      | 871400000000 | Okta      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
-#
+
   @Admin
   # ETEL002
   Scenario: Admin Login - Logout
