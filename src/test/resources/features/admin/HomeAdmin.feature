@@ -6,8 +6,8 @@ Feature: Home
     Given User is on Landing page
     Given User click Login to Account button
     Given User is on DANA Deals Login page
-    Given User input "87800000000" on phone number input field on login page
-    Given User input "P@ssw0rd" on password input field on login page
+    Given User input "85811440575" on phone number input field on login page
+    Given User input "TeamDeal123!" on password input field on login page
     Given User click Login button
     Given User is on Home Admin page
 
