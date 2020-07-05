@@ -26,7 +26,7 @@ import static java.time.Duration.ofSeconds;
 public class HomePayer {
 
     public boolean isOnPage() {
-      return waitElement(USER_NAME, 150).isDisplayed();
+      return waitElement(USER_NAME, 15000).isDisplayed();
     }
 
     public boolean seeTopUp(){

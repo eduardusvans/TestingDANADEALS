@@ -39,10 +39,10 @@ Feature: History
   #H017
   Scenario: Check voucher transaction status success
     Given User is on DANA Deals Homepage
-    When User click "almsb" on DANA Deals homepage
-    When User is on voucher details page of "almsb"
+    When User click "AAAAVans" on DANA Deals homepage
+    When User is on voucher details page of "AAAAVans"
     When User click buy button on voucher details page
-    When User see is on cashier page of "almsb"
+    When User see is on cashier page of "AAAAVans"
     When User click pay button on cashier page
     When User see pop up notification that pay success
     When User tap history icon
@@ -50,6 +50,7 @@ Feature: History
     When User tap completed tab
     When User is on Completed tab screen
     Then User tap a voucher which user bought
+    Then User is on history detail
 
   @HistoryPositive
   #H018
@@ -67,6 +68,7 @@ Feature: History
     When User tap completed tab
     When User is on Completed tab screen
     Then User tap a voucher which user bought
+    Then User is on history detail
 
   @HistoryPositive
   #H019
@@ -81,23 +83,23 @@ Feature: History
     When User tap completed tab
     When User is on Completed tab screen
     Then User tap a voucher which user bought
+    Then User is on history detail
 
   @HistoryPositive
   #H020
   Scenario: Check voucher transaction status in progress
     Given User is on DANA Deals Homepage
-    When User click "almsb" on DANA Deals homepage
-    When User is on voucher details page of "almsb"
+    When User click "AAAAVans" on DANA Deals homepage
+    When User is on voucher details page of "AAAAVans"
     When User click buy button on voucher details page
-    When User see is on cashier page of "almsb"
+    When User see is on cashier page of "AAAAVans"
     When User click back button on cashier page
     When User click back button on voucher details page
     Then User is on DANA Deals Homepage
     When User tap history icon
     When User is on History screen
     When User tap in progress tab
-    When User is on In Progress tab screen
-    Then User see transaction on In Progress tab
+    Then User is on In Progress tab screen
 
   @HistoryPositive
   #H021
@@ -121,6 +123,7 @@ Feature: History
     When User tap completed tab
     When User is on Completed tab screen
     Then User tap a top up which user bought
+    Then User is on history detail
 
   @HistoryPositive
     #H022
@@ -140,6 +143,7 @@ Feature: History
     When User tap completed tab
     When User is on Completed tab screen
     Then User tap a top up which user bought
+    Then User is on history detail
 
   @HistoryPositive
   #H004
