@@ -10,7 +10,7 @@ public interface HistoryPageLocator {
 
     By Voucher_Scroll = MobileBy.id("rv_completed");
     By Voucher_INPROGRESS_SCROLL = MobileBy.id("rv_in_progress");
-    By Voucher_LIST_INPROGRESS = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
+    By Voucher_LIST_INPROGRESS = MobileBy.xpath("//android.widget.TextView[@text='IN PROGRESS']");
     By Voucher_LIST_COMPLETED = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
 
     By Status_Success = MobileBy.xpath("//android.widget.TextView[@text='SUCCESS']");
