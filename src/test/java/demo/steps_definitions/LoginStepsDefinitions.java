@@ -23,12 +23,6 @@ public class LoginStepsDefinitions {
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
 
-    private static String id;
-    private static String token;
-    public static String getId() { return id; }
-    public static String getToken() { return token; }
-
-
     @Given("User is on Landing page")
     public void userIsOnLandingPage() { landingPage.isOnPage(); }
 
@@ -82,14 +76,8 @@ public class LoginStepsDefinitions {
     @When("User click Forgot Password link")
     public void userClickForgotPasswordLink() { loginPage.clickForgot();  }
 
-    @Then("User is on Forgot Password Page")
-    public void userIsOnForgotPasswordPage() { Assert.assertTrue( forgotPasswordPage.isOnPage()); }
-
     @When("User click Register Here link")
     public void userClickRegisterHereLink() { loginPage.clickRegister(); }
-
-    @Then("User is on Register Page")
-    public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
 
     @Then("User see warning text")
     public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }
@@ -102,4 +90,9 @@ public class LoginStepsDefinitions {
 
     @When("User tap LogOut button on Home Admin page")
     public void userTapLogOutButtonOnHomeAdminPage() { homeAdminPage.tapLogoutButton(); }
+
+    @Given("User login with {string} as a phone number and {string} as a password on another device")
+    public void userLoginWithAsAPhoneNumberAndAsAPasswordOnAnotherDevice(String phoneNumber, String password) {
+        loginPage.loginInAnotherDeviceAPI(phoneNumber, password);
+    }
 }

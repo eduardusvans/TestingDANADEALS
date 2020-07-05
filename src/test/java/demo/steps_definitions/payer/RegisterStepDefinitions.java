@@ -1,6 +1,7 @@
 package demo.steps_definitions.payer;
 
 import demo.pages.LandingPage;
+import demo.pages.LoginPage;
 import demo.pages.payer.RegisterPage;
 import demo.utils.ActionUtils;
 import io.cucumber.java.en.Given;
@@ -12,6 +13,9 @@ public class RegisterStepDefinitions {
 
     LandingPage landingPage = new LandingPage();
     RegisterPage registerPage = new RegisterPage();
+    LoginPage loginPage = new LoginPage();
+
+    String userRegisterPhoneNumber = "";
 
     @Given("User tap the Create Account button on Landing page")
     public void userTapTheCreateAccountButtonOnLandingPage() {
@@ -26,7 +30,8 @@ public class RegisterStepDefinitions {
 
     @When("User input {string} on Phone Number input text field on Register page")
     public void userInputOnPhoneNumberInputTextFieldOnRegisterPage(String phoneNumber) {
-        registerPage.inputPhoneNumber(phoneNumber);
+        userRegisterPhoneNumber = registerPage.phoneNumberSetter(phoneNumber);
+        registerPage.inputPhoneNumber(userRegisterPhoneNumber);
     }
 
     @When("User input {string} {string} on Full Name input text field on Register page")
@@ -54,9 +59,16 @@ public class RegisterStepDefinitions {
         registerPage.tapCreateAccountButton();
     }
 
+    @When("User cannot tap the Create Account button on Register page")
+    public void userCannotTapTheCreateAccountButtonOnRegisterPage() {
+        registerPage.tapCreateAccountButton();
+        boolean status = registerPage.createAccountButtonStatus();
+        Assert.assertFalse(status);
+    }
+
     @Then("User see the success message on Login page")
     public void userSeeTheSuccessMessageOnLoginPage() {
-        ActionUtils.waitABit(5000);
+        ActionUtils.waitABit(3000);
     }
 
     @Then("User is still on Register page")
@@ -66,4 +78,8 @@ public class RegisterStepDefinitions {
         Assert.assertTrue(status);
     }
 
+    @When("User input registered phone number on Phone Number input text field on login page")
+    public void userInputRegisteredPhoneNumberOnPhoneNumberInputTextFieldOnLoginPage() {
+        loginPage.inputPhoneNumber(userRegisterPhoneNumber);
+    }
 }
