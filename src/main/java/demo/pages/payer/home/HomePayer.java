@@ -249,7 +249,7 @@ public class HomePayer {
     }
 
     public void topupIcon(){
-        waitABit(5000);
+        waitABit(2500);
         androidDriver.findElement(TOPUP_ICON).click();
     }
 

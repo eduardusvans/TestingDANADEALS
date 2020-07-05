@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static demo.locators.payer.home.TopUpPageLocator.*;
 import static demo.utils.ActionUtils.waitABit;
+import static demo.utils.ActionUtils.waitElement;
 
 public class TopUpPagePage {
     public boolean isOnTopupPage(){
@@ -65,15 +66,11 @@ public class TopUpPagePage {
     }
 
     public String getBalance(){
-        waitABit(2000);
-        AndroidElement balance = AndroidDriverInstance.androidDriver.findElement(NOMINAL_BALANCE);
-        return balance.getText();
+        return waitElement(NOMINAL_BALANCE,30).getText();
     }
 
     public String failedTopup(){
-        waitABit(2000);
-        AndroidElement failedMessage = AndroidDriverInstance.androidDriver.findElement(TOAST_MESSAGE);
-        return failedMessage.getText();
+        return waitElement(TOAST_MESSAGE,30).getText();
     }
 
 }
