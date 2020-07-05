@@ -8,7 +8,7 @@ import static demo.utils.ActionUtils.hideKeyboard;
 
 public class VoucherDetailAdminPage {
 
-    public boolean isOnPage() { hideKeyboard();return waitElement(BUTTON_SAVE, 15).isDisplayed(); }
+    public boolean isOnPage() { hideKeyboard();return waitElement(BUTTON_SAVE, 50).isDisplayed(); }
 
     public boolean seeStatusVoucher() { return waitElement(TXT_STATUS, 15).isDisplayed(); }
     public boolean seeVoucherName() { return waitElement(TXT_VOUCHER_NAME, 15).isDisplayed(); }

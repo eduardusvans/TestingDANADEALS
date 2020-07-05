@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>root project 'TestingDANADEALS'</td>
         <td>0</td>
-      <td>04 Jul 2020, 07:00</td>
+      <td>05 Jul 2020, 16:50</td>
     </tr>
   </tbody>
 </table>
@@ -129,19 +129,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@Admin</td>
-          <td >0</td>
-          <td      class="failed"    >1</td>
-          <td     class="skipped"   >17</td>
+          <td      class="passed"    >11</td>
           <td >0</td>
           <td >0</td>
-          <td class="total">18</td>
+          <td >0</td>
+          <td >0</td>
+          <td class="total">11</td>
 
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="15112825000">15.112</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="58394602000">58.394</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -186,12 +186,12 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">15.112</span>
+  <span class="lead-duration duration">58.394</span>
 
 
-  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">Admin Login - Logout</span>
 
@@ -202,7 +202,7 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
 
 
   <div class="inner-level hooks-element-before">
@@ -224,7 +224,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">demo.hooks.AndroidDriverHooks.initializeWebdriver()</span>
 
-  <span class="lead-duration duration">6.789</span>
+  <span class="lead-duration duration">7.891</span>
 
           </div>
 
@@ -241,9 +241,9 @@ $(document).ready(function() {
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -253,188 +253,15 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-3" class="inner-level collapse collapsable-details ">
       <div class="step">
 
 
-<div class="brief step-name-Given failed">
-  <span class="keyword indention">Given</span>
-  <span class="name">User is on Landing page</span>
-
-  <span class="lead-duration duration">15.106</span>
-
-</div>
-
-
-
-
-
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
-          <a>org.openqa.selenium.TimeoutException:</a>
-      </div>
-      <div id="msg-4" class="collapse collapsable-details  in ">
-        <pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.id: btn_create_account (tried for 15 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at demo.utils.ActionUtils.waitElement(ActionUtils.java:15)
-	at demo.pages.LandingPage.isOnPage(LandingPage.java:8)
-	at demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage(LoginStepsDefinitions.java:33)
-	at &#10045;.User is on Landing page(file:///Users/sihalohoo/Desktop/DEBRIEF%202/DANADealsTESTING/src/test/resources/features/admin/VoucherDetail.feature:771)
-Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DNID0651L01.local', ip: 'fe80:0:0:0:10ff:ecf3:d89:4ddc%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.4', java.version: '11.0.6'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: /Users/sihalohoo/Desktop/DE..., appPackage: com.team.danadeals, autoGrantPermissions: true, automationName: UIAutomator2, databaseEnabled: false, desired: {app: /Users/sihalohoo/Desktop/DE..., autoGrantPermissions: true, automationName: UIAutomator2, deviceName: device, newCommandTimeout: 120, platformName: android, udid: emulator-5554}, deviceApiLevel: 23, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 120, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 6.0, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
-*** Element info: {Using=id, value=btn_create_account}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
-	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at demo.utils.ActionUtils.waitElement(ActionUtils.java:15)
-	at demo.pages.LandingPage.isOnPage(LandingPage.java:8)
-	at demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage(LoginStepsDefinitions.java:33)
-	at jdk.internal.reflect.GeneratedMethodAccessor10.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:27)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:27)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:64)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:49)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:46)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:51)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:67)
-	at io.cucumber.junit.PickleRunners$WithStepDescriptions.run(PickleRunners.java:100)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:83)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:24)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:185)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:83)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:219)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-</pre>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
-  <span class="name">User click Login to Account button</span>
+  <span class="name">User tap Voucher <span class="argument">&quot;Aaaa Demo ETuE&quot;</span></span>
 
-  <span class="lead-duration duration">0.000</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-Then skipped">
-  <span class="keyword indention">Then</span>
-  <span class="name">User is on DANA Deals Login page</span>
-
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">18.003</span>
 
 </div>
 
@@ -457,38 +284,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
-  <span class="name">User input <span class="argument">&quot;87800000000&quot;</span> on phone number input field on login page</span>
+  <span class="name">User input quota <span class="argument">&quot;8&quot;</span></span>
 
-  <span class="lead-duration duration">0.000</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-And skipped">
-  <span class="keyword indention">And</span>
-  <span class="name">User input <span class="argument">&quot;P@ssw0rd&quot;</span> on password input field on login page</span>
-
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">1.242</span>
 
 </div>
 
@@ -511,119 +311,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-And skipped">
-  <span class="keyword indention">And</span>
-  <span class="name">User click Login button</span>
-
-  <span class="lead-duration duration">0.000</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-Then skipped">
-  <span class="keyword indention">Then</span>
-  <span class="name">User is on Home Admin page</span>
-
-  <span class="lead-duration duration">0.000</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-When skipped">
-  <span class="keyword indention">When</span>
-  <span class="name">User tap Voucher <span class="argument">&quot;Blackberriesppzuppme&quot;</span></span>
-
-  <span class="lead-duration duration">0.000</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-When skipped">
-  <span class="keyword indention">When</span>
-  <span class="name">User input quota <span class="argument">&quot;301&quot;</span></span>
-
-  <span class="lead-duration duration">0.000</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
   <span class="name">User tap Save</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.527</span>
 
 </div>
 
@@ -646,11 +338,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">User is on Home Admin page</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">3.587</span>
 
 </div>
 
@@ -673,11 +365,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
-  <span class="name">User tap Voucher <span class="argument">&quot;Blackberriesppzuppme&quot;</span></span>
+  <span class="name">User tap Voucher <span class="argument">&quot;Aaaa Demo ETuE &quot;</span></span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">17.970</span>
 
 </div>
 
@@ -700,11 +392,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">User see update status <span class="argument">&quot;Active&quot;</span></span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">8.031</span>
 
 </div>
 
@@ -727,11 +419,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
-  <span class="name">User see update quota <span class="argument">&quot;301&quot;</span></span>
+  <span class="name">User see update quota <span class="argument">&quot;8&quot;</span></span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.022</span>
 
 </div>
 
@@ -754,11 +446,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">User tap Save</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.032</span>
 
 </div>
 
@@ -781,11 +473,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">User is on Home Admin page</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">4.344</span>
 
 </div>
 
@@ -808,11 +500,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
   <span class="name">User tap LogOut button on Home Admin page</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.097</span>
 
 </div>
 
@@ -835,11 +527,11 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">User is on DANA Deals Login page</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">4.535</span>
 
 </div>
 
@@ -866,7 +558,7 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
 
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -878,13 +570,13 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
 
     </div>
 
-    <div id="after-5" class="inner-level collapse collapsable-details ">
+    <div id="after-4" class="inner-level collapse collapsable-details ">
         <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">demo.hooks.AndroidDriverHooks.quitWebdriver(io.cucumber.java.Scenario)</span>
 
-  <span class="lead-duration duration">0.861</span>
+  <span class="lead-duration duration">0.547</span>
 
           </div>
 
@@ -892,34 +584,7 @@ Session ID: 1c55eccc-5fcd-4d4f-aae1-136f834ee022
 
 
 
-  <div class="outputs inner-level">
-      <div class="output indention">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#output-6">
-          Output 1
-          <i class="chevron fa fa-fw"></i>
-        </div>
-        <div id="output-6" class="collapse collapsable-details " >
-          
-          <pre><p>Scenario Fail</p></pre>
-        </div>
-      </div>
-  </div>
 
-  <div class="embeddings inner-level">
-  <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding-7" class="collapsable-control">
-      <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_1789710787.png" download target="_blank">
-        <span class="download-button glyphicon glyphicon-download-alt"></span>
-      </a>
-    </div>
-    <div id="embedding-7" class="collapse collapsable-details ">
-      <div class="embedding-content">
-        <img src="embeddings/embedding_1789710787.png">
-      </div>
-    </div>
-  </div>
-  </div>
 
         </div>
     </div>

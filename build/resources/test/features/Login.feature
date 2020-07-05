@@ -19,10 +19,10 @@ Feature: Login
   # ALOG001  ALOGN002
   Scenario: Login with registered admin account
     Given User is on Landing page
-    When User click Login to Account button
-    Then User is on DANA Deals Login page
-    When User input "87800000000" on phone number input field on login page
-    And User input "P@ssw0rd" on password input field on login page
+    And User click Login to Account button
+    And User is on DANA Deals Login page
+    And User input "85811440575" on phone number input field on login page
+    And User input "TeamDeal123!" on password input field on login page
     And User click Login button
     Then User see message
     Then User is on Home Admin page
@@ -341,16 +341,16 @@ Feature: Login
     Then User is on DANA Deals Login page
     Examples:
       | phoneNumber  | firstName | lastName | email  | password | confirmPassword |
-      | 853010970000 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
+      | 83180897870 | Ori      | Ani      | Random | P@ssw0rd | P@ssw0rd        |
 
   @Admin
   # ETEL002
   Scenario: Admin Login - Logout
     Given User is on Landing page
-    When User click Login to Account button
-    Then User is on DANA Deals Login page
-    When User input "87800000000" on phone number input field on login page
-    And User input "P@ssw0rd" on password input field on login page
+    And User click Login to Account button
+    And User is on DANA Deals Login page
+    And User input "85811440575" on phone number input field on login page
+    And User input "TeamDeal123!" on password input field on login page
     And User click Login button
     Then User is on Home Admin page
     When User tap LogOut button on Home Admin page

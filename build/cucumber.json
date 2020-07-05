@@ -1,0 +1,356 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "line": 5,
+        "name": "Login with registered admin account",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 1878449000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User is on Landing page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userIsOnLandingPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 31369000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User click Login to Account button",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userClickLoginToAccountButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1433605000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User is on DANA Deals Login page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 897428000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User input \"85811440575\" on phone number input field on login page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"85811440575\"",
+                  "offset": 11
+                }
+              ],
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userInputOnPhoneNumberInputFieldOnLoginPage(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1221049000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User input \"TeamDeal123!\" on password input field on login page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"TeamDeal123!\"",
+                  "offset": 11
+                }
+              ],
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userInputOnPasswordInputFieldOnLoginPage(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 529257000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User click Login button",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userClickLoginButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4959523000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "User see message",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.UserSeeMessage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1332727000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "User is on Home Admin page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-07-05T09:48:42.946Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7891535000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "demo.hooks.AndroidDriverHooks.initializeWebdriver()"
+            }
+          }
+        ],
+        "line": 721,
+        "name": "Admin Login - Logout",
+        "description": "",
+        "id": "voucherdetail;admin-login---logout",
+        "after": [
+          {
+            "result": {
+              "duration": 547523000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "demo.hooks.AndroidDriverHooks.quitWebdriver(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 18003454000,
+              "status": "passed"
+            },
+            "line": 722,
+            "name": "User tap Voucher \"Aaaa Demo ETuE\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Aaaa Demo ETuE\"",
+                  "offset": 17
+                }
+              ],
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userTapVoucher(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1242727000,
+              "status": "passed"
+            },
+            "line": 723,
+            "name": "User input quota \"8\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"8\"",
+                  "offset": 17
+                }
+              ],
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userInputQuota(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 527945000,
+              "status": "passed"
+            },
+            "line": 724,
+            "name": "User tap Save",
+            "match": {
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userTapSave()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3587147000,
+              "status": "passed"
+            },
+            "line": 725,
+            "name": "User is on Home Admin page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17970579000,
+              "status": "passed"
+            },
+            "line": 726,
+            "name": "User tap Voucher \"Aaaa Demo ETuE \"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Aaaa Demo ETuE \"",
+                  "offset": 17
+                }
+              ],
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userTapVoucher(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8031299000,
+              "status": "passed"
+            },
+            "line": 727,
+            "name": "User see update status \"Active\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Active\"",
+                  "offset": 23
+                }
+              ],
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userSeeUpdateStatus(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 22680000,
+              "status": "passed"
+            },
+            "line": 728,
+            "name": "User see update quota \"8\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"8\"",
+                  "offset": 22
+                }
+              ],
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userSeeUpdateQuota(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 32280000,
+              "status": "passed"
+            },
+            "line": 729,
+            "name": "User tap Save",
+            "match": {
+              "location": "demo.steps_definitions.VoucherDetailAdminStepsDefinitions.userTapSave()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 4344173000,
+              "status": "passed"
+            },
+            "line": 730,
+            "name": "User is on Home Admin page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userIsOnHomeAdminPage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 97118000,
+              "status": "passed"
+            },
+            "line": 731,
+            "name": "User tap LogOut button on Home Admin page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userTapLogOutButtonOnHomeAdminPage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4535200000,
+              "status": "passed"
+            },
+            "line": 732,
+            "name": "User is on DANA Deals Login page",
+            "match": {
+              "location": "demo.steps_definitions.LoginStepsDefinitions.userIsOnDANADealsLoginPage()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Android"
+          },
+          {
+            "name": "@VoucherDetail"
+          },
+          {
+            "name": "@E2EVoucherDetailFeature"
+          },
+          {
+            "name": "@Admin"
+          }
+        ]
+      }
+    ],
+    "name": "VoucherDetail",
+    "description": "",
+    "id": "voucherdetail",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/admin/VoucherDetail.feature",
+    "tags": [
+      {
+        "name": "@Android",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@VoucherDetail",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 10
+        }
+      }
+    ]
+  }
+]

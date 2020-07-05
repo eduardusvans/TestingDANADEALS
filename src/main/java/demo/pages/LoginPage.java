@@ -9,7 +9,7 @@ import static demo.utils.ActionUtils.*;
 
 public class LoginPage {
 
-    public boolean isOnPage() { hideKeyboard();return waitElement(BUTTON_LOGIN, 15).isDisplayed(); }
+    public boolean isOnPage() { hideKeyboard();return waitElement(BUTTON_LOGIN, 50).isDisplayed(); }
 
     public void inputPhoneNumber(String phoneNumber){ inputElement(INPUT_PHONE,phoneNumber); }
     public void inputPassword(String password){ inputElement(INPUT_PASSWORD,password); }
@@ -27,7 +27,7 @@ public class LoginPage {
     public boolean seeWarningText(){ return waitElement(WARNING_TEXT, 15).isDisplayed(); }
     public boolean seePopUpNotification(){return waitElement(POP_UP_NOTIFICATION, 15).isDisplayed(); }
     public void seeMessage() {
-        waitABit(50);
+        waitABit(60);
         WebElement toastView = androidDriver.findElement(By.xpath("//android.widget.Toast[1]"));
         String text = toastView.getAttribute("text");
     }

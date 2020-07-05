@@ -38,7 +38,7 @@ public class LoginStepsDefinitions {
     @Then("User is on DANA Deals Login page")
     public void userIsOnDANADealsLoginPage() {
         loginPage.isOnPage();
-        waitABit(20);
+        waitABit(50);
     }
 
     @When("User input {string} on phone number input field on login page")
