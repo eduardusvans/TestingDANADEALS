@@ -8,15 +8,15 @@
     @ETE001
     Scenario: Register - Login - Top Up - Pay voucher with search feature
       Given User is on Register page
-      When User input "87811445566" on Phone Number input text field on Register page
+      When User input "87811436566" on Phone Number input text field on Register page
       When User input "dahyun" "dahyun" on Full Name input text field on Register page
-      When User input "dahyun@gmail.com" on E-Mail input text field on Register page
+      When User input "dahyu@gmail.com" on E-Mail input text field on Register page
       When User input "P@ssw0rd" on Password input text field on Register page
       When User input "P@ssw0rd" on Confirm Password input text field on Register page
       When User tap the Create Account button on Register page
       When User see the success message on Login page
       When User is on DANA Deals Login page
-      When User input "87811445566" on phone number input field on login page
+      When User input "87811436566" on phone number input field on login page
       When User input "P@ssw0rd" on password input field on login page
       When User click Login button
       When User is on DANA Deals Homepage
@@ -28,11 +28,11 @@
       When User click Done Button on Top up Page
       When User is on DANA Deals Homepage
       When User total balance is added as "50000" nominal top up
-      When User type a "kfc" at search field on DANA Deals Homepage
-      When User click "Almsb" on DANA Deals homepage
-      When User is on voucher details page of "Almsb"
+      When User type a "telkom" at search field on DANA Deals Homepage
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "Almsb"
+      When User is on voucher cashier page of "Aaariko"
       When User click pay button on cashier page
       When User see pop up notification that pay success
       When User tap profile icon

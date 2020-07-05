@@ -40,7 +40,7 @@ public class HomePayer {
     }
 
     public boolean seeVoucher() {
-        return waitElement(VOUCHER_SCROLL, 30).isDisplayed();
+        return waitElement(VOUCHER_NAME_FIRST, 30).isDisplayed();
     }
 
     public void waitVoucher() {
@@ -55,6 +55,7 @@ public class HomePayer {
 
 
     public void inputSearch(String Keyword) {
+        waitABit(5000);
         tapElement(SEARCH_VOUCHER);
         inputElement(SEARCH_VOUCHER, Keyword);
         androidDriver.hideKeyboard();
