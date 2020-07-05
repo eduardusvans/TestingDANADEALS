@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import static demo.utils.ActionUtils.waitABit;
 
 public class PayVoucherStepsDefinitions {
 
@@ -27,18 +28,6 @@ public class PayVoucherStepsDefinitions {
         Assert.assertTrue(text.contains("not enough"));
     }
 
-    /*@When("User{int} is on voucher details page")
-    public void userIsOnVoucherDetailsPage(int Kwyword) {
-    }*/
-
-    /*@When("User{int} click pay button on cashier page")
-    public void userClickPayButtonOnCashierPage(int arg0) {
-    }*/
-
-    @When("User{int} see pop up notification that payment success")
-    public void userSeePopUpNotificationThatPaymentSuccess(int arg0) {
-    }
-
     @When("User click pay button on cashier page")
     public void userClickPayButtonOnCashierPage() {
         voucherCashierPage.clickPay();
@@ -46,17 +35,9 @@ public class PayVoucherStepsDefinitions {
 
     @When("User is on voucher cashier page of {string}")
     public void userIsOnVoucherCashierPageOf(String Keyword) {
-        voucherCashierPage.isOnPage();
-        String getText = voucherCashierPage.checkVoucherName();
-        Assert.assertEquals(getText, Keyword);
-    }
-
-    @When("User{int} is on voucher cashier page of {string}")
-    public void userIsOnVoucherCashierPageOf(int arg0, String arg1) {
-    }
-
-    @When("User{int} click pay button on cashier page")
-    public void userClickPayButtonOnCashierPage(int arg0) {
+       voucherCashierPage.isOnPage();
+       String getText = voucherCashierPage.checkVoucherName();
+       Assert.assertEquals(getText, Keyword);
     }
 
     @When("User click back button on cashier page")
@@ -64,10 +45,15 @@ public class PayVoucherStepsDefinitions {
         voucherCashierPage.clickBack();
     }
 
+
     @Then("User see pop up notification that pay failed")
     public void userSeePopUpNotificationThatPayFailed() {
-        
+        String text = voucherCashierPage.checkToastMessage();
+        Assert.assertTrue(text.contains("failed"));
     }
 
-
+    @When("User click pay voucher button on cashier page")
+    public void userClickPayVoucherButtonOnCashierPage() {
+        voucherCashierPage.clickPay();
+    }
 }

@@ -9,18 +9,21 @@
       And User input "P@ssw0rd" on password input field on login page
       And User click Login button
 
-    @filter
+    @Positive
+      #FIL001 #FIL004
     Scenario Outline: Filter voucher using merchant category
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
       When User choose <Keyword> to filter the voucher
-      Then User see all vouchers of the <arg0> are displayed
+      Then User see all vouchers of <Keyword1> are displayed
       Examples:
-        | Keyword | arg0  |
-        | "fnb"   | "kfc" |
-        | "online"   | "telkom" |
+        | Keyword | Keyword1 |
+        | "fnb"      | "kfc"      |
+        | "online"      | "telkom"      |
+    
 
-     @filter2
+     @Positive
+       #FIL005
     Scenario: Filter voucher using multiple merchant category
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
@@ -28,29 +31,46 @@
        When User see all vouchers of "kfc" are displayed
       When User click filter dropdown menu button on DANA Deals homepage
       When User choose "online" to filter the voucher
-      Then User see all vouchers of the "telkom" are displayed
+      Then User see all vouchers of "telkom" are displayed
 
      @Positive
+       #FIL007
     Scenario: Reset filter voucher by click reset button
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
-      When User choose all of the "merchant category" filter feature to filter the voucher.
-      When User see all vouchers of the all "merchant category" are displayed
+      When User choose "fnb" to filter the voucher
+      When User see all vouchers of "kfc" are displayed
       When User click reset button on DANA Deals homepage
       Then User see all vouchers are displayed
 
 
-    @EdgeCase
-    Scenario: Filter voucher using out of stock voucher
+    @Positive
+      #FIL015
+    Scenario: Change filter voucher from view details
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
-      When User choose "merchant category" value to filter the voucher
-      When User see all vouchers of the "merchant category" are displayed
-      When User click "voucher name" voucher on DANA Deals homepage
-      When user is on voucher details page of "voucher name"
+      When User choose "fnb" to filter the voucher
+      When User see all vouchers of "kfc" are displayed
+      When User click "A" on DANA Deals homepage
+      When User is on voucher details page of "voucher name"
+      When User click back button on voucher details page
+      When User is on DANA Deals Homepage
+      When User choose "online" to filter the voucher
+      Then User see all vouchers of "telkom" are displayed
+
+    @EdgeCase
+      #FIL016
+    Scenario: Change filter voucher of out stock voucher
+      Given User is on DANA Deals Homepage
+      When User click filter dropdown menu button on DANA Deals homepage
+      When User choose "fnb" to filter the voucher
+      When User click "Aaab" on DANA Deals homepage
+      When User is on voucher details page of "Aaab"
       When User click buy button on voucher details page
-      When User see is on cashier page of "voucher name"
+      When User is on voucher cashier page of "Aaab"
       When User click pay voucher button on cashier page
-      When User see pop up notification that payment is success
-      When User back to DANA Deals homepage and choose "merchant category" to filter the voucher
-      Then User see the "voucher name" is not displayed
+      When User see pop up notification that pay success
+      When User is on DANA Deals Homepage
+      When User choose "fnb" to filter the voucher
+      Then User see the "Aaab" is displayed
+

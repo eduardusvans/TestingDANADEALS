@@ -38,7 +38,7 @@ public class LoginStepsDefinitions {
     @Then("User is on DANA Deals Login page")
     public void userIsOnDANADealsLoginPage() {
         loginPage.isOnPage();
-        waitABit(10);
+        waitABit(20);
     }
 
     @When("User input {string} on phone number input field on login page")
@@ -91,4 +91,9 @@ public class LoginStepsDefinitions {
     @Then("User see pop up notification")
     public void userSeePopUpNotification() { Assert.assertTrue( loginPage.seePopUpNotification()); }
 
+    @Then("User see message")
+    public void UserSeeMessage() { loginPage.seeMessage(); }
+
+    @When("User tap LogOut button on Home Admin page")
+    public void userTapLogOutButtonOnHomeAdminPage() { homeAdminPage.tapLogoutButton(); }
 }
