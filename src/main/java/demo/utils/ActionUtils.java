@@ -54,4 +54,10 @@ public class ActionUtils {
             e.printStackTrace();
         }
     }
+
+    public static void hideKeyboard() {
+        if (androidDriver.isKeyboardShown()) {
+            androidDriver.hideKeyboard();
+        }
+    }
 }
