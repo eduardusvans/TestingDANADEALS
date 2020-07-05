@@ -56,9 +56,4 @@ public class ActionUtils {
         }
     }
 
-    public static void hideKeyboard() {
-        if (androidDriver.isKeyboardShown()) {
-            androidDriver.hideKeyboard();
-        }
-    }
 }
