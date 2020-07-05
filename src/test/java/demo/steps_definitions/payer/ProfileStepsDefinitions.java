@@ -20,11 +20,13 @@ public class ProfileStepsDefinitions {
 
     @When("User tap profile icon")
     public void userTapProfileIcon() {
+        waitABit(5000);
         navBarPayer.tapProfileIcon();
     }
 
     @Then("User is on Profile screen")
     public void userIsOnProfileScreen() {
+        waitABit(3000);
         profilePage.isOnPageProfile();
     }
 
@@ -120,6 +122,7 @@ public class ProfileStepsDefinitions {
 
     @When("User tap LogOut button")
     public void userTapLogOutButton() {
+        waitABit(2000);
         profilePage.tapLogoutButton();
     }
 

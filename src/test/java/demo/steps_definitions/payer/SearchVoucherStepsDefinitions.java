@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import static demo.utils.ActionUtils.waitABit;
 
 public class SearchVoucherStepsDefinitions {
 
@@ -47,7 +48,7 @@ public class SearchVoucherStepsDefinitions {
 
     @Then("User see all vouchers are displayed")
     public void userSeeAllVouchersAreDisplayed() {
-       boolean status = homePayer.checkAllVouchers();
+        boolean status = homePayer.checkAllVouchers();
        Assert.assertTrue(status);
     }
 
@@ -58,7 +59,7 @@ public class SearchVoucherStepsDefinitions {
 
     @Then("User see the {string} is displayed")
     public void userSeeTheIsDisplayed(String Keyword) {
-        homePayer.checkVoucherName(Keyword);
+       homePayer.checkVoucherName(Keyword);
 
     }
 

@@ -8,15 +8,15 @@
     @ETE001
     Scenario: Register - Login - Top Up - Pay voucher with search feature
       Given User is on Register page
-      When User input "87811436566" on Phone Number input text field on Register page
+      When User input "87815806906" on Phone Number input text field on Register page
       When User input "dahyun" "dahyun" on Full Name input text field on Register page
-      When User input "dahyu@gmail.com" on E-Mail input text field on Register page
+      When User input "dyyn@gmail.com" on E-Mail input text field on Register page
       When User input "P@ssw0rd" on Password input text field on Register page
       When User input "P@ssw0rd" on Confirm Password input text field on Register page
       When User tap the Create Account button on Register page
       When User see the success message on Login page
       When User is on DANA Deals Login page
-      When User input "87811436566" on phone number input field on login page
+      When User input "87815806906" on phone number input field on login page
       When User input "P@ssw0rd" on password input field on login page
       When User click Login button
       When User is on DANA Deals Homepage

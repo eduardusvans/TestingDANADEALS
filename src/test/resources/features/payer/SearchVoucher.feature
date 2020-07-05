@@ -119,13 +119,13 @@
         #SCH027
     Scenario: Search voucher using out of stock voucher
       Given User is on DANA Deals Homepage
-      When User type a "kfc" at search field on DANA Deals Homepage
-      When User click "Aaac" on DANA Deals homepage
-      When User is on voucher details page of "Aaac"
+      When User type a "telkom" at search field on DANA Deals Homepage
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
-      When User is on voucher details page of "Aaac"
+      When User is on voucher details page of "Aaariko"
       When User click pay voucher button on cashier page
       When User see pop up notification that pay success
       When User is on DANA Deals Homepage
-      When User type a "kfc" at search field on DANA Deals Homepage
-      Then User see the "Aaac" is displayed
+      When User type a "telkom" at search field on DANA Deals Homepage
+      Then User see the "Aaariko" is displayed

@@ -14,7 +14,7 @@ import static demo.utils.ActionUtils.*;
 
 public class LoginPage {
 
-    public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 15).isDisplayed(); }
+    public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 30).isDisplayed(); }
 
     public void inputPhoneNumber(String phoneNumber){ inputElement(INPUT_PHONE,phoneNumber); }
     public void inputPassword(String password){ inputElement(INPUT_PASSWORD,password); }

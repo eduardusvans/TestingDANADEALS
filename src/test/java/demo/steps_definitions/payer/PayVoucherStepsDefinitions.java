@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import static demo.utils.ActionUtils.waitABit;
 
 public class PayVoucherStepsDefinitions {
 
@@ -34,9 +35,9 @@ public class PayVoucherStepsDefinitions {
 
     @When("User is on voucher cashier page of {string}")
     public void userIsOnVoucherCashierPageOf(String Keyword) {
-        voucherCashierPage.isOnPage();
-        String getText = voucherCashierPage.checkVoucherName();
-        Assert.assertEquals(getText, Keyword);
+       voucherCashierPage.isOnPage();
+       String getText = voucherCashierPage.checkVoucherName();
+       Assert.assertEquals(getText, Keyword);
     }
 
     @When("User click back button on cashier page")

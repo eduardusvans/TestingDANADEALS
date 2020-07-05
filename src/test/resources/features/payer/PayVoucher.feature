@@ -10,6 +10,7 @@
       And User click Login button
 
     @Positive
+      #PAY001
     Scenario: Pay voucher from DANA Deals homepage
       Given User is on DANA Deals Homepage
       When User click buy button of "voucher name" on DANA Deals homepage
@@ -17,7 +18,8 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-    @Test12
+    @Positive
+      #PAY002
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
       When User click "Almsb" on DANA Deals homepage
@@ -27,8 +29,8 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
-
-    @Test
+    @Positive
+      #PAY003
     Scenario: Pay voucher from voucher details page using search merchant name
       Given User is on DANA Deals Homepage
       When User type a "kfc" at search field on DANA Deals Homepage
@@ -39,7 +41,49 @@
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
+    @Positive
+      #PAY004
+    Scenario: Pay voucher from voucher details page using filter merchant category
+      Given User is on DANA Deals Homepage
+      When User click filter dropdown menu button on DANA Deals homepage
+      When User choose "online" to filter the voucher
+      When User click "Aaariko" to see voucher details
+      When User is on voucher details page of "Aaariko"
+      When User click buy button on voucher details page
+      Then User is on voucher cashier page of "Aaariko"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success
+
+    @Positive
+      #PAY005
+    Scenario: Buy voucher from voucher details page using sort voucher
+      Given User is on DANA Deals Homepage
+      When User click sort dropdown menu button on DANA Deals homepage
+      When User choose "voucher price" to sort the voucher
+      When User see all vouchers of the sort by voucher price are displayed
+      When User click "Aaariko" to see voucher details
+      When User is on voucher details page of "Aaariko"
+      When User click buy button on voucher details page
+      Then User is on voucher cashier page of "Aaariko"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success
+
+    @Positive
+      #PAY006
+    Scenario: Buy voucher from voucher details page using sort voucher
+      Given User is on DANA Deals Homepage
+      When User click sort dropdown menu button on DANA Deals homepage
+      When User choose "discount" to sort the voucher
+      When User see all vouchers of the sort by discount are displayed
+      When User click "Aaariko" to see voucher details
+      When User is on voucher details page of "Aaariko"
+      When User click buy button on voucher details page
+      Then User is on voucher cashier page of "Aaariko"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success
+
     @Negative
+      #PAY013
     Scenario: Pay voucher when balance not enough
       Given User is on DANA Deals Homepage
       When User click "Baskin Robbins" on DANA Deals homepage
