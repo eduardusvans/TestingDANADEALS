@@ -15,6 +15,10 @@ import static demo.utils.ActionUtils.*;
 
 public class LoginPage {
 
+    private static String id;
+    private static String token;
+    public static String getId() { return id; }
+    public static String getToken() { return token; }
     public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 30).isDisplayed(); }
 
     public void inputPhoneNumber(String phoneNumber){ inputElement(INPUT_PHONE,phoneNumber); }
