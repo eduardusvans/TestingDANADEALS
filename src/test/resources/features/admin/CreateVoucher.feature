@@ -6,8 +6,8 @@ Feature: Create Voucher
     Given User is on Landing page
     And User click Login to Account button
     And User is on DANA Deals Login page
-    And User input "87800000000" on phone number input field on login page
-    And User input "P@ssw0rd" on password input field on login page
+    And User input "85811440575" on phone number input field on login page
+    And User input "TeamDeal123!" on password input field on login page
     And User click Login button
 
 
