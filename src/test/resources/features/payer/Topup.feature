@@ -26,11 +26,11 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal | bankTransfer | vaNumber         |
       #TOP001 TOP005
-      | 81904109090 | P@ssw0rd | 10k     | BNI          | 9030081904109090 |
+      | 81220304099 | P@ssw0rd | 10k     | BNI          | 9030081220304099 |
       #TOP002 TOP006
-      | 81904109090 | P@ssw0rd | 25k     | Mandiri      | 2372081904109090 |
+      | 81220304099 | P@ssw0rd | 25k     | Mandiri      | 2372081220304099 |
       #TOP003 TOP007
-      | 81904109090 | P@ssw0rd | 50k     | BCA          | 4354081904109090 |
+      | 81220304099 | P@ssw0rd | 50k     | BCA          | 4354081220304099 |
 
   #PositiveMinMerchant
   Scenario Outline: Top up using merchant payment method
@@ -53,9 +53,9 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal | ordered |
       #TOP004 TOP008
-      | 81904109090 | P@ssw0rd | 10k     | 10000   |
-      | 81904109090 | P@ssw0rd | 25k     | 25000   |
-      | 81904109090 | P@ssw0rd | 50k     | 50000   |
+      | 81220304099 | P@ssw0rd | 10k     | 10000   |
+      | 81220304099 | P@ssw0rd | 25k     | 25000   |
+      | 81220304099 | P@ssw0rd | 50k     | 50000   |
 
   #PositiveMaxBank
   Scenario Outline:
@@ -82,13 +82,13 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal | bankTransfer | vaNumber         |
       #TOP009 TOP013
-      | 81904107070 | P@ssw0rd | 10k     | BNI          | 9030081904107070 |
+      | 81220304055 | P@ssw0rd | 10k     | BNI          | 9030081220304055 |
       #TOP010 TOP014
-      | 81904106060 | P@ssw0rd | 25k     | Mandiri      | 2372081904106060 |
+      | 81220304066 | P@ssw0rd | 25k     | Mandiri      | 2372081220304066 |
       #TOP011 TOP015
-      | 81904108080 | P@ssw0rd | 50k     | BCA          | 4354081904108080 |
+      | 81220304077 | P@ssw0rd | 50k     | BCA          | 4354081220304077 |
 
-
+  @Retest
   #PositiveMaxMerchant
   Scenario Outline: Top up using merchant payment method
     Given User is on Landing page
@@ -110,7 +110,7 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal | ordered |
       #TOP012 TOP016
-      | 81904105050 | P@ssw0rd | 50k     | 50000   |
+      | 81220304088 | P@ssw0rd | 50k     | 50000   |
 
 
   #NegativeExceedsBank
@@ -136,11 +136,11 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal | bankTransfer |
       #TOP017
-      | 81904104040 | P@ssw0rd | 10k     | BNI          |
+      | 81220304000 | P@ssw0rd | 10k     | BNI          |
       #TOP018
-      | 81904104040 | P@ssw0rd | 25k     | Mandiri      |
+      | 81220304000 | P@ssw0rd | 25k     | Mandiri      |
       #TOP019
-      | 81904104040 | P@ssw0rd | 50k     | BCA          |
+      | 81220304000 | P@ssw0rd | 50k     | BCA          |
 
   #NegativeExceedsMerchant
   Scenario Outline: Top up using merchant payment method
@@ -162,7 +162,7 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal |
       #TOP020
-      | 81904104040 | P@ssw0rd | 10k     |
+      | 81220304000 | P@ssw0rd | 10k     |
 
 
   #NegativeLimitBank
@@ -188,11 +188,11 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal | bankTransfer |
       #TOP021
-      | 81904107070 | P@ssw0rd | 10k     | BNI          |
+      | 81220304055 | P@ssw0rd | 10k     | BNI          |
       #TOP022
-      | 81904106060 | P@ssw0rd | 25k     | Mandiri      |
+      | 81220304066 | P@ssw0rd | 25k     | Mandiri      |
       #TOP023
-      | 81904108080 | P@ssw0rd | 50k     | BCA          |
+      | 81220304077 | P@ssw0rd | 50k     | BCA          |
 
   #NegativeLimitMerchant
   Scenario Outline: Top up using merchant payment method
@@ -214,7 +214,7 @@ Feature: Topup feature for DANA Deals
     Examples:
       | phoneNumber | password | nominal |
       #TOP024
-      | 81904105050 | P@ssw0rd | 10k     |
+      | 81220304088 | P@ssw0rd | 10k     |
 
 
 
