@@ -5,8 +5,10 @@ import demo.pages.payer.profile.ChangePasswordPage;
 import demo.pages.payer.profile.ChangeUserDataPage;
 import demo.pages.payer.profile.ProfilePage;
 import demo.pages.payer.profile.ViewAccountInfoPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import static demo.utils.ActionUtils.waitABit;
 
@@ -20,11 +22,13 @@ public class ProfileStepsDefinitions {
 
     @When("User tap profile icon")
     public void userTapProfileIcon() {
+        waitABit(5000);
         navBarPayer.tapProfileIcon();
     }
 
     @Then("User is on Profile screen")
     public void userIsOnProfileScreen() {
+        waitABit(3000);
         profilePage.isOnPageProfile();
     }
 
@@ -120,32 +124,38 @@ public class ProfileStepsDefinitions {
 
     @When("User tap LogOut button")
     public void userTapLogOutButton() {
+        waitABit(2000);
         profilePage.tapLogoutButton();
     }
 
     @Then("User see warning text below oldPassword")
     public void userSeeWarningTextBelowOldPassword() {
-        changePasswordPage.seeWarningText();
+        Assert.assertTrue(changePasswordPage.seeWarningText());
     }
 
     @Then("User see warning text below newPassword")
     public void userSeeWarningTextBelowNewPassword() {
-        changePasswordPage.seeWarningText();
+        Assert.assertTrue(changePasswordPage.seeWarningText());
     }
 
     @Then("User see warning below oldPassword")
     public void userSeeWarningBelowOldPassword() {
-        changePasswordPage.seeWarningText();
+        Assert.assertTrue(changePasswordPage.seeWarningText());
     }
 
     @Then("User see warning text below confirmNewPassword")
     public void userSeeWarningTextBelowConfirmNewPassword() {
-        changePasswordPage.seeWarningText();
+        Assert.assertTrue(changePasswordPage.seeWarningText());
     }
 
 
     @When("User tap Change Password button on Change Password screen")
     public void userTapChangePasswordButtonOnChangePasswordScreen() {
         changePasswordPage.tapChangePasswordBtn();
+    }
+
+    @And("User see warning text on Change User Data screen")
+    public void userSeeWarningTextOnChangeUserDataScreen() {
+        Assert.assertTrue(changeUserDataPage.seeWarningText());
     }
 }

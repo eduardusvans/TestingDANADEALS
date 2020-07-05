@@ -23,8 +23,14 @@ public class LoginStepsDefinitions {
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
 
+    private static String id;
+    private static String token;
+    public static String getId() { return id; }
+    public static String getToken() { return token; }
+
     @Given("User is on Landing page")
-    public void userIsOnLandingPage() { landingPage.isOnPage(); }
+    public void userIsOnLandingPage() { boolean status = landingPage.isOnPage();
+        Assert.assertTrue(status); }
 
     @When("User click Login to Account button")
     public void userClickLoginToAccountButton() { landingPage.tapLoginToAccountButton(); }

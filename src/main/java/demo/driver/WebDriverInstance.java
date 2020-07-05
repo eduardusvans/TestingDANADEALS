@@ -27,7 +27,7 @@ public class WebDriverInstance {
         webdriver.manage().window().maximize();
         //set implicit wait
         webdriver.manage().timeouts()
-                .implicitlyWait(5, TimeUnit.SECONDS);
+                .implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     public static void quit() {

@@ -14,7 +14,7 @@ public class ProfilePage {
     public void isOnPageProfile() {
         //return waitElement(assertProfilePage, 30).isDisplayed();
         waitABit(2000);
-        waitElement(assertProfilePage,20).isDisplayed();
+        waitElement(Account_Info,20).isDisplayed();
     }
     public void tapAccountInfoMenu(){ tapElement(Account_Info);}
     public void tapChangeUserDataMenu(){ tapElement(Change_User_Data);}

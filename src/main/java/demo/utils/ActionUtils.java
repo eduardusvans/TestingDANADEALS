@@ -24,6 +24,7 @@ public class ActionUtils {
         element.click();
     }
 
+
     public static void inputElement(By targetElement, String input) {
         // Null changer
         input = nullChanger(input);
