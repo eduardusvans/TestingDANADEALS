@@ -156,9 +156,9 @@ public class ProfileStepsDefinitions {
         Assert.assertTrue(changeUserDataPage.seeWarningText());
     }
 
-    @And("User see pop up notification that email already exists")
-    public void userSeePopUpNotificationThatEmailAlreadyExists() {
-        String text = changePasswordPage.checkToastMessage();
+    @And("User see pop up notification email already exists")
+    public void userSeePopUpNotificationEmailAlreadyExists() {
+        String text = changePasswordPage.checkToastMessageChangePassword();
         Assert.assertTrue(text.contains("Email already exists"));
     }
 }
