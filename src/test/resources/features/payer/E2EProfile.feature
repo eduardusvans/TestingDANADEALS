@@ -53,7 +53,7 @@ Feature: E2EProfile
     When User tap Change User Data menu
     When User is on Change User Data screen
     When User tap Edit Full Name radio button on Change User Data screen
-    When User input "<firstName>" "<lastName>" on Full Name input text field on Change User Data screen
+    When User input "<changeFirstName>" "<changeLastName>" on Full Name input text field on Change User Data screen
     When User tap Update button on Change User Data screen
     When User is on Account Info screen
     When User tap Done button on Account Info screen
@@ -62,8 +62,8 @@ Feature: E2EProfile
     Then User tap LogOut button
     Then User is on DANA Deals Login page
     Examples:
-      | phoneNumber | firstName | lastName | email              | password     | confirmPassword | phoneNumberLogin | passwordLogin |
-      | 81290135151 | Vans      | Name     | vans5151@gmail.com | VansName123! | VansName123!    | 81290135151      | VansName123!  |
+      | phoneNumber | firstName | lastName | email              | password     | confirmPassword | phoneNumberLogin | passwordLogin | changeFirstName | changeLastName |
+      | 81290135151 | Vans      | Name     | vans5151@gmail.com | VansName123! | VansName123!    | 81290135151      | VansName123!  | Van             | s              |
 
     #ETEP003
   Scenario Outline: Register - Login - Change E-mail - Logout
@@ -96,7 +96,7 @@ Feature: E2EProfile
     Then User tap LogOut button
     Then User is on DANA Deals Login page
     Examples:
-      | phoneNumber | firstName | lastName | email               | password  | confirmPassword | phoneNumberLogin | passwordLogin | e-mail                    |
+      | phoneNumber | firstName | lastName | email              | password  | confirmPassword | phoneNumberLogin | passwordLogin | e-mail                    |
       | 81290135252 | Vans      | Email    | vans5252@gmail.com | Vans1234! | Vans1234!       | 81290135252      | Vans1234!     | vanschangeemail@gmail.com |
 
     #ETEP004
@@ -136,7 +136,7 @@ Feature: E2EProfile
     And User click Login button
     Then User is on Home page
     Examples:
-      | phoneNumber | firstName | lastName | email                  | password | confirmPassword | phoneNumberLogin | passwordLogin | oldPassword | newPassword | confirmNewPassword | phoneNumber2 | passwordAfterChange |
+      | phoneNumber | firstName | lastName | email              | password | confirmPassword | phoneNumberLogin | passwordLogin | oldPassword | newPassword | confirmNewPassword | phoneNumber2 | passwordAfterChange |
       | 81290135353 | Vans      | Password | vans5353@gmail.com | Vans123! | Vans123!        | 81290135353      | Vans123!      | Vans123!    | Van1234!    | Van1234!           | 81290137069  | Van1234!            |
 
     #ETEP005
@@ -161,6 +161,6 @@ Feature: E2EProfile
     When User tap LogOut button
     Then User is on DANA Deals Login page
     Examples:
-      | phoneNumber | firstName | lastName | email                | password | confirmPassword | phoneNumberLogin | passwordLogin |
+      | phoneNumber | firstName | lastName | email              | password | confirmPassword | phoneNumberLogin | passwordLogin |
       | 81290135454 | Vans      | Logout   | vans5454@gmail.com | Van1234! | Van1234!        | 81290135454      | Van1234!      |
 
