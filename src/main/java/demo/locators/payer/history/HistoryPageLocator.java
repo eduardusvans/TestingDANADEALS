@@ -27,11 +27,11 @@ public interface HistoryPageLocator {
     //By END_DATE = MobileBy.id("mtrl_picker_text_input_range_end"); // m/d/yy
 
     //Eee, Mmm, d
-    By START_DATE_Picker = MobileBy.xpath("//android.widget.TextView[@content-desc='Sat, Jul 4']");
+    By START_DATE_Picker = MobileBy.xpath("//android.widget.TextView[@content-desc='Wed, Jul 1']");
     By START_DATE_Picker_1 = MobileBy.xpath("//android.widget.TextView[@content-desc='Fri, Jul 3']");
-    By START_DATE_Picker_5 = MobileBy.xpath("//android.widget.TextView[@content-desc='Fri, Jul 3']");
+    By START_DATE_Picker_5 = MobileBy.xpath("//android.widget.TextView[@content-desc='Wed, Jul 1']");
     By START_DATE_Picker_7 = MobileBy.xpath("//android.widget.TextView[@content-desc='Fri, Jul 3']");
-    By END_DATE_Picker = MobileBy.xpath("//android.widget.TextView[@content-desc='Sat, Jul 4']"); // today date
+    By END_DATE_Picker = MobileBy.xpath("//android.widget.TextView[@content-desc='Mon, Jul 6']"); // today date
 
 
 }
