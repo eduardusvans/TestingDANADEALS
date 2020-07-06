@@ -218,7 +218,21 @@ Feature: Profile
       | Vans😎           |          |
 
   @ProfileNegative
-  #P033 - P038
+  #P033
+  Scenario: : Change e-mail with invalid input
+    Given User is on Home page
+    When User tap profile icon
+    Then User is on Profile screen
+    When User tap Change User Data menu
+    And User is on Change User Data screen
+    And User tap Edit Mail Address radio button on Change User Data screen
+    And User input "eduardusvansa@gmail.com" on E-mail input text field on Change User Data screen
+    And User tap Update button on Change User Data screen
+    And User see pop up notification email already exists
+    Then User is on Change User Data screen
+
+  @ProfileNegative
+  #P034 - P038
   Scenario Outline: Change e-mail with invalid input
     Given User is on Home page
     When User tap profile icon
@@ -232,8 +246,6 @@ Feature: Profile
     Then User is on Change User Data screen
     Examples:
       | e-mail                                                                         |
-    # P033
-      | eduardusvansa@gmail.com                                                        |
     # P034
       | a c@.c                                                                         |
     # P035

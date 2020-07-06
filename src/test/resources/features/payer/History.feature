@@ -39,10 +39,10 @@ Feature: History
   #H017
   Scenario: Check voucher transaction status success
     Given User is on DANA Deals Homepage
-    When User click "AAAAVans" on DANA Deals homepage
-    When User is on voucher details page of "AAAAVans"
+    When User click "Aaaa Demo Vans" on DANA Deals homepage
+    When User is on voucher details page of "Aaaa Demo Vans"
     When User click buy button on voucher details page
-    When User see is on cashier page of "AAAAVans"
+    When User is on voucher cashier page of "Aaaa Demo Vans"
     When User click pay button on cashier page
     When User see pop up notification that pay success
     When User tap history icon
@@ -77,6 +77,9 @@ Feature: History
     When User type a "kfc" at search field on DANA Deals Homepage
     When User click "Crazy Deals" on DANA Deals homepage
     When User is on voucher details page of "Crazy Deals"
+    When User click buy button on voucher details page
+    When User is on voucher cashier page of "Crazy Deals"
+    When User click pay button on cashier page
     Then User see pop up notification that pay failed
     When User tap history icon
     When User is on History screen
@@ -89,10 +92,10 @@ Feature: History
   #H020
   Scenario: Check voucher transaction status in progress
     Given User is on DANA Deals Homepage
-    When User click "AAAAVans" on DANA Deals homepage
-    When User is on voucher details page of "AAAAVans"
+    When User click "Aaaa Demo Vans" on DANA Deals homepage
+    When User is on voucher details page of "Aaaa Demo Vans"
     When User click buy button on voucher details page
-    When User see is on cashier page of "AAAAVans"
+    When User is on voucher cashier page of "Aaaa Demo Vans"
     When User click back button on cashier page
     When User click back button on voucher details page
     Then User is on DANA Deals Homepage
