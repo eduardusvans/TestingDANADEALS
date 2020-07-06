@@ -109,3 +109,29 @@ Feature: Forgot Password
       | 87722074250 | 0000 | Abcdef3!         |                    |
       # FGP029
       | 87722074250 | 0000 | Abcdef3!         | Abcdefghijklmn3!   |
+    
+  
+  @E2E
+  Scenario Outline: Reset password with valid input and followed by try to login
+    Given User is on Forgot Password page
+    When User input "<phoneNumber>" on Phone Number input text field on Forgot Password page
+    When User tap the Send OTP button on Forgot Password page
+    When User is on OTP page
+    When User input "<otp>" on OTP input text field on OTP page
+    When User is on Reset Password page
+    When User input "<newPassword>" on New Password input text field on Reset Password page
+    When User input "<confirmNewPassword>" on Confirm New Password input text field on Reset Password page
+    When User tap the Change button on Reset Password page
+    When User see the success message on Login page
+    When User is on DANA Deals Login page
+    When User input "<phoneNumber>" on phone number input field on login page
+    When User input "<newPassword>" on password input field on login page
+    When User click Login button
+    When User is on Home page
+    When User tap profile icon
+    When User is on Profile screen
+    When User tap LogOut button
+    Then User is on DANA Deals Login page
+    Examples:
+      | phoneNumber  | otp  | newPassword      | confirmNewPassword |
+      | 877220742    | 0000 | TestingFGP3!     | TestingFGP3!       |

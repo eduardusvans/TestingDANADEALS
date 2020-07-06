@@ -5,7 +5,7 @@ import static demo.utils.ActionUtils.*;
 
 public class ResetPasswordPage {
     public boolean isOnPage() {
-        return waitElement(INPUT_NEW_PASSWORD, 15).isDisplayed();
+        return waitElement(INPUT_NEW_PASSWORD, 20).isDisplayed();
     }
 
     public void inputNewPassword(String newPassword) {

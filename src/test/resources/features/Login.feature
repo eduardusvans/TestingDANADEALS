@@ -302,7 +302,7 @@ Feature: Login
     When User click Login to Account button
     Then User is on DANA Deals Login page
     When User click Forgot Password link
-    Then User is on Forgot Password Page
+    Then User is on Forgot Password page
 
   @NonFunctional
   @3

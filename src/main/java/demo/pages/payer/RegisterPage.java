@@ -27,6 +27,7 @@ public class RegisterPage {
         // Input text into element and scroll page
         hideKeyboard();
         inputAndScroll(INPUT_PHONE_NUMBER, phoneNumber);
+        hideKeyboard();
     }
 
     public void inputFullName(String firstName, String lastName) {
