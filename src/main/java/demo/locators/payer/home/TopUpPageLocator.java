@@ -17,6 +17,8 @@ public interface TopUpPageLocator {
     By NEXT_BUTTON_TOPUP = MobileBy.id("btn_next");
     By DONE_BUTTON_TOPUP = MobileBy.id("btn_next");
     By TOAST_MESSAGE = MobileBy.xpath("//android.widget.Toast[contains(@text, 'Top-up failed! You have reached your maximum balance.')]");
+    By PROFILE_BUTTON = MobileBy.id("page_profile");
+    By LOGOUT_BUTTON = MobileBy.id("btn_logout");
 
 
 }

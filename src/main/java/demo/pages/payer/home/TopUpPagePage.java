@@ -73,4 +73,14 @@ public class TopUpPagePage {
         return waitElement(TOAST_MESSAGE,30).getText();
     }
 
+
+    public void clickProfileButton() {
+        AndroidDriverInstance.androidDriver.findElement(PROFILE_BUTTON).click();
+    }
+
+    public void clickLogoutButton() {
+        AndroidDriverInstance.androidDriver.findElement(LOGOUT_BUTTON).click();
+    }
+
+
 }

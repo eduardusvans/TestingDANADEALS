@@ -153,7 +153,6 @@ Feature: Topup feature for DANA Deals
     And User is on Home page
     When User click top up icon button on Home Page
     And User is on Top up Page
-    And User see Balance on Top up Page
     And User choose "<nominal>" as top up nominal on Top up Page
     And User choose Merchant as a payment method on Top up Page
     And User click Done Button on Top up Page
@@ -205,7 +204,6 @@ Feature: Topup feature for DANA Deals
     And User is on Home page
     When User click top up icon button on Home Page
     And User is on Top up Page
-    And User see Balance on Top up Page
     And User choose "<nominal>" as top up nominal on Top up Page
     And User choose Merchant as a payment method on Top up Page
     And User click Done Button on Top up Page
@@ -240,6 +238,8 @@ Feature: Topup feature for DANA Deals
     And User get info of Nominal top up ordered on Payment Page
     And User click Top up button on Top up Payment Page
     And User will see total balance is increase in Home page
+    And User click Profile button on Home Page
+    And User click Logout button on Profile Page
 
     Examples:
       | phoneNumber | password | nominal | bankTransfer | vaNumber         |
@@ -259,7 +259,6 @@ Feature: Topup feature for DANA Deals
     And User is on Home page
     When User click top up icon button on Home Page
     And User is on Top up Page
-    And User see Balance on Top up Page
     And User choose "<nominal>" as top up nominal on Top up Page
     And User choose Merchant as a payment method on Top up Page
     And User click Done Button on Top up Page

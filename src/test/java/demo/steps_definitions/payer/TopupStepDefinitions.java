@@ -138,4 +138,14 @@ public class TopupStepDefinitions {
         String errorMessage = topupPage.failedTopup();
         Assert.assertEquals(message,errorMessage);
     }
+
+    @And("User click Profile button on Home Page")
+    public void userClickProfileButtonOnHomePage() {
+        topupPage.clickProfileButton();
+    }
+
+    @And("User click Logout button on Profile Page")
+    public void userClickLogoutButtonOnProfilePage() {
+        topupPage.clickLogoutButton();
+    }
 }
