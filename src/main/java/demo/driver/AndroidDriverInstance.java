@@ -12,7 +12,7 @@ public class AndroidDriverInstance {
     public static AndroidDriver<AndroidElement> androidDriver;
 
     public static void initialize() {
-        String app = "DANADEALS.apk";
+        String app = "1.0.2.apk";
         String appiumUrl = "http://127.0.0.1:4723/wd/hub/";
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "Android");

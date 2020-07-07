@@ -27,14 +27,14 @@
 
     @Positive @InvalidVoucher
       #SCH006, #SCH007
-    Scenario Outline: Search Voucher using multiple merchant name
+    Scenario Outline: Search Voucher using invalid voucher
       Given User is on DANA Deals Homepage
       When User type a <Keyword> at search field on DANA Deals Homepage
       Then User see the <Keyword1> is displayed
       Examples:
         | Keyword | Keyword1            |
-        | "kfc"   | "ABC Merdeka Senin" |
-        | "kfc"   | "Aaac" |
+        | "kfc"   | "AAAAVans" |
+        | "kfc"   | "Aaavans" |
 
     @Positive @Multiple
       #SCH005
@@ -108,8 +108,8 @@
     Scenario: Search voucher after from view details page
       Given User is on DANA Deals Homepage
       When User type a "kfc" at search field on DANA Deals Homepage
-      When User click "Aaad" on DANA Deals homepage
-      When User is on voucher details page of "Aaad"
+      When User click "AAAAVans" on DANA Deals homepage
+      When User is on voucher details page of "AAAAVans"
       When User click back on voucher details page
       When User is on DANA Deals Homepage
       When User delete text on search field and type a "telkom" at search field on DANA Deals Homepage

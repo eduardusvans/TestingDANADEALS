@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import static demo.utils.ActionUtils.waitABit;
 
 public class ViewDetailsStepsDefinitions {
 
@@ -25,6 +26,7 @@ public class ViewDetailsStepsDefinitions {
 
     @Then("User see the instruction of voucher details is displayed")
     public void userSeeTheInstructionOfVoucherDetailsIsDisplayed() {
+
         String text =voucherDetailPayerPage.checkContentOnTab();
         Assert.assertTrue(text.contains("Lakukan pembelian via whatsapp pada merchant"));
     }

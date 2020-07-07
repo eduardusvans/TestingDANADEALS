@@ -101,12 +101,12 @@
       When User is on DANA Deals Homepage
       When User total balance is added as "50000" nominal top up
       When User click sort dropdown menu button on DANA Deals homepage
-      When User choose "saving rate" to sort the voucher
+      When User choose "discount" to sort the voucher
       When User see all vouchers of the sort by discount are displayed
-      When User click "voucher name" on DANA Deals homepage
-      When User is on voucher details page of "voucher name"
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "voucher name"
+      When User is on voucher cashier page of "Aaariko"
       When User click pay voucher button on cashier page
       When User see pop up notification that pay success
       When User tap profile icon
@@ -140,10 +140,10 @@
       When User click sort dropdown menu button on DANA Deals homepage
       When User choose "discount" to sort the voucher
       When User see all vouchers of the sort by discount are displayed
-      When User click "voucher name" on DANA Deals homepage
-      When User is on voucher details page of "voucher name"
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "voucher name"
+      When User is on voucher cashier page of "Aaariko"
       When User click pay voucher button on cashier page
       When User see pop up notification that pay success
       When User tap profile icon

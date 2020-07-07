@@ -50,11 +50,11 @@
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
       When User choose "fnb" to filter the voucher
-      When User see all vouchers of "kfc" are displayed
-      When User click "A" on DANA Deals homepage
-      When User is on voucher details page of "voucher name"
+      When User click "AAAAVans" on DANA Deals homepage
+      When User is on voucher details page of "AAAAVans"
       When User click back button on voucher details page
       When User is on DANA Deals Homepage
+      When User click filter dropdown menu button on DANA Deals homepage
       When User choose "online" to filter the voucher
       Then User see all vouchers of "telkom" are displayed
 
@@ -63,14 +63,15 @@
     Scenario: Change filter voucher of out stock voucher
       Given User is on DANA Deals Homepage
       When User click filter dropdown menu button on DANA Deals homepage
-      When User choose "fnb" to filter the voucher
-      When User click "Aaab" on DANA Deals homepage
-      When User is on voucher details page of "Aaab"
+      When User choose "online" to filter the voucher
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "Aaab"
+      When User is on voucher cashier page of "Aaariko"
       When User click pay voucher button on cashier page
       When User see pop up notification that pay success
       When User is on DANA Deals Homepage
-      When User choose "fnb" to filter the voucher
-      Then User see the "Aaab" is displayed
+      When User click filter dropdown menu button on DANA Deals homepage
+      When User choose "online" to filter the voucher
+      Then User see the "Aaariko" is displayed
 

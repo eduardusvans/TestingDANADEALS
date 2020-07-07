@@ -11,9 +11,8 @@ import static demo.utils.ActionUtils.waitABit;
 
 public class PayVoucherStepsDefinitions {
 
-    HomePayer homePayer = new HomePayer();
-    VoucherDetailPayerPage voucherDetailPayerPage = new VoucherDetailPayerPage();
     VoucherCashierPage voucherCashierPage = new VoucherCashierPage();
+    HomePayer homePayer = new HomePayer();
 
     @Then("User see pop up notification that pay success")
     public void userSeePopUpNotificationThatPaySuccess() {

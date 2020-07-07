@@ -28,8 +28,6 @@ public class SearchVoucherStepsDefinitions {
 
     @Then("User can't find any voucher and see error message")
     public void userCanTFindAnyVoucherAndSeeErrorMessage() {
-        boolean status = homePayer.checkAllVouchers();
-        Assert.assertFalse(status);
         String text = voucherCashierPage.checkToastMessage();
         Assert.assertTrue(text.contains("Voucher not found"));
     }
@@ -59,7 +57,8 @@ public class SearchVoucherStepsDefinitions {
 
     @Then("User see the {string} is displayed")
     public void userSeeTheIsDisplayed(String Keyword) {
-       homePayer.checkVoucherName(Keyword);
+       boolean status = homePayer.checkVoucherName(Keyword);
+       Assert.assertTrue(status);
 
     }
 

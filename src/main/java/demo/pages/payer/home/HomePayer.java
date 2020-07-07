@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 
 import java.security.Key;
+import java.sql.SQLOutput;
 import java.time.Duration;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import static demo.driver.AndroidDriverInstance.androidDriver;
 import static demo.locators.admin.HomeAdminPageLocator.VOUCHER_MERCHANT_NAME;
 import static demo.locators.admin.HomeAdminPageLocator.VOUCHER_STATUS;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
+import static demo.locators.payer.home.VoucherCashierPageLocator.VOUCHER_PRICE;
 import static demo.utils.ActionUtils.*;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.PointOption.point;
@@ -28,19 +30,19 @@ public class HomePayer {
 
     public boolean isOnPage() {
 
-        return waitElement(USER_NAME, 30).isDisplayed();
+        return waitElement(USER_NAME, 120).isDisplayed();
     }
 
     public boolean seeTopUp() {
-        return waitElement(BALANCE_INFO, 30).isDisplayed();
+        return waitElement(BALANCE_INFO, 120).isDisplayed();
     }
 
     public boolean seeSearchBar() {
-        return waitElement(SEARCH_VOUCHER, 30).isDisplayed();
+        return waitElement(SEARCH_VOUCHER, 120).isDisplayed();
     }
 
     public boolean seeVoucher() {
-        return waitElement(VOUCHER_NAME_FIRST, 30).isDisplayed();
+        return waitElement(VOUCHER_NAME_FIRST, 120).isDisplayed();
     }
 
     public void waitVoucher() {
@@ -88,11 +90,13 @@ public class HomePayer {
         waitABit(10000);
         switch (Keyword) {
             case "fnb":
-                pressByCoordinates(620, 677, 1);
+                pressByCoordinates(639, 708, 1);
                 break;
             case "online":
-                pressByCoordinates(772, 802, 1);
+                pressByCoordinates(662, 862, 1);
                 break;
+            default: System.out.println("option is not available");
+            break;
         }
     }
 
@@ -100,11 +104,13 @@ public class HomePayer {
         waitABit(10000);
         switch (Keyword) {
             case "voucher price":
-                pressByCoordinates(256, 672, 1);
+                pressByCoordinates(232, 716, 1);
                 break;
             case "discount":
-                pressByCoordinates(208, 811, 1);
+                pressByCoordinates(225, 859, 1);
                 break;
+            default: System.out.println("option is not available");
+            break;
         }
     }
 
@@ -199,9 +205,9 @@ public class HomePayer {
         int counter = 0;
 
         do {
-            if (mixMerchant) {
-                waitABit(10000);
-                List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHER_MERCHANT_NAME);
+            if (!mixMerchant) {
+                waitABit(5000);
+                List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(MERCHANT_NAME);
                 for (AndroidElement name : nameList) {
                     if (counter == 0) {
                         nameParam = name.getText();
@@ -217,35 +223,38 @@ public class HomePayer {
 
             scrollDown();
             counter++;
-            if (counter >= 10) {
+            if (counter >= 100) {
                 return false;
             }
-        } while (mixMerchant);
+        } while (!mixMerchant);
         return true;
     }
     public boolean checkVoucherName(String keyword) {
 
+        boolean isFound = false;
         int counter = 0;
-        waitVoucher();
+
 
         do {
+            String voucher = "";
             waitABit(10000);
-            List<AndroidElement> nameList = AndroidDriverInstance.androidDriver.findElements(VOUCHERS_NAME);
-            for (AndroidElement name : nameList) {
-                if (!name.getText().toLowerCase().startsWith(keyword.toLowerCase())) {
-                    System.out.println("IT IS DIFFERENT!!!");
-                    System.out.println("name = " + name.getText() + "!!!");
-                    System.out.println("keyword = " + keyword + "!!!");
-                    return false;
+            List<AndroidElement> vNameList = androidDriver.findElements(VOUCHERS_NAME);
+            for (AndroidElement vName : vNameList) {
+                voucher = vName.getText();
+                if (vName.getText().trim().equalsIgnoreCase(keyword.trim())) {
+                    System.out.println("Your voucher is found: " + voucher);
+                    isFound = true;
+                    break;
                 }
             }
 
-            scrollDown();
-            System.out.println("scrolling!!!");
-            counter++;
+            if (!isFound) {
+                scrollDown();
+                System.out.println("Passed of Voucher: " + voucher);
+                counter++;
+            }
 
-        } while (counter <= 10);
-
+        } while (!isFound && counter <= 100);
         return true;
     }
 
@@ -255,10 +264,12 @@ public class HomePayer {
     }
 
     public String getUserBalance(){
-        return waitElement(USER_BALANCE,30).getText();
+        waitABit(5000);
+        return getElement(USER_BALANCE).getText();
     }
 
     public String getResetedVoucherName(){
         return getElement(VOUCHER_NAME_FIRST).getText();
     }
+
 }
