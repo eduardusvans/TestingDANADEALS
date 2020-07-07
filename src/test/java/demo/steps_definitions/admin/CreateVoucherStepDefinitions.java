@@ -96,4 +96,10 @@ public class CreateVoucherStepDefinitions {
         boolean status = createVoucherPage.createDisabledButton();
         Assert.assertFalse(status);
     }
+
+    @And("User click Logout button on Home Page")
+    public void userClickLogoutButtonOnHomePage() {
+        createVoucherPage.clickLogoutButton();
+
+    }
 }

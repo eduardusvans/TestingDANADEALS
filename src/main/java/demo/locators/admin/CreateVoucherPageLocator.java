@@ -17,5 +17,6 @@ public interface CreateVoucherPageLocator {
     By VOUCHER_PRICE = MobileBy.id("et_voucher_price");
     By CREATE_BUTTON = MobileBy.id("btn_create");
     By FAILED_TOAST_MESSAGE = MobileBy.xpath("//android.widget.Toast[contains(@text, 'Failed')]");
+    By LOGOUT_BUTTON = MobileBy.id("btn_logout");
 
 }

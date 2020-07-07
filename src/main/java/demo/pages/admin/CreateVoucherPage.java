@@ -173,4 +173,8 @@ public class CreateVoucherPage {
         return androidDriver.findElement(CREATE_BUTTON).isEnabled();
     }
 
+    public void clickLogoutButton() {
+        androidDriver.findElement(LOGOUT_BUTTON).click();
+    }
+
 }
