@@ -1,7 +1,11 @@
 package demo.pages;
 
+import demo.controller.UserController;
+import demo.request.LoginRequest;
+import demo.response.LoginResponse;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +17,11 @@ import static demo.utils.ActionUtils.tapElement;
 import static demo.utils.ActionUtils.*;
 
 public class LoginPage {
+
+    private static String id;
+    private static String token;
+    public static String getId() { return id; }
+    public static String getToken() { return token; }
 
     public boolean isOnPage() { return waitElement(BUTTON_LOGIN, 20).isDisplayed(); }
 
@@ -36,5 +45,16 @@ public class LoginPage {
         WebElement toastView = androidDriver.findElement(By.xpath("//android.widget.Toast[1]"));
         String text = toastView.getAttribute("text");
     }
+    public void loginInAnotherDeviceAPI(String phoneNumber, String password) {
+        String userPhoneNumber = String.format("+62%s", phoneNumber);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setPhoneNumber(userPhoneNumber);
+        loginRequest.setPassword(password);
+        Response response = UserController.postLogin(loginRequest);
+        response.getBody().prettyPrint();
 
+        LoginResponse loginResponse = response.as(LoginResponse.class);
+        id = loginResponse.getData().getUser().getIdUser();
+        token = loginResponse.getData().getToken();
+    }
 }

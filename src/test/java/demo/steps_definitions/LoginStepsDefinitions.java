@@ -23,12 +23,6 @@ public class LoginStepsDefinitions {
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
 
-    private static String id;
-    private static String token;
-    public static String getId() { return id; }
-    public static String getToken() { return token; }
-
-
     @Given("User is on Landing page")
     public void userIsOnLandingPage() { landingPage.isOnPage(); }
 
@@ -96,4 +90,9 @@ public class LoginStepsDefinitions {
 
     @When("User tap LogOut button on Home Admin page")
     public void userTapLogOutButtonOnHomeAdminPage() { homeAdminPage.tapLogoutButton(); }
+
+    @Given("User login with {string} as a phone number and {string} as a password on another device")
+    public void userLoginWithAsAPhoneNumberAndAsAPasswordOnAnotherDevice(String phoneNumber, String password) {
+        loginPage.loginInAnotherDeviceAPI(phoneNumber, password);
+    }
 }
