@@ -88,7 +88,7 @@ Feature: Topup feature for DANA Deals
       #TOP011 TOP015
       | 81220304077 | P@ssw0rd | 50k     | BCA          | 4354081220304077 |
 
-  @Retest
+
   #PositiveMaxMerchant
   Scenario Outline: Top up using merchant payment method
     Given User is on Landing page
@@ -217,6 +217,58 @@ Feature: Topup feature for DANA Deals
       | 81220304088 | P@ssw0rd | 10k     |
 
 
+
+  @Retest
+  #RESERVEDTEST
+  Scenario Outline: Top up with All nominal using bank transfer payment method
+    Given User is on Landing page
+    And User click Login to Account button
+    And User is on DANA Deals Login page
+    And User input "<phoneNumber>" on phone number input field on login page
+    And User input "<password>" on password input field on login page
+    And User click Login button
+    And User is on Home page
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User see Balance on Top up Page
+    And User choose "<nominal>" as top up nominal on Top up Page
+    And User choose Virtual account as a payment method on Top up Page
+    And User choose "<bankTransfer>" to pay the top up on Top up Page
+    And User click Next Button on Top up Page
+    Then User will redirect into Payment Page
+    And User will get "<vaNumber>" as Virtual Account Number on Payment Page
+    And User get info of Nominal top up ordered on Payment Page
+    And User click Top up button on Top up Payment Page
+    And User will see total balance is increase in Home page
+
+    Examples:
+      | phoneNumber | password | nominal | bankTransfer | vaNumber         |
+      #TOP001 TOP005
+      | 81220304099 | P@ssw0rd | 10k     | BNI          | 9030081220304099 |
+
+
+  @Retest
+  #NegativeExceedsMerchant
+  Scenario Outline: Top up using merchant payment method
+    Given User is on Landing page
+    And User click Login to Account button
+    And User is on DANA Deals Login page
+    And User input "<phoneNumber>" on phone number input field on login page
+    And User input "<password>" on password input field on login page
+    And User click Login button
+    And User is on Home page
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User see Balance on Top up Page
+    And User choose "<nominal>" as top up nominal on Top up Page
+    And User choose Merchant as a payment method on Top up Page
+    And User click Done Button on Top up Page
+    Then User will see error message "Top-up failed! You have reached your maximum balance." on Top up Page
+
+    Examples:
+      | phoneNumber | password | nominal |
+      #TOP020
+      | 81220304000 | P@ssw0rd | 10k     |
 
 
 
