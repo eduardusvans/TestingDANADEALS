@@ -24,13 +24,13 @@ public class SortVoucherStepsDefinitions {
     @Then("User see all vouchers of the sort by discount are displayed")
     public void userSeeAllVouchersOfTheSortByDiscountAreDisplayed() {
         String text = homePayer.checkVoucherDiscount();
-        //Assert.assertEquals("99%", text);
+        Assert.assertEquals("99%", text);
     }
 
     @Then("User see all vouchers of the sort by voucher price are displayed")
     public void userSeeAllVouchersOfTheSortByVoucherPriceAreDisplayed() {
         String text = homePayer.checkVoucherPrice();
-        //Assert.assertEquals("Rp1.000.000,00", text);
+        Assert.assertEquals("Rp1.000.000,00", text);
 
 
     }

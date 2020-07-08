@@ -20,7 +20,6 @@ public class ProfilePage {
     public void tapChangeUserDataMenu(){ tapElement(Change_User_Data);}
     public void tapLogoutButton(){
         waitABit(2000);
-        scrollDown();
         tapElement(LOGOUT_BTN);
     }
     public static void scrollDown() {

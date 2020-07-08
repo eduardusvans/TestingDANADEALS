@@ -122,7 +122,7 @@ public class ProfileStepsDefinitions {
 
     @When("User tap LogOut button")
     public void userTapLogOutButton() {
-        waitABit(2000);
+        waitABit(3000);
         profilePage.tapLogoutButton();
     }
 
