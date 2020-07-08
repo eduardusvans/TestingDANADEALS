@@ -4,6 +4,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import demo.pages.payer.home.*;
 import org.junit.Assert;
+import static demo.utils.ActionUtils.waitABit;
 
 public class BuyVoucherStepsDefinitions {
 
@@ -39,7 +40,7 @@ public class BuyVoucherStepsDefinitions {
     @Then("User see pop up notification that voucher not available")
     public void userSeePopUpNotificationThatVoucherNotAvailable() {
         String text = voucherCashierPage.checkToastMessage();
-        Assert.assertTrue(text.contains("not available"));
+       Assert.assertTrue(text.contains("not available"));
 
     }
 

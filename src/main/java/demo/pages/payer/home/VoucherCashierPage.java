@@ -28,7 +28,6 @@ public class VoucherCashierPage {
     }
 
     public String checkToastMessage() {
-        waitABit(3000);
         WebElement toastView = AndroidDriverInstance.androidDriver.findElement(By.xpath("//android.widget.Toast[1]"));
         return toastView.getAttribute("name");
     }

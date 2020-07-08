@@ -34,4 +34,5 @@ public interface HomePayerPageLocator {
             "android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/androidx.cardview.widget.CardView/android.view.ViewGroup/" +
             "android.widget.TextView[1]");
 
+    By MERCHANT_NAME = By.xpath("//android.widget.TextView[contains(@resource-id, 'tv_merchant_name')]");
 }

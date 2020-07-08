@@ -9,23 +9,15 @@
       And User input "P@ssw0rd" on password input field on login page
       And User click Login button
 
-    @Positive
-      #PAY001
-    Scenario: Pay voucher from DANA Deals homepage
-      Given User is on DANA Deals Homepage
-      When User click buy button of "voucher name" on DANA Deals homepage
-      When User is on voucher cashier page of "voucher name"
-      When User click pay button on cashier page
-      Then User see pop up notification that pay success
 
     @Positive
       #PAY002
     Scenario: Pay voucher from voucher details page
       Given User is on DANA Deals Homepage
-      When User click "Almsb" on DANA Deals homepage
-      When User is on voucher details page of "Almsb"
+      When User click "AA Active" on DANA Deals homepage
+      When User is on voucher details page of "AA Active"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "Almsb"
+      When User is on voucher cashier page of "AA Active"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
@@ -33,9 +25,9 @@
       #PAY003
     Scenario: Pay voucher from voucher details page using search merchant name
       Given User is on DANA Deals Homepage
-      When User type a "kfc" at search field on DANA Deals Homepage
-      When User click "Almsb" on DANA Deals homepage
-      When User is on voucher details page of "Almsb"
+      When User type a "telkom" at search field on DANA Deals Homepage
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
       When User is on voucher cashier page of "Almsb"
       When User click pay button on cashier page
@@ -86,20 +78,34 @@
       #PAY013
     Scenario: Pay voucher when balance not enough
       Given User is on DANA Deals Homepage
-      When User click "Baskin Robbins" on DANA Deals homepage
-      When User is on voucher details page of "Baskin Robbins"
+      When User click "Acaa" on DANA Deals homepage
+      When User is on voucher details page of "Acaa"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "Baskin Robbins"
+      When User is on voucher cashier page of "Acaa"
       When User click pay button on cashier page
       Then User see pop up notification that balance not enough
+
+    @Positive
+      #PAY006
+    Scenario: Pay voucher from voucher details page using sort voucher
+      Given User is on DANA Deals Homepage
+      When User click sort dropdown menu button on DANA Deals homepage
+      When User choose "discount" to sort the voucher
+      When User see all vouchers of the sort by discount are displayed
+      When User click "Aaariko" to see voucher details
+      When User is on voucher details page of "Aaariko"
+      When User click buy button on voucher details page
+      Then User is on voucher cashier page of "Aaariko"
+      When User click pay button on cashier page
+      Then User see pop up notification that pay success
 
     @TestForHistoryFeature @PaySuccess
     Scenario: Pay voucher success
       Given User is on DANA Deals Homepage
-      When User click "aasseekk pocer" on DANA Deals homepage
-      When User is on voucher details page of "aasseekk pocer"
+      When User click "Aaaa Demo Lima" on DANA Deals homepage
+      When User is on voucher details page of "Aaaa Demo Lima"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "aasseekk pocer"
+      When User is on voucher cashier page of "Aaaa Demo Lima"
       When User click pay button on cashier page
       Then User see pop up notification that pay success
 
@@ -114,10 +120,10 @@
     @TestForHistoryFeature @PayInprogress
     Scenario: Pay voucher for inprogress
       Given User is on DANA Deals Homepage
-      When User click "aasseekk pocer" on DANA Deals homepage
-      When User is on voucher details page of "aasseekk pocer"
+      When User click "Aaaa Demo Lima" on DANA Deals homepage
+      When User is on voucher details page of "Aaaa Demo Lima"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "aasseekk pocer"
+      When User is on voucher cashier page of "Aaaa Demo Lima"
       When User click back button on cashier page
       When User click back button on voucher details page
       Then User is on DANA Deals Homepage
@@ -138,9 +144,9 @@
     Scenario: Pay Voucher using Search Voucher
       Given User is on DANA Deals Homepage
       When User type a "Telkom" at search field on DANA Deals Homepage
-      When User click "Bayar Indiehome A" on DANA Deals homepage
-      When User is on voucher details page of "Bayar Indiehome A"
+      When User click "Aaariko" on DANA Deals homepage
+      When User is on voucher details page of "Aaariko"
       When User click buy button on voucher details page
-      When User is on voucher cashier page of "Bayar Indiehome A"
+      When User is on voucher cashier page of "Aaariko"
       When User click pay button on cashier page
       Then User see pop up notification that pay success

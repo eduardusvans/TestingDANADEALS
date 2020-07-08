@@ -11,5 +11,5 @@ public interface VoucherDetailPayerPageLocator {
     By TNC_TAB = MobileBy.AccessibilityId("T&c");
     By BUY_BUTTON_VIEW_DETAILS = MobileBy.id("btn_place");
 
-    By DETAIL_CONTENT = MobileBy.xpath("textView2");
+    By DETAIL_CONTENT = MobileBy.id("textView2");
 }
