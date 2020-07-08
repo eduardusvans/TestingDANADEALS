@@ -215,7 +215,6 @@ Feature: Topup feature for DANA Deals
       | 81220304088 | P@ssw0rd | 10k     |
 
 
-
   @Retest
   #RESERVEDTEST
   Scenario Outline: Top up with All nominal using bank transfer payment method
@@ -268,6 +267,42 @@ Feature: Topup feature for DANA Deals
       | phoneNumber | password | nominal |
       #TOP020
       | 81220304000 | P@ssw0rd | 10k     |
+
+  @E2E
+  Scenario Outline: Register with valid phone number and email and followed by trying to login
+    Given User is on Landing page
+    And User tap the Create Account button on Landing page
+    And User is on Register page
+    When User input "<phoneNumber>" on Phone Number input text field on Register page
+    When User input "<firstName>" "<lastName>" on Full Name input text field on Register page
+    When User input "<email>" on E-Mail input text field on Register page
+    When User input "<password>" on Password input text field on Register page
+    When User input "<confirmPassword>" on Confirm Password input text field on Register page
+    When User tap the Create Account button on Register page
+    When User see the success message on Login page
+    When User is on DANA Deals Login page
+    When User input registered phone number on Phone Number input text field on login page
+    When User input "<password>" on password input field on login page
+    When User click Login button
+    And User is on Home page
+    When User click top up icon button on Home Page
+    And User is on Top up Page
+    And User see Balance on Top up Page
+    And User choose "<nominal>" as top up nominal on Top up Page
+    And User choose Virtual account as a payment method on Top up Page
+    And User choose "<bankTransfer>" to pay the top up on Top up Page
+    And User click Next Button on Top up Page
+    Then User will redirect into Payment Page
+    And User get info of Nominal top up ordered on Payment Page
+    And User click Top up button on Top up Payment Page
+    And User will see total balance is increase in Home page
+    When User tap profile icon
+    When User is on Profile screen
+    When User tap LogOut button
+    Then User is on DANA Deals Login page
+    Examples:
+      | phoneNumber | firstName | lastName | email  | password     | confirmPassword | nominal | bankTransfer |
+      | Random      | John      | Doe      | Random | TestingREG1! | TestingREG1!    | 10k     | BNI          |
 
 
 
