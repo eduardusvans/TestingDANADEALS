@@ -1,29 +1,20 @@
 package demo.steps_definitions;
 
-import demo.pages.admin.HomeAdminPage;
 import demo.pages.admin.VoucherDetailAdminPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class VoucherDetailAdminStepsDefinitions {
-    HomeAdminPage homeAdminPage = new HomeAdminPage();
     VoucherDetailAdminPage voucherDetailAdminPage = new VoucherDetailAdminPage();
-
-    String itemStatus;
-
-    @Given("User click Voucher {string}")
-    public void userClickVoucher(String statusVoucher) { homeAdminPage.clickVoucher(statusVoucher); }
 
     @Then("User is on DANA Deals Voucher Detail page")
     public void userIsOnDANADealsVoucherDetailPage() { voucherDetailAdminPage.isOnPage(); }
 
-    @When("User select status {string} on status voucher dropdown list")
-    public void userSelectStatusOnStatusVoucherDropdownList(String statusVoucher) {
-        itemStatus = statusVoucher;
-        VoucherDetailAdminPage.selectStatus(itemStatus);
+    @When("User click status")
+    public void userClickStatus() {
+       voucherDetailAdminPage.selectStatus();
     }
 
     @And("User click Save button")
@@ -31,19 +22,6 @@ public class VoucherDetailAdminStepsDefinitions {
 
     @Then("User see success notification")
     public void userSeeSuccessNotification() { }
-
-    @Then("User see quota before update")
-    public void userSeeQuotaBeforeUpdate() { }
-
-    @Then("User check quota after update")
-    public void userCheckQuotaAfterUpdate() { }
-
-    @Then("User see quota {string} before update")
-    public void userSeeQuotaBeforeUpdate(String arg0) { }
-
-    @Then("User check quota {string} after update")
-    public void userCheckQuotaAfterUpdate(String arg0) { }
-
 
     @Then("User see status textview")
     public void userSeeStatusTextview() { Assert.assertTrue(voucherDetailAdminPage.seeStatusVoucher()); }
@@ -76,6 +54,12 @@ public class VoucherDetailAdminStepsDefinitions {
     public void userSeeDecreaseButton() { Assert.assertTrue(voucherDetailAdminPage.seeDecrease());}
 
     @Then("User see save button")
-    public void userSeeSaveButton() { Assert.assertTrue(voucherDetailAdminPage.seeSave());
-    }
+    public void userSeeSaveButton() { Assert.assertTrue(voucherDetailAdminPage.seeSave()); }
+
+    @When("User click Increase button")
+    public void userClickIncreaseButton() { voucherDetailAdminPage.clickIncrease();}
+
+    @When("User click Decrease button")
+    public void userClickDecreaseButton() { voucherDetailAdminPage.clickDecrease();}
+
 }

@@ -12,6 +12,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import static demo.utils.ActionUtils.waitABit;
+
 public class LoginStepsDefinitions {
 
     LandingPage landingPage = new LandingPage();
@@ -20,6 +22,13 @@ public class LoginStepsDefinitions {
     HomeAdminPage homeAdminPage = new HomeAdminPage();
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     RegisterPage registerPage = new RegisterPage();
+
+    private static String id;
+    private static String token;
+    public static String getId() { return id; }
+    public static String getToken() { return token; }
+
+
     @Given("User is on Landing page")
     public void userIsOnLandingPage() { landingPage.isOnPage(); }
 
@@ -27,7 +36,10 @@ public class LoginStepsDefinitions {
     public void userClickLoginToAccountButton() { landingPage.tapLoginToAccountButton(); }
 
     @Then("User is on DANA Deals Login page")
-    public void userIsOnDANADealsLoginPage() { loginPage.isOnPage(); }
+    public void userIsOnDANADealsLoginPage() {
+        loginPage.isOnPage();
+        waitABit(20);
+    }
 
     @When("User input {string} on phone number input field on login page")
     public void userInputOnPhoneNumberInputFieldOnLoginPage(String phoneNumber) { loginPage.inputPhoneNumber(phoneNumber); }
@@ -39,11 +51,12 @@ public class LoginStepsDefinitions {
     public void userClickLoginButton() { loginPage.clickLogin(); }
 
     @Then("User is on Home page")
-    public void userIsOnHomePage() { Assert.assertTrue(homePayer.isOnPage()); }
+    public void userIsOnHomePage() {
+        Assert.assertTrue(homePayer.isOnPage());
+    }
 
     @Then("User is on Home Admin page")
     public void userIsOnHomeAdminPage() { Assert.assertTrue(homeAdminPage.isOnPage()); }
-
 
     @Then("User see DANA DEALS textview")
     public void userSeeDANADEALSTextview() { Assert.assertTrue(loginPage.isOnPage()); }
@@ -75,15 +88,15 @@ public class LoginStepsDefinitions {
     @When("User click Register Here link")
     public void userClickRegisterHereLink() { loginPage.clickRegister(); }
 
-    @Then("User is on Register Page")
-    public void userIsOnRegisterPage() { Assert.assertTrue( registerPage.isOnPage()); }
-
-
     @Then("User see warning text")
     public void userSeeWarningText() { Assert.assertTrue( loginPage.seeWarningText()); }
 
     @Then("User see pop up notification")
     public void userSeePopUpNotification() { Assert.assertTrue( loginPage.seePopUpNotification()); }
 
+    @Then("User see message")
+    public void UserSeeMessage() { loginPage.seeMessage(); }
 
+    @When("User tap LogOut button on Home Admin page")
+    public void userTapLogOutButtonOnHomeAdminPage() { homeAdminPage.tapLogoutButton(); }
 }

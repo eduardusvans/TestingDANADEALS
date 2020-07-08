@@ -11,6 +11,8 @@ import static demo.locators.payer.home.TopUpPageLocator.NOMINAL_BALANCE;
 import static demo.utils.ActionUtils.*;
 import static demo.locators.payer.home.HomePayerPageLocator.*;
 import static demo.driver.AndroidDriverInstance.androidDriver;
+import static demo.locators.payer.home.HomePayerPageLocator.GREETING;
+import static demo.utils.ActionUtils.waitElement;
 
 public class HomePayer {
 

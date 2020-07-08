@@ -15,6 +15,10 @@ public class ActionUtils {
         return wait.until(ExpectedConditions.presenceOfElementLocated(targetElement));
     }
 
+    public static AndroidElement getElement(By targetElement){
+        return androidDriver.findElement(targetElement);
+    }
+
     public static void tapElement(By targetElement) {
         AndroidElement element = androidDriver.findElement(targetElement);
         element.click();
@@ -42,6 +46,12 @@ public class ActionUtils {
         } catch (InterruptedException e)
         {
             e.printStackTrace();
+        }
+    }
+
+    public static void hideKeyboard() {
+        if (androidDriver.isKeyboardShown()) {
+            androidDriver.hideKeyboard();
         }
     }
 }
